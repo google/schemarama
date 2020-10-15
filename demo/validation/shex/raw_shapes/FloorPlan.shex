@@ -1,0 +1,7 @@
+<#ValidSchemaFloorPlan>  EXTRA a {
+	a [schema:FloorPlan];
+	schema:amenityFeature @<#ValidSchemaLocationFeatureSpecification> * ;
+	schema:floorSize @<#ValidSchemaQuantitativeValue> * ;
+	schema:numberOfRooms (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:petsAllowed (@<#ValidSchemaText> OR @<#ValidSchemaBoolean>) * ;
+}

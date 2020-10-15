@@ -1,0 +1,4 @@
+<#ValidSchemaTVClip> @<#ValidSchemaClip> AND EXTRA a {
+	a [schema:TVClip];
+	schema:partOfTVSeries @<#ValidSchemaTVSeries> * ;
+}

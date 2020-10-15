@@ -1,0 +1,3 @@
+:ValidSchemaReactAction a sh:NodeShape;
+	sh:targetClass schema:ReactAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

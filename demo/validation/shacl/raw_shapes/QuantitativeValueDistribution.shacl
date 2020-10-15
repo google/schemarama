@@ -1,0 +1,27 @@
+:ValidSchemaQuantitativeValueDistribution a sh:NodeShape;
+	sh:targetClass schema:QuantitativeValueDistribution;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:median;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:percentile10;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:percentile25;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:percentile75;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:percentile90;
+		sh:node :ValidSchemaNumber;
+	].

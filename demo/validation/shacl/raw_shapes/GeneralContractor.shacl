@@ -1,0 +1,3 @@
+:ValidSchemaGeneralContractor a sh:NodeShape;
+	sh:targetClass schema:GeneralContractor;
+	sh:nodeKind sh:BlankNodeOrIRI.

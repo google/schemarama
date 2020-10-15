@@ -1,0 +1,4 @@
+<#ValidSchemaTipAction> @<#ValidSchemaTradeAction> AND EXTRA a {
+	a [schema:TipAction];
+	schema:recipient (@<#ValidSchemaOrganization> OR @<#ValidSchemaAudience> OR @<#ValidSchemaContactPoint> OR @<#ValidSchemaPerson>) * ;
+}

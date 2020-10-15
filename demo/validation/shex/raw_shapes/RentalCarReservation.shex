@@ -1,0 +1,7 @@
+<#ValidSchemaRentalCarReservation> @<#ValidSchemaReservation> AND EXTRA a {
+	a [schema:RentalCarReservation];
+	schema:dropoffLocation @<#ValidSchemaPlace> * ;
+	schema:dropoffTime @<#ValidSchemaDateTime> * ;
+	schema:pickupLocation @<#ValidSchemaPlace> * ;
+	schema:pickupTime @<#ValidSchemaDateTime> * ;
+}

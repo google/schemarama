@@ -1,0 +1,3 @@
+:ValidSchemaInternetCafe a sh:NodeShape;
+	sh:targetClass schema:InternetCafe;
+	sh:nodeKind sh:BlankNodeOrIRI.

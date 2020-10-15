@@ -1,0 +1,3 @@
+<#ValidSchemaBusinessEntityType> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:BusinessEntityType];
+}

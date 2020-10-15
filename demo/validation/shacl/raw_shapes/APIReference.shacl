@@ -1,0 +1,23 @@
+:ValidSchemaAPIReference a sh:NodeShape;
+	sh:targetClass schema:APIReference;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:assembly;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:assemblyVersion;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:executableLibraryName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:programmingModel;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:targetPlatform;
+		sh:node :ValidSchemaText;
+	].

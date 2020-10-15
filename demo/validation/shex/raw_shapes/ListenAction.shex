@@ -1,0 +1,3 @@
+<#ValidSchemaListenAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
+	a [schema:ListenAction];
+}

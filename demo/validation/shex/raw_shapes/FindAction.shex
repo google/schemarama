@@ -1,0 +1,3 @@
+<#ValidSchemaFindAction> @<#ValidSchemaAction> AND EXTRA a {
+	a [schema:TrackAction schema:DiscoverAction schema:CheckAction schema:FindAction];
+}

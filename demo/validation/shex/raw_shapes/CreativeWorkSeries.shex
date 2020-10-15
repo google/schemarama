@@ -1,0 +1,6 @@
+<#ValidSchemaCreativeWorkSeries> @<#ValidSchemaSeries> AND EXTRA a {
+	a [schema:Periodical schema:TVSeries schema:VideoGameSeries schema:RadioSeries schema:MovieSeries schema:BookSeries schema:CreativeWorkSeries];
+	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:issn @<#ValidSchemaText> * ;
+	schema:startDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+}

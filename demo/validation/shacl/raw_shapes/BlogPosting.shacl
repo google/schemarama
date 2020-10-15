@@ -1,0 +1,3 @@
+:ValidSchemaBlogPosting a sh:NodeShape;
+	sh:targetClass schema:BlogPosting;
+	sh:nodeKind sh:BlankNodeOrIRI.

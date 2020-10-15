@@ -1,0 +1,7 @@
+:ValidSchemaTVClip a sh:NodeShape;
+	sh:targetClass schema:TVClip;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:partOfTVSeries;
+		sh:node :ValidSchemaTVSeries;
+	].

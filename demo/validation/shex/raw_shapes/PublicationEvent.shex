@@ -1,0 +1,6 @@
+<#ValidSchemaPublicationEvent> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:BroadcastEvent schema:OnDemandEvent schema:PublicationEvent];
+	schema:free @<#ValidSchemaBoolean> * ;
+	schema:isAccessibleForFree @<#ValidSchemaBoolean> * ;
+	schema:publishedOn @<#ValidSchemaBroadcastService> * ;
+}

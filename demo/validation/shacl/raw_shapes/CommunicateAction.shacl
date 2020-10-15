@@ -1,0 +1,27 @@
+:ValidSchemaCommunicateAction a sh:NodeShape;
+	sh:targetClass schema:CommunicateAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:about;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:inLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:language;
+		sh:node :ValidSchemaLanguage;
+	];
+	sh:property [
+		sh:path schema:recipient;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Audience]
+			[sh:node :ContactPoint]
+			[sh:node :Person]
+		);
+	].

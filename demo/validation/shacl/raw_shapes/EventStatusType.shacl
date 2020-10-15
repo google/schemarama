@@ -1,0 +1,3 @@
+:ValidSchemaEventStatusType a sh:NodeShape;
+	sh:targetClass schema:EventStatusType;
+	sh:nodeKind sh:BlankNodeOrIRI.

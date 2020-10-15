@@ -1,0 +1,30 @@
+:ValidSchemaMusicRecording a sh:NodeShape;
+	sh:targetClass schema:MusicRecording;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:byArtist;
+		sh:or (
+			[sh:node :MusicGroup]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:inAlbum;
+		sh:node :ValidSchemaMusicAlbum;
+	];
+	sh:property [
+		sh:path schema:inPlaylist;
+		sh:node :ValidSchemaMusicPlaylist;
+	];
+	sh:property [
+		sh:path schema:isrcCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:recordingOf;
+		sh:node :ValidSchemaMusicComposition;
+	].

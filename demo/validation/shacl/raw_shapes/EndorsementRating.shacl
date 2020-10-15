@@ -1,0 +1,3 @@
+:ValidSchemaEndorsementRating a sh:NodeShape;
+	sh:targetClass schema:EndorsementRating;
+	sh:nodeKind sh:BlankNodeOrIRI.

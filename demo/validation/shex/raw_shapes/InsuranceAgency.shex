@@ -1,0 +1,3 @@
+<#ValidSchemaInsuranceAgency> @<#ValidSchemaFinancialService> AND EXTRA a {
+	a [schema:InsuranceAgency];
+}

@@ -1,0 +1,5 @@
+<#ValidSchemaSendAction> @<#ValidSchemaTransferAction> AND EXTRA a {
+	a [schema:SendAction];
+	schema:deliveryMethod @<#ValidSchemaDeliveryMethod> * ;
+	schema:recipient (@<#ValidSchemaOrganization> OR @<#ValidSchemaAudience> OR @<#ValidSchemaContactPoint> OR @<#ValidSchemaPerson>) * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaBreadcrumbList a sh:NodeShape;
+	sh:targetClass schema:BreadcrumbList;
+	sh:nodeKind sh:BlankNodeOrIRI.

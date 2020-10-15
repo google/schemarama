@@ -1,0 +1,6 @@
+<#ValidSchemaSportsEvent> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:SportsEvent];
+	schema:awayTeam (@<#ValidSchemaPerson> OR @<#ValidSchemaSportsTeam>) * ;
+	schema:competitor (@<#ValidSchemaPerson> OR @<#ValidSchemaSportsTeam>) * ;
+	schema:homeTeam (@<#ValidSchemaSportsTeam> OR @<#ValidSchemaPerson>) * ;
+}

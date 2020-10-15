@@ -1,0 +1,3 @@
+:ValidSchemaCountry a sh:NodeShape;
+	sh:targetClass schema:Country;
+	sh:nodeKind sh:BlankNodeOrIRI.

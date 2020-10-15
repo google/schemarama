@@ -1,0 +1,3 @@
+:ValidSchemaSearchResultsPage a sh:NodeShape;
+	sh:targetClass schema:SearchResultsPage;
+	sh:nodeKind sh:BlankNodeOrIRI.

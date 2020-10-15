@@ -1,0 +1,4 @@
+<#ValidSchemaPronounceableText>  EXTRA a {
+	a [schema:PronounceableText];
+	schema:inLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
+}

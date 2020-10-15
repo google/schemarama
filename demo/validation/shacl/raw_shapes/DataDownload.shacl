@@ -1,0 +1,3 @@
+:ValidSchemaDataDownload a sh:NodeShape;
+	sh:targetClass schema:DataDownload;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,28 @@
+:ValidSchemaPublicationVolume a sh:NodeShape;
+	sh:targetClass schema:PublicationVolume;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:pageEnd;
+		sh:or (
+			[sh:node :Integer]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:pageStart;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:pagination;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:volumeNumber;
+		sh:or (
+			[sh:node :Integer]
+			[sh:node :Text]
+		);
+	].

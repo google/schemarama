@@ -1,0 +1,34 @@
+<#ValidSchemaDemand> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Demand];
+	schema:acceptedPaymentMethod (@<#ValidSchemaLoanOrCredit> OR @<#ValidSchemaPaymentMethod>) * ;
+	schema:advanceBookingRequirement @<#ValidSchemaQuantitativeValue> * ;
+	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:availability @<#ValidSchemaItemAvailability> * ;
+	schema:availabilityEnds (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime> OR @<#ValidSchemaDate>) * ;
+	schema:availabilityStarts (@<#ValidSchemaDate> OR @<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+	schema:availableAtOrFrom @<#ValidSchemaPlace> * ;
+	schema:availableDeliveryMethod @<#ValidSchemaDeliveryMethod> * ;
+	schema:businessFunction @<#ValidSchemaBusinessFunction> * ;
+	schema:deliveryLeadTime @<#ValidSchemaQuantitativeValue> * ;
+	schema:eligibleCustomerType @<#ValidSchemaBusinessEntityType> * ;
+	schema:eligibleDuration @<#ValidSchemaQuantitativeValue> * ;
+	schema:eligibleQuantity @<#ValidSchemaQuantitativeValue> * ;
+	schema:eligibleRegion (@<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:eligibleTransactionVolume @<#ValidSchemaPriceSpecification> * ;
+	schema:gtin12 @<#ValidSchemaText> * ;
+	schema:gtin13 @<#ValidSchemaText> * ;
+	schema:gtin14 @<#ValidSchemaText> * ;
+	schema:gtin8 @<#ValidSchemaText> * ;
+	schema:includesObject @<#ValidSchemaTypeAndQuantityNode> * ;
+	schema:inventoryLevel @<#ValidSchemaQuantitativeValue> * ;
+	schema:itemCondition @<#ValidSchemaOfferItemCondition> * ;
+	schema:itemOffered (@<#ValidSchemaAggregateOffer> OR @<#ValidSchemaProduct> OR @<#ValidSchemaCreativeWork> OR @<#ValidSchemaService> OR @<#ValidSchemaMenuItem> OR @<#ValidSchemaTrip> OR @<#ValidSchemaEvent>) * ;
+	schema:mpn @<#ValidSchemaText> * ;
+	schema:priceSpecification @<#ValidSchemaPriceSpecification> * ;
+	schema:seller (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:serialNumber @<#ValidSchemaText> * ;
+	schema:sku @<#ValidSchemaText> * ;
+	schema:validFrom (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:validThrough (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:warranty @<#ValidSchemaWarrantyPromise> * ;
+}

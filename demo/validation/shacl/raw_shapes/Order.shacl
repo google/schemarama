@@ -1,0 +1,116 @@
+:ValidSchemaOrder a sh:NodeShape;
+	sh:targetClass schema:Order;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:acceptedOffer;
+		sh:node :ValidSchemaOffer;
+	];
+	sh:property [
+		sh:path schema:billingAddress;
+		sh:node :ValidSchemaPostalAddress;
+	];
+	sh:property [
+		sh:path schema:broker;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:confirmationNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:customer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:discount;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:discountCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:discountCurrency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:isGift;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:merchant;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:orderDate;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:orderDelivery;
+		sh:node :ValidSchemaParcelDelivery;
+	];
+	sh:property [
+		sh:path schema:orderNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:orderStatus;
+		sh:node :ValidSchemaOrderStatus;
+	];
+	sh:property [
+		sh:path schema:orderedItem;
+		sh:or (
+			[sh:node :OrderItem]
+			[sh:node :Product]
+			[sh:node :Service]
+		);
+	];
+	sh:property [
+		sh:path schema:partOfInvoice;
+		sh:node :ValidSchemaInvoice;
+	];
+	sh:property [
+		sh:path schema:paymentDue;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:paymentDueDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:paymentMethod;
+		sh:node :ValidSchemaPaymentMethod;
+	];
+	sh:property [
+		sh:path schema:paymentMethodId;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:paymentUrl;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:seller;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	].

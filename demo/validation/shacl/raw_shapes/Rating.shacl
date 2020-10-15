@@ -1,0 +1,35 @@
+:ValidSchemaRating a sh:NodeShape;
+	sh:targetClass schema:Rating;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:author;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:bestRating;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:ratingValue;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:reviewAspect;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:worstRating;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	].

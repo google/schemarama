@@ -1,0 +1,7 @@
+:ValidSchemaClaimReview a sh:NodeShape;
+	sh:targetClass schema:ClaimReview;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:claimReviewed;
+		sh:node :ValidSchemaText;
+	].

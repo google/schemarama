@@ -1,0 +1,3 @@
+<#ValidSchemaFlorist> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:Florist];
+}

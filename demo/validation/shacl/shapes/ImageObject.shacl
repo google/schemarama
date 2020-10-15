@@ -1,0 +1,28 @@
+:ValidSchemaImageObject a sh:NodeShape;
+	sh:targetClass schema:ImageObject;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:caption;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :MediaObject]
+		);
+	];
+	sh:property [
+		sh:path schema:exifData;
+		sh:or (
+			[sh:node :Text]
+			[sh:class schema:PropertyValue]
+		);
+	];
+	sh:property [
+		sh:path schema:representativeOfPage;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:thumbnail;
+		sh:or (
+		    [sh:node :ImageObject]
+		    [sh:node :URL]
+		)
+	].

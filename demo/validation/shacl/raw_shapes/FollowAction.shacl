@@ -1,0 +1,10 @@
+:ValidSchemaFollowAction a sh:NodeShape;
+	sh:targetClass schema:FollowAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:followee;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	].

@@ -1,0 +1,23 @@
+:ValidSchemaLocalBusiness a sh:NodeShape;
+	sh:targetClass schema:LocalBusiness;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:branchOf;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:currenciesAccepted;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:openingHours;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:paymentAccepted;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:priceRange;
+		sh:node :ValidSchemaText;
+	].

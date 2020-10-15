@@ -1,0 +1,3 @@
+:ValidSchemaLiteraryEvent a sh:NodeShape;
+	sh:targetClass schema:LiteraryEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

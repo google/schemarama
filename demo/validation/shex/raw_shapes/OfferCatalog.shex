@@ -1,0 +1,3 @@
+<#ValidSchemaOfferCatalog> @<#ValidSchemaItemList> AND EXTRA a {
+	a [schema:OfferCatalog];
+}

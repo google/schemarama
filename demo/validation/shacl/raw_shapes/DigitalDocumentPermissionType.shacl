@@ -1,0 +1,3 @@
+:ValidSchemaDigitalDocumentPermissionType a sh:NodeShape;
+	sh:targetClass schema:DigitalDocumentPermissionType;
+	sh:nodeKind sh:BlankNodeOrIRI.

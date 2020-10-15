@@ -1,0 +1,18 @@
+:ValidSchemaTaxiReservation a sh:NodeShape;
+	sh:targetClass schema:TaxiReservation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:partySize;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:pickupLocation;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:pickupTime;
+		sh:node :ValidSchemaDateTime;
+	].

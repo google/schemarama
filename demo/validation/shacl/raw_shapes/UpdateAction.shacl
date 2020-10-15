@@ -1,0 +1,11 @@
+:ValidSchemaUpdateAction a sh:NodeShape;
+	sh:targetClass schema:UpdateAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:collection;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:targetCollection;
+		sh:node :ValidSchemaThing;
+	].

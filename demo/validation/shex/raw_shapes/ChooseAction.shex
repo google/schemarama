@@ -1,0 +1,5 @@
+<#ValidSchemaChooseAction> @<#ValidSchemaAssessAction> AND EXTRA a {
+	a [schema:VoteAction schema:ChooseAction];
+	schema:actionOption (@<#ValidSchemaThing> OR @<#ValidSchemaText>) * ;
+	schema:option (@<#ValidSchemaThing> OR @<#ValidSchemaText>) * ;
+}

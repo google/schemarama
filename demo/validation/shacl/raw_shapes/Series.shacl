@@ -1,0 +1,3 @@
+:ValidSchemaSeries a sh:NodeShape;
+	sh:targetClass schema:Series;
+	sh:nodeKind sh:BlankNodeOrIRI.

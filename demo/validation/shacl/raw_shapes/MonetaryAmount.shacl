@@ -1,0 +1,38 @@
+:ValidSchemaMonetaryAmount a sh:NodeShape;
+	sh:targetClass schema:MonetaryAmount;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:currency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:maxValue;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:minValue;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:validFrom;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:validThrough;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:value;
+		sh:or (
+			[sh:node :Boolean]
+			[sh:node :StructuredValue]
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	].

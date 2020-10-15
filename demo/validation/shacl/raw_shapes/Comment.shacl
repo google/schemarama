@@ -1,0 +1,15 @@
+:ValidSchemaComment a sh:NodeShape;
+	sh:targetClass schema:Comment;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:downvoteCount;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:parentItem;
+		sh:node :ValidSchemaQuestion;
+	];
+	sh:property [
+		sh:path schema:upvoteCount;
+		sh:node :ValidSchemaInteger;
+	].

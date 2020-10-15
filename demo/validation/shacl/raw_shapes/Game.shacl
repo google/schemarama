@@ -1,0 +1,27 @@
+:ValidSchemaGame a sh:NodeShape;
+	sh:targetClass schema:Game;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:characterAttribute;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:gameItem;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:gameLocation;
+		sh:or (
+			[sh:node :PostalAddress]
+			[sh:node :Place]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfPlayers;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:quest;
+		sh:node :ValidSchemaThing;
+	].

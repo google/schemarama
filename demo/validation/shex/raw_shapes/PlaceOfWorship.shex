@@ -1,0 +1,3 @@
+<#ValidSchemaPlaceOfWorship> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:BuddhistTemple schema:Mosque schema:Church schema:Synagogue schema:HinduTemple schema:CatholicChurch schema:PlaceOfWorship];
+}

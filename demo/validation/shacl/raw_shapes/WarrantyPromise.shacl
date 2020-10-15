@@ -1,0 +1,11 @@
+:ValidSchemaWarrantyPromise a sh:NodeShape;
+	sh:targetClass schema:WarrantyPromise;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:durationOfWarranty;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:warrantyScope;
+		sh:node :ValidSchemaWarrantyScope;
+	].

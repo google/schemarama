@@ -1,0 +1,30 @@
+:ValidSchemaOccupation a sh:NodeShape;
+	sh:targetClass schema:Occupation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:estimatedSalary;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :MonetaryAmountDistribution]
+			[sh:node :MonetaryAmount]
+		);
+	];
+	sh:property [
+		sh:path schema:experienceRequirements;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:occupationLocation;
+		sh:node :ValidSchemaAdministrativeArea;
+	];
+	sh:property [
+		sh:path schema:responsibilities;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:skills;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :DefinedTerm]
+		);
+	].

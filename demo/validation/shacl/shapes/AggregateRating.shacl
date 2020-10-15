@@ -1,0 +1,15 @@
+:ValidSchemaAggregateRating a sh:NodeShape;
+	sh:targetClass schema:AggregateRating;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:itemReviewed;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:ratingCount;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:reviewCount;
+		sh:node :ValidSchemaInteger;
+	].

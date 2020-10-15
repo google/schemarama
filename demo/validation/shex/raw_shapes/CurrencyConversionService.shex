@@ -1,0 +1,3 @@
+<#ValidSchemaCurrencyConversionService> @<#ValidSchemaFinancialProduct> AND EXTRA a {
+	a [schema:CurrencyConversionService];
+}

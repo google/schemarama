@@ -1,0 +1,3 @@
+:ValidSchemaUserBlocks a sh:NodeShape;
+	sh:targetClass schema:UserBlocks;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,3 @@
+:ValidSchemaPhysician a sh:NodeShape;
+	sh:targetClass schema:Physician;
+	sh:nodeKind sh:BlankNodeOrIRI.

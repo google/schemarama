@@ -1,0 +1,3 @@
+:ValidSchemaEducationEvent a sh:NodeShape;
+	sh:targetClass schema:EducationEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

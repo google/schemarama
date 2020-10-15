@@ -1,0 +1,15 @@
+<#ValidSchemaNutritionInformation> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:NutritionInformation];
+	schema:calories @<#ValidSchemaEnergy> * ;
+	schema:carbohydrateContent @<#ValidSchemaMass> * ;
+	schema:cholesterolContent @<#ValidSchemaMass> * ;
+	schema:fatContent @<#ValidSchemaMass> * ;
+	schema:fiberContent @<#ValidSchemaMass> * ;
+	schema:proteinContent @<#ValidSchemaMass> * ;
+	schema:saturatedFatContent @<#ValidSchemaMass> * ;
+	schema:servingSize @<#ValidSchemaText> * ;
+	schema:sodiumContent @<#ValidSchemaMass> * ;
+	schema:sugarContent @<#ValidSchemaMass> * ;
+	schema:transFatContent @<#ValidSchemaMass> * ;
+	schema:unsaturatedFatContent @<#ValidSchemaMass> * ;
+}

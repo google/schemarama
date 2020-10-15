@@ -1,0 +1,3 @@
+:ValidSchemaGovernmentBenefitsType a sh:NodeShape;
+	sh:targetClass schema:GovernmentBenefitsType;
+	sh:nodeKind sh:BlankNodeOrIRI.

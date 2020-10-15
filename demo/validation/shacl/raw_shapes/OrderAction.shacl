@@ -1,0 +1,7 @@
+:ValidSchemaOrderAction a sh:NodeShape;
+	sh:targetClass schema:OrderAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:deliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	].

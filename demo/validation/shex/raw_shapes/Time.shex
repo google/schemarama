@@ -1,0 +1,3 @@
+<#ValidSchemaTime>  EXTRA a {
+	a [schema:Time];
+}

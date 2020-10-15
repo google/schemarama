@@ -1,0 +1,3 @@
+<#ValidSchemaMiddleSchool> @<#ValidSchemaEducationalOrganization> AND EXTRA a {
+	a [schema:MiddleSchool];
+}

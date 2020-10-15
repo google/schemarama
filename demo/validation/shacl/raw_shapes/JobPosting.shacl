@@ -1,0 +1,103 @@
+:ValidSchemaJobPosting a sh:NodeShape;
+	sh:targetClass schema:JobPosting;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:baseSalary;
+		sh:or (
+			[sh:node :PriceSpecification]
+			[sh:node :MonetaryAmount]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:benefits;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:datePosted;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:employmentType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:estimatedSalary;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :MonetaryAmountDistribution]
+			[sh:node :MonetaryAmount]
+		);
+	];
+	sh:property [
+		sh:path schema:experienceRequirements;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:hiringOrganization;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:incentiveCompensation;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:incentives;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:industry;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :DefinedTerm]
+		);
+	];
+	sh:property [
+		sh:path schema:jobBenefits;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:jobLocation;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:relevantOccupation;
+		sh:node :ValidSchemaOccupation;
+	];
+	sh:property [
+		sh:path schema:responsibilities;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:salaryCurrency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:skills;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :DefinedTerm]
+		);
+	];
+	sh:property [
+		sh:path schema:specialCommitments;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:title;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:validThrough;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:workHours;
+		sh:node :ValidSchemaText;
+	].

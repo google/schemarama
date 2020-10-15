@@ -1,0 +1,7 @@
+<#ValidSchemaSeat> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Seat];
+	schema:seatNumber @<#ValidSchemaText> * ;
+	schema:seatRow @<#ValidSchemaText> * ;
+	schema:seatSection @<#ValidSchemaText> * ;
+	schema:seatingType (@<#ValidSchemaText> OR @<#ValidSchemaQualitativeValue>) * ;
+}

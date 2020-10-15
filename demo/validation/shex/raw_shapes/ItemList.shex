@@ -1,0 +1,6 @@
+<#ValidSchemaItemList> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:HowToStep schema:BreadcrumbList schema:OfferCatalog schema:HowToSection schema:ItemList];
+	schema:itemListElement (@<#ValidSchemaText> OR @<#ValidSchemaListItem> OR @<#ValidSchemaThing>) * ;
+	schema:itemListOrder (@<#ValidSchemaText> OR @<#ValidSchemaItemListOrderType>) * ;
+	schema:numberOfItems @<#ValidSchemaInteger> * ;
+}

@@ -1,0 +1,8 @@
+<#ValidSchemaOpeningHoursSpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:OpeningHoursSpecification];
+	schema:closes @<#ValidSchemaTime> * ;
+	schema:dayOfWeek @<#ValidSchemaDayOfWeek> * ;
+	schema:opens @<#ValidSchemaTime> * ;
+	schema:validFrom (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:validThrough (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaSportsActivityLocation a sh:NodeShape;
+	sh:targetClass schema:SportsActivityLocation;
+	sh:nodeKind sh:BlankNodeOrIRI.

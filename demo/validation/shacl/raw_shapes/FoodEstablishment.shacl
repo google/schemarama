@@ -1,0 +1,35 @@
+:ValidSchemaFoodEstablishment a sh:NodeShape;
+	sh:targetClass schema:FoodEstablishment;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:acceptsReservations;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Boolean]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:hasMenu;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+			[sh:node :Menu]
+		);
+	];
+	sh:property [
+		sh:path schema:menu;
+		sh:or (
+			[sh:node :Menu]
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:servesCuisine;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:starRating;
+		sh:node :ValidSchemaRating;
+	].

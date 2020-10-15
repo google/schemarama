@@ -1,0 +1,3 @@
+<#ValidSchemaSportsActivityLocation> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:SportsClub schema:SkiResort schema:ExerciseGym schema:GolfCourse schema:HealthClub schema:BowlingAlley schema:StadiumOrArena schema:PublicSwimmingPool schema:TennisComplex schema:SportsActivityLocation];
+}

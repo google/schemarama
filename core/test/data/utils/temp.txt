@@ -1,0 +1,15 @@
+[
+  {
+    "property": "http://schema.org/identifier",
+    "message": "Value provided for property http://schema.org/identifier has an unexpected type",
+    "shape": "https://schema.org/validation#Thing",
+    "severity": "warning"
+  },
+  {
+    "property": "http://schema.org/description",
+    "message": "Property http://schema.org/description not found",
+    "shape": "https://schema.org/validation#Thing",
+    "severity": "warning",
+    "description": "Description is required for SomeProduct"
+  }
+]

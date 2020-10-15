@@ -1,0 +1,3 @@
+<#ValidSchemaUserDownloads> @<#ValidSchemaUserInteraction> AND EXTRA a {
+	a [schema:UserDownloads];
+}

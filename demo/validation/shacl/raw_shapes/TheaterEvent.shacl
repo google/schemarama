@@ -1,0 +1,3 @@
+:ValidSchemaTheaterEvent a sh:NodeShape;
+	sh:targetClass schema:TheaterEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

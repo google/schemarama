@@ -1,0 +1,6 @@
+<#ValidSchemaFoodEstablishmentReservation> @<#ValidSchemaReservation> AND EXTRA a {
+	a [schema:FoodEstablishmentReservation];
+	schema:endTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
+	schema:partySize (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaInteger>) * ;
+	schema:startTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+}

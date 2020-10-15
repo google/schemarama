@@ -1,0 +1,38 @@
+<#ValidSchemaEvent> @<#ValidSchemaThing> AND EXTRA a {
+	a [schema:UserBlocks schema:SocialEvent schema:BroadcastEvent schema:OnDemandEvent schema:DanceEvent schema:UserComments schema:BusinessEvent schema:Festival schema:SaleEvent schema:CourseInstance schema:MusicEvent schema:DeliveryEvent schema:UserPageVisits schema:UserLikes schema:UserPlusOnes schema:LiteraryEvent schema:ExhibitionEvent schema:SportsEvent schema:UserPlays schema:TheaterEvent schema:PublicationEvent schema:FoodEvent schema:ComedyEvent schema:UserTweets schema:VisualArtsEvent schema:ChildrensEvent schema:UserCheckins schema:ScreeningEvent schema:EducationEvent schema:UserDownloads schema:UserInteraction schema:Event];
+	schema:about @<#ValidSchemaThing> * ;
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:aggregateRating @<#ValidSchemaAggregateRating> * ;
+	schema:attendee (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:attendees (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:audience @<#ValidSchemaAudience> * ;
+	schema:composer (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:contributor (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:doorTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+	schema:duration @<#ValidSchemaDuration> * ;
+	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:eventStatus @<#ValidSchemaEventStatusType> * ;
+	schema:funder (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:inLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
+	schema:isAccessibleForFree @<#ValidSchemaBoolean> * ;
+	schema:location (@<#ValidSchemaVirtualLocation> OR @<#ValidSchemaPlace> OR @<#ValidSchemaText> OR @<#ValidSchemaPostalAddress>) * ;
+	schema:maximumAttendeeCapacity @<#ValidSchemaInteger> * ;
+	schema:offers (@<#ValidSchemaDemand> OR @<#ValidSchemaOffer>) * ;
+	schema:organizer (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:performer (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:performers (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
+	schema:previousStartDate @<#ValidSchemaDate> * ;
+	schema:recordedIn @<#ValidSchemaCreativeWork> * ;
+	schema:remainingAttendeeCapacity @<#ValidSchemaInteger> * ;
+	schema:review @<#ValidSchemaReview> * ;
+	schema:sponsor (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:startDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:subEvent @<#ValidSchemaEvent> * ;
+	schema:subEvents @<#ValidSchemaEvent> * ;
+	schema:superEvent @<#ValidSchemaEvent> * ;
+	schema:translator (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:typicalAgeRange @<#ValidSchemaText> * ;
+	schema:workFeatured @<#ValidSchemaCreativeWork> * ;
+	schema:workPerformed @<#ValidSchemaCreativeWork> * ;
+}

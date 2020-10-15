@@ -1,0 +1,43 @@
+:ValidSchemaEducationalOccupationalProgram a sh:NodeShape;
+	sh:targetClass schema:EducationalOccupationalProgram;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:dayOfWeek;
+		sh:node :ValidSchemaDayOfWeek;
+	];
+	sh:property [
+		sh:path schema:educationalCredentialAwarded;
+		sh:or (
+			[sh:node :EducationalOccupationalCredential]
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:endDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:provider;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:startDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	].

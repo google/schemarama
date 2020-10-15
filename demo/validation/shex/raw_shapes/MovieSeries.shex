@@ -1,0 +1,10 @@
+<#ValidSchemaMovieSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
+	a [schema:MovieSeries];
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:actors @<#ValidSchemaPerson> * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:directors @<#ValidSchemaPerson> * ;
+	schema:musicBy (@<#ValidSchemaPerson> OR @<#ValidSchemaMusicGroup>) * ;
+	schema:productionCompany @<#ValidSchemaOrganization> * ;
+	schema:trailer @<#ValidSchemaVideoObject> * ;
+}

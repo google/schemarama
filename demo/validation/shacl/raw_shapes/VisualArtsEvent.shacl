@@ -1,0 +1,3 @@
+:ValidSchemaVisualArtsEvent a sh:NodeShape;
+	sh:targetClass schema:VisualArtsEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

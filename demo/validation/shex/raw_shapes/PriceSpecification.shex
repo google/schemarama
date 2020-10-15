@@ -1,0 +1,12 @@
+<#ValidSchemaPriceSpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:PaymentChargeSpecification schema:DeliveryChargeSpecification schema:CompoundPriceSpecification schema:UnitPriceSpecification schema:PriceSpecification];
+	schema:eligibleQuantity @<#ValidSchemaQuantitativeValue> * ;
+	schema:eligibleTransactionVolume @<#ValidSchemaPriceSpecification> * ;
+	schema:maxPrice @<#ValidSchemaNumber> * ;
+	schema:minPrice @<#ValidSchemaNumber> * ;
+	schema:price (@<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+	schema:priceCurrency @<#ValidSchemaText> * ;
+	schema:validFrom (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:validThrough (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:valueAddedTaxIncluded @<#ValidSchemaBoolean> * ;
+}

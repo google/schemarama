@@ -1,0 +1,64 @@
+:ValidSchemaThing a sh:NodeShape;
+	sh:targetClass schema:Thing;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:additionalType;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:alternateName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:description;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:disambiguatingDescription;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:identifier;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :PropertyValue]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:image;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :ImageObject]
+		);
+	];
+	sh:property [
+		sh:path schema:mainEntityOfPage;
+		sh:or (
+			[sh:node :CreativeWork]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:name;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:potentialAction;
+		sh:node :ValidSchemaAction;
+	];
+	sh:property [
+		sh:path schema:sameAs;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:subjectOf;
+		sh:or (
+			[sh:node :Event]
+			[sh:node :CreativeWork]
+		);
+	];
+	sh:property [
+		sh:path schema:url;
+		sh:node :ValidSchemaURL;
+	].

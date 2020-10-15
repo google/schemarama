@@ -1,0 +1,10 @@
+:ValidSchemaHowToSupply a sh:NodeShape;
+	sh:targetClass schema:HowToSupply;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:estimatedCost;
+		sh:or (
+			[sh:node :MonetaryAmount]
+			[sh:node :Text]
+		);
+	].

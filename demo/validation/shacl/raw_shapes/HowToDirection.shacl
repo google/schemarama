@@ -1,0 +1,50 @@
+:ValidSchemaHowToDirection a sh:NodeShape;
+	sh:targetClass schema:HowToDirection;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:afterMedia;
+		sh:or (
+			[sh:node :MediaObject]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:beforeMedia;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :MediaObject]
+		);
+	];
+	sh:property [
+		sh:path schema:duringMedia;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :MediaObject]
+		);
+	];
+	sh:property [
+		sh:path schema:performTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:prepTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:supply;
+		sh:or (
+			[sh:node :HowToSupply]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:tool;
+		sh:or (
+			[sh:node :HowToTool]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:totalTime;
+		sh:node :ValidSchemaDuration;
+	].

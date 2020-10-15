@@ -1,0 +1,73 @@
+:ValidSchemaGeospatialGeometry a sh:NodeShape;
+	sh:targetClass schema:GeospatialGeometry;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:geoContains;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCoveredBy;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCovers;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCrosses;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoDisjoint;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoEquals;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoIntersects;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoOverlaps;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoTouches;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoWithin;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	].

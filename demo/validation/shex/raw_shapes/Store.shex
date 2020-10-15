@@ -1,0 +1,3 @@
+<#ValidSchemaStore> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:PawnShop schema:MensClothingStore schema:LiquorStore schema:BookStore schema:TireShop schema:HomeGoodsStore schema:OfficeEquipmentStore schema:MobilePhoneStore schema:HardwareStore schema:ConvenienceStore schema:ComputerStore schema:JewelryStore schema:ElectronicsStore schema:DepartmentStore schema:ClothingStore schema:ToyStore schema:MusicStore schema:SportingGoodsStore schema:BikeStore schema:WholesaleStore schema:Florist schema:MovieRentalStore schema:GroceryStore schema:OutletStore schema:ShoeStore schema:PetStore schema:FurnitureStore schema:HobbyShop schema:AutoPartsStore schema:GardenStore schema:Store];
+}

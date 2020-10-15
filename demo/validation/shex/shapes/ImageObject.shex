@@ -1,0 +1,7 @@
+<#ValidSchemaImageObject> @<#ValidSchemaMediaObject> AND EXTRA a {
+	a [schema:Barcode schema:ImageObject];
+	schema:caption (@<#ValidSchemaText> OR @<#ValidSchemaMediaObject>) * ;
+	schema:exifData (@<#ValidSchemaText> OR @<#ValidSchemaPropertyValue>) * ;
+	schema:representativeOfPage @<#ValidSchemaBoolean> * ;
+	schema:thumbnail @<#ValidSchemaURL> OR @<#ValidSchemaImageObject> * ;
+}

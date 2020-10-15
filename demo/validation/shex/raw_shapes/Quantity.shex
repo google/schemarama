@@ -1,0 +1,3 @@
+<#ValidSchemaQuantity> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Energy schema:Distance schema:Mass schema:Duration schema:Quantity];
+}

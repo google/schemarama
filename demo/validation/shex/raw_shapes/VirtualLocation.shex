@@ -1,0 +1,3 @@
+<#ValidSchemaVirtualLocation>  EXTRA a {
+	a [schema:VirtualLocation];
+}

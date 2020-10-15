@@ -1,0 +1,4 @@
+<#ValidSchemaFollowAction> @<#ValidSchemaInteractAction> AND EXTRA a {
+	a [schema:FollowAction];
+	schema:followee (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+}

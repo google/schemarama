@@ -1,0 +1,7 @@
+:ValidSchemaEducationalAudience a sh:NodeShape;
+	sh:targetClass schema:EducationalAudience;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:educationalRole;
+		sh:node :ValidSchemaText;
+	].

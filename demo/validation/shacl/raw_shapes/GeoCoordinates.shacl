@@ -1,0 +1,42 @@
+:ValidSchemaGeoCoordinates a sh:NodeShape;
+	sh:targetClass schema:GeoCoordinates;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:address;
+		sh:or (
+			[sh:node :PostalAddress]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:addressCountry;
+		sh:or (
+			[sh:node :Country]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:elevation;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:latitude;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:longitude;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:postalCode;
+		sh:node :ValidSchemaText;
+	].

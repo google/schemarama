@@ -1,0 +1,22 @@
+:ValidSchemaSeat a sh:NodeShape;
+	sh:targetClass schema:Seat;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:seatNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:seatRow;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:seatSection;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:seatingType;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :QualitativeValue]
+		);
+	].

@@ -1,0 +1,3 @@
+<#ValidSchemaFoodService> @<#ValidSchemaService> AND EXTRA a {
+	a [schema:FoodService];
+}

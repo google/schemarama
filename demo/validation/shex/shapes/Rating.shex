@@ -1,0 +1,8 @@
+<#ValidSchemaRating> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:EmployerAggregateRating schema:AggregateRating schema:EndorsementRating schema:Rating];
+	schema:author (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
+	schema:bestRating (@<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;
+	schema:ratingValue (@<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;
+	schema:reviewAspect @<#ValidSchemaText> * ;
+	schema:worstRating (@<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+}

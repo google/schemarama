@@ -1,0 +1,14 @@
+<#ValidSchemaCreativeWorkSeason> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:TVSeason schema:RadioSeason schema:CreativeWorkSeason];
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:episode @<#ValidSchemaEpisode> * ;
+	schema:episodes @<#ValidSchemaEpisode> * ;
+	schema:numberOfEpisodes @<#ValidSchemaInteger> * ;
+	schema:partOfSeries @<#ValidSchemaCreativeWorkSeries> * ;
+	schema:productionCompany @<#ValidSchemaOrganization> * ;
+	schema:seasonNumber (@<#ValidSchemaInteger> OR @<#ValidSchemaText>) * ;
+	schema:startDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:trailer @<#ValidSchemaVideoObject> * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaEntertainmentBusiness a sh:NodeShape;
+	sh:targetClass schema:EntertainmentBusiness;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,3 @@
+<#ValidSchemaRegisterAction> @<#ValidSchemaInteractAction> AND EXTRA a {
+	a [schema:RegisterAction];
+}

@@ -1,0 +1,10 @@
+:ValidSchemaMoneyTransfer a sh:NodeShape;
+	sh:targetClass schema:MoneyTransfer;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:amount;
+		sh:or (
+			[sh:node :MonetaryAmount]
+			[sh:node :Number]
+		);
+	].

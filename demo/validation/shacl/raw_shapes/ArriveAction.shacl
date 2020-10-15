@@ -1,0 +1,3 @@
+:ValidSchemaArriveAction a sh:NodeShape;
+	sh:targetClass schema:ArriveAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

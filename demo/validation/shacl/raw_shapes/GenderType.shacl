@@ -1,0 +1,3 @@
+:ValidSchemaGenderType a sh:NodeShape;
+	sh:targetClass schema:GenderType;
+	sh:nodeKind sh:BlankNodeOrIRI.

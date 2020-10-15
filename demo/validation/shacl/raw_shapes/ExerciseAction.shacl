@@ -1,0 +1,39 @@
+:ValidSchemaExerciseAction a sh:NodeShape;
+	sh:targetClass schema:ExerciseAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:course;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:distance;
+		sh:node :ValidSchemaDistance;
+	];
+	sh:property [
+		sh:path schema:exerciseCourse;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:fromLocation;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:opponent;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:sportsActivityLocation;
+		sh:node :ValidSchemaSportsActivityLocation;
+	];
+	sh:property [
+		sh:path schema:sportsEvent;
+		sh:node :ValidSchemaSportsEvent;
+	];
+	sh:property [
+		sh:path schema:sportsTeam;
+		sh:node :ValidSchemaSportsTeam;
+	];
+	sh:property [
+		sh:path schema:toLocation;
+		sh:node :ValidSchemaPlace;
+	].

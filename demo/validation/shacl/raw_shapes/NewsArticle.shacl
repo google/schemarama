@@ -1,0 +1,23 @@
+:ValidSchemaNewsArticle a sh:NodeShape;
+	sh:targetClass schema:NewsArticle;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:dateline;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:printColumn;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:printEdition;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:printPage;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:printSection;
+		sh:node :ValidSchemaText;
+	].

@@ -1,0 +1,30 @@
+:ValidSchemaMusicRelease a sh:NodeShape;
+	sh:targetClass schema:MusicRelease;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:catalogNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:creditedTo;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:musicReleaseFormat;
+		sh:node :ValidSchemaMusicReleaseFormatType;
+	];
+	sh:property [
+		sh:path schema:recordLabel;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:releaseOf;
+		sh:node :ValidSchemaMusicAlbum;
+	].

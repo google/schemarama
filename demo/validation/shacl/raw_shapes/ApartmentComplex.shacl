@@ -1,0 +1,10 @@
+:ValidSchemaApartmentComplex a sh:NodeShape;
+	sh:targetClass schema:ApartmentComplex;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:petsAllowed;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Boolean]
+		);
+	].

@@ -1,0 +1,7 @@
+<#ValidSchemaAggregateOffer> @<#ValidSchemaOffer> AND EXTRA a {
+	a [schema:AggregateOffer];
+	schema:highPrice (@<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+	schema:lowPrice (@<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;
+	schema:offerCount @<#ValidSchemaInteger> * ;
+	schema:offers (@<#ValidSchemaDemand> OR @<#ValidSchemaOffer>) * ;
+}

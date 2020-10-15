@@ -1,0 +1,7 @@
+:ValidSchemaHealthInsurancePlan a sh:NodeShape;
+	sh:targetClass schema:HealthInsurancePlan;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:contactPoint;
+		sh:node :ValidSchemaContactPoint;
+	].

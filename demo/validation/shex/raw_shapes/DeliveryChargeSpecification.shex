@@ -1,0 +1,6 @@
+<#ValidSchemaDeliveryChargeSpecification> @<#ValidSchemaPriceSpecification> AND EXTRA a {
+	a [schema:DeliveryChargeSpecification];
+	schema:appliesToDeliveryMethod @<#ValidSchemaDeliveryMethod> * ;
+	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:eligibleRegion (@<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+}

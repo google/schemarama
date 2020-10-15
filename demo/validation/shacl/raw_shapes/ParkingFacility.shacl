@@ -1,0 +1,3 @@
+:ValidSchemaParkingFacility a sh:NodeShape;
+	sh:targetClass schema:ParkingFacility;
+	sh:nodeKind sh:BlankNodeOrIRI.

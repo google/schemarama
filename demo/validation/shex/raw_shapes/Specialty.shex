@@ -1,0 +1,3 @@
+<#ValidSchemaSpecialty> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:Specialty];
+}

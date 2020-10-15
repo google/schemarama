@@ -1,0 +1,11 @@
+<#ValidSchemaVisualArtwork> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:VisualArtwork];
+	schema:artEdition (@<#ValidSchemaText> OR @<#ValidSchemaInteger>) * ;
+	schema:artMedium (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:artform (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
+	schema:artworkSurface (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:depth (@<#ValidSchemaDistance> OR @<#ValidSchemaQuantitativeValue>) * ;
+	schema:height (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+	schema:surface (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:width (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+}

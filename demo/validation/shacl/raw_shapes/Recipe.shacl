@@ -1,0 +1,50 @@
+:ValidSchemaRecipe a sh:NodeShape;
+	sh:targetClass schema:Recipe;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:cookTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:cookingMethod;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:ingredients;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:nutrition;
+		sh:node :ValidSchemaNutritionInformation;
+	];
+	sh:property [
+		sh:path schema:recipeCategory;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:recipeCuisine;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:recipeIngredient;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:recipeInstructions;
+		sh:or (
+			[sh:node :CreativeWork]
+			[sh:node :ItemList]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:recipeYield;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:suitableForDiet;
+		sh:node :ValidSchemaRestrictedDiet;
+	].

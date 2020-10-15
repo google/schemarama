@@ -1,0 +1,12 @@
+:ValidSchemaRecommendation a sh:NodeShape;
+	sh:targetClass schema:Recommendation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	].

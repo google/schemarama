@@ -1,0 +1,3 @@
+:ValidSchemaEatAction a sh:NodeShape;
+	sh:targetClass schema:EatAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

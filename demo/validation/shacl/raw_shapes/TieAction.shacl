@@ -1,0 +1,3 @@
+:ValidSchemaTieAction a sh:NodeShape;
+	sh:targetClass schema:TieAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,22 @@
+:ValidSchemaFlightReservation a sh:NodeShape;
+	sh:targetClass schema:FlightReservation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:boardingGroup;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:passengerPriorityStatus;
+		sh:or (
+			[sh:node :QualitativeValue]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:passengerSequenceNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:securityScreening;
+		sh:node :ValidSchemaText;
+	].

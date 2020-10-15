@@ -1,0 +1,3 @@
+<#ValidSchemaWPHeader> @<#ValidSchemaWebPageElement> AND EXTRA a {
+	a [schema:WPHeader];
+}

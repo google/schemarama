@@ -1,0 +1,11 @@
+:ValidSchemaSellAction a sh:NodeShape;
+	sh:targetClass schema:SellAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:buyer;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:warrantyPromise;
+		sh:node :ValidSchemaWarrantyPromise;
+	].

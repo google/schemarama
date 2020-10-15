@@ -1,0 +1,3 @@
+:ValidSchemaMuseum a sh:NodeShape;
+	sh:targetClass schema:Museum;
+	sh:nodeKind sh:BlankNodeOrIRI.

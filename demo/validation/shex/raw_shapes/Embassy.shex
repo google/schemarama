@@ -1,0 +1,3 @@
+<#ValidSchemaEmbassy> @<#ValidSchemaGovernmentBuilding> AND EXTRA a {
+	a [schema:Embassy];
+}

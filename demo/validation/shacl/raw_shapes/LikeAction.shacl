@@ -1,0 +1,3 @@
+:ValidSchemaLikeAction a sh:NodeShape;
+	sh:targetClass schema:LikeAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

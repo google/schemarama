@@ -1,0 +1,3 @@
+<#ValidSchemaUserPageVisits> @<#ValidSchemaUserInteraction> AND EXTRA a {
+	a [schema:UserPageVisits];
+}

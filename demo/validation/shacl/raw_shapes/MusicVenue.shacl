@@ -1,0 +1,3 @@
+:ValidSchemaMusicVenue a sh:NodeShape;
+	sh:targetClass schema:MusicVenue;
+	sh:nodeKind sh:BlankNodeOrIRI.

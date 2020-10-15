@@ -1,0 +1,10 @@
+:ValidSchemaHouse a sh:NodeShape;
+	sh:targetClass schema:House;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:numberOfRooms;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	].

@@ -1,0 +1,3 @@
+:ValidSchemaNGO a sh:NodeShape;
+	sh:targetClass schema:NGO;
+	sh:nodeKind sh:BlankNodeOrIRI.

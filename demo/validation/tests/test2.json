@@ -1,0 +1,7 @@
+{
+  "@context": "https://schema.org/",
+  "@id": "http://example.org/recipe",
+  "@type": "Recipe",
+  "name": "Mom's World Famous Banana Bread",
+  "cookTime": "wwwwwwPT1H"
+}

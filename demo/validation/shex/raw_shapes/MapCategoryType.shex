@@ -1,0 +1,3 @@
+<#ValidSchemaMapCategoryType> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:MapCategoryType];
+}

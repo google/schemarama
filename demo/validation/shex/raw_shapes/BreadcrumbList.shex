@@ -1,0 +1,3 @@
+<#ValidSchemaBreadcrumbList> @<#ValidSchemaItemList> AND EXTRA a {
+	a [schema:BreadcrumbList];
+}

@@ -1,0 +1,2 @@
+# TODO add semantic actions
+<#ValidSchemaTime> (xsd:time OR (@<#ValidSchemaText> AND /^([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$/))

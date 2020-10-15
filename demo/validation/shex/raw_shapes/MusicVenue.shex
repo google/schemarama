@@ -1,0 +1,3 @@
+<#ValidSchemaMusicVenue> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:MusicVenue];
+}

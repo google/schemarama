@@ -1,0 +1,3 @@
+:ValidSchemaSpreadsheetDigitalDocument a sh:NodeShape;
+	sh:targetClass schema:SpreadsheetDigitalDocument;
+	sh:nodeKind sh:BlankNodeOrIRI.

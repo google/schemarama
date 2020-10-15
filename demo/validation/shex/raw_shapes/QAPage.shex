@@ -1,0 +1,3 @@
+<#ValidSchemaQAPage> @<#ValidSchemaWebPage> AND EXTRA a {
+	a [schema:QAPage];
+}

@@ -1,0 +1,5 @@
+<#ValidSchemaApartment> @<#ValidSchemaAccommodation> AND EXTRA a {
+	a [schema:Apartment];
+	schema:numberOfRooms (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:occupancy @<#ValidSchemaQuantitativeValue> * ;
+}

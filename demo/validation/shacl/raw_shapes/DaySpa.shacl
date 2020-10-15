@@ -1,0 +1,3 @@
+:ValidSchemaDaySpa a sh:NodeShape;
+	sh:targetClass schema:DaySpa;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,65 @@
+<#ValidServiceARecipe> @<#ValidSchemaRecipe> AND {
+    schema:name .
+    // techdoc:url "https://schema.org/name"
+    // techdoc:description "Required. Name of the recipe.";
+
+    schema:author . +
+    // techdoc:url "https://schema.org/author"
+    // techdoc:description "The author of the recipe."
+    // techdoc:identifier "warning";
+
+    schema:datePublished .
+    // techdoc:url "https://schema.org/datePublished"
+    // techdoc:description "The date the recipe was published."
+    // techdoc:identifier "warning";
+
+    schema:recipeCategory .
+    // techdoc:url "https://schema.org/recipeCategory"
+    // techdoc:description "The type of dish. For example, the dish could be an appetizer, main course, or desert."
+    // techdoc:identifier "warning";
+
+    schema:description .
+    // techdoc:url "https://schema.org/description"
+    // techdoc:description "Summary describing the recipe."
+    // techdoc:identifier "warning";
+
+    schema:image .
+    // techdoc:url "https://schema.org/image"
+    // techdoc:description "Picture associated with the recipe. This can be a picture of the dish or the ingredients of the dish."
+    // techdoc:identifier "warning";
+
+    schema:review .
+    // techdoc:url "https://schema.org/review"
+    // techdoc:description "Review of the recipe."
+    // techdoc:identifier "warning";
+
+    schema:prepTime .
+    // techdoc:url "https://schema.org/prepTime"
+    // techdoc:description "The amount of time needed to prepare the ingredients of the recipe."
+    // techdoc:identifier "warning";
+
+    schema:totalTime .
+    // techdoc:url "https://schema.org/totalTime"
+    // techdoc:description "The total time it takes to prepare the ingredients and cook the dish."
+    // techdoc:identifier "warning";
+
+    schema:recipeYield .
+    // techdoc:url "https://schema.org/recipeYield"
+    // techdoc:description "The quantity of the dish prepared by the recipe (e.g. number of servings)."
+    // techdoc:identifier "warning";
+
+	schema:nutrition .
+	// techdoc:url "https://schema.org/nutrition"
+	// techdoc:description "Nutritional information of the dish the recipe is used to prepare."
+    // techdoc:identifier "warning";
+
+	schema:recipeIngredient .
+	// techdoc:url "https://schema.org/recipeIngredient"
+	// techdoc:description "An ingredient used in the recipe."
+    // techdoc:identifier "warning";
+
+    schema:recipeInstructions . +
+    // techdoc:url "https://schema.org/recipeInstructions"
+    // techdoc:description "The steps specified by the recipe to prepare the dish."
+    // techdoc:identifier "warning";
+}

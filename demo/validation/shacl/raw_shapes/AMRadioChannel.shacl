@@ -1,0 +1,3 @@
+:ValidSchemaAMRadioChannel a sh:NodeShape;
+	sh:targetClass schema:AMRadioChannel;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,24 @@
+:ValidSchemaFoodEstablishmentReservation a sh:NodeShape;
+	sh:targetClass schema:FoodEstablishmentReservation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:endTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:partySize;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:startTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	].

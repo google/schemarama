@@ -1,0 +1,4 @@
+<#ValidSchemaTravelAction> @<#ValidSchemaMoveAction> AND EXTRA a {
+	a [schema:TravelAction];
+	schema:distance @<#ValidSchemaDistance> * ;
+}

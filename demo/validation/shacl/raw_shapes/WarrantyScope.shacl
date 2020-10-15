@@ -1,0 +1,3 @@
+:ValidSchemaWarrantyScope a sh:NodeShape;
+	sh:targetClass schema:WarrantyScope;
+	sh:nodeKind sh:BlankNodeOrIRI.

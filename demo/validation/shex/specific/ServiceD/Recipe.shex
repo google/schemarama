@@ -1,0 +1,49 @@
+<#ValidServiceDRecipe> @<#ValidSchemaRecipe> AND {
+    schema:name .
+    // techdoc:url "https://schema.org/name"
+    // techdoc:description "The recipe or dish name.";
+
+    schema:recipeIngredient . +
+    // techdoc:url "https://schema.org/recipeIngredient"
+    // techdoc:description "Ingredients in the recipe and their volumes or amounts (may be several).";
+
+    schema:recipeInstructions . +
+    // techdoc:url "https://schema.org/recipeInstructions"
+    // techdoc:description "cooking instructions."
+    // techdoc:identifier "warning";
+
+    schema:recipeCategory .
+    // techdoc:url "https://schema.org/recipeCategory"
+    // techdoc:description "Type of dish: for example, hot main dish, dessert."
+    // techdoc:identifier "warning";
+
+    schema:recipeYield . +
+    // techdoc:url "https://schema.org/recipeYield"
+    // techdoc:description "Number of servings."
+    // techdoc:identifier "warning";
+
+    schema:totalTime .
+    // techdoc:url "https://schema.org/totalTime"
+    // techdoc:description "Cooking time (if missing, cookTime is used). Specified in the ISO 8601 format. For example, PT30M (30 minutes)."
+    // techdoc:identifier "warning";
+
+    schema:image . +
+    // techdoc:url "https://schema.org/image"
+    // techdoc:description " URL of the cooking images (can be several). We recommend you to fill in this field for creating a better snippet."
+    // techdoc:identifier "warning";
+
+    schema:author . +
+    // techdoc:url "https://schema.org/author"
+    // techdoc:description "Author of the recipe."
+    // techdoc:identifier "warning";
+
+    schema:recipeCuisine .
+    // techdoc:url "https://schema.org/recipeCuisine"
+    // techdoc:description "National cuisine the recipe belongs to. One recipe can contain only one cuisine—type element."
+    // techdoc:identifier "warning";
+
+    schema:nutrition .
+    // techdoc:url "https://schema.org/nutrition"
+    // techdoc:description "Energy and nutrition value of the dish, meaning the number of calories and the amount of fat, protein, carbohydrates, vitamins, and so on."
+    // techdoc:identifier "warning";
+}

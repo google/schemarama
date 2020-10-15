@@ -1,0 +1,3 @@
+:ValidSchemaEventReservation a sh:NodeShape;
+	sh:targetClass schema:EventReservation;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,9 @@
+<#ValidSchemaLodgingReservation> @<#ValidSchemaReservation> AND EXTRA a {
+	a [schema:LodgingReservation];
+	schema:checkinTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
+	schema:checkoutTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
+	schema:lodgingUnitDescription @<#ValidSchemaText> * ;
+	schema:lodgingUnitType (@<#ValidSchemaText> OR @<#ValidSchemaQualitativeValue>) * ;
+	schema:numAdults (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaInteger>) * ;
+	schema:numChildren (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaInteger>) * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaResidence a sh:NodeShape;
+	sh:targetClass schema:Residence;
+	sh:nodeKind sh:BlankNodeOrIRI.

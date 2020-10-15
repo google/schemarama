@@ -1,0 +1,3 @@
+:ValidSchemaDate a sh:NodeShape;
+	sh:targetClass schema:Date;
+	sh:nodeKind sh:BlankNodeOrIRI.

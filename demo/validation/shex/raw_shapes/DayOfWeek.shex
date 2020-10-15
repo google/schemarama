@@ -1,0 +1,3 @@
+<#ValidSchemaDayOfWeek> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:DayOfWeek];
+}

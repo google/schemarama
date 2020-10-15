@@ -1,0 +1,3 @@
+:ValidSchemaBookFormatType a sh:NodeShape;
+	sh:targetClass schema:BookFormatType;
+	sh:nodeKind sh:BlankNodeOrIRI.

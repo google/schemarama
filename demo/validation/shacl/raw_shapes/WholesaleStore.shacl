@@ -1,0 +1,3 @@
+:ValidSchemaWholesaleStore a sh:NodeShape;
+	sh:targetClass schema:WholesaleStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,14 @@
+:ValidSchemaAudioObject a sh:NodeShape;
+	sh:targetClass schema:AudioObject;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:caption;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :MediaObject]
+		);
+	];
+	sh:property [
+		sh:path schema:transcript;
+		sh:node :ValidSchemaText;
+	].

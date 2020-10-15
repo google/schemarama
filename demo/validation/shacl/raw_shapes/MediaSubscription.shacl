@@ -1,0 +1,11 @@
+:ValidSchemaMediaSubscription a sh:NodeShape;
+	sh:targetClass schema:MediaSubscription;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:authenticator;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:expectsAcceptanceOf;
+		sh:node :ValidSchemaOffer;
+	].

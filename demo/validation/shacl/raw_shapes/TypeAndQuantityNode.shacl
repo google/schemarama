@@ -1,0 +1,29 @@
+:ValidSchemaTypeAndQuantityNode a sh:NodeShape;
+	sh:targetClass schema:TypeAndQuantityNode;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:amountOfThisGood;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:businessFunction;
+		sh:node :ValidSchemaBusinessFunction;
+	];
+	sh:property [
+		sh:path schema:typeOfGood;
+		sh:or (
+			[sh:node :Service]
+			[sh:node :Product]
+		);
+	];
+	sh:property [
+		sh:path schema:unitCode;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:unitText;
+		sh:node :ValidSchemaText;
+	].

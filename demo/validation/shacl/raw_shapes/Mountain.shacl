@@ -1,0 +1,3 @@
+:ValidSchemaMountain a sh:NodeShape;
+	sh:targetClass schema:Mountain;
+	sh:nodeKind sh:BlankNodeOrIRI.

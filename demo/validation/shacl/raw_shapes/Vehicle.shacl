@@ -1,0 +1,128 @@
+:ValidSchemaVehicle a sh:NodeShape;
+	sh:targetClass schema:Vehicle;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:cargoVolume;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:dateVehicleFirstRegistered;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:driveWheelConfiguration;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :DriveWheelConfigurationValue]
+		);
+	];
+	sh:property [
+		sh:path schema:fuelConsumption;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:fuelEfficiency;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:fuelType;
+		sh:or (
+			[sh:node :QualitativeValue]
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:knownVehicleDamages;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:mileageFromOdometer;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:numberOfAirbags;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfAxles;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfDoors;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfForwardGears;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfPreviousOwners;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :QuantitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:productionDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:purchaseDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:steeringPosition;
+		sh:node :ValidSchemaSteeringPositionValue;
+	];
+	sh:property [
+		sh:path schema:vehicleConfiguration;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:vehicleEngine;
+		sh:node :ValidSchemaEngineSpecification;
+	];
+	sh:property [
+		sh:path schema:vehicleIdentificationNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:vehicleInteriorColor;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:vehicleInteriorType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:vehicleModelDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:vehicleSeatingCapacity;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :QuantitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:vehicleTransmission;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+			[sh:node :QualitativeValue]
+		);
+	].

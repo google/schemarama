@@ -1,0 +1,10 @@
+:ValidSchemaPronounceableText a sh:NodeShape;
+	sh:targetClass schema:PronounceableText;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:inLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	].

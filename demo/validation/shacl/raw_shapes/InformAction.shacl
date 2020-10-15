@@ -1,0 +1,7 @@
+:ValidSchemaInformAction a sh:NodeShape;
+	sh:targetClass schema:InformAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:event;
+		sh:node :ValidSchemaEvent;
+	].

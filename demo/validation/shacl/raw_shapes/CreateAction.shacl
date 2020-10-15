@@ -1,0 +1,3 @@
+:ValidSchemaCreateAction a sh:NodeShape;
+	sh:targetClass schema:CreateAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

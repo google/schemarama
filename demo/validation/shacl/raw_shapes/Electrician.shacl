@@ -1,0 +1,3 @@
+:ValidSchemaElectrician a sh:NodeShape;
+	sh:targetClass schema:Electrician;
+	sh:nodeKind sh:BlankNodeOrIRI.

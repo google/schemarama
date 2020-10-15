@@ -1,0 +1,7 @@
+:ValidSchemaAudiobook a sh:NodeShape;
+	sh:targetClass schema:Audiobook;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	].

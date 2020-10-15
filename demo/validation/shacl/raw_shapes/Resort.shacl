@@ -1,0 +1,3 @@
+:ValidSchemaResort a sh:NodeShape;
+	sh:targetClass schema:Resort;
+	sh:nodeKind sh:BlankNodeOrIRI.

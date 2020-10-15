@@ -1,0 +1,3 @@
+:ValidSchemaRadioSeason a sh:NodeShape;
+	sh:targetClass schema:RadioSeason;
+	sh:nodeKind sh:BlankNodeOrIRI.

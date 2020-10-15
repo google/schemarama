@@ -1,0 +1,3 @@
+<#ValidSchemaResumeAction> @<#ValidSchemaControlAction> AND EXTRA a {
+	a [schema:ResumeAction];
+}

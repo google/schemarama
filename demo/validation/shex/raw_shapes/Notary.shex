@@ -1,0 +1,3 @@
+<#ValidSchemaNotary> @<#ValidSchemaLegalService> AND EXTRA a {
+	a [schema:Notary];
+}

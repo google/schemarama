@@ -1,0 +1,20 @@
+<#ValidSchemaMediaObject> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:DataDownload schema:ImageObject schema:Barcode schema:MusicVideoObject schema:VideoObject schema:AudioObject schema:MediaObject];
+	schema:associatedArticle @<#ValidSchemaNewsArticle> * ;
+	schema:bitrate @<#ValidSchemaText> * ;
+	schema:contentSize @<#ValidSchemaText> * ;
+	schema:contentUrl @<#ValidSchemaURL> * ;
+	schema:duration @<#ValidSchemaDuration> * ;
+	schema:embedUrl @<#ValidSchemaURL> * ;
+	schema:encodesCreativeWork @<#ValidSchemaCreativeWork> * ;
+	schema:encodingFormat (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
+	schema:endTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
+	schema:height (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+	schema:playerType @<#ValidSchemaText> * ;
+	schema:productionCompany @<#ValidSchemaOrganization> * ;
+	schema:regionsAllowed @<#ValidSchemaPlace> * ;
+	schema:requiresSubscription (@<#ValidSchemaMediaSubscription> OR @<#ValidSchemaBoolean>) * ;
+	schema:startTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+	schema:uploadDate @<#ValidSchemaDate> * ;
+	schema:width (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+}

@@ -1,0 +1,3 @@
+<#ValidSchemaMuseum> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:Museum];
+}

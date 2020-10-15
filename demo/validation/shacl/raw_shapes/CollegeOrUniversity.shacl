@@ -1,0 +1,3 @@
+:ValidSchemaCollegeOrUniversity a sh:NodeShape;
+	sh:targetClass schema:CollegeOrUniversity;
+	sh:nodeKind sh:BlankNodeOrIRI.

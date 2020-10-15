@@ -1,0 +1,49 @@
+:ValidSchemaBroadcastService a sh:NodeShape;
+	sh:targetClass schema:BroadcastService;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:area;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:broadcastAffiliateOf;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:broadcastDisplayName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:broadcastFrequency;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :BroadcastFrequencySpecification]
+		);
+	];
+	sh:property [
+		sh:path schema:broadcastTimezone;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:broadcaster;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:hasBroadcastChannel;
+		sh:node :ValidSchemaBroadcastChannel;
+	];
+	sh:property [
+		sh:path schema:inLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:parentService;
+		sh:node :ValidSchemaBroadcastService;
+	];
+	sh:property [
+		sh:path schema:videoFormat;
+		sh:node :ValidSchemaText;
+	].

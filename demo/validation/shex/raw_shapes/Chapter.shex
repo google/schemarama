@@ -1,0 +1,6 @@
+<#ValidSchemaChapter>  EXTRA a {
+	a [schema:Chapter];
+	schema:pageEnd (@<#ValidSchemaInteger> OR @<#ValidSchemaText>) * ;
+	schema:pageStart (@<#ValidSchemaText> OR @<#ValidSchemaInteger>) * ;
+	schema:pagination @<#ValidSchemaText> * ;
+}

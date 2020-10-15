@@ -1,0 +1,3 @@
+<#ValidSchemaUserPlays> @<#ValidSchemaUserInteraction> AND EXTRA a {
+	a [schema:UserPlays];
+}

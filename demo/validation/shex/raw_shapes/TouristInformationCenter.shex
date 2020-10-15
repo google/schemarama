@@ -1,0 +1,3 @@
+<#ValidSchemaTouristInformationCenter> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:TouristInformationCenter];
+}

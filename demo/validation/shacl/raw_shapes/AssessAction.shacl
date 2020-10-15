@@ -1,0 +1,3 @@
+:ValidSchemaAssessAction a sh:NodeShape;
+	sh:targetClass schema:AssessAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

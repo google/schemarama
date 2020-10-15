@@ -1,0 +1,4 @@
+<#ValidSchemaDrug>  EXTRA a {
+	a [schema:Drug];
+	schema:manufacturer @<#ValidSchemaOrganization> * ;
+}

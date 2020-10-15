@@ -1,0 +1,3 @@
+:ValidSchemaMotel a sh:NodeShape;
+	sh:targetClass schema:Motel;
+	sh:nodeKind sh:BlankNodeOrIRI.

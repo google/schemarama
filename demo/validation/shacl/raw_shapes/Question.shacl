@@ -1,0 +1,29 @@
+:ValidSchemaQuestion a sh:NodeShape;
+	sh:targetClass schema:Question;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:acceptedAnswer;
+		sh:or (
+			[sh:node :ItemList]
+			[sh:node :Answer]
+		);
+	];
+	sh:property [
+		sh:path schema:answerCount;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:downvoteCount;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:suggestedAnswer;
+		sh:or (
+			[sh:node :Answer]
+			[sh:node :ItemList]
+		);
+	];
+	sh:property [
+		sh:path schema:upvoteCount;
+		sh:node :ValidSchemaInteger;
+	].

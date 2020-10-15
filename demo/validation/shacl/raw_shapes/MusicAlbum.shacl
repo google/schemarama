@@ -1,0 +1,22 @@
+:ValidSchemaMusicAlbum a sh:NodeShape;
+	sh:targetClass schema:MusicAlbum;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:albumProductionType;
+		sh:node :ValidSchemaMusicAlbumProductionType;
+	];
+	sh:property [
+		sh:path schema:albumRelease;
+		sh:node :ValidSchemaMusicRelease;
+	];
+	sh:property [
+		sh:path schema:albumReleaseType;
+		sh:node :ValidSchemaMusicAlbumReleaseType;
+	];
+	sh:property [
+		sh:path schema:byArtist;
+		sh:or (
+			[sh:node :MusicGroup]
+			[sh:node :Person]
+		);
+	].

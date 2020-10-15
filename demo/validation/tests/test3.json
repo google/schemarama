@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "@id": "http://example.org/recipe",
+  "mainEntityOfPage": "http://example.ampproject.org/recipe-metadata.html",
+  "name": "Grandma's Holiday Apple Pie",
+  "image": {
+    "@type": "ImageObject",
+    "url": "leader.jpg",
+    "height": 200,
+    "width": 200
+  },
+  "author": {
+    "@type":"Person",
+    "name":"Carol Smith"
+  },
+  "datePublished": "2009-11-05",
+  "description": "This is my grandmother's apple pie recipe. I like to add a dash of nutmeg.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.0",
+    "reviewCount": "35"
+  },
+  "prepTime": "PT30M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H30M",
+  "recipeYield": "1 9\" pie (8 servings)",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "servingSize": "1 medium slice",
+    "calories": "250 cal",
+    "fatContent": "12 g"
+  },
+  "ingredients": [
+    "apples",
+    "White sugar"
+  ],
+  "recipeInstructions": "1. Cut and peel apples\n 2. Mix sugar and cinnamon. Use additional sugar for tart apples.\n...",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ServiceB",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://cdn.ampproject.org/logo.jpg",
+      "width": 600,
+      "height": 60
+    }
+  }
+}

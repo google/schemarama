@@ -1,0 +1,3 @@
+:ValidSchemaWearAction a sh:NodeShape;
+	sh:targetClass schema:WearAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

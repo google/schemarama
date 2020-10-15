@@ -1,0 +1,17 @@
+<#ValidSchemaRadioSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
+	a [schema:RadioSeries];
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:actors @<#ValidSchemaPerson> * ;
+	schema:containsSeason @<#ValidSchemaCreativeWorkSeason> * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:directors @<#ValidSchemaPerson> * ;
+	schema:episode @<#ValidSchemaEpisode> * ;
+	schema:episodes @<#ValidSchemaEpisode> * ;
+	schema:musicBy (@<#ValidSchemaPerson> OR @<#ValidSchemaMusicGroup>) * ;
+	schema:numberOfEpisodes @<#ValidSchemaInteger> * ;
+	schema:numberOfSeasons @<#ValidSchemaInteger> * ;
+	schema:productionCompany @<#ValidSchemaOrganization> * ;
+	schema:season (@<#ValidSchemaCreativeWorkSeason> OR @<#ValidSchemaURL>) * ;
+	schema:seasons @<#ValidSchemaCreativeWorkSeason> * ;
+	schema:trailer @<#ValidSchemaVideoObject> * ;
+}

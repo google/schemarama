@@ -1,0 +1,25 @@
+:ValidSchemaBusTrip a sh:NodeShape;
+	sh:targetClass schema:BusTrip;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:arrivalBusStop;
+		sh:or (
+			[sh:node :BusStop]
+			[sh:node :BusStation]
+		);
+	];
+	sh:property [
+		sh:path schema:busName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:busNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:departureBusStop;
+		sh:or (
+			[sh:node :BusStation]
+			[sh:node :BusStop]
+		);
+	].

@@ -1,0 +1,3 @@
+:ValidSchemaRoom a sh:NodeShape;
+	sh:targetClass schema:Room;
+	sh:nodeKind sh:BlankNodeOrIRI.

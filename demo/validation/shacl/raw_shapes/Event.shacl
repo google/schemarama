@@ -1,0 +1,193 @@
+:ValidSchemaEvent a sh:NodeShape;
+	sh:targetClass schema:Event;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:about;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:actor;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:aggregateRating;
+		sh:node :ValidSchemaAggregateRating;
+	];
+	sh:property [
+		sh:path schema:attendee;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:attendees;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:audience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:composer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:contributor;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:director;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:doorTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:endDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:eventStatus;
+		sh:node :ValidSchemaEventStatusType;
+	];
+	sh:property [
+		sh:path schema:funder;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:inLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:isAccessibleForFree;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:location;
+		sh:or (
+			[sh:node :VirtualLocation]
+			[sh:node :Place]
+			[sh:node :Text]
+			[sh:node :PostalAddress]
+		);
+	];
+	sh:property [
+		sh:path schema:maximumAttendeeCapacity;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:organizer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:performer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:performers;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:previousStartDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:recordedIn;
+		sh:node :ValidSchemaCreativeWork;
+	];
+	sh:property [
+		sh:path schema:remainingAttendeeCapacity;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:review;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:sponsor;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:startDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:subEvent;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:subEvents;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:superEvent;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:translator;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:typicalAgeRange;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:workFeatured;
+		sh:node :ValidSchemaCreativeWork;
+	];
+	sh:property [
+		sh:path schema:workPerformed;
+		sh:node :ValidSchemaCreativeWork;
+	].

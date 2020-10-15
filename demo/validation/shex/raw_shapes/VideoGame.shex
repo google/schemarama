@@ -1,0 +1,14 @@
+<#ValidSchemaVideoGame> @<#ValidSchemaSoftwareApplication> AND EXTRA a {
+	a [schema:VideoGame];
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:actors @<#ValidSchemaPerson> * ;
+	schema:cheatCode @<#ValidSchemaCreativeWork> * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:directors @<#ValidSchemaPerson> * ;
+	schema:gamePlatform (@<#ValidSchemaText> OR @<#ValidSchemaThing> OR @<#ValidSchemaURL>) * ;
+	schema:gameServer @<#ValidSchemaGameServer> * ;
+	schema:gameTip @<#ValidSchemaCreativeWork> * ;
+	schema:musicBy (@<#ValidSchemaPerson> OR @<#ValidSchemaMusicGroup>) * ;
+	schema:playMode @<#ValidSchemaGamePlayMode> * ;
+	schema:trailer @<#ValidSchemaVideoObject> * ;
+}

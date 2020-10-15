@@ -1,0 +1,3 @@
+<#ValidSchemaUserInteraction> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:UserBlocks schema:UserCheckins schema:UserPageVisits schema:UserLikes schema:UserPlays schema:UserPlusOnes schema:UserComments schema:UserTweets schema:UserDownloads schema:UserInteraction];
+}

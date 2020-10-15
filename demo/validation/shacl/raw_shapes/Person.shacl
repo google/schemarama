@@ -1,0 +1,266 @@
+:ValidSchemaPerson a sh:NodeShape;
+	sh:targetClass schema:Person;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:additionalName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:address;
+		sh:or (
+			[sh:node :PostalAddress]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:affiliation;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:alumniOf;
+		sh:or (
+			[sh:node :EducationalOrganization]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:award;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:awards;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:birthDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:birthPlace;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:brand;
+		sh:or (
+			[sh:node :Brand]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:children;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:colleague;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:colleagues;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:contactPoint;
+		sh:node :ValidSchemaContactPoint;
+	];
+	sh:property [
+		sh:path schema:contactPoints;
+		sh:node :ValidSchemaContactPoint;
+	];
+	sh:property [
+		sh:path schema:deathDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:deathPlace;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:duns;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:email;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:familyName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:faxNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:follows;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:funder;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:givenName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:globalLocationNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:hasOccupation;
+		sh:node :ValidSchemaOccupation;
+	];
+	sh:property [
+		sh:path schema:hasOfferCatalog;
+		sh:node :ValidSchemaOfferCatalog;
+	];
+	sh:property [
+		sh:path schema:hasPOS;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:height;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	];
+	sh:property [
+		sh:path schema:homeLocation;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:honorificPrefix;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:honorificSuffix;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:interactionStatistic;
+		sh:node :ValidSchemaInteractionCounter;
+	];
+	sh:property [
+		sh:path schema:isicV4;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:knows;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:makesOffer;
+		sh:node :ValidSchemaOffer;
+	];
+	sh:property [
+		sh:path schema:memberOf;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :ProgramMembership]
+		);
+	];
+	sh:property [
+		sh:path schema:naics;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:nationality;
+		sh:node :ValidSchemaCountry;
+	];
+	sh:property [
+		sh:path schema:netWorth;
+		sh:or (
+			[sh:node :MonetaryAmount]
+			[sh:node :PriceSpecification]
+		);
+	];
+	sh:property [
+		sh:path schema:owns;
+		sh:or (
+			[sh:node :OwnershipInfo]
+			[sh:node :Product]
+		);
+	];
+	sh:property [
+		sh:path schema:parent;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:parents;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:performerIn;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:publishingPrinciples;
+		sh:or (
+			[sh:node :CreativeWork]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:relatedTo;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:seeks;
+		sh:node :ValidSchemaDemand;
+	];
+	sh:property [
+		sh:path schema:sibling;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:siblings;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:sponsor;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:spouse;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:taxID;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:telephone;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:vatID;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:weight;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:workLocation;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:worksFor;
+		sh:node :ValidSchemaOrganization;
+	].

@@ -1,0 +1,3 @@
+:ValidSchemaWaterfall a sh:NodeShape;
+	sh:targetClass schema:Waterfall;
+	sh:nodeKind sh:BlankNodeOrIRI.

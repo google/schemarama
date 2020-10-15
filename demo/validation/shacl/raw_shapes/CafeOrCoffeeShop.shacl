@@ -1,0 +1,3 @@
+:ValidSchemaCafeOrCoffeeShop a sh:NodeShape;
+	sh:targetClass schema:CafeOrCoffeeShop;
+	sh:nodeKind sh:BlankNodeOrIRI.

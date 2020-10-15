@@ -1,0 +1,225 @@
+:ValidSchemaPlace a sh:NodeShape;
+	sh:targetClass schema:Place;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:additionalProperty;
+		sh:node :ValidSchemaPropertyValue;
+	];
+	sh:property [
+		sh:path schema:address;
+		sh:or (
+			[sh:node :PostalAddress]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:aggregateRating;
+		sh:node :ValidSchemaAggregateRating;
+	];
+	sh:property [
+		sh:path schema:amenityFeature;
+		sh:node :ValidSchemaLocationFeatureSpecification;
+	];
+	sh:property [
+		sh:path schema:branchCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:containedIn;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:containedInPlace;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:containsPlace;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:event;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:events;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:faxNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:geo;
+		sh:or (
+			[sh:node :GeoShape]
+			[sh:node :GeoCoordinates]
+		);
+	];
+	sh:property [
+		sh:path schema:geoContains;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCoveredBy;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCovers;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoCrosses;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoDisjoint;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoEquals;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:geoIntersects;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoOverlaps;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoTouches;
+		sh:or (
+			[sh:node :GeospatialGeometry]
+			[sh:node :Place]
+		);
+	];
+	sh:property [
+		sh:path schema:geoWithin;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeospatialGeometry]
+		);
+	];
+	sh:property [
+		sh:path schema:globalLocationNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:hasMap;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Map]
+		);
+	];
+	sh:property [
+		sh:path schema:isAccessibleForFree;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:isicV4;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:latitude;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:logo;
+		sh:or (
+			[sh:node :ImageObject]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:longitude;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:map;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:maps;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:maximumAttendeeCapacity;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:openingHoursSpecification;
+		sh:node :ValidSchemaOpeningHoursSpecification;
+	];
+	sh:property [
+		sh:path schema:photo;
+		sh:or (
+			[sh:node :ImageObject]
+			[sh:node :Photograph]
+		);
+	];
+	sh:property [
+		sh:path schema:photos;
+		sh:or (
+			[sh:node :ImageObject]
+			[sh:node :Photograph]
+		);
+	];
+	sh:property [
+		sh:path schema:publicAccess;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:review;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:reviews;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:slogan;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:smokingAllowed;
+		sh:node :ValidSchemaBoolean;
+	];
+	sh:property [
+		sh:path schema:specialOpeningHoursSpecification;
+		sh:node :ValidSchemaOpeningHoursSpecification;
+	];
+	sh:property [
+		sh:path schema:telephone;
+		sh:node :ValidSchemaText;
+	].

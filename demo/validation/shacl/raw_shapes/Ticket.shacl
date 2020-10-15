@@ -1,0 +1,48 @@
+:ValidSchemaTicket a sh:NodeShape;
+	sh:targetClass schema:Ticket;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:dateIssued;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:issuedBy;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:priceCurrency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:ticketNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:ticketToken;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:ticketedSeat;
+		sh:node :ValidSchemaSeat;
+	];
+	sh:property [
+		sh:path schema:totalPrice;
+		sh:or (
+			[sh:node :PriceSpecification]
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:underName;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	].

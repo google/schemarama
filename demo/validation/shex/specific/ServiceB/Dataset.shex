@@ -1,0 +1,86 @@
+<#ValidServiceBDataset> @<#ValidSchemaDataset> AND EXTRA a {
+    schema:description .
+    // techdoc:url "https://schema.org/url"
+    // techdoc:description "A short summary describing a dataset."
+    // techdoc:identifier "error";
+
+    schema:name .
+    // techdoc:url "https://schema.org/name"
+    // techdoc:description "A descriptive name of a dataset."
+    // techdoc:identifier "error";
+
+    schema:alternateName . +
+    // techdoc:url "https://schema.org/alternateName"
+    // techdoc:description "Alternative names that have been used to refer to this dataset, such as aliases or abbreviations."
+    // techdoc:identifier "warning";
+
+    schema:creator . +
+    // techdoc:url "https://schema.org/creator"
+    // techdoc:description "The creator or author of this dataset."
+    // techdoc:identifier "warning";
+
+    schema:citation .
+    // techdoc:url "https://schema.org/citation"
+    // techdoc:description "Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself."
+    // techdoc:identifier "warning";
+
+    schema:hasPart . +
+    // techdoc:url "https://schema.org/hasPart"
+    // techdoc:description "If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship."
+    // techdoc:identifier "warning";
+
+    schema:isPartOf .
+    // techdoc:url "https://schema.org/isPartOf"
+    // techdoc:description "If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship."
+    // techdoc:identifier "warning";
+
+    schema:identifier .
+    // techdoc:url "https://schema.org/identifier"
+    // techdoc:description "An identifier, such as a DOI or a Compact Identifier."
+    // techdoc:identifier "warning";
+
+    schema:keywords .
+    // techdoc:url "https://schema.org/keywords"
+    // techdoc:description "Keywords summarizing the dataset."
+    // techdoc:identifier "warning";
+
+    schema:license .
+    // techdoc:url "https://schema.org/license"
+    // techdoc:description "A license under which the dataset is distributed."
+    // techdoc:identifier "warning";
+
+    schema:measurementTechnique .
+    // techdoc:url "https://schema.org/measurementTechnique"
+    // techdoc:description "The technique, technology, or methodology used in a dataset, which can correspond to the variable(s) described in variableMeasured."
+    // techdoc:identifier "warning";
+
+    schema:sameAs .
+    // techdoc:url "https://schema.org/sameAs"
+    // techdoc:description "URL of a reference Web page that unambiguously indicates the dataset's identity, usually in a different repository."
+    // techdoc:identifier "warning";
+
+    schema:spatialCoverage .
+    // techdoc:url "https://schema.org/spatialCoverage"
+    // techdoc:description "You can provide a single point that describes the spatial aspect of the dataset. "
+    // techdoc:identifier "warning";
+
+    schema:temporalCoverage .
+    // techdoc:url "https://schema.org/temporalCoverage"
+    // techdoc:description "The data in the dataset covers a specific time interval."
+    // techdoc:identifier "warning";
+
+    schema:variableMeasured .
+    // techdoc:url "https://schema.org/variableMeasured"
+    // techdoc:description "The variable that this dataset measures."
+    // techdoc:identifier "warning";
+
+    schema:version .
+    // techdoc:url "https://schema.org/version"
+    // techdoc:description "The version number for the dataset."
+    // techdoc:identifier "warning";
+
+    schema:url .
+    // techdoc:url "https://schema.org/url"
+    // techdoc:description "Location of a page describing the dataset."
+    // techdoc:identifier "warning";
+}

@@ -1,0 +1,3 @@
+:ValidSchemaUnRegisterAction a sh:NodeShape;
+	sh:targetClass schema:UnRegisterAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

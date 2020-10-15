@@ -1,0 +1,3 @@
+<#ValidSchemaIgnoreAction> @<#ValidSchemaAssessAction> AND EXTRA a {
+	a [schema:IgnoreAction];
+}

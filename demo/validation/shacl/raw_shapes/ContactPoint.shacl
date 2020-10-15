@@ -1,0 +1,58 @@
+:ValidSchemaContactPoint a sh:NodeShape;
+	sh:targetClass schema:ContactPoint;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:areaServed;
+		sh:or (
+			[sh:node :AdministrativeArea]
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:availableLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:contactOption;
+		sh:node :ValidSchemaContactPointOption;
+	];
+	sh:property [
+		sh:path schema:contactType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:email;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:faxNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:hoursAvailable;
+		sh:node :ValidSchemaOpeningHoursSpecification;
+	];
+	sh:property [
+		sh:path schema:productSupported;
+		sh:or (
+			[sh:node :Product]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:serviceArea;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeoShape]
+			[sh:node :AdministrativeArea]
+		);
+	];
+	sh:property [
+		sh:path schema:telephone;
+		sh:node :ValidSchemaText;
+	].

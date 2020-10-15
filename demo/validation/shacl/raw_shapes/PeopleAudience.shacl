@@ -1,0 +1,27 @@
+:ValidSchemaPeopleAudience a sh:NodeShape;
+	sh:targetClass schema:PeopleAudience;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:requiredGender;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:requiredMaxAge;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:requiredMinAge;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:suggestedGender;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:suggestedMaxAge;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:suggestedMinAge;
+		sh:node :ValidSchemaNumber;
+	].

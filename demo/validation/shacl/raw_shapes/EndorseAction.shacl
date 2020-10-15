@@ -1,0 +1,10 @@
+:ValidSchemaEndorseAction a sh:NodeShape;
+	sh:targetClass schema:EndorseAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:endorsee;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	].

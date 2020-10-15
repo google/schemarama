@@ -1,0 +1,3 @@
+<#ValidSchemaApplyAction> @<#ValidSchemaOrganizeAction> AND EXTRA a {
+	a [schema:ApplyAction];
+}

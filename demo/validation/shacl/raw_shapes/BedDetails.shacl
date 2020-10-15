@@ -1,0 +1,14 @@
+:ValidSchemaBedDetails a sh:NodeShape;
+	sh:targetClass schema:BedDetails;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:numberOfBeds;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:typeOfBed;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :BedType]
+		);
+	].

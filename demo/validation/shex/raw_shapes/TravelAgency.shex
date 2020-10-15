@@ -1,0 +1,3 @@
+<#ValidSchemaTravelAgency> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:TravelAgency];
+}

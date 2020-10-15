@@ -1,0 +1,3 @@
+<#ValidSchemaEmergencyService> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:PoliceStation schema:Hospital schema:FireStation schema:EmergencyService];
+}

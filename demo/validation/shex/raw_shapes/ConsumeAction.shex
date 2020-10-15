@@ -1,0 +1,5 @@
+<#ValidSchemaConsumeAction> @<#ValidSchemaAction> AND EXTRA a {
+	a [schema:ViewAction schema:ReadAction schema:WatchAction schema:ListenAction schema:EatAction schema:WearAction schema:DrinkAction schema:InstallAction schema:UseAction schema:ConsumeAction];
+	schema:actionAccessibilityRequirement @<#ValidSchemaActionAccessSpecification> * ;
+	schema:expectsAcceptanceOf @<#ValidSchemaOffer> * ;
+}

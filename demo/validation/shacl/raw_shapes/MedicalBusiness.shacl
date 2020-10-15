@@ -1,0 +1,3 @@
+:ValidSchemaMedicalBusiness a sh:NodeShape;
+	sh:targetClass schema:MedicalBusiness;
+	sh:nodeKind sh:BlankNodeOrIRI.

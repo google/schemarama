@@ -1,0 +1,28 @@
+:ValidSchemaAggregateOffer a sh:NodeShape;
+	sh:targetClass schema:AggregateOffer;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:highPrice;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:lowPrice;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:offerCount;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	].

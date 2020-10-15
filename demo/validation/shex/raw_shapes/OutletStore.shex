@@ -1,0 +1,3 @@
+<#ValidSchemaOutletStore> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:OutletStore];
+}

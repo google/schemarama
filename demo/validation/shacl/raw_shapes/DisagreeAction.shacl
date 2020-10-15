@@ -1,0 +1,3 @@
+:ValidSchemaDisagreeAction a sh:NodeShape;
+	sh:targetClass schema:DisagreeAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

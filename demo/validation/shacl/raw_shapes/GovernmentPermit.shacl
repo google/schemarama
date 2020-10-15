@@ -1,0 +1,3 @@
+:ValidSchemaGovernmentPermit a sh:NodeShape;
+	sh:targetClass schema:GovernmentPermit;
+	sh:nodeKind sh:BlankNodeOrIRI.

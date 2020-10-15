@@ -1,0 +1,3 @@
+<#ValidSchemaSchemaTakeAction> @<#ValidSchemaTransferAction> AND EXTRA a {
+	a [schema:TakeAction];
+}

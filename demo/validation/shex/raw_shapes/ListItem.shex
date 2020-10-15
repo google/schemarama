@@ -1,0 +1,7 @@
+<#ValidSchemaListItem> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:HowToDirection schema:HowToSupply schema:HowToStep schema:HowToSection schema:HowToTool schema:HowToItem schema:HowToTip schema:ListItem];
+	schema:item @<#ValidSchemaThing> * ;
+	schema:nextItem @<#ValidSchemaListItem> * ;
+	schema:position (@<#ValidSchemaInteger> OR @<#ValidSchemaText>) * ;
+	schema:previousItem @<#ValidSchemaListItem> * ;
+}

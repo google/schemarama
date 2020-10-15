@@ -1,0 +1,12 @@
+<#ValidSchemaClip> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:RadioClip schema:VideoGameClip schema:MovieClip schema:TVClip schema:Clip];
+	schema:actor @<#ValidSchemaPerson> * ;
+	schema:actors @<#ValidSchemaPerson> * ;
+	schema:clipNumber (@<#ValidSchemaText> OR @<#ValidSchemaInteger>) * ;
+	schema:director @<#ValidSchemaPerson> * ;
+	schema:directors @<#ValidSchemaPerson> * ;
+	schema:musicBy (@<#ValidSchemaPerson> OR @<#ValidSchemaMusicGroup>) * ;
+	schema:partOfEpisode @<#ValidSchemaEpisode> * ;
+	schema:partOfSeason @<#ValidSchemaCreativeWorkSeason> * ;
+	schema:partOfSeries @<#ValidSchemaCreativeWorkSeries> * ;
+}

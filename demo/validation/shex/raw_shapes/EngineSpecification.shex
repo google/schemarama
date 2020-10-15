@@ -1,0 +1,4 @@
+<#ValidSchemaEngineSpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:EngineSpecification];
+	schema:fuelType (@<#ValidSchemaQualitativeValue> OR @<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+}

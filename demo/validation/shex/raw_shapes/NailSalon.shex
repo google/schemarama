@@ -1,0 +1,3 @@
+<#ValidSchemaNailSalon> @<#ValidSchemaHealthAndBeautyBusiness> AND EXTRA a {
+	a [schema:NailSalon];
+}

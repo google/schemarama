@@ -1,0 +1,3 @@
+<#ValidSchemaVisualArtsEvent> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:VisualArtsEvent];
+}

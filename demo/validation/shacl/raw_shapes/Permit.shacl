@@ -1,0 +1,34 @@
+:ValidSchemaPermit a sh:NodeShape;
+	sh:targetClass schema:Permit;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:issuedBy;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:issuedThrough;
+		sh:node :ValidSchemaService;
+	];
+	sh:property [
+		sh:path schema:permitAudience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:validFor;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:validFrom;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:validIn;
+		sh:node :ValidSchemaAdministrativeArea;
+	];
+	sh:property [
+		sh:path schema:validUntil;
+		sh:node :ValidSchemaDate;
+	].

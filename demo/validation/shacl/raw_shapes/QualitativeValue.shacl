@@ -1,0 +1,41 @@
+:ValidSchemaQualitativeValue a sh:NodeShape;
+	sh:targetClass schema:QualitativeValue;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:additionalProperty;
+		sh:node :ValidSchemaPropertyValue;
+	];
+	sh:property [
+		sh:path schema:equal;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:greater;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:greaterOrEqual;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:lesser;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:lesserOrEqual;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:nonEqual;
+		sh:node :ValidSchemaQualitativeValue;
+	];
+	sh:property [
+		sh:path schema:valueReference;
+		sh:or (
+			[sh:node :PropertyValue]
+			[sh:node :StructuredValue]
+			[sh:node :QualitativeValue]
+			[sh:node :QuantitativeValue]
+			[sh:node :Enumeration]
+		);
+	].

@@ -1,0 +1,8 @@
+<#ValidSchemaUserComments> @<#ValidSchemaUserInteraction> AND EXTRA a {
+	a [schema:UserComments];
+	schema:commentText @<#ValidSchemaText> * ;
+	schema:commentTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaDate>) * ;
+	schema:creator (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:discusses @<#ValidSchemaCreativeWork> * ;
+	schema:replyToUrl @<#ValidSchemaURL> * ;
+}

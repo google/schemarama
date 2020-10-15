@@ -1,0 +1,14 @@
+<#ValidSchemaPropertyValueSpecification> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:PropertyValueSpecification];
+	schema:defaultValue (@<#ValidSchemaThing> OR @<#ValidSchemaText>) * ;
+	schema:maxValue @<#ValidSchemaNumber> * ;
+	schema:minValue @<#ValidSchemaNumber> * ;
+	schema:multipleValues @<#ValidSchemaBoolean> * ;
+	schema:readonlyValue @<#ValidSchemaBoolean> * ;
+	schema:stepValue @<#ValidSchemaNumber> * ;
+	schema:valueMaxLength @<#ValidSchemaNumber> * ;
+	schema:valueMinLength @<#ValidSchemaNumber> * ;
+	schema:valueName @<#ValidSchemaText> * ;
+	schema:valuePattern @<#ValidSchemaText> * ;
+	schema:valueRequired @<#ValidSchemaBoolean> * ;
+}

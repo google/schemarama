@@ -1,0 +1,3 @@
+:ValidSchemaStore a sh:NodeShape;
+	sh:targetClass schema:Store;
+	sh:nodeKind sh:BlankNodeOrIRI.

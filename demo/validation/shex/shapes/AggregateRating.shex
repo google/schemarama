@@ -1,0 +1,6 @@
+<#ValidSchemaAggregateRating> @<#ValidSchemaRating> AND EXTRA a {
+	a [schema:EmployerAggregateRating schema:AggregateRating];
+	schema:itemReviewed @<#ValidSchemaThing> * ;
+	schema:ratingCount @<#ValidSchemaInteger> * ;
+	schema:reviewCount @<#ValidSchemaInteger> * ;
+}

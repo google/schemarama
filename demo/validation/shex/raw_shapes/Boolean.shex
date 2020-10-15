@@ -1,0 +1,3 @@
+<#ValidSchemaBoolean>  EXTRA a {
+	a [schema:Boolean];
+}

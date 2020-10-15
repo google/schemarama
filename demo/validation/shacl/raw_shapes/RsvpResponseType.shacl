@@ -1,0 +1,3 @@
+:ValidSchemaRsvpResponseType a sh:NodeShape;
+	sh:targetClass schema:RsvpResponseType;
+	sh:nodeKind sh:BlankNodeOrIRI.

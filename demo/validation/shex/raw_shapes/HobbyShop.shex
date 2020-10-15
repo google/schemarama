@@ -1,0 +1,3 @@
+<#ValidSchemaHobbyShop> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:HobbyShop];
+}

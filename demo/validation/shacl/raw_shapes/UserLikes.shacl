@@ -1,0 +1,3 @@
+:ValidSchemaUserLikes a sh:NodeShape;
+	sh:targetClass schema:UserLikes;
+	sh:nodeKind sh:BlankNodeOrIRI.

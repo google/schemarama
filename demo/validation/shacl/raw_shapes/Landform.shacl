@@ -1,0 +1,3 @@
+:ValidSchemaLandform a sh:NodeShape;
+	sh:targetClass schema:Landform;
+	sh:nodeKind sh:BlankNodeOrIRI.

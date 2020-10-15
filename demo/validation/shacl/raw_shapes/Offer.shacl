@@ -1,0 +1,211 @@
+:ValidSchemaOffer a sh:NodeShape;
+	sh:targetClass schema:Offer;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:acceptedPaymentMethod;
+		sh:or (
+			[sh:node :LoanOrCredit]
+			[sh:node :PaymentMethod]
+		);
+	];
+	sh:property [
+		sh:path schema:addOn;
+		sh:node :ValidSchemaOffer;
+	];
+	sh:property [
+		sh:path schema:advanceBookingRequirement;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:aggregateRating;
+		sh:node :ValidSchemaAggregateRating;
+	];
+	sh:property [
+		sh:path schema:areaServed;
+		sh:or (
+			[sh:node :AdministrativeArea]
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:availability;
+		sh:node :ValidSchemaItemAvailability;
+	];
+	sh:property [
+		sh:path schema:availabilityEnds;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:availabilityStarts;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:availableAtOrFrom;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:availableDeliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	];
+	sh:property [
+		sh:path schema:businessFunction;
+		sh:node :ValidSchemaBusinessFunction;
+	];
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:deliveryLeadTime;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:eligibleCustomerType;
+		sh:node :ValidSchemaBusinessEntityType;
+	];
+	sh:property [
+		sh:path schema:eligibleDuration;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:eligibleQuantity;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:eligibleRegion;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:eligibleTransactionVolume;
+		sh:node :ValidSchemaPriceSpecification;
+	];
+	sh:property [
+		sh:path schema:gtin12;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin13;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin14;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin8;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:includesObject;
+		sh:node :ValidSchemaTypeAndQuantityNode;
+	];
+	sh:property [
+		sh:path schema:inventoryLevel;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:itemCondition;
+		sh:node :ValidSchemaOfferItemCondition;
+	];
+	sh:property [
+		sh:path schema:itemOffered;
+		sh:or (
+			[sh:node :AggregateOffer]
+			[sh:node :Product]
+			[sh:node :CreativeWork]
+			[sh:node :Service]
+			[sh:node :MenuItem]
+			[sh:node :Trip]
+			[sh:node :Event]
+		);
+	];
+	sh:property [
+		sh:path schema:mpn;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:offeredBy;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:price;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:priceCurrency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:priceSpecification;
+		sh:node :ValidSchemaPriceSpecification;
+	];
+	sh:property [
+		sh:path schema:priceValidUntil;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:review;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:reviews;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:seller;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:serialNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:sku;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:validFrom;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:validThrough;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:warranty;
+		sh:node :ValidSchemaWarrantyPromise;
+	].

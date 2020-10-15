@@ -1,0 +1,3 @@
+:ValidSchemaContactPointOption a sh:NodeShape;
+	sh:targetClass schema:ContactPointOption;
+	sh:nodeKind sh:BlankNodeOrIRI.

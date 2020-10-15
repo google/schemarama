@@ -1,0 +1,3 @@
+<#ValidSchemaPerformingArtsTheater> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:PerformingArtsTheater];
+}

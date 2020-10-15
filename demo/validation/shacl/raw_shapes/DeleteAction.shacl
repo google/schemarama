@@ -1,0 +1,3 @@
+:ValidSchemaDeleteAction a sh:NodeShape;
+	sh:targetClass schema:DeleteAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

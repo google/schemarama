@@ -1,0 +1,3 @@
+:ValidSchemaRadioStation a sh:NodeShape;
+	sh:targetClass schema:RadioStation;
+	sh:nodeKind sh:BlankNodeOrIRI.

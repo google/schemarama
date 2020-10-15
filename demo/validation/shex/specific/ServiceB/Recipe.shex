@@ -1,0 +1,110 @@
+<#ValidServiceBRecipe> @<#ValidSchemaRecipe> AND{
+    schema:name .
+    // techdoc:url "https://schema.org/name"
+    // techdoc:description "The name of the dish.";
+
+    schema:image . +
+    // techdoc:url "https://schema.org/image"
+    // techdoc:description "Image of the completed dish.";
+
+    schema:aggregateRating .
+    // techdoc:url "https://schema.org/aggregateRating"
+    // techdoc:description "Annotation for the average review score assigned to the item."
+    // techdoc:identifier "warning";
+
+    schema:author . +
+    // techdoc:url "https://schema.org/author"
+    // techdoc:description "The name of the person or organization that wrote the recipe."
+    // techdoc:identifier "warning";
+
+    schema:cookTime .
+    // techdoc:url "https://schema.org/cookTime"
+    // techdoc:description "The time it takes to actually cook the dish in ISO 8601 format."
+    // techdoc:identifier "warning";
+
+    schema:datePublished .
+    // techdoc:url "https://schema.org/datePublished"
+    // techdoc:description "The date the recipe was published in ISO 8601 format."
+    // techdoc:identifier "warning";
+
+    schema:description .
+    // techdoc:url "https://schema.org/description"
+    // techdoc:description "A short summary describing the dish.."
+    // techdoc:identifier "warning";
+
+    schema:keywords .
+    // techdoc:url "https://schema.org/keywords"
+    // techdoc:description "Other terms for your recipe such as the season, the holiday, or other descriptors."
+    // techdoc:identifier "warning";
+
+    schema:prepTime .
+    // techdoc:url "https://schema.org/prepTime"
+    // techdoc:description "The length of time it takes to prepare the dish, in ISO 8601 format."
+    // techdoc:identifier "warning";
+
+    schema:recipeCategory  .
+    // techdoc:url "https://schema.org/recipeCategoty"
+    // techdoc:description "The type of meal or course your recipe is about."
+    // techdoc:identifier "warning";
+
+    schema:recipeCuisine  .
+    // techdoc:url "https://schema.org/recipeCusine"
+    // techdoc:description "The region associated with your recipe."
+    // techdoc:identifier "warning";
+
+    schema:recipeIngredient . +
+    // techdoc:url "https://schema.org/recipeIngredient"
+    // techdoc:description "An ingredient used in the recipe.."
+    // techdoc:identifier "warning";
+
+    schema:recipeInstructions . +
+    // techdoc:url "https://schema.org/recipeInstructions"
+    // techdoc:description "The steps to make the dish."
+    // techdoc:identifier "warning";
+
+    schema:recipeYield . +
+    // techdoc:url "https://schema.org/recipeYield"
+    // techdoc:description "The quantity produced by the recipe. Specify the number of servings produced from this recipe with just a number."
+    // techdoc:identifier "warning";
+
+    schema:totalTime .
+    // techdoc:url "https://schema.org/totalTime"
+    // techdoc:description "The total time it takes to prepare the cook the dish, in ISO 8601 format."
+    // techdoc:identifier "warning";
+}
+
+<#ValidServiceBProduct1Recipe> @<#ValidServiceBRecipe> AND {
+    schema:image . {4}
+    // techdoc:url "https://schema.org/image"
+    // techdoc:description "Adding proper images will increase something by some%"
+    // techdoc:identifier "info";
+
+    schema:description .
+    // techdoc:url "https://schema.org/description"
+    // techdoc:description "Adding description will increase something by some%"
+    // techdoc:identifier "info";
+}
+
+<#ValidServiceBProduct2Recipe> @<#ValidServiceBRecipe> AND {
+    schema:about .
+    // techdoc:url "https://schema.org/about"
+    // techdoc:description "Adding schema:about will increase something by some%"
+    // techdoc:identifier "info";
+
+    schema:accessMode (@<#ValidSchemaText> AND /auditory|tactile|textual|visual/)
+    // techdoc:url "https://schema.org/accessMode"
+    // techdoc:description "Adding schema:accessMode will increase something by some%"
+    // techdoc:identifier "info";
+}
+
+<#ValidServiceBProduct3Recipe> @<#ValidServiceBRecipe> AND {
+    schema:author @<#ValidSchemaPerson>
+    // techdoc:url "https://schema.org/author"
+    // techdoc:description "Adding schema:author will increase something by some%"
+    // techdoc:identifier "info";
+
+    schema:award (@<#ValidSchemaText> AND /award1|award2/)
+    // techdoc:url "https://schema.org/award"
+    // techdoc:description "Adding schema:award will increase something by some%"
+    // techdoc:identifier "info";
+}

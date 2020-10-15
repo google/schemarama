@@ -1,0 +1,3 @@
+<#ValidSchemaGovernmentOffice> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:PostOffice schema:GovernmentOffice];
+}

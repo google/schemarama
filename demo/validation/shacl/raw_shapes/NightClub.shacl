@@ -1,0 +1,3 @@
+:ValidSchemaNightClub a sh:NodeShape;
+	sh:targetClass schema:NightClub;
+	sh:nodeKind sh:BlankNodeOrIRI.

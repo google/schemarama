@@ -1,0 +1,3 @@
+<#ValidSchemaRoofingContractor> @<#ValidSchemaHomeAndConstructionBusiness> AND EXTRA a {
+	a [schema:RoofingContractor];
+}

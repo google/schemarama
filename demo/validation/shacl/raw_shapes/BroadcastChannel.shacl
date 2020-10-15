@@ -1,0 +1,33 @@
+:ValidSchemaBroadcastChannel a sh:NodeShape;
+	sh:targetClass schema:BroadcastChannel;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:broadcastChannelId;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:broadcastFrequency;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :BroadcastFrequencySpecification]
+		);
+	];
+	sh:property [
+		sh:path schema:broadcastServiceTier;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:genre;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:inBroadcastLineup;
+		sh:node :ValidSchemaCableOrSatelliteService;
+	];
+	sh:property [
+		sh:path schema:providesBroadcastService;
+		sh:node :ValidSchemaBroadcastService;
+	].

@@ -1,0 +1,3 @@
+:ValidSchemaAnswer a sh:NodeShape;
+	sh:targetClass schema:Answer;
+	sh:nodeKind sh:BlankNodeOrIRI.

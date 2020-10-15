@@ -1,0 +1,3 @@
+:ValidSchemaAgreeAction a sh:NodeShape;
+	sh:targetClass schema:AgreeAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

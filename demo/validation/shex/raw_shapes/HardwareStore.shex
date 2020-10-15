@@ -1,0 +1,3 @@
+<#ValidSchemaHardwareStore> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:HardwareStore];
+}

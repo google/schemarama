@@ -1,0 +1,4 @@
+<#ValidSchemaRecommendation>  EXTRA a {
+	a [schema:Recommendation];
+	schema:category (@<#ValidSchemaThing> OR @<#ValidSchemaURL> OR @<#ValidSchemaPhysicalActivityCategory> OR @<#ValidSchemaText>) * ;
+}

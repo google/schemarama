@@ -1,0 +1,3 @@
+<#ValidSchemaPublicSwimmingPool> @<#ValidSchemaSportsActivityLocation> AND EXTRA a {
+	a [schema:PublicSwimmingPool];
+}

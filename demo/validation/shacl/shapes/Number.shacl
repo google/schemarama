@@ -1,0 +1,5 @@
+:ValidSchemaNumber a sh:NodeShape;
+    sh:or (
+        [sh:node :Integer]
+        [sh:datatype xsd:decimal]
+    ).

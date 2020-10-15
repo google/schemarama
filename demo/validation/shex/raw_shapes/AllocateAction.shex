@@ -1,0 +1,3 @@
+<#ValidSchemaAllocateAction> @<#ValidSchemaOrganizeAction> AND EXTRA a {
+	a [schema:AuthorizeAction schema:AssignAction schema:AcceptAction schema:RejectAction schema:AllocateAction];
+}

@@ -1,0 +1,3 @@
+:ValidSchemaItemAvailability a sh:NodeShape;
+	sh:targetClass schema:ItemAvailability;
+	sh:nodeKind sh:BlankNodeOrIRI.

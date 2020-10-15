@@ -1,0 +1,11 @@
+:ValidSchemaMoveAction a sh:NodeShape;
+	sh:targetClass schema:MoveAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:fromLocation;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:toLocation;
+		sh:node :ValidSchemaPlace;
+	].

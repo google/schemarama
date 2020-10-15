@@ -1,0 +1,3 @@
+<#ValidSchemaPhysician> @<#ValidSchemaMedicalOrganization> AND EXTRA a {
+	a [schema:Physician];
+}

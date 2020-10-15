@@ -1,0 +1,10 @@
+:ValidSchemaFinancialService a sh:NodeShape;
+	sh:targetClass schema:FinancialService;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:feesAndCommissionsSpecification;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	].

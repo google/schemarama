@@ -1,0 +1,3 @@
+<#ValidSchemaAutomotiveBusiness> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:AutoPartsStore schema:AutoRepair schema:AutoBodyShop schema:AutoDealer schema:AutoWash schema:MotorcycleDealer schema:GasStation schema:AutoRental schema:MotorcycleRepair schema:AutomotiveBusiness];
+}

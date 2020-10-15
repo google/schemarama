@@ -1,0 +1,3 @@
+:ValidSchemaGovernmentBuilding a sh:NodeShape;
+	sh:targetClass schema:GovernmentBuilding;
+	sh:nodeKind sh:BlankNodeOrIRI.

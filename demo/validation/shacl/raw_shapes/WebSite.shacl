@@ -1,0 +1,7 @@
+:ValidSchemaWebSite a sh:NodeShape;
+	sh:targetClass schema:WebSite;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:issn;
+		sh:node :ValidSchemaText;
+	].

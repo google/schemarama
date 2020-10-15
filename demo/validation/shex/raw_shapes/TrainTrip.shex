@@ -1,0 +1,9 @@
+<#ValidSchemaTrainTrip> @<#ValidSchemaTrip> AND EXTRA a {
+	a [schema:TrainTrip];
+	schema:arrivalPlatform @<#ValidSchemaText> * ;
+	schema:arrivalStation @<#ValidSchemaTrainStation> * ;
+	schema:departurePlatform @<#ValidSchemaText> * ;
+	schema:departureStation @<#ValidSchemaTrainStation> * ;
+	schema:trainName @<#ValidSchemaText> * ;
+	schema:trainNumber @<#ValidSchemaText> * ;
+}

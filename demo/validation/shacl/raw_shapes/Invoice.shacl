@@ -1,0 +1,93 @@
+:ValidSchemaInvoice a sh:NodeShape;
+	sh:targetClass schema:Invoice;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:accountId;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:billingPeriod;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:broker;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:confirmationNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:customer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:minimumPaymentDue;
+		sh:or (
+			[sh:node :PriceSpecification]
+			[sh:node :MonetaryAmount]
+		);
+	];
+	sh:property [
+		sh:path schema:paymentDue;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:paymentDueDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:paymentMethod;
+		sh:node :ValidSchemaPaymentMethod;
+	];
+	sh:property [
+		sh:path schema:paymentMethodId;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:paymentStatus;
+		sh:or (
+			[sh:node :PaymentStatusType]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:provider;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:referencesOrder;
+		sh:node :ValidSchemaOrder;
+	];
+	sh:property [
+		sh:path schema:scheduledPaymentDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:totalPaymentDue;
+		sh:or (
+			[sh:node :PriceSpecification]
+			[sh:node :MonetaryAmount]
+		);
+	].

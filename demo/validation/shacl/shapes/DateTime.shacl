@@ -1,0 +1,8 @@
+:ValidSchemaDateTime a sh:NodeShape;
+    sh:or(
+        [
+            sh:nodeKind sh:Literal;
+            sh:pattern ".*"
+        ]
+        [sh:datatype xsd:dateTime]
+    ).

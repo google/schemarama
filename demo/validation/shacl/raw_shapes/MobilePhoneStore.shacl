@@ -1,0 +1,3 @@
+:ValidSchemaMobilePhoneStore a sh:NodeShape;
+	sh:targetClass schema:MobilePhoneStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

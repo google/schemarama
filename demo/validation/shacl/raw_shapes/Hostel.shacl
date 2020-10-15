@@ -1,0 +1,3 @@
+:ValidSchemaHostel a sh:NodeShape;
+	sh:targetClass schema:Hostel;
+	sh:nodeKind sh:BlankNodeOrIRI.

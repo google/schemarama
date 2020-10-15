@@ -1,0 +1,25 @@
+:ValidSchemaOwnershipInfo a sh:NodeShape;
+	sh:targetClass schema:OwnershipInfo;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:acquiredFrom;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:ownedFrom;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:ownedThrough;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:typeOfGood;
+		sh:or (
+			[sh:node :Service]
+			[sh:node :Product]
+		);
+	].

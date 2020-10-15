@@ -1,0 +1,3 @@
+:ValidSchemaQAPage a sh:NodeShape;
+	sh:targetClass schema:QAPage;
+	sh:nodeKind sh:BlankNodeOrIRI.

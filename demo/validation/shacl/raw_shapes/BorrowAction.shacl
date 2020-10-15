@@ -1,0 +1,10 @@
+:ValidSchemaBorrowAction a sh:NodeShape;
+	sh:targetClass schema:BorrowAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:lender;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	].

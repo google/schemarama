@@ -1,0 +1,3 @@
+:ValidSchemaDislikeAction a sh:NodeShape;
+	sh:targetClass schema:DislikeAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

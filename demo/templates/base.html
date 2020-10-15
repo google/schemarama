@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schema.org Content Checker  (work-in-progress)</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/libs/jquery.min.js') }}"></script>
+{% block scripts %}
+{% endblock %}
+</body>
+</html>

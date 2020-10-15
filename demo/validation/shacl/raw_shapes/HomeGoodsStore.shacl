@@ -1,0 +1,3 @@
+:ValidSchemaHomeGoodsStore a sh:NodeShape;
+	sh:targetClass schema:HomeGoodsStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,64 @@
+:ValidSchemaAction a sh:NodeShape;
+	sh:targetClass schema:Action;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actionStatus;
+		sh:node :ValidSchemaActionStatusType;
+	];
+	sh:property [
+		sh:path schema:agent;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:endTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:error;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:instrument;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:location;
+		sh:or (
+			[sh:node :VirtualLocation]
+			[sh:node :Place]
+			[sh:node :Text]
+			[sh:node :PostalAddress]
+		);
+	];
+	sh:property [
+		sh:path schema:object;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:participant;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:result;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:startTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:target;
+		sh:node :ValidSchemaEntryPoint;
+	].

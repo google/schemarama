@@ -1,0 +1,3 @@
+:ValidSchemaHealthAndBeautyBusiness a sh:NodeShape;
+	sh:targetClass schema:HealthAndBeautyBusiness;
+	sh:nodeKind sh:BlankNodeOrIRI.

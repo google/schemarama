@@ -1,0 +1,11 @@
+:ValidSchemaHowToItem a sh:NodeShape;
+	sh:targetClass schema:HowToItem;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:requiredQuantity;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	].

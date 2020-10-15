@@ -1,0 +1,3 @@
+<#ValidSchemaStructuredValue> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:DeliveryChargeSpecification schema:CompoundPriceSpecification schema:GeoCircle schema:DatedMoneySpecification schema:MonetaryAmount schema:MonetaryAmountDistribution schema:OwnershipInfo schema:UnitPriceSpecification schema:GeoCoordinates schema:TypeAndQuantityNode schema:QuantitativeValueDistribution schema:WarrantyPromise schema:ContactPoint schema:PaymentChargeSpecification schema:OpeningHoursSpecification schema:InteractionCounter schema:NutritionInformation schema:LocationFeatureSpecification schema:EngineSpecification schema:GeoShape schema:PropertyValue schema:PriceSpecification schema:PostalAddress schema:QuantitativeValue schema:StructuredValue];
+}

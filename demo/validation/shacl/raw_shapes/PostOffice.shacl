@@ -1,0 +1,3 @@
+:ValidSchemaPostOffice a sh:NodeShape;
+	sh:targetClass schema:PostOffice;
+	sh:nodeKind sh:BlankNodeOrIRI.

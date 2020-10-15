@@ -1,0 +1,3 @@
+:ValidSchemaHospital a sh:NodeShape;
+	sh:targetClass schema:Hospital;
+	sh:nodeKind sh:BlankNodeOrIRI.

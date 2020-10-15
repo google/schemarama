@@ -1,0 +1,15 @@
+:ValidSchemaProductModel a sh:NodeShape;
+	sh:targetClass schema:ProductModel;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:isVariantOf;
+		sh:node :ValidSchemaProductModel;
+	];
+	sh:property [
+		sh:path schema:predecessorOf;
+		sh:node :ValidSchemaProductModel;
+	];
+	sh:property [
+		sh:path schema:successorOf;
+		sh:node :ValidSchemaProductModel;
+	].

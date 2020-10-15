@@ -1,0 +1,3 @@
+:ValidSchemaMarryAction a sh:NodeShape;
+	sh:targetClass schema:MarryAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

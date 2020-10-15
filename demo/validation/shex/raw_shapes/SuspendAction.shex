@@ -1,0 +1,3 @@
+<#ValidSchemaSuspendAction> @<#ValidSchemaControlAction> AND EXTRA a {
+	a [schema:SuspendAction];
+}

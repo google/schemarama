@@ -1,0 +1,3 @@
+:ValidSchemaIceCreamShop a sh:NodeShape;
+	sh:targetClass schema:IceCreamShop;
+	sh:nodeKind sh:BlankNodeOrIRI.

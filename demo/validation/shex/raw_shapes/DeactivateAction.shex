@@ -1,0 +1,3 @@
+<#ValidSchemaDeactivateAction> @<#ValidSchemaControlAction> AND EXTRA a {
+	a [schema:DeactivateAction];
+}

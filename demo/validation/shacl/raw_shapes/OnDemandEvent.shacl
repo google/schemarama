@@ -1,0 +1,3 @@
+:ValidSchemaOnDemandEvent a sh:NodeShape;
+	sh:targetClass schema:OnDemandEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

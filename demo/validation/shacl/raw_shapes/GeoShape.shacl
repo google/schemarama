@@ -1,0 +1,44 @@
+:ValidSchemaGeoShape a sh:NodeShape;
+	sh:targetClass schema:GeoShape;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:address;
+		sh:or (
+			[sh:node :PostalAddress]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:addressCountry;
+		sh:or (
+			[sh:node :Country]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:box;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:circle;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:elevation;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:line;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:polygon;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:postalCode;
+		sh:node :ValidSchemaText;
+	].

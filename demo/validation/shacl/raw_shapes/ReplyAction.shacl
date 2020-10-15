@@ -1,0 +1,7 @@
+:ValidSchemaReplyAction a sh:NodeShape;
+	sh:targetClass schema:ReplyAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:resultComment;
+		sh:node :ValidSchemaComment;
+	].

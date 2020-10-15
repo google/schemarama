@@ -1,0 +1,7 @@
+:ValidSchemaPlanAction a sh:NodeShape;
+	sh:targetClass schema:PlanAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:scheduledTime;
+		sh:node :ValidSchemaDateTime;
+	].

@@ -1,0 +1,31 @@
+:ValidSchemaTrip a sh:NodeShape;
+	sh:targetClass schema:Trip;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:arrivalTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:departureTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:provider;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	].

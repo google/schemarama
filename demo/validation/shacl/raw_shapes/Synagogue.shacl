@@ -1,0 +1,3 @@
+:ValidSchemaSynagogue a sh:NodeShape;
+	sh:targetClass schema:Synagogue;
+	sh:nodeKind sh:BlankNodeOrIRI.

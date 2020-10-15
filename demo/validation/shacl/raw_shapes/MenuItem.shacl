@@ -1,0 +1,25 @@
+:ValidSchemaMenuItem a sh:NodeShape;
+	sh:targetClass schema:MenuItem;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:menuAddOn;
+		sh:or (
+			[sh:node :MenuItem]
+			[sh:node :MenuSection]
+		);
+	];
+	sh:property [
+		sh:path schema:nutrition;
+		sh:node :ValidSchemaNutritionInformation;
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:suitableForDiet;
+		sh:node :ValidSchemaRestrictedDiet;
+	].

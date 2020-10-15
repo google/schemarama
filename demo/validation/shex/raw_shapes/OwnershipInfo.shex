@@ -1,0 +1,7 @@
+<#ValidSchemaOwnershipInfo> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:OwnershipInfo];
+	schema:acquiredFrom (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:ownedFrom @<#ValidSchemaDateTime> * ;
+	schema:ownedThrough @<#ValidSchemaDateTime> * ;
+	schema:typeOfGood (@<#ValidSchemaService> OR @<#ValidSchemaProduct>) * ;
+}

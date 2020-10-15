@@ -1,0 +1,3 @@
+:ValidSchemaSpecialty a sh:NodeShape;
+	sh:targetClass schema:Specialty;
+	sh:nodeKind sh:BlankNodeOrIRI.

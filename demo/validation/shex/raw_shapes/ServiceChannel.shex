@@ -1,0 +1,11 @@
+<#ValidSchemaServiceChannel> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:ServiceChannel];
+	schema:availableLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
+	schema:processingTime @<#ValidSchemaDuration> * ;
+	schema:providesService @<#ValidSchemaService> * ;
+	schema:serviceLocation @<#ValidSchemaPlace> * ;
+	schema:servicePhone @<#ValidSchemaContactPoint> * ;
+	schema:servicePostalAddress @<#ValidSchemaPostalAddress> * ;
+	schema:serviceSmsNumber @<#ValidSchemaContactPoint> * ;
+	schema:serviceUrl @<#ValidSchemaURL> * ;
+}

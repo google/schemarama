@@ -1,0 +1,5 @@
+<#ValidSchemaWriteAction> @<#ValidSchemaCreateAction> AND EXTRA a {
+	a [schema:WriteAction];
+	schema:inLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
+	schema:language @<#ValidSchemaLanguage> * ;
+}

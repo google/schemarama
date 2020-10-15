@@ -1,0 +1,3 @@
+:ValidSchemaBusReservation a sh:NodeShape;
+	sh:targetClass schema:BusReservation;
+	sh:nodeKind sh:BlankNodeOrIRI.

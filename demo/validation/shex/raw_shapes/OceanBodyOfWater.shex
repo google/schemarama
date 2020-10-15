@@ -1,0 +1,3 @@
+<#ValidSchemaOceanBodyOfWater> @<#ValidSchemaBodyOfWater> AND EXTRA a {
+	a [schema:OceanBodyOfWater];
+}

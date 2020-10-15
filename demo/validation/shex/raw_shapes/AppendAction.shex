@@ -1,0 +1,3 @@
+<#ValidSchemaAppendAction> @<#ValidSchemaInsertAction> AND EXTRA a {
+	a [schema:AppendAction];
+}

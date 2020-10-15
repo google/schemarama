@@ -1,0 +1,51 @@
+:ValidServiceCRecipe a sh:NodeShape;
+    sh:targetClass schema:Recipe;
+    sh:property [
+        sh:path schema:name;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/name";
+        schema:description "The name of the recipe. This title may be truncated, depending on length. All formatting and HTML tags will be removed.";
+    ];
+    sh:property [
+        sh:path schema:ingredients;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/ingredients";
+        schema:description "The ingredients used in the recipe. Annotate each individual ingredient separately.";
+    ];
+    sh:property [
+        sh:path schema:url;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/url";
+        schema:description "The canonical URL for the page.";
+    ];
+    sh:property [
+        sh:path schema:image;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/image";
+        schema:description "The URL for a high-resolution image of the recipe. You can add up to 6 images..";
+    ];
+    sh:property [
+        sh:path schema:totalTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/totalTime";
+        schema:description "The total time it takes to cook and prepare the recipe.";
+    ];
+    sh:property [
+        sh:path schema:recipeYield;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeYield";
+        schema:description "The quantity or servings made by this recipe";
+    ];
+    sh:property [
+        sh:path schema:aggregateRating;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/aggregateRating";
+        schema:description "The overall rating, based on a collection of reviews or ratings, of the item.";
+    ].

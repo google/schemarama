@@ -1,0 +1,12 @@
+<#ValidSchemaHowTo> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:Recipe schema:HowTo];
+	schema:estimatedCost (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaText>) *;
+	schema:performTime @<#ValidSchemaDuration> *;
+	schema:prepTime @<#ValidSchemaDuration> *;
+	schema:step (@<#ValidSchemaHowToStep> OR @<#ValidSchemaText> OR @<#ValidSchemaCreativeWork> OR @<#ValidSchemaHowToSection>) *;
+	schema:steps (@<#ValidSchemaCreativeWork> OR @<#ValidSchemaItemList> OR @<#ValidSchemaText>) *;
+	schema:supply (@<#ValidSchemaHowToSupply> OR @<#ValidSchemaText>) *;
+	schema:tool (@<#ValidSchemaHowToTool> OR @<#ValidSchemaText>) *;
+	schema:totalTime @<#ValidSchemaDuration> *;
+	schema:yield (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaText>) *;
+}

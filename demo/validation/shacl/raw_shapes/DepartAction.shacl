@@ -1,0 +1,3 @@
+:ValidSchemaDepartAction a sh:NodeShape;
+	sh:targetClass schema:DepartAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

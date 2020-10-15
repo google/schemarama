@@ -1,0 +1,22 @@
+:ValidSchemaSuite a sh:NodeShape;
+	sh:targetClass schema:Suite;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:bed;
+		sh:or (
+			[sh:node :BedDetails]
+			[sh:node :Text]
+			[sh:node :BedType]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfRooms;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:occupancy;
+		sh:node :ValidSchemaQuantitativeValue;
+	].

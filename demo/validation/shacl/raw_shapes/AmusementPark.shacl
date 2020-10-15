@@ -1,0 +1,3 @@
+:ValidSchemaAmusementPark a sh:NodeShape;
+	sh:targetClass schema:AmusementPark;
+	sh:nodeKind sh:BlankNodeOrIRI.

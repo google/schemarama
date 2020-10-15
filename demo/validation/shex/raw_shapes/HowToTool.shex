@@ -1,0 +1,3 @@
+<#ValidSchemaHowToTool> @<#ValidSchemaHowToItem> AND EXTRA a {
+	a [schema:HowToTool];
+}

@@ -1,0 +1,29 @@
+:ValidSchemaProgramMembership a sh:NodeShape;
+	sh:targetClass schema:ProgramMembership;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:hostingOrganization;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:member;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:members;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:membershipNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:programName;
+		sh:node :ValidSchemaText;
+	].

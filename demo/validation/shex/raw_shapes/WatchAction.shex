@@ -1,0 +1,3 @@
+<#ValidSchemaWatchAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
+	a [schema:WatchAction];
+}

@@ -1,0 +1,5 @@
+<#ValidSchemaEmployeeRole> @<#ValidSchemaOrganizationRole> AND EXTRA a {
+	a [schema:EmployeeRole];
+	schema:baseSalary (@<#ValidSchemaPriceSpecification> OR @<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
+	schema:salaryCurrency @<#ValidSchemaText> * ;
+}

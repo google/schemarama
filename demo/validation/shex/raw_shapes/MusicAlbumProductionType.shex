@@ -1,0 +1,3 @@
+<#ValidSchemaMusicAlbumProductionType> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:MusicAlbumProductionType];
+}

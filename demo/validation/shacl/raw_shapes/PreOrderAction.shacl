@@ -1,0 +1,3 @@
+:ValidSchemaPreOrderAction a sh:NodeShape;
+	sh:targetClass schema:PreOrderAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

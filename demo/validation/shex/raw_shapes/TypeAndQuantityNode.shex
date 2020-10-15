@@ -1,0 +1,8 @@
+<#ValidSchemaTypeAndQuantityNode> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:TypeAndQuantityNode];
+	schema:amountOfThisGood @<#ValidSchemaNumber> * ;
+	schema:businessFunction @<#ValidSchemaBusinessFunction> * ;
+	schema:typeOfGood (@<#ValidSchemaService> OR @<#ValidSchemaProduct>) * ;
+	schema:unitCode (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
+	schema:unitText @<#ValidSchemaText> * ;
+}

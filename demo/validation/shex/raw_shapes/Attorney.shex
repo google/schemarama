@@ -1,0 +1,3 @@
+<#ValidSchemaAttorney> @<#ValidSchemaLegalService> AND EXTRA a {
+	a [schema:Attorney];
+}

@@ -1,0 +1,21 @@
+:ValidSchemaCreativeWorkSeries a sh:NodeShape;
+	sh:targetClass schema:CreativeWorkSeries;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:endDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:issn;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:startDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	].

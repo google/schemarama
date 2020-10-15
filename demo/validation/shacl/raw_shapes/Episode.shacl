@@ -1,0 +1,49 @@
+:ValidSchemaEpisode a sh:NodeShape;
+	sh:targetClass schema:Episode;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actor;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:actors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:director;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:directors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:episodeNumber;
+		sh:or (
+			[sh:node :Integer]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:musicBy;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :MusicGroup]
+		);
+	];
+	sh:property [
+		sh:path schema:partOfSeason;
+		sh:node :ValidSchemaCreativeWorkSeason;
+	];
+	sh:property [
+		sh:path schema:partOfSeries;
+		sh:node :ValidSchemaCreativeWorkSeries;
+	];
+	sh:property [
+		sh:path schema:productionCompany;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:trailer;
+		sh:node :ValidSchemaVideoObject;
+	].

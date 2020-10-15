@@ -1,0 +1,3 @@
+:ValidSchemaLanguage a sh:NodeShape;
+	sh:targetClass schema:Language;
+	sh:nodeKind sh:BlankNodeOrIRI.

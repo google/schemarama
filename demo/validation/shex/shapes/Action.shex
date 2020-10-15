@@ -1,0 +1,14 @@
+<#ValidSchemaAction> @<#ValidSchemaThing> AND EXTRA a {
+	a [schema:PerformAction schema:SearchAction schema:LikeAction schema:EatAction schema:RsvpAction schema:ResumeAction schema:DrinkAction schema:CancelAction schema:DepartAction schema:CheckInAction schema:DownloadAction schema:ReceiveAction schema:WinAction schema:WatchAction schema:TakeAction schema:DrawAction schema:GiveAction schema:WantAction schema:InteractAction schema:AssessAction schema:CheckOutAction schema:QuoteAction schema:FindAction schema:ReadAction schema:IgnoreAction schema:PreOrderAction schema:LendAction schema:ApplyAction schema:TransferAction schema:EndorseAction schema:UpdateAction schema:ListenAction schema:DeleteAction schema:SellAction schema:OrderAction schema:MarryAction schema:RejectAction schema:SendAction schema:LeaveAction schema:TradeAction schema:ControlAction schema:CheckAction schema:ShareAction schema:DisagreeAction schema:CommentAction schema:RegisterAction schema:ArriveAction schema:UnRegisterAction schema:ReactAction schema:ReserveAction schema:BefriendAction schema:BookmarkAction schema:InsertAction schema:LoseAction schema:DeactivateAction schema:InviteAction schema:ConfirmAction schema:SuspendAction schema:DiscoverAction schema:AskAction schema:DonateAction schema:ScheduleAction schema:ExerciseAction schema:OrganizeAction schema:TrackAction schema:ReplaceAction schema:AppendAction schema:ReviewAction schema:VoteAction schema:UseAction schema:ActivateAction schema:BorrowAction schema:AchieveAction schema:PaintAction schema:FilmAction schema:ChooseAction schema:SubscribeAction schema:AcceptAction schema:CookAction schema:AuthorizeAction schema:TieAction schema:TravelAction schema:DislikeAction schema:PayAction schema:PhotographAction schema:PlayAction schema:BuyAction schema:RentAction schema:TipAction schema:AllocateAction schema:CommunicateAction schema:PlanAction schema:AssignAction schema:InformAction schema:ConsumeAction schema:ReturnAction schema:AgreeAction schema:FollowAction schema:JoinAction schema:WearAction schema:ReplyAction schema:PrependAction schema:MoveAction schema:InstallAction schema:AddAction schema:CreateAction schema:ViewAction schema:WriteAction schema:Action];
+	schema:actionStatus @<#ValidSchemaActionStatusType> *;
+	schema:agent (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) *;
+	schema:endTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) *;
+	schema:error @<#ValidSchemaThing> *;
+	schema:instrument @<#ValidSchemaThing> *;
+	schema:location (@<#ValidSchemaVirtualLocation> OR @<#ValidSchemaPlace> OR @<#ValidSchemaText> OR @<#ValidSchemaPostalAddress>) *;
+	schema:object @<#ValidSchemaThing> *;
+	schema:participant (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) *;
+	schema:result @<#ValidSchemaThing> *;
+	schema:startTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) *;
+	schema:target @<#ValidSchemaEntryPoint> *;
+}

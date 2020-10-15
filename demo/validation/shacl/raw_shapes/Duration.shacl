@@ -1,0 +1,3 @@
+:ValidSchemaDuration a sh:NodeShape;
+	sh:targetClass schema:Duration;
+	sh:nodeKind sh:BlankNodeOrIRI.

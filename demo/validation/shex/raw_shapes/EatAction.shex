@@ -1,0 +1,3 @@
+<#ValidSchemaEatAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
+	a [schema:EatAction];
+}

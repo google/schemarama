@@ -1,0 +1,133 @@
+:ValidSchemaService a sh:NodeShape;
+	sh:targetClass schema:Service;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:aggregateRating;
+		sh:node :ValidSchemaAggregateRating;
+	];
+	sh:property [
+		sh:path schema:areaServed;
+		sh:or (
+			[sh:node :AdministrativeArea]
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:audience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:availableChannel;
+		sh:node :ValidSchemaServiceChannel;
+	];
+	sh:property [
+		sh:path schema:award;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:brand;
+		sh:or (
+			[sh:node :Brand]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:broker;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:hasOfferCatalog;
+		sh:node :ValidSchemaOfferCatalog;
+	];
+	sh:property [
+		sh:path schema:hoursAvailable;
+		sh:node :ValidSchemaOpeningHoursSpecification;
+	];
+	sh:property [
+		sh:path schema:isRelatedTo;
+		sh:or (
+			[sh:node :Product]
+			[sh:node :Service]
+		);
+	];
+	sh:property [
+		sh:path schema:isSimilarTo;
+		sh:or (
+			[sh:node :Service]
+			[sh:node :Product]
+		);
+	];
+	sh:property [
+		sh:path schema:logo;
+		sh:or (
+			[sh:node :ImageObject]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:produces;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:provider;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:providerMobility;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:review;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:serviceArea;
+		sh:or (
+			[sh:node :Place]
+			[sh:node :GeoShape]
+			[sh:node :AdministrativeArea]
+		);
+	];
+	sh:property [
+		sh:path schema:serviceAudience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:serviceOutput;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:serviceType;
+		sh:or (
+			[sh:node :GovernmentBenefitsType]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:slogan;
+		sh:node :ValidSchemaText;
+	].

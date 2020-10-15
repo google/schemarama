@@ -1,0 +1,38 @@
+:ValidSchemaServiceChannel a sh:NodeShape;
+	sh:targetClass schema:ServiceChannel;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:availableLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:processingTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:providesService;
+		sh:node :ValidSchemaService;
+	];
+	sh:property [
+		sh:path schema:serviceLocation;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:servicePhone;
+		sh:node :ValidSchemaContactPoint;
+	];
+	sh:property [
+		sh:path schema:servicePostalAddress;
+		sh:node :ValidSchemaPostalAddress;
+	];
+	sh:property [
+		sh:path schema:serviceSmsNumber;
+		sh:node :ValidSchemaContactPoint;
+	];
+	sh:property [
+		sh:path schema:serviceUrl;
+		sh:node :ValidSchemaURL;
+	].

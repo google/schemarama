@@ -1,0 +1,282 @@
+/*
+ * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body, html {
+    height: 100%;
+    padding: 0;
+    font: 14px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.header {
+    height: 60px;
+    background: #1984ad;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+}
+
+.header div {
+    display: flex;
+    justify-content: right;
+    margin: auto 0;
+    margin-left: 10px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.header a:hover {
+    color: #fafafa;
+    text-decoration: none;
+}
+
+.header .title {
+    font-size: 24px;
+    line-height: 60px;
+}
+
+.content {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.block {
+    width: 50%;
+    height: 100%;
+}
+
+.output-block {
+    overflow: auto;
+    background: #fafafa;
+}
+
+#input-text {
+    width: 100%;
+    height: 100%;
+}
+
+#validate-btn {
+    position: absolute;
+    left: calc(50vw - 28px);
+    top: calc(50vh - 60px);
+    height: 56px;
+    width: 56px;
+    padding: 13px;
+    background: #1984ad;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#validate-btn.disabled {
+    background: rgb(158, 158, 158);
+}
+
+#validate-btn > img {
+    height: 30px;
+    display: flex;
+    flex-flow: row;
+}
+
+.report {
+    margin: 20px;
+    background: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.report > div {
+    border-bottom: 1px solid lightgrey;
+}
+
+.report > .title {
+    display: flex;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.report > .title > div {
+    width: 33%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.report > .errors {
+    border-bottom: none;
+}
+
+.data-item {
+    display: flex;
+    width: 100%;
+    border-bottom: lightgrey 0.3px solid;
+    padding: 5px 10px;
+}
+
+.data-item > .info {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+
+}
+
+.data-item > .info > .predicate {
+    font-weight: bold;
+    display: flex;
+}
+
+.data-item > .info > .object {
+    width: 60%;
+    word-break: break-all;
+}
+
+.failure {
+    border-bottom: lightgrey 0.3px solid;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.error {
+    color: #F44336;
+}
+
+.warning {
+    color: #EF6C00;
+}
+
+.recommendation {
+    color: #7e7f84;
+}
+
+.failure > .message {
+    width: 40%;
+    margin: 0 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.failure > .property {
+    font-weight: bold;
+    margin: auto 10px;
+    width: 25%;
+    display: flex;
+}
+
+.failure > .property > div {
+    margin: auto 0;
+}
+
+.failure > .property img {
+    height: 18px;
+    width: 18px;
+    margin-right: 4px;
+}
+
+.failure > .services {
+    width: 120px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.service-icon {
+    height: 24px;
+    max-width: 100px;
+    margin: auto 0.5px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.services a:hover {
+    text-decoration: none;
+}
+
+.service-icon {
+    height: 24px;
+    max-width: 100px;
+}
+
+.hierarchy {
+    background: white;
+    padding: 3px 0;
+    margin: 20px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.hierarchy .title {
+    padding: 5px 10px;
+    font-size: 18px;
+    border-bottom: 1px solid lightgrey;
+    font-weight: bold;
+}
+
+.h-item {
+    display: flex;
+    margin: 5px 10px;
+}
+
+.h-item * {
+    margin: auto 5px;
+
+}
+
+.h-item input[type='checkbox'] {
+    height: 15px;
+    width: 15px;
+}
+
+.tests-display {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    background: rgba(25, 132, 173, 0.7);
+    cursor: pointer;
+    border: 1px solid rgba(25, 132, 173, 0.9);
+}
+
+#show-tests-btn {
+    font-weight: bold;
+    padding: 4px 8px;
+}
+
+#show-tests-btn:hover {
+    background: rgba(25, 132, 173, 0.9);
+}
+
+.test {
+    text-align: center;
+    padding: 3px;
+}
+
+.test:hover {
+    background: rgba(25, 132, 173, 0.9);
+}

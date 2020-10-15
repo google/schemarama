@@ -1,0 +1,26 @@
+:ValidSchemaUnitPriceSpecification a sh:NodeShape;
+	sh:targetClass schema:UnitPriceSpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:billingIncrement;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:priceType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:referenceQuantity;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:unitCode;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:unitText;
+		sh:node :ValidSchemaText;
+	].

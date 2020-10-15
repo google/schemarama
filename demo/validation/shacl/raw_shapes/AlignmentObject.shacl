@@ -1,0 +1,23 @@
+:ValidSchemaAlignmentObject a sh:NodeShape;
+	sh:targetClass schema:AlignmentObject;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:alignmentType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:educationalFramework;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:targetDescription;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:targetName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:targetUrl;
+		sh:node :ValidSchemaURL;
+	].

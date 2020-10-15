@@ -1,0 +1,3 @@
+<#ValidSchemaVideoGallery> @<#ValidSchemaMediaGallery> AND EXTRA a {
+	a [schema:VideoGallery];
+}

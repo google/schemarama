@@ -1,0 +1,10 @@
+<#ValidSchemaPropertyValue> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:LocationFeatureSpecification schema:PropertyValue];
+	schema:maxValue @<#ValidSchemaNumber> *;
+	schema:minValue @<#ValidSchemaNumber> *;
+	schema:propertyID (@<#ValidSchemaText> OR @<#ValidSchemaURL>) *;
+	schema:unitCode (@<#ValidSchemaURL> OR @<#ValidSchemaText>) *;
+	schema:unitText @<#ValidSchemaText> *;
+	schema:value (@<#ValidSchemaBoolean> OR @<#ValidSchemaStructuredValue> OR @<#ValidSchemaNumber> OR @<#ValidSchemaText>) *;
+	schema:valueReference (@<#ValidSchemaPropertyValue> OR @<#ValidSchemaStructuredValue> OR @<#ValidSchemaQualitativeValue> OR @<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaEnumeration>) *;
+}

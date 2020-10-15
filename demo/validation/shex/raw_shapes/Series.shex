@@ -1,0 +1,3 @@
+<#ValidSchemaSeries> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Periodical schema:CreativeWorkSeries schema:TVSeries schema:VideoGameSeries schema:RadioSeries schema:MovieSeries schema:BookSeries schema:Series];
+}

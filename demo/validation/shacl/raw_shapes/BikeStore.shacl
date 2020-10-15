@@ -1,0 +1,3 @@
+:ValidSchemaBikeStore a sh:NodeShape;
+	sh:targetClass schema:BikeStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

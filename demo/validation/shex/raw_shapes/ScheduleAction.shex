@@ -1,0 +1,3 @@
+<#ValidSchemaScheduleAction> @<#ValidSchemaPlanAction> AND EXTRA a {
+	a [schema:ScheduleAction];
+}

@@ -1,0 +1,11 @@
+:ValidSchemaDataFeed a sh:NodeShape;
+	sh:targetClass schema:DataFeed;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:dataFeedElement;
+		sh:or (
+			[sh:node :DataFeedItem]
+			[sh:node :Thing]
+			[sh:node :Text]
+		);
+	].

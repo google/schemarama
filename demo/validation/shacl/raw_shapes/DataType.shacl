@@ -1,0 +1,3 @@
+:ValidSchemaDataType a sh:NodeShape;
+	sh:targetClass schema:DataType;
+	sh:nodeKind sh:BlankNodeOrIRI.

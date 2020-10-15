@@ -1,0 +1,5 @@
+<#ValidSchemaTVEpisode> @<#ValidSchemaEpisode> AND EXTRA a {
+	a [schema:TVEpisode];
+	schema:countryOfOrigin @<#ValidSchemaCountry> * ;
+	schema:partOfTVSeries @<#ValidSchemaTVSeries> * ;
+}

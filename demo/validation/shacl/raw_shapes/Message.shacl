@@ -1,0 +1,64 @@
+:ValidSchemaMessage a sh:NodeShape;
+	sh:targetClass schema:Message;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:bccRecipient;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:ccRecipient;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:dateRead;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:dateReceived;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:dateSent;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:messageAttachment;
+		sh:node :ValidSchemaCreativeWork;
+	];
+	sh:property [
+		sh:path schema:recipient;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Audience]
+			[sh:node :ContactPoint]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:sender;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Audience]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:toRecipient;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Organization]
+			[sh:node :Person]
+			[sh:node :Audience]
+		);
+	].

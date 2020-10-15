@@ -1,0 +1,24 @@
+:ValidSchemaFinancialProduct a sh:NodeShape;
+	sh:targetClass schema:FinancialProduct;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:annualPercentageRate;
+		sh:or (
+			[sh:node :Number]
+			[sh:node :QuantitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:feesAndCommissionsSpecification;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:interestRate;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	].

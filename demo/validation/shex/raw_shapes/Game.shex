@@ -1,0 +1,8 @@
+<#ValidSchemaGame> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:VideoGame schema:Game];
+	schema:characterAttribute @<#ValidSchemaThing> * ;
+	schema:gameItem @<#ValidSchemaThing> * ;
+	schema:gameLocation (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaPlace> OR @<#ValidSchemaURL>) * ;
+	schema:numberOfPlayers @<#ValidSchemaQuantitativeValue> * ;
+	schema:quest @<#ValidSchemaThing> * ;
+}

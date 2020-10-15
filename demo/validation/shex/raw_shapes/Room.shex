@@ -1,0 +1,3 @@
+<#ValidSchemaRoom> @<#ValidSchemaAccommodation> AND EXTRA a {
+	a [schema:HotelRoom schema:MeetingRoom schema:Room];
+}

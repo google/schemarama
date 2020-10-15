@@ -1,0 +1,3 @@
+<#ValidSchemaGasStation> @<#ValidSchemaAutomotiveBusiness> AND EXTRA a {
+	a [schema:GasStation];
+}

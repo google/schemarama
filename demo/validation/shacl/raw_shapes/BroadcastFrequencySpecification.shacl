@@ -1,0 +1,10 @@
+:ValidSchemaBroadcastFrequencySpecification a sh:NodeShape;
+	sh:targetClass schema:BroadcastFrequencySpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:broadcastFrequencyValue;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	].

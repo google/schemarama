@@ -1,0 +1,3 @@
+<#ValidSchemaJewelryStore> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:JewelryStore];
+}

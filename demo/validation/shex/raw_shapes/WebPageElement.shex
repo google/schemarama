@@ -1,0 +1,5 @@
+<#ValidSchemaWebPageElement> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:WPFooter schema:WPSideBar schema:Table schema:WPAdBlock schema:WPHeader schema:SiteNavigationElement schema:WebPageElement];
+	schema:cssSelector @<#ValidSchemaCssSelectorType> * ;
+	schema:xpath @<#ValidSchemaXPathType> * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaClothingStore a sh:NodeShape;
+	sh:targetClass schema:ClothingStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

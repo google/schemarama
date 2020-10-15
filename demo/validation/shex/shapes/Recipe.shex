@@ -1,0 +1,14 @@
+<#ValidSchemaRecipe> @<#ValidSchemaHowTo> AND EXTRA a {
+	a [schema:Recipe];
+	schema:cookTime  @<#ValidSchemaDuration> *;
+	schema:cookingMethod  @<#ValidSchemaText> *;
+	schema:ingredients  @<#ValidSchemaText> *;
+	schema:nutrition  @<#ValidSchemaNutritionInformation> *;
+	schema:recipeCategory  @<#ValidSchemaText> *;
+	schema:recipeCuisine  @<#ValidSchemaText> *;
+	schema:recipeIngredient  @<#ValidSchemaText> *;
+	schema:recipeInstructions ( @<#ValidSchemaCreativeWork> OR  @<#ValidSchemaItemList> OR  @<#ValidSchemaText>) *;
+	schema:recipeYield (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaText>) *;
+	schema:suitableForDiet (@<#ValidSchemaText> AND /http:\/\/schema.org\/(DiabeticDiet|GlutenFreeDiet|HalalDiet|HinduDiet|KosherDiet|LowCalorieDiet|LowFatDiet|LowLactoseDiet|LowSaltDiet|VeganDiet|VegetarianDiet)/) OR
+	    { a [schema:DiabeticDiet schema:GlutenFreeDiet schema:HalalDiet schema:HinduDiet schema:KosherDiet schema:LowCalorieDiet schema:LowFatDiet schema:LowLactoseDiet schema:LowSaltDiet schema:VeganDiet schema:VegetarianDiet] } *;
+}

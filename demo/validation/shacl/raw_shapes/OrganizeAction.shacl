@@ -1,0 +1,3 @@
+:ValidSchemaOrganizeAction a sh:NodeShape;
+	sh:targetClass schema:OrganizeAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

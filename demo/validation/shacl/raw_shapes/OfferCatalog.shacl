@@ -1,0 +1,3 @@
+:ValidSchemaOfferCatalog a sh:NodeShape;
+	sh:targetClass schema:OfferCatalog;
+	sh:nodeKind sh:BlankNodeOrIRI.

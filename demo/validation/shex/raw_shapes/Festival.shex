@@ -1,0 +1,3 @@
+<#ValidSchemaFestival> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:Festival];
+}

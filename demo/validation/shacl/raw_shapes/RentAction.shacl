@@ -1,0 +1,14 @@
+:ValidSchemaRentAction a sh:NodeShape;
+	sh:targetClass schema:RentAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:landlord;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:realEstateAgent;
+		sh:node :ValidSchemaRealEstateAgent;
+	].

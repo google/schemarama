@@ -1,0 +1,18 @@
+:ValidSchemaMusicPlaylist a sh:NodeShape;
+	sh:targetClass schema:MusicPlaylist;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:numTracks;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:track;
+		sh:or (
+			[sh:node :MusicRecording]
+			[sh:node :ItemList]
+		);
+	];
+	sh:property [
+		sh:path schema:tracks;
+		sh:node :ValidSchemaMusicRecording;
+	].

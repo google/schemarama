@@ -1,0 +1,4 @@
+<#ValidSchemaGiveAction> @<#ValidSchemaTransferAction> AND EXTRA a {
+	a [schema:GiveAction];
+	schema:recipient (@<#ValidSchemaOrganization> OR @<#ValidSchemaAudience> OR @<#ValidSchemaContactPoint> OR @<#ValidSchemaPerson>) * ;
+}

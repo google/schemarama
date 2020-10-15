@@ -1,0 +1,4 @@
+<#ValidSchemaOrderAction> @<#ValidSchemaTradeAction> AND EXTRA a {
+	a [schema:OrderAction];
+	schema:deliveryMethod @<#ValidSchemaDeliveryMethod> * ;
+}

@@ -1,0 +1,3 @@
+:ValidSchemaEmploymentAgency a sh:NodeShape;
+	sh:targetClass schema:EmploymentAgency;
+	sh:nodeKind sh:BlankNodeOrIRI.

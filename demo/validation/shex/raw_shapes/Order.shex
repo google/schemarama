@@ -1,0 +1,25 @@
+<#ValidSchemaOrder> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Order];
+	schema:acceptedOffer @<#ValidSchemaOffer> * ;
+	schema:billingAddress @<#ValidSchemaPostalAddress> * ;
+	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:confirmationNumber @<#ValidSchemaText> * ;
+	schema:customer (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:discount (@<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+	schema:discountCode @<#ValidSchemaText> * ;
+	schema:discountCurrency @<#ValidSchemaText> * ;
+	schema:isGift @<#ValidSchemaBoolean> * ;
+	schema:merchant (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:orderDate (@<#ValidSchemaDateTime> OR @<#ValidSchemaDate>) * ;
+	schema:orderDelivery @<#ValidSchemaParcelDelivery> * ;
+	schema:orderNumber @<#ValidSchemaText> * ;
+	schema:orderStatus @<#ValidSchemaOrderStatus> * ;
+	schema:orderedItem (@<#ValidSchemaOrderItem> OR @<#ValidSchemaProduct> OR @<#ValidSchemaService>) * ;
+	schema:partOfInvoice @<#ValidSchemaInvoice> * ;
+	schema:paymentDue @<#ValidSchemaDateTime> * ;
+	schema:paymentDueDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:paymentMethod @<#ValidSchemaPaymentMethod> * ;
+	schema:paymentMethodId @<#ValidSchemaText> * ;
+	schema:paymentUrl @<#ValidSchemaURL> * ;
+	schema:seller (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+}

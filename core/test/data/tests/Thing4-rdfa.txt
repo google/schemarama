@@ -1,0 +1,4 @@
+<div vocab="http://schema.org/" typeof="Thing">
+    <span property="name">test1</span>
+    <span property="identifier">AAAA</span>
+</div>

@@ -1,0 +1,3 @@
+:ValidSchemaUserCheckins a sh:NodeShape;
+	sh:targetClass schema:UserCheckins;
+	sh:nodeKind sh:BlankNodeOrIRI.

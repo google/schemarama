@@ -1,0 +1,19 @@
+:ValidSchemaReview a sh:NodeShape;
+	sh:targetClass schema:Review;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:itemReviewed;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:reviewAspect;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:reviewBody;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:reviewRating;
+		sh:node :ValidSchemaRating;
+	].

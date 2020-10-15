@@ -1,0 +1,3 @@
+<#ValidSchemaTattooParlor> @<#ValidSchemaHealthAndBeautyBusiness> AND EXTRA a {
+	a [schema:TattooParlor];
+}

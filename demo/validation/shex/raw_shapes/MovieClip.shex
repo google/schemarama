@@ -1,0 +1,3 @@
+<#ValidSchemaMovieClip> @<#ValidSchemaClip> AND EXTRA a {
+	a [schema:MovieClip];
+}

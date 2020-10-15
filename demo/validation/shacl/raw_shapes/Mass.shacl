@@ -1,0 +1,3 @@
+:ValidSchemaMass a sh:NodeShape;
+	sh:targetClass schema:Mass;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,15 @@
+:ValidSchemaLiveBlogPosting a sh:NodeShape;
+	sh:targetClass schema:LiveBlogPosting;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:coverageEndTime;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:coverageStartTime;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:liveBlogUpdate;
+		sh:node :ValidSchemaBlogPosting;
+	].

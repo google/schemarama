@@ -1,0 +1,3 @@
+<#ValidSchemaEventVenue> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:EventVenue];
+}

@@ -1,0 +1,3 @@
+<#ValidSchemaEmployerAggregateRating> @<#ValidSchemaAggregateRating> AND EXTRA a {
+	a [schema:EmployerAggregateRating];
+}

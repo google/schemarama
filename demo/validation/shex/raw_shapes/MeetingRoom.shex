@@ -1,0 +1,3 @@
+<#ValidSchemaMeetingRoom> @<#ValidSchemaRoom> AND EXTRA a {
+	a [schema:MeetingRoom];
+}

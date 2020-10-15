@@ -1,0 +1,11 @@
+<#ValidSchemaGeoShape> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:GeoCircle schema:GeoShape];
+	schema:address (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaText>) * ;
+	schema:addressCountry (@<#ValidSchemaCountry> OR @<#ValidSchemaText>) * ;
+	schema:box @<#ValidSchemaText> * ;
+	schema:circle @<#ValidSchemaText> * ;
+	schema:elevation (@<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;
+	schema:line @<#ValidSchemaText> * ;
+	schema:polygon @<#ValidSchemaText> * ;
+	schema:postalCode @<#ValidSchemaText> * ;
+}

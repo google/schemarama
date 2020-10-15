@@ -1,0 +1,4 @@
+<#ValidSchemaInformAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
+	a [schema:RsvpAction schema:ConfirmAction schema:InformAction];
+	schema:event @<#ValidSchemaEvent> * ;
+}

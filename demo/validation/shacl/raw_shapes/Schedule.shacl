@@ -1,0 +1,35 @@
+:ValidSchemaSchedule a sh:NodeShape;
+	sh:targetClass schema:Schedule;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:endDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:endTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:startDate;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:startTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	].

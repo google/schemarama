@@ -1,0 +1,75 @@
+:ValidSchemaFlight a sh:NodeShape;
+	sh:targetClass schema:Flight;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:aircraft;
+		sh:or (
+			[sh:node :Vehicle]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:arrivalAirport;
+		sh:node :ValidSchemaAirport;
+	];
+	sh:property [
+		sh:path schema:arrivalGate;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:arrivalTerminal;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:boardingPolicy;
+		sh:node :ValidSchemaBoardingPolicyType;
+	];
+	sh:property [
+		sh:path schema:carrier;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:departureAirport;
+		sh:node :ValidSchemaAirport;
+	];
+	sh:property [
+		sh:path schema:departureGate;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:departureTerminal;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:estimatedFlightDuration;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Duration]
+		);
+	];
+	sh:property [
+		sh:path schema:flightDistance;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Distance]
+		);
+	];
+	sh:property [
+		sh:path schema:flightNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:mealService;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:seller;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:webCheckinTime;
+		sh:node :ValidSchemaDateTime;
+	].

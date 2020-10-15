@@ -1,0 +1,8 @@
+<#ValidSchemaSchedule>  EXTRA a {
+	a [schema:Schedule];
+	schema:duration @<#ValidSchemaDuration> * ;
+	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:endTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
+	schema:startDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:startTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+}

@@ -1,0 +1,4 @@
+<#ValidSchemaAudiobook>  EXTRA a {
+	a [schema:Audiobook];
+	schema:duration @<#ValidSchemaDuration> * ;
+}

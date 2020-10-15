@@ -1,0 +1,7 @@
+:ValidSchemaGovernmentService a sh:NodeShape;
+	sh:targetClass schema:GovernmentService;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:serviceOperator;
+		sh:node :ValidSchemaOrganization;
+	].

@@ -1,0 +1,3 @@
+<#ValidSchemaPlumber> @<#ValidSchemaHomeAndConstructionBusiness> AND EXTRA a {
+	a [schema:Plumber];
+}

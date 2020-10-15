@@ -1,0 +1,3 @@
+<#ValidSchemaDataDownload> @<#ValidSchemaMediaObject> AND EXTRA a {
+	a [schema:DataDownload];
+}

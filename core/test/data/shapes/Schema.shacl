@@ -1,0 +1,36 @@
+@prefix: <https://schema.org/validation#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Thing a sh:NodeShape;
+    sh:targetClass schema:Thing;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:property [
+        sh:path schema:name;
+        sh:nodeKind sh:Literal;
+        sh:minCount 1;
+        rdfs:comment "Name is required for SomeProduct";
+    ];
+    sh:property [
+        sh:path schema:description;
+        sh:nodeKind sh:Literal;
+        sh:minCount 1;
+        rdfs:comment "Description is required for SomeProduct";
+        rdfs:label "warning";
+    ];
+    sh:property [
+        sh:path schema:identifier;
+        sh:pattern "GTIN|UUID|ISBN";
+        rdfs:label "warning";
+    ].
+
+
+:CreativeWork a sh:NodeShape;
+    sh:targetClass schema:CreativeWork;
+    sh:nodeKind sh:BlankNodeOrIRI;
+    sh:property [
+        sh:path schema:text;
+        sh:nodeKind sh:Literal;
+        sh:minCount 1;
+    ].

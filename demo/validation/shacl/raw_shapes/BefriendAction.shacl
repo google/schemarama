@@ -1,0 +1,3 @@
+:ValidSchemaBefriendAction a sh:NodeShape;
+	sh:targetClass schema:BefriendAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,59 @@
+:ValidSchemaVisualArtwork a sh:NodeShape;
+	sh:targetClass schema:VisualArtwork;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:artEdition;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:artMedium;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:artform;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:artworkSurface;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:depth;
+		sh:or (
+			[sh:node :Distance]
+			[sh:node :QuantitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:height;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	];
+	sh:property [
+		sh:path schema:surface;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:width;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	].

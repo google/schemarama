@@ -1,0 +1,4 @@
+<#ValidSchemaHowToItem> @<#ValidSchemaListItem> AND EXTRA a {
+	a [schema:HowToTool schema:HowToSupply schema:HowToItem];
+	schema:requiredQuantity (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;
+}

@@ -1,0 +1,3 @@
+<#ValidSchemaPaymentCard> @<#ValidSchemaFinancialProduct> AND EXTRA a {
+	a [schema:CreditCard schema:PaymentCard];
+}

@@ -1,0 +1,3 @@
+:ValidSchemaPeriodical a sh:NodeShape;
+	sh:targetClass schema:Periodical;
+	sh:nodeKind sh:BlankNodeOrIRI.

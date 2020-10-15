@@ -1,0 +1,28 @@
+:ValidSchemaDataFeedItem a sh:NodeShape;
+	sh:targetClass schema:DataFeedItem;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:dateCreated;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:dateDeleted;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:dateModified;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:item;
+		sh:node :ValidSchemaThing;
+	].

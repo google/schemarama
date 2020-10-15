@@ -1,0 +1,3 @@
+:ValidSchemaReadAction a sh:NodeShape;
+	sh:targetClass schema:ReadAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

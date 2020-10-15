@@ -1,0 +1,4 @@
+<#ValidSchemaFinancialService> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:AutomatedTeller schema:BankOrCreditUnion schema:InsuranceAgency schema:AccountingService schema:FinancialService];
+	schema:feesAndCommissionsSpecification (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+}

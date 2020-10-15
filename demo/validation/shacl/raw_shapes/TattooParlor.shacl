@@ -1,0 +1,3 @@
+:ValidSchemaTattooParlor a sh:NodeShape;
+	sh:targetClass schema:TattooParlor;
+	sh:nodeKind sh:BlankNodeOrIRI.

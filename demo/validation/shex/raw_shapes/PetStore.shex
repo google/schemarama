@@ -1,0 +1,3 @@
+<#ValidSchemaPetStore> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:PetStore];
+}

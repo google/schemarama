@@ -1,0 +1,3 @@
+:ValidSchemaTrainStation a sh:NodeShape;
+	sh:targetClass schema:TrainStation;
+	sh:nodeKind sh:BlankNodeOrIRI.

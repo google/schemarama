@@ -1,0 +1,3 @@
+:ValidSchemaProfilePage a sh:NodeShape;
+	sh:targetClass schema:ProfilePage;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,42 @@
+:ValidSchemaLodgingReservation a sh:NodeShape;
+	sh:targetClass schema:LodgingReservation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:checkinTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:checkoutTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:lodgingUnitDescription;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:lodgingUnitType;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :QualitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:numAdults;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:numChildren;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Integer]
+		);
+	].

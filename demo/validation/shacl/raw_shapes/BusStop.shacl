@@ -1,0 +1,3 @@
+:ValidSchemaBusStop a sh:NodeShape;
+	sh:targetClass schema:BusStop;
+	sh:nodeKind sh:BlankNodeOrIRI.

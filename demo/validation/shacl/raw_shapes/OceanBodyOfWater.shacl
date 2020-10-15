@@ -1,0 +1,3 @@
+:ValidSchemaOceanBodyOfWater a sh:NodeShape;
+	sh:targetClass schema:OceanBodyOfWater;
+	sh:nodeKind sh:BlankNodeOrIRI.

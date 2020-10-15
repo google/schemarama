@@ -1,0 +1,26 @@
+<#ValidSchemaService> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:Taxi schema:CurrencyConversionService schema:FoodService schema:PaymentService schema:LoanOrCredit schema:DepositAccount schema:FinancialProduct schema:PaymentCard schema:BankAccount schema:CableOrSatelliteService schema:TaxiService schema:InvestmentOrDeposit schema:BroadcastService schema:GovernmentService schema:CreditCard schema:Service];
+	schema:aggregateRating @<#ValidSchemaAggregateRating> * ;
+	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:audience @<#ValidSchemaAudience> * ;
+	schema:availableChannel @<#ValidSchemaServiceChannel> * ;
+	schema:award @<#ValidSchemaText> * ;
+	schema:brand (@<#ValidSchemaBrand> OR @<#ValidSchemaOrganization>) * ;
+	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:category (@<#ValidSchemaThing> OR @<#ValidSchemaURL> OR @<#ValidSchemaPhysicalActivityCategory> OR @<#ValidSchemaText>) * ;
+	schema:hasOfferCatalog @<#ValidSchemaOfferCatalog> * ;
+	schema:hoursAvailable @<#ValidSchemaOpeningHoursSpecification> * ;
+	schema:isRelatedTo (@<#ValidSchemaProduct> OR @<#ValidSchemaService>) * ;
+	schema:isSimilarTo (@<#ValidSchemaService> OR @<#ValidSchemaProduct>) * ;
+	schema:logo (@<#ValidSchemaImageObject> OR @<#ValidSchemaURL>) * ;
+	schema:offers (@<#ValidSchemaDemand> OR @<#ValidSchemaOffer>) * ;
+	schema:produces @<#ValidSchemaThing> * ;
+	schema:provider (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
+	schema:providerMobility @<#ValidSchemaText> * ;
+	schema:review @<#ValidSchemaReview> * ;
+	schema:serviceArea (@<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape> OR @<#ValidSchemaAdministrativeArea>) * ;
+	schema:serviceAudience @<#ValidSchemaAudience> * ;
+	schema:serviceOutput @<#ValidSchemaThing> * ;
+	schema:serviceType (@<#ValidSchemaGovernmentBenefitsType> OR @<#ValidSchemaText>) * ;
+	schema:slogan @<#ValidSchemaText> * ;
+}

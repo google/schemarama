@@ -1,0 +1,7 @@
+:ValidSchemaMobileApplication a sh:NodeShape;
+	sh:targetClass schema:MobileApplication;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:carrierRequirements;
+		sh:node :ValidSchemaText;
+	].

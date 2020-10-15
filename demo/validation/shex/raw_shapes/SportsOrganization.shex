@@ -1,0 +1,3 @@
+<#ValidSchemaSportsOrganization> @<#ValidSchemaOrganization> AND EXTRA a {
+	a [schema:SportsTeam schema:SportsOrganization];
+}

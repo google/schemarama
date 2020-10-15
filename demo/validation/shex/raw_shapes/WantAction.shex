@@ -1,0 +1,3 @@
+<#ValidSchemaWantAction> @<#ValidSchemaReactAction> AND EXTRA a {
+	a [schema:WantAction];
+}

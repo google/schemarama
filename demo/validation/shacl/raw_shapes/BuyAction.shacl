@@ -1,0 +1,21 @@
+:ValidSchemaBuyAction a sh:NodeShape;
+	sh:targetClass schema:BuyAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:seller;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:vendor;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:warrantyPromise;
+		sh:node :ValidSchemaWarrantyPromise;
+	].

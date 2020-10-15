@@ -1,0 +1,3 @@
+:ValidSchemaAutoRepair a sh:NodeShape;
+	sh:targetClass schema:AutoRepair;
+	sh:nodeKind sh:BlankNodeOrIRI.

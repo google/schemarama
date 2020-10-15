@@ -1,0 +1,3 @@
+<#ValidSchemaLocksmith> @<#ValidSchemaHomeAndConstructionBusiness> AND EXTRA a {
+	a [schema:Locksmith];
+}

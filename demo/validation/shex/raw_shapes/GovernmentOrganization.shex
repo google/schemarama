@@ -1,0 +1,3 @@
+<#ValidSchemaGovernmentOrganization> @<#ValidSchemaOrganization> AND EXTRA a {
+	a [schema:GovernmentOrganization];
+}

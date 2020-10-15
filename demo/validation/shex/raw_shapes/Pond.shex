@@ -1,0 +1,3 @@
+<#ValidSchemaPond> @<#ValidSchemaBodyOfWater> AND EXTRA a {
+	a [schema:Pond];
+}

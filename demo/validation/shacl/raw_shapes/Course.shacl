@@ -1,0 +1,27 @@
+:ValidSchemaCourse a sh:NodeShape;
+	sh:targetClass schema:Course;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:courseCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:coursePrerequisites;
+		sh:or (
+			[sh:node :Course]
+			[sh:node :AlignmentObject]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:educationalCredentialAwarded;
+		sh:or (
+			[sh:node :EducationalOccupationalCredential]
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:hasCourseInstance;
+		sh:node :ValidSchemaCourseInstance;
+	].

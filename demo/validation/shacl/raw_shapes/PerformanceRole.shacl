@@ -1,0 +1,7 @@
+:ValidSchemaPerformanceRole a sh:NodeShape;
+	sh:targetClass schema:PerformanceRole;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:characterName;
+		sh:node :ValidSchemaText;
+	].

@@ -1,0 +1,11 @@
+:ValidSchemaParentAudience a sh:NodeShape;
+	sh:targetClass schema:ParentAudience;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:childMaxAge;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:childMinAge;
+		sh:node :ValidSchemaNumber;
+	].

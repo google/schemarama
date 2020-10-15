@@ -1,0 +1,3 @@
+<#ValidSchemaUserLikes> @<#ValidSchemaUserInteraction> AND EXTRA a {
+	a [schema:UserLikes];
+}

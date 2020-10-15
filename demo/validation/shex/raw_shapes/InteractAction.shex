@@ -1,0 +1,3 @@
+<#ValidSchemaInteractAction> @<#ValidSchemaAction> AND EXTRA a {
+	a [schema:MarryAction schema:JoinAction schema:CommentAction schema:FollowAction schema:RegisterAction schema:ShareAction schema:UnRegisterAction schema:CommunicateAction schema:AskAction schema:BefriendAction schema:RsvpAction schema:ConfirmAction schema:SubscribeAction schema:CheckInAction schema:InformAction schema:ReplyAction schema:InviteAction schema:CheckOutAction schema:LeaveAction schema:InteractAction];
+}

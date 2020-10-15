@@ -1,0 +1,3 @@
+<#ValidSchemaLandform> @<#ValidSchemaPlace> AND EXTRA a {
+	a [schema:OceanBodyOfWater schema:BodyOfWater schema:Mountain schema:Canal schema:RiverBodyOfWater schema:Reservoir schema:Waterfall schema:Pond schema:SeaBodyOfWater schema:Volcano schema:Continent schema:LakeBodyOfWater schema:Landform];
+}

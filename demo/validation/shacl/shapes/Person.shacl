@@ -1,0 +1,273 @@
+:ValidSchemaPerson a sh:NodeShape;
+	sh:targetClass schema:Person;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:or(
+	    [sh:node :Text]
+	    [sh:node :URL]
+	    [
+	        sh:class schema:Person;
+            	sh:property [
+            		sh:path schema:additionalName;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:address;
+            		sh:or (
+            			[sh:class schema:PostalAddress]
+            			[sh:node :Text]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:affiliation;
+            		sh:class schema:Organization;
+            	];
+            	sh:property [
+            		sh:path schema:alumniOf;
+            		sh:or (
+            			[sh:class schema:EducationalOrganization]
+            			[sh:class schema:Organization]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:award;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:awards;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:birthDate;
+            		sh:node :ValidSchemaDate;
+            	];
+            	sh:property [
+            		sh:path schema:birthPlace;
+            		sh:class schema:Place;
+            	];
+            	sh:property [
+            		sh:path schema:brand;
+            		sh:or (
+            			[sh:class schema:Brand]
+            			[sh:class schema:Organization]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:children;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:colleague;
+            		sh:or (
+            			[sh:node :URL]
+            			[sh:node :Person]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:colleagues;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:contactPoint;
+            		sh:class schema:ContactPoint;
+            	];
+            	sh:property [
+            		sh:path schema:contactPoints;
+            		sh:class schema:ContactPoint;
+            	];
+            	sh:property [
+            		sh:path schema:deathDate;
+            		sh:node :ValidSchemaDate;
+            	];
+            	sh:property [
+            		sh:path schema:deathPlace;
+            		sh:class schema:Place;
+            	];
+            	sh:property [
+            		sh:path schema:duns;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:email;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:familyName;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:faxNumber;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:follows;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:funder;
+            		sh:or (
+            			[sh:class schema:Organization]
+            			[sh:node :Person]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:givenName;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:globalLocationNumber;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:hasOccupation;
+            		sh:node :ValidSchemaOccupation;
+            	];
+            	sh:property [
+            		sh:path schema:hasOfferCatalog;
+            		sh:class schema:OfferCatalog;
+            	];
+            	sh:property [
+            		sh:path schema:hasPOS;
+            		sh:class schema:Place;
+            	];
+            	sh:property [
+            		sh:path schema:height;
+            		sh:or (
+            			[sh:class schema:QuantitativeValue]
+            			[sh:class schema:Distance]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:homeLocation;
+            		sh:or (
+            			[sh:class schema:ContactPoint]
+            			[sh:class schema:Place]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:honorificPrefix;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:honorificSuffix;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:interactionStatistic;
+            		sh:node :ValidSchemaInteractionCounter;
+            	];
+            	sh:property [
+            		sh:path schema:isicV4;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:knows;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:makesOffer;
+            		sh:class schema:Offer;
+            	];
+            	sh:property [
+            		sh:path schema:memberOf;
+            		sh:or (
+            			[sh:class schema:Organization]
+            			[sh:class schema:ProgramMembership]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:naics;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:nationality;
+            		sh:node :ValidSchemaCountry;
+            	];
+            	sh:property [
+            		sh:path schema:netWorth;
+            		sh:or (
+            			[sh:class schema:MonetaryAmount]
+            			[sh:class schema:PriceSpecification]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:owns;
+            		sh:or (
+            			[sh:class schema:OwnershipInfo]
+            			[sh:class schema:Product]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:parent;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:parents;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:performerIn;
+            		sh:class schema:Event;
+            	];
+            	sh:property [
+            		sh:path schema:publishingPrinciples;
+            		sh:or (
+            			[sh:node :CreativeWork]
+            			[sh:node :URL]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:relatedTo;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:seeks;
+            		sh:class schema:Demand;
+            	];
+            	sh:property [
+            		sh:path schema:sibling;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:siblings;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:sponsor;
+            		sh:or (
+            			[sh:class schema:Organization]
+            			[sh:node :Person]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:spouse;
+            		sh:node :ValidSchemaPerson;
+            	];
+            	sh:property [
+            		sh:path schema:taxID;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:telephone;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:vatID;
+            		sh:node :ValidSchemaText;
+            	];
+            	sh:property [
+            		sh:path schema:weight;
+            		sh:class schema:QuantitativeValue;
+            	];
+            	sh:property [
+            		sh:path schema:workLocation;
+            		sh:or (
+            			[sh:class schema:ContactPoint]
+            			[sh:class schema:Place]
+            		);
+            	];
+            	sh:property [
+            		sh:path schema:worksFor;
+            		sh:class schema:Organization;
+            	]
+	    ]
+	).

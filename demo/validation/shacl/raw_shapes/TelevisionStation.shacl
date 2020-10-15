@@ -1,0 +1,3 @@
+:ValidSchemaTelevisionStation a sh:NodeShape;
+	sh:targetClass schema:TelevisionStation;
+	sh:nodeKind sh:BlankNodeOrIRI.

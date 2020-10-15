@@ -1,0 +1,17 @@
+:ValidSchemaTouristAttraction a sh:NodeShape;
+	sh:targetClass schema:TouristAttraction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:availableLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:touristType;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Audience]
+		);
+	].

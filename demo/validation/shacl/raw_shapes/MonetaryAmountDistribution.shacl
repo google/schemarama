@@ -1,0 +1,7 @@
+:ValidSchemaMonetaryAmountDistribution a sh:NodeShape;
+	sh:targetClass schema:MonetaryAmountDistribution;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:currency;
+		sh:node :ValidSchemaText;
+	].

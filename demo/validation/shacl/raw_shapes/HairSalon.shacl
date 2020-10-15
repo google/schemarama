@@ -1,0 +1,3 @@
+:ValidSchemaHairSalon a sh:NodeShape;
+	sh:targetClass schema:HairSalon;
+	sh:nodeKind sh:BlankNodeOrIRI.

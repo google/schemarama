@@ -1,0 +1,7 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Dataset",
+  "@id": "http://example.org/dataset",
+  "name": "NCDC Storm Events Database",
+  "description": "Storm Data is provided by the National Weather Service (NWS) and contain statistics on..."
+}

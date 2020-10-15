@@ -1,0 +1,3 @@
+:ValidSchemaVideoGallery a sh:NodeShape;
+	sh:targetClass schema:VideoGallery;
+	sh:nodeKind sh:BlankNodeOrIRI.

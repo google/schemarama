@@ -1,0 +1,60 @@
+:ValidSchemaParcelDelivery a sh:NodeShape;
+	sh:targetClass schema:ParcelDelivery;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:carrier;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:deliveryAddress;
+		sh:node :ValidSchemaPostalAddress;
+	];
+	sh:property [
+		sh:path schema:deliveryStatus;
+		sh:node :ValidSchemaDeliveryEvent;
+	];
+	sh:property [
+		sh:path schema:expectedArrivalFrom;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:expectedArrivalUntil;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:hasDeliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	];
+	sh:property [
+		sh:path schema:itemShipped;
+		sh:node :ValidSchemaProduct;
+	];
+	sh:property [
+		sh:path schema:originAddress;
+		sh:node :ValidSchemaPostalAddress;
+	];
+	sh:property [
+		sh:path schema:partOfOrder;
+		sh:node :ValidSchemaOrder;
+	];
+	sh:property [
+		sh:path schema:provider;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:trackingNumber;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:trackingUrl;
+		sh:node :ValidSchemaURL;
+	].

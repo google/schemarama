@@ -1,0 +1,60 @@
+:ValidSchemaHowTo a sh:NodeShape;
+	sh:targetClass schema:HowTo;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:estimatedCost;
+		sh:or (
+			[sh:node :MonetaryAmount]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:performTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:prepTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:step;
+		sh:or (
+			[sh:node :HowToStep]
+			[sh:node :Text]
+			[sh:node :CreativeWork]
+			[sh:node :HowToSection]
+		);
+	];
+	sh:property [
+		sh:path schema:steps;
+		sh:or (
+			[sh:node :CreativeWork]
+			[sh:node :ItemList]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:supply;
+		sh:or (
+			[sh:node :HowToSupply]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:tool;
+		sh:or (
+			[sh:node :HowToTool]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:totalTime;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:yield;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Text]
+		);
+	].

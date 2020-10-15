@@ -1,0 +1,10 @@
+<#ValidSchemaEntryPoint> @<#ValidSchemaURL> OR (@<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:EntryPoint];
+	schema:actionApplication @<#ValidSchemaSoftwareApplication> * ;
+	schema:actionPlatform (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:application @<#ValidSchemaSoftwareApplication> * ;
+	schema:contentType @<#ValidSchemaText> * ;
+	schema:encodingType @<#ValidSchemaText> * ;
+	schema:httpMethod @<#ValidSchemaText> * ;
+	schema:urlTemplate @<#ValidSchemaText> * ;
+})

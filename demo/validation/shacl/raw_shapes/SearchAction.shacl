@@ -1,0 +1,7 @@
+:ValidSchemaSearchAction a sh:NodeShape;
+	sh:targetClass schema:SearchAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:query;
+		sh:node :ValidSchemaText;
+	].

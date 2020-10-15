@@ -1,0 +1,3 @@
+:ValidSchemaConversation a sh:NodeShape;
+	sh:targetClass schema:Conversation;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,3 @@
+:ValidSchemaPharmacy a sh:NodeShape;
+	sh:targetClass schema:Pharmacy;
+	sh:nodeKind sh:BlankNodeOrIRI.

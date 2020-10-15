@@ -1,0 +1,179 @@
+:ValidSchemaProduct a sh:NodeShape;
+	sh:targetClass schema:Product;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:additionalProperty;
+		sh:node :ValidSchemaPropertyValue;
+	];
+	sh:property [
+		sh:path schema:aggregateRating;
+		sh:node :ValidSchemaAggregateRating;
+	];
+	sh:property [
+		sh:path schema:audience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:award;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:awards;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:brand;
+		sh:or (
+			[sh:node :Brand]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:color;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:depth;
+		sh:or (
+			[sh:node :Distance]
+			[sh:node :QuantitativeValue]
+		);
+	];
+	sh:property [
+		sh:path schema:gtin12;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin13;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin14;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:gtin8;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:height;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	];
+	sh:property [
+		sh:path schema:isAccessoryOrSparePartFor;
+		sh:node :ValidSchemaProduct;
+	];
+	sh:property [
+		sh:path schema:isConsumableFor;
+		sh:node :ValidSchemaProduct;
+	];
+	sh:property [
+		sh:path schema:isRelatedTo;
+		sh:or (
+			[sh:node :Product]
+			[sh:node :Service]
+		);
+	];
+	sh:property [
+		sh:path schema:isSimilarTo;
+		sh:or (
+			[sh:node :Service]
+			[sh:node :Product]
+		);
+	];
+	sh:property [
+		sh:path schema:itemCondition;
+		sh:node :ValidSchemaOfferItemCondition;
+	];
+	sh:property [
+		sh:path schema:logo;
+		sh:or (
+			[sh:node :ImageObject]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:manufacturer;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:material;
+		sh:or (
+			[sh:node :Product]
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:model;
+		sh:or (
+			[sh:node :ProductModel]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:mpn;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:offers;
+		sh:or (
+			[sh:node :Demand]
+			[sh:node :Offer]
+		);
+	];
+	sh:property [
+		sh:path schema:productID;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:productionDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:purchaseDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:releaseDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:review;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:reviews;
+		sh:node :ValidSchemaReview;
+	];
+	sh:property [
+		sh:path schema:sku;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:slogan;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:weight;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:width;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	].

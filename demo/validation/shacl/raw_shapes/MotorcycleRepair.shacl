@@ -1,0 +1,3 @@
+:ValidSchemaMotorcycleRepair a sh:NodeShape;
+	sh:targetClass schema:MotorcycleRepair;
+	sh:nodeKind sh:BlankNodeOrIRI.

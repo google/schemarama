@@ -1,0 +1,13 @@
+<#ValidSchemaRecipe> @<#ValidSchemaHowTo> AND EXTRA a {
+	a [schema:Recipe];
+	schema:cookTime @<#ValidSchemaDuration> * ;
+	schema:cookingMethod @<#ValidSchemaText> * ;
+	schema:ingredients @<#ValidSchemaText> * ;
+	schema:nutrition @<#ValidSchemaNutritionInformation> * ;
+	schema:recipeCategory @<#ValidSchemaText> * ;
+	schema:recipeCuisine @<#ValidSchemaText> * ;
+	schema:recipeIngredient @<#ValidSchemaText> * ;
+	schema:recipeInstructions (@<#ValidSchemaCreativeWork> OR @<#ValidSchemaItemList> OR @<#ValidSchemaText>) * ;
+	schema:recipeYield (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaText>) * ;
+	schema:suitableForDiet @<#ValidSchemaRestrictedDiet> * ;
+}

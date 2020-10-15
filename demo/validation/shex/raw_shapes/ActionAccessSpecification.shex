@@ -1,0 +1,9 @@
+<#ValidSchemaActionAccessSpecification> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:ActionAccessSpecification];
+	schema:availabilityEnds (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime> OR @<#ValidSchemaDate>) * ;
+	schema:availabilityStarts (@<#ValidSchemaDate> OR @<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
+	schema:category (@<#ValidSchemaThing> OR @<#ValidSchemaURL> OR @<#ValidSchemaPhysicalActivityCategory> OR @<#ValidSchemaText>) * ;
+	schema:eligibleRegion (@<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:expectsAcceptanceOf @<#ValidSchemaOffer> * ;
+	schema:requiresSubscription (@<#ValidSchemaMediaSubscription> OR @<#ValidSchemaBoolean>) * ;
+}

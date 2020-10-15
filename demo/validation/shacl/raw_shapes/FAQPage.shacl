@@ -1,0 +1,3 @@
+:ValidSchemaFAQPage a sh:NodeShape;
+	sh:targetClass schema:FAQPage;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,21 @@
+:ValidSchemaLocationFeatureSpecification a sh:NodeShape;
+	sh:targetClass schema:LocationFeatureSpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:hoursAvailable;
+		sh:node :ValidSchemaOpeningHoursSpecification;
+	];
+	sh:property [
+		sh:path schema:validFrom;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:validThrough;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :DateTime]
+		);
+	].

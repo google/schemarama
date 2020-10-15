@@ -1,0 +1,7 @@
+:ValidSchemaDietarySupplement a sh:NodeShape;
+	sh:targetClass schema:DietarySupplement;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:manufacturer;
+		sh:node :ValidSchemaOrganization;
+	].

@@ -1,0 +1,45 @@
+:ValidSchemaClip a sh:NodeShape;
+	sh:targetClass schema:Clip;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actor;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:actors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:clipNumber;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Integer]
+		);
+	];
+	sh:property [
+		sh:path schema:director;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:directors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:musicBy;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :MusicGroup]
+		);
+	];
+	sh:property [
+		sh:path schema:partOfEpisode;
+		sh:node :ValidSchemaEpisode;
+	];
+	sh:property [
+		sh:path schema:partOfSeason;
+		sh:node :ValidSchemaCreativeWorkSeason;
+	];
+	sh:property [
+		sh:path schema:partOfSeries;
+		sh:node :ValidSchemaCreativeWorkSeries;
+	].

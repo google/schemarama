@@ -1,0 +1,8 @@
+<#ValidSchemaAccommodation> @<#ValidSchemaPlace> AND EXTRA a {
+	a [schema:Room schema:House schema:MeetingRoom schema:CampingPitch schema:HotelRoom schema:SingleFamilyResidence schema:Apartment schema:Suite schema:Accommodation];
+	schema:amenityFeature @<#ValidSchemaLocationFeatureSpecification> * ;
+	schema:floorSize @<#ValidSchemaQuantitativeValue> * ;
+	schema:numberOfRooms (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:permittedUsage @<#ValidSchemaText> * ;
+	schema:petsAllowed (@<#ValidSchemaText> OR @<#ValidSchemaBoolean>) * ;
+}

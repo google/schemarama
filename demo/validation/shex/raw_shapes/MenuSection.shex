@@ -1,0 +1,5 @@
+<#ValidSchemaMenuSection> @<#ValidSchemaCreativeWork> AND EXTRA a {
+	a [schema:MenuSection];
+	schema:hasMenuItem @<#ValidSchemaMenuItem> * ;
+	schema:hasMenuSection @<#ValidSchemaMenuSection> * ;
+}

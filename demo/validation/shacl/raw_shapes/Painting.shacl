@@ -1,0 +1,3 @@
+:ValidSchemaPainting a sh:NodeShape;
+	sh:targetClass schema:Painting;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,3 @@
+:ValidSchemaTime a sh:NodeShape;
+	sh:targetClass schema:Time;
+	sh:nodeKind sh:BlankNodeOrIRI.

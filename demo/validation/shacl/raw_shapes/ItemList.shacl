@@ -1,0 +1,22 @@
+:ValidSchemaItemList a sh:NodeShape;
+	sh:targetClass schema:ItemList;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:itemListElement;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :ListItem]
+			[sh:node :Thing]
+		);
+	];
+	sh:property [
+		sh:path schema:itemListOrder;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :ItemListOrderType]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfItems;
+		sh:node :ValidSchemaInteger;
+	].

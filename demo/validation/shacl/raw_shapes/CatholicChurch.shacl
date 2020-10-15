@@ -1,0 +1,3 @@
+:ValidSchemaCatholicChurch a sh:NodeShape;
+	sh:targetClass schema:CatholicChurch;
+	sh:nodeKind sh:BlankNodeOrIRI.

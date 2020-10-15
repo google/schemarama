@@ -1,0 +1,7 @@
+:ValidSchemaCivicStructure a sh:NodeShape;
+	sh:targetClass schema:CivicStructure;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:openingHours;
+		sh:node :ValidSchemaText;
+	].

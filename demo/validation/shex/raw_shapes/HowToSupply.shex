@@ -1,0 +1,4 @@
+<#ValidSchemaHowToSupply> @<#ValidSchemaHowToItem> AND EXTRA a {
+	a [schema:HowToSupply];
+	schema:estimatedCost (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaText>) * ;
+}

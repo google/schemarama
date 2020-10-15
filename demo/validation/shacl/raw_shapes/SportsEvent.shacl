@@ -1,0 +1,24 @@
+:ValidSchemaSportsEvent a sh:NodeShape;
+	sh:targetClass schema:SportsEvent;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:awayTeam;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :SportsTeam]
+		);
+	];
+	sh:property [
+		sh:path schema:competitor;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :SportsTeam]
+		);
+	];
+	sh:property [
+		sh:path schema:homeTeam;
+		sh:or (
+			[sh:node :SportsTeam]
+			[sh:node :Person]
+		);
+	].

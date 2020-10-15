@@ -1,0 +1,89 @@
+:ValidSchemaMediaObject a sh:NodeShape;
+	sh:targetClass schema:MediaObject;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:associatedArticle;
+		sh:node :ValidSchemaNewsArticle;
+	];
+	sh:property [
+		sh:path schema:bitrate;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:contentSize;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:contentUrl;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:embedUrl;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:encodesCreativeWork;
+		sh:node :ValidSchemaCreativeWork;
+	];
+	sh:property [
+		sh:path schema:encodingFormat;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:endTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:height;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	];
+	sh:property [
+		sh:path schema:playerType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:productionCompany;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:regionsAllowed;
+		sh:node :ValidSchemaPlace;
+	];
+	sh:property [
+		sh:path schema:requiresSubscription;
+		sh:or (
+			[sh:node :MediaSubscription]
+			[sh:node :Boolean]
+		);
+	];
+	sh:property [
+		sh:path schema:startTime;
+		sh:or (
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:uploadDate;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:width;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Distance]
+		);
+	].

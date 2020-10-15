@@ -1,0 +1,38 @@
+<#ValidSchemaProduct> @<#ValidSchemaThing> AND EXTRA a {
+	a [schema:IndividualProduct schema:ProductModel schema:Car schema:SomeProducts schema:Vehicle schema:Product];
+	schema:additionalProperty @<#ValidSchemaPropertyValue> * ;
+	schema:aggregateRating @<#ValidSchemaAggregateRating> * ;
+	schema:audience @<#ValidSchemaAudience> * ;
+	schema:award @<#ValidSchemaText> * ;
+	schema:awards @<#ValidSchemaText> * ;
+	schema:brand (@<#ValidSchemaBrand> OR @<#ValidSchemaOrganization>) * ;
+	schema:category (@<#ValidSchemaThing> OR @<#ValidSchemaURL> OR @<#ValidSchemaPhysicalActivityCategory> OR @<#ValidSchemaText>) * ;
+	schema:color @<#ValidSchemaText> * ;
+	schema:depth (@<#ValidSchemaDistance> OR @<#ValidSchemaQuantitativeValue>) * ;
+	schema:gtin12 @<#ValidSchemaText> * ;
+	schema:gtin13 @<#ValidSchemaText> * ;
+	schema:gtin14 @<#ValidSchemaText> * ;
+	schema:gtin8 @<#ValidSchemaText> * ;
+	schema:height (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+	schema:isAccessoryOrSparePartFor @<#ValidSchemaProduct> * ;
+	schema:isConsumableFor @<#ValidSchemaProduct> * ;
+	schema:isRelatedTo (@<#ValidSchemaProduct> OR @<#ValidSchemaService>) * ;
+	schema:isSimilarTo (@<#ValidSchemaService> OR @<#ValidSchemaProduct>) * ;
+	schema:itemCondition @<#ValidSchemaOfferItemCondition> * ;
+	schema:logo (@<#ValidSchemaImageObject> OR @<#ValidSchemaURL>) * ;
+	schema:manufacturer @<#ValidSchemaOrganization> * ;
+	schema:material (@<#ValidSchemaProduct> OR @<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
+	schema:model (@<#ValidSchemaProductModel> OR @<#ValidSchemaText>) * ;
+	schema:mpn @<#ValidSchemaText> * ;
+	schema:offers (@<#ValidSchemaDemand> OR @<#ValidSchemaOffer>) * ;
+	schema:productID @<#ValidSchemaText> * ;
+	schema:productionDate @<#ValidSchemaDate> * ;
+	schema:purchaseDate @<#ValidSchemaDate> * ;
+	schema:releaseDate @<#ValidSchemaDate> * ;
+	schema:review @<#ValidSchemaReview> * ;
+	schema:reviews @<#ValidSchemaReview> * ;
+	schema:sku @<#ValidSchemaText> * ;
+	schema:slogan @<#ValidSchemaText> * ;
+	schema:weight @<#ValidSchemaQuantitativeValue> * ;
+	schema:width (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaDistance>) * ;
+}

@@ -1,0 +1,7 @@
+:ValidSchemaOrganizationRole a sh:NodeShape;
+	sh:targetClass schema:OrganizationRole;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:numberedPosition;
+		sh:node :ValidSchemaNumber;
+	].

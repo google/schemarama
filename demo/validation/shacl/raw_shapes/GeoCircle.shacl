@@ -1,0 +1,15 @@
+:ValidSchemaGeoCircle a sh:NodeShape;
+	sh:targetClass schema:GeoCircle;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:geoMidpoint;
+		sh:node :ValidSchemaGeoCoordinates;
+	];
+	sh:property [
+		sh:path schema:geoRadius;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Number]
+			[sh:node :Distance]
+		);
+	].

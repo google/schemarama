@@ -1,0 +1,8 @@
+<#ValidSchemaOrderItem> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:OrderItem];
+	schema:orderDelivery @<#ValidSchemaParcelDelivery> * ;
+	schema:orderItemNumber @<#ValidSchemaText> * ;
+	schema:orderItemStatus @<#ValidSchemaOrderStatus> * ;
+	schema:orderQuantity @<#ValidSchemaNumber> * ;
+	schema:orderedItem (@<#ValidSchemaOrderItem> OR @<#ValidSchemaProduct> OR @<#ValidSchemaService>) * ;
+}

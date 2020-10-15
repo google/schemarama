@@ -1,0 +1,3 @@
+<#ValidSchemaGovernmentBenefitsType>  EXTRA a {
+	a [schema:GovernmentBenefitsType];
+}

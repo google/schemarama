@@ -1,0 +1,3 @@
+:ValidSchemaDryCleaningOrLaundry a sh:NodeShape;
+	sh:targetClass schema:DryCleaningOrLaundry;
+	sh:nodeKind sh:BlankNodeOrIRI.

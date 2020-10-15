@@ -1,0 +1,3 @@
+:ValidSchemaWatchAction a sh:NodeShape;
+	sh:targetClass schema:WatchAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

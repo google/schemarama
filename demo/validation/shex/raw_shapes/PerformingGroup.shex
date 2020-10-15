@@ -1,0 +1,3 @@
+<#ValidSchemaPerformingGroup> @<#ValidSchemaOrganization> AND EXTRA a {
+	a [schema:TheaterGroup schema:DanceGroup schema:MusicGroup schema:PerformingGroup];
+}

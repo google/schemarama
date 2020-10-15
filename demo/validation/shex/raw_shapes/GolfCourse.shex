@@ -1,0 +1,3 @@
+<#ValidSchemaGolfCourse> @<#ValidSchemaSportsActivityLocation> AND EXTRA a {
+	a [schema:GolfCourse];
+}

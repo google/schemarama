@@ -1,0 +1,3 @@
+:ValidSchemaInsuranceAgency a sh:NodeShape;
+	sh:targetClass schema:InsuranceAgency;
+	sh:nodeKind sh:BlankNodeOrIRI.

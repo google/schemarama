@@ -1,0 +1,3 @@
+:ValidSchemaBakery a sh:NodeShape;
+	sh:targetClass schema:Bakery;
+	sh:nodeKind sh:BlankNodeOrIRI.

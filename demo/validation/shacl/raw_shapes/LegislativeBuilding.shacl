@@ -1,0 +1,3 @@
+:ValidSchemaLegislativeBuilding a sh:NodeShape;
+	sh:targetClass schema:LegislativeBuilding;
+	sh:nodeKind sh:BlankNodeOrIRI.

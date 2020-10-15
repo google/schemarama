@@ -1,0 +1,13 @@
+<#ValidSchemaContactPoint> @<#ValidSchemaStructuredValue> AND EXTRA a {
+	a [schema:PostalAddress schema:ContactPoint];
+	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
+	schema:availableLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
+	schema:contactOption @<#ValidSchemaContactPointOption> * ;
+	schema:contactType @<#ValidSchemaText> * ;
+	schema:email @<#ValidSchemaText> * ;
+	schema:faxNumber @<#ValidSchemaText> * ;
+	schema:hoursAvailable @<#ValidSchemaOpeningHoursSpecification> * ;
+	schema:productSupported (@<#ValidSchemaProduct> OR @<#ValidSchemaText>) * ;
+	schema:serviceArea (@<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape> OR @<#ValidSchemaAdministrativeArea>) * ;
+	schema:telephone @<#ValidSchemaText> * ;
+}

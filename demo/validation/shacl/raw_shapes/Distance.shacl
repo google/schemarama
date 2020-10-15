@@ -1,0 +1,12 @@
+:ValidSchemaDistance a sh:NodeShape;
+    sh:or (
+        [
+            sh:targetClass schema:Distance;
+            sh:nodeKind sh:BlankNodeOrIRI
+        ]
+        [
+            sh:node :ValidSchemaText;
+            sh:pattern "^[ ]*([1-9][0-9]*|0)[ ]*[a-zA-Z]*[ ]*$"
+        ]
+    ).
+

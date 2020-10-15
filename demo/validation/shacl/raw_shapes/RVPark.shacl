@@ -1,0 +1,3 @@
+:ValidSchemaRVPark a sh:NodeShape;
+	sh:targetClass schema:RVPark;
+	sh:nodeKind sh:BlankNodeOrIRI.

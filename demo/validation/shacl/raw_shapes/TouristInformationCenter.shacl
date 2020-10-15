@@ -1,0 +1,3 @@
+:ValidSchemaTouristInformationCenter a sh:NodeShape;
+	sh:targetClass schema:TouristInformationCenter;
+	sh:nodeKind sh:BlankNodeOrIRI.

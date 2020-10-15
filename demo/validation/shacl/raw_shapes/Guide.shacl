@@ -1,0 +1,7 @@
+:ValidSchemaGuide a sh:NodeShape;
+	sh:targetClass schema:Guide;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:reviewAspect;
+		sh:node :ValidSchemaText;
+	].

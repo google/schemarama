@@ -1,0 +1,3 @@
+:ValidSchemaSculpture a sh:NodeShape;
+	sh:targetClass schema:Sculpture;
+	sh:nodeKind sh:BlankNodeOrIRI.

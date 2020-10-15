@@ -1,0 +1,52 @@
+:ValidSchemaWebPage a sh:NodeShape;
+	sh:targetClass schema:WebPage;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:breadcrumb;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :BreadcrumbList]
+		);
+	];
+	sh:property [
+		sh:path schema:lastReviewed;
+		sh:node :ValidSchemaDate;
+	];
+	sh:property [
+		sh:path schema:mainContentOfPage;
+		sh:node :ValidSchemaWebPageElement;
+	];
+	sh:property [
+		sh:path schema:primaryImageOfPage;
+		sh:node :ValidSchemaImageObject;
+	];
+	sh:property [
+		sh:path schema:relatedLink;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:reviewedBy;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:significantLink;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:significantLinks;
+		sh:node :ValidSchemaURL;
+	];
+	sh:property [
+		sh:path schema:speakable;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :SpeakableSpecification]
+		);
+	];
+	sh:property [
+		sh:path schema:specialty;
+		sh:node :ValidSchemaSpecialty;
+	].

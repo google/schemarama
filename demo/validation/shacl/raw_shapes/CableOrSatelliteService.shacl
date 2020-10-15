@@ -1,0 +1,3 @@
+:ValidSchemaCableOrSatelliteService a sh:NodeShape;
+	sh:targetClass schema:CableOrSatelliteService;
+	sh:nodeKind sh:BlankNodeOrIRI.

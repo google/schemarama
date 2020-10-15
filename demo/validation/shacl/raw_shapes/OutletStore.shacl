@@ -1,0 +1,3 @@
+:ValidSchemaOutletStore a sh:NodeShape;
+	sh:targetClass schema:OutletStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

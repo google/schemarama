@@ -1,0 +1,6 @@
+<#ValidSchemaLocationFeatureSpecification> @<#ValidSchemaPropertyValue> AND EXTRA a {
+	a [schema:LocationFeatureSpecification];
+	schema:hoursAvailable @<#ValidSchemaOpeningHoursSpecification> * ;
+	schema:validFrom (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+	schema:validThrough (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
+}

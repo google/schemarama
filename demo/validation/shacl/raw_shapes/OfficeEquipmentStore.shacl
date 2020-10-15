@@ -1,0 +1,3 @@
+:ValidSchemaOfficeEquipmentStore a sh:NodeShape;
+	sh:targetClass schema:OfficeEquipmentStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

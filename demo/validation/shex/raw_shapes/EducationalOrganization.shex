@@ -1,0 +1,4 @@
+<#ValidSchemaEducationalOrganization> @<#ValidSchemaOrganization> AND EXTRA a {
+	a [schema:School schema:MiddleSchool schema:ElementarySchool schema:Preschool schema:HighSchool schema:CollegeOrUniversity schema:EducationalOrganization];
+	schema:alumni @<#ValidSchemaPerson> * ;
+}

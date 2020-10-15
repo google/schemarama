@@ -1,0 +1,18 @@
+:ValidSchemaDefinedRegion a sh:NodeShape;
+	sh:targetClass schema:DefinedRegion;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:addressCountry;
+		sh:or (
+			[sh:node :Country]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:addressRegion;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:postalCode;
+		sh:node :ValidSchemaText;
+	].

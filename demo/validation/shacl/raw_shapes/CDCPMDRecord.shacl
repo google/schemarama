@@ -1,0 +1,10 @@
+:ValidSchemaCDCPMDRecord a sh:NodeShape;
+	sh:targetClass schema:CDCPMDRecord;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:datePosted;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Date]
+		);
+	].

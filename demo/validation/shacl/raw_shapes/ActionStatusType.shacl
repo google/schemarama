@@ -1,0 +1,3 @@
+:ValidSchemaActionStatusType a sh:NodeShape;
+	sh:targetClass schema:ActionStatusType;
+	sh:nodeKind sh:BlankNodeOrIRI.

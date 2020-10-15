@@ -1,0 +1,42 @@
+:ValidSchemaMovie a sh:NodeShape;
+	sh:targetClass schema:Movie;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actor;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:actors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:countryOfOrigin;
+		sh:node :ValidSchemaCountry;
+	];
+	sh:property [
+		sh:path schema:director;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:directors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:duration;
+		sh:node :ValidSchemaDuration;
+	];
+	sh:property [
+		sh:path schema:musicBy;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :MusicGroup]
+		);
+	];
+	sh:property [
+		sh:path schema:productionCompany;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:trailer;
+		sh:node :ValidSchemaVideoObject;
+	].

@@ -1,0 +1,3 @@
+<#ValidSchemaMovieRentalStore> @<#ValidSchemaStore> AND EXTRA a {
+	a [schema:MovieRentalStore];
+}

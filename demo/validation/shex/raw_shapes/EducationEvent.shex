@@ -1,0 +1,3 @@
+<#ValidSchemaEducationEvent> @<#ValidSchemaEvent> AND EXTRA a {
+	a [schema:EducationEvent];
+}

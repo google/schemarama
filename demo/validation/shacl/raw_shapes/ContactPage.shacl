@@ -1,0 +1,3 @@
+:ValidSchemaContactPage a sh:NodeShape;
+	sh:targetClass schema:ContactPage;
+	sh:nodeKind sh:BlankNodeOrIRI.

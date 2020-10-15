@@ -1,0 +1,3 @@
+:ValidSchemaChildCare a sh:NodeShape;
+	sh:targetClass schema:ChildCare;
+	sh:nodeKind sh:BlankNodeOrIRI.

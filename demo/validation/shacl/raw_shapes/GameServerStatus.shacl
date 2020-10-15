@@ -1,0 +1,3 @@
+:ValidSchemaGameServerStatus a sh:NodeShape;
+	sh:targetClass schema:GameServerStatus;
+	sh:nodeKind sh:BlankNodeOrIRI.

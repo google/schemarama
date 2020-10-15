@@ -1,0 +1,18 @@
+<#ValidSchemaFlight> @<#ValidSchemaTrip> AND EXTRA a {
+	a [schema:Flight];
+	schema:aircraft (@<#ValidSchemaVehicle> OR @<#ValidSchemaText>) * ;
+	schema:arrivalAirport @<#ValidSchemaAirport> * ;
+	schema:arrivalGate @<#ValidSchemaText> * ;
+	schema:arrivalTerminal @<#ValidSchemaText> * ;
+	schema:boardingPolicy @<#ValidSchemaBoardingPolicyType> * ;
+	schema:carrier @<#ValidSchemaOrganization> * ;
+	schema:departureAirport @<#ValidSchemaAirport> * ;
+	schema:departureGate @<#ValidSchemaText> * ;
+	schema:departureTerminal @<#ValidSchemaText> * ;
+	schema:estimatedFlightDuration (@<#ValidSchemaText> OR @<#ValidSchemaDuration>) * ;
+	schema:flightDistance (@<#ValidSchemaText> OR @<#ValidSchemaDistance>) * ;
+	schema:flightNumber @<#ValidSchemaText> * ;
+	schema:mealService @<#ValidSchemaText> * ;
+	schema:seller (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:webCheckinTime @<#ValidSchemaDateTime> * ;
+}

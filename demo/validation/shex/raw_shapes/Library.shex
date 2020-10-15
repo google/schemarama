@@ -1,0 +1,3 @@
+<#ValidSchemaLibrary> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:Library];
+}

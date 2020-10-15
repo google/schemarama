@@ -1,0 +1,3 @@
+<#ValidSchemaTrainReservation> @<#ValidSchemaReservation> AND EXTRA a {
+	a [schema:TrainReservation];
+}

@@ -1,0 +1,3 @@
+:ValidSchemaGroceryStore a sh:NodeShape;
+	sh:targetClass schema:GroceryStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

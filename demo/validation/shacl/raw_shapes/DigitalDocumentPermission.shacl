@@ -1,0 +1,16 @@
+:ValidSchemaDigitalDocumentPermission a sh:NodeShape;
+	sh:targetClass schema:DigitalDocumentPermission;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:grantee;
+		sh:or (
+			[sh:node :ContactPoint]
+			[sh:node :Audience]
+			[sh:node :Person]
+			[sh:node :Organization]
+		);
+	];
+	sh:property [
+		sh:path schema:permissionType;
+		sh:node :ValidSchemaDigitalDocumentPermissionType;
+	].

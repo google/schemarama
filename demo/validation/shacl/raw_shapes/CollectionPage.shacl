@@ -1,0 +1,3 @@
+:ValidSchemaCollectionPage a sh:NodeShape;
+	sh:targetClass schema:CollectionPage;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,93 @@
+:ValidServiceARecipe a sh:NodeShape;
+    sh:targetClass schema:Recipe;
+    sh:property [
+        sh:path schema:name;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/name";
+        schema:description "Required. Name of the recipe.";
+    ];
+    sh:property [
+        sh:path schema:author;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/author";
+        schema:description "The author of the recipe.";
+    ];
+    sh:property [
+        sh:path schema:datePublished;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/datePublished";
+        schema:description "The date the recipe was published.";
+    ];
+    sh:property [
+        sh:path schema:recipeCategory;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeCategory";
+        schema:description "The type of dish. For example, the dish could be an appetizer, main course, or desert.";
+    ];
+    sh:property [
+        sh:path schema:description;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/description";
+        schema:description "Summary describing the recipe.";
+    ];
+    sh:property [
+        sh:path schema:image;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/image";
+        schema:description "Picture associated with the recipe. This can be a picture of the dish or the ingredients of the dish.";
+    ];
+    sh:property [
+        sh:path schema:review;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/review";
+        schema:description "Review of the recipe.";
+    ];
+    sh:property [
+        sh:path schema:prepTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/prepTime";
+        schema:description "The amount of time needed to prepare the ingredients of the recipe.";
+    ];
+    sh:property [
+        sh:path schema:totalTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/totalTime";
+        schema:description "The total time it takes to prepare the ingredients and cook the dish.";
+    ];
+    sh:property [
+        sh:path schema:recipeYield;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeYield";
+        schema:description "The quantity of the dish prepared by the recipe (e.g. number of servings).";
+    ];
+    sh:property [
+        sh:path schema:nutrition;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/nutrition";
+        schema:description "Nutritional information of the dish the recipe is used to prepare.";
+    ];
+    sh:property [
+        sh:path schema:recipeIngredient;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeIngredient";
+        schema:description "An ingredient used in the recipe.";
+    ];
+    sh:property [
+        sh:path schema:recipeInstructions;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeInstructions";
+        schema:description "The steps specified by the recipe to prepare the dish.";
+    ].

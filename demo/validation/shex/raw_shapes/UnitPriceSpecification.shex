@@ -1,0 +1,8 @@
+<#ValidSchemaUnitPriceSpecification> @<#ValidSchemaPriceSpecification> AND EXTRA a {
+	a [schema:UnitPriceSpecification];
+	schema:billingIncrement @<#ValidSchemaNumber> * ;
+	schema:priceType @<#ValidSchemaText> * ;
+	schema:referenceQuantity @<#ValidSchemaQuantitativeValue> * ;
+	schema:unitCode (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
+	schema:unitText @<#ValidSchemaText> * ;
+}

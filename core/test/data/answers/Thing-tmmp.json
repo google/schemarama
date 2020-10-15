@@ -1,0 +1,12 @@
+[
+  {
+    "property": "http://schema.org/identifier",
+    "severity": "error",
+    "shape": "https://schema.org/validation#Thing"
+  },
+  {
+    "property": "http://schema.org/description",
+    "severity": "error",
+    "shape": "https://schema.org/validation#Thing"
+  }
+]

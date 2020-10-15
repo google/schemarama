@@ -1,0 +1,3 @@
+<#ValidSchemaDigitalDocumentPermissionType> @<#ValidSchemaEnumeration> AND EXTRA a {
+	a [schema:DigitalDocumentPermissionType];
+}

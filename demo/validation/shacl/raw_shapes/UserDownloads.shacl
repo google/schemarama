@@ -1,0 +1,3 @@
+:ValidSchemaUserDownloads a sh:NodeShape;
+	sh:targetClass schema:UserDownloads;
+	sh:nodeKind sh:BlankNodeOrIRI.

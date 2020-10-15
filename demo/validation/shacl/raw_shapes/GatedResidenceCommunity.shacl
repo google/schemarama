@@ -1,0 +1,3 @@
+:ValidSchemaGatedResidenceCommunity a sh:NodeShape;
+	sh:targetClass schema:GatedResidenceCommunity;
+	sh:nodeKind sh:BlankNodeOrIRI.

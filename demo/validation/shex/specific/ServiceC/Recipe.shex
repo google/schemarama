@@ -1,0 +1,34 @@
+<#ValidServiceCRecipe> @<#ValidSchemaRecipe> AND EXTRA a{
+    schema:name .
+    // techdoc:url "https://schema.org/name"
+    // techdoc:description "The name of the recipe. This title may be truncated, depending on length. All formatting and HTML tags will be removed.";
+
+    schema:ingredients  . +
+    // techdoc:url "https://schema.org/ingredients"
+    // techdoc:description "The ingredients used in the recipe. Annotate each individual ingredient separately.";
+
+    schema:url . +
+    // techdoc:url "https://schema.org/url"
+    // techdoc:description "The canonical URL for the page."
+    // techdoc:identifier "warning";
+
+    schema:image . +
+    // techdoc:url "https://schema.org/image"
+    // techdoc:description "The URL for a high-resolution image of the recipe. You can add up to 6 images.."
+    // techdoc:identifier "warning";
+
+    schema:totalTime .
+    // techdoc:url "https://schema.org/totalTime"
+    // techdoc:description "The total time it takes to cook and prepare the recipe."
+    // techdoc:identifier "warning";
+
+    schema:recipeYield . +
+    // techdoc:url "https://schema.org/recipeYield"
+    // techdoc:description "The quantity or servings made by this recipe"
+    // techdoc:identifier "warning";
+
+    schema:aggregateRating .
+    // techdoc:url "https://schema.org/aggregateRating"
+    // techdoc:description "The overall rating, based on a collection of reviews or ratings, of the item."
+    // techdoc:identifier "warning";
+}

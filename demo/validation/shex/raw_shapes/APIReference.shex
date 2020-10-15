@@ -1,0 +1,8 @@
+<#ValidSchemaAPIReference> @<#ValidSchemaTechArticle> AND EXTRA a {
+	a [schema:APIReference];
+	schema:assembly @<#ValidSchemaText> * ;
+	schema:assemblyVersion @<#ValidSchemaText> * ;
+	schema:executableLibraryName @<#ValidSchemaText> * ;
+	schema:programmingModel @<#ValidSchemaText> * ;
+	schema:targetPlatform @<#ValidSchemaText> * ;
+}

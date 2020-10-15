@@ -1,0 +1,7 @@
+:ValidSchemaEducationalOrganization a sh:NodeShape;
+	sh:targetClass schema:EducationalOrganization;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:alumni;
+		sh:node :ValidSchemaPerson;
+	].

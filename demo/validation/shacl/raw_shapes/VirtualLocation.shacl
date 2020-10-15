@@ -1,0 +1,3 @@
+:ValidSchemaVirtualLocation a sh:NodeShape;
+	sh:targetClass schema:VirtualLocation;
+	sh:nodeKind sh:BlankNodeOrIRI.

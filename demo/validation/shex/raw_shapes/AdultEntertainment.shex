@@ -1,0 +1,3 @@
+<#ValidSchemaAdultEntertainment> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
+	a [schema:AdultEntertainment];
+}

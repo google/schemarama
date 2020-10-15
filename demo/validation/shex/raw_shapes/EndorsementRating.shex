@@ -1,0 +1,3 @@
+<#ValidSchemaEndorsementRating> @<#ValidSchemaRating> AND EXTRA a {
+	a [schema:EndorsementRating];
+}

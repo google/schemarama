@@ -1,0 +1,3 @@
+<#ValidSchemaAchieveAction> @<#ValidSchemaAction> AND EXTRA a {
+	a [schema:WinAction schema:TieAction schema:LoseAction schema:AchieveAction];
+}

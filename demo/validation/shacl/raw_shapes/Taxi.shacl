@@ -1,0 +1,3 @@
+:ValidSchemaTaxi a sh:NodeShape;
+	sh:targetClass schema:Taxi;
+	sh:nodeKind sh:BlankNodeOrIRI.

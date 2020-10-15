@@ -1,0 +1,3 @@
+<#ValidSchemaDate>  EXTRA a {
+	a [schema:Date];
+}

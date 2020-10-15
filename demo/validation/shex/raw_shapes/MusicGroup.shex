@@ -1,0 +1,9 @@
+<#ValidSchemaMusicGroup> @<#ValidSchemaPerformingGroup> AND EXTRA a {
+	a [schema:MusicGroup];
+	schema:album @<#ValidSchemaMusicAlbum> * ;
+	schema:albums @<#ValidSchemaMusicAlbum> * ;
+	schema:genre (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:musicGroupMember @<#ValidSchemaPerson> * ;
+	schema:track (@<#ValidSchemaMusicRecording> OR @<#ValidSchemaItemList>) * ;
+	schema:tracks @<#ValidSchemaMusicRecording> * ;
+}

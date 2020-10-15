@@ -1,0 +1,3 @@
+:ValidSchemaHousePainter a sh:NodeShape;
+	sh:targetClass schema:HousePainter;
+	sh:nodeKind sh:BlankNodeOrIRI.

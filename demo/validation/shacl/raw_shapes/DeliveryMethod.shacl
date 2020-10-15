@@ -1,0 +1,3 @@
+:ValidSchemaDeliveryMethod a sh:NodeShape;
+	sh:targetClass schema:DeliveryMethod;
+	sh:nodeKind sh:BlankNodeOrIRI.

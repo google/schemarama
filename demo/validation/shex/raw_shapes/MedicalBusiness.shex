@@ -1,0 +1,3 @@
+<#ValidSchemaMedicalBusiness>  EXTRA a {
+	a [schema:Pharmacy schema:Dentist schema:Physician schema:MedicalBusiness];
+}

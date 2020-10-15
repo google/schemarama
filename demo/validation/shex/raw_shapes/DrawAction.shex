@@ -1,0 +1,3 @@
+<#ValidSchemaDrawAction> @<#ValidSchemaCreateAction> AND EXTRA a {
+	a [schema:DrawAction];
+}

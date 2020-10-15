@@ -1,0 +1,3 @@
+:ValidSchemaDefinedTerm a sh:NodeShape;
+	sh:targetClass schema:DefinedTerm;
+	sh:nodeKind sh:BlankNodeOrIRI.

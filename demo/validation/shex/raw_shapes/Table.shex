@@ -1,0 +1,3 @@
+<#ValidSchemaTable> @<#ValidSchemaWebPageElement> AND EXTRA a {
+	a [schema:Table];
+}

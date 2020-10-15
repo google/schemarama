@@ -1,0 +1,72 @@
+:ValidServiceDRecipe a sh:NodeShape;
+    sh:targetClass schema:Recipe;
+    sh:property [
+        sh:path schema:name;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/name";
+        schema:description "The recipe or dish name.";
+    ];
+    sh:property [
+        sh:path schema:recipeIngredient;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/recipeIngredient";
+        schema:description "Ingredients in the recipe and their volumes or amounts (may be several).";
+    ];
+    sh:property [
+        sh:path schema:recipeInstructions;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeInstructions";
+        schema:description "cooking instructions.";
+    ];
+    sh:property [
+        sh:path schema:recipeCategory;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeCategory";
+        schema:description "Type of dish: for example, hot main dish, dessert.";
+    ];
+    sh:property [
+        sh:path schema:recipeYield;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeYield";
+        schema:description "Number of servings.";
+    ];
+    sh:property [
+        sh:path schema:totalTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/totalTime";
+        schema:description "Cooking time (if missing, cookTime is used). Specified in the ISO 8601 format. For example, PT30M (30 minutes).";
+    ];
+    sh:property [
+        sh:path schema:image;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/image";
+        schema:description " URL of the cooking images (can be several). We recommend you to fill in this field for creating a better snippet.";
+    ];
+    sh:property [
+        sh:path schema:author;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/author";
+        schema:description "Author of the recipe.";
+    ];
+    sh:property [
+        sh:path schema:nutrition;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/nutrition";
+        schema:description "National cuisine the recipe belongs to. One recipe can contain only one cuisine—type element.";
+    ];
+    sh:property [
+        sh:path schema:recipeCuisine;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeCuisine";
+        schema:description "Energy and nutrition value of the dish, meaning the number of calories and the amount of fat, protein, carbohydrates, vitamins, and so on.";
+    ].

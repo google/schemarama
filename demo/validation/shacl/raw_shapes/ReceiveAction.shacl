@@ -1,0 +1,15 @@
+:ValidSchemaReceiveAction a sh:NodeShape;
+	sh:targetClass schema:ReceiveAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:deliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	];
+	sh:property [
+		sh:path schema:sender;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Audience]
+			[sh:node :Person]
+		);
+	].

@@ -1,0 +1,3 @@
+:ValidSchemaSportsClub a sh:NodeShape;
+	sh:targetClass schema:SportsClub;
+	sh:nodeKind sh:BlankNodeOrIRI.

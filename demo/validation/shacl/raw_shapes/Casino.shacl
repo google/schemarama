@@ -1,0 +1,3 @@
+:ValidSchemaCasino a sh:NodeShape;
+	sh:targetClass schema:Casino;
+	sh:nodeKind sh:BlankNodeOrIRI.

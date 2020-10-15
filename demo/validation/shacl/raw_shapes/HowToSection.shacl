@@ -1,0 +1,11 @@
+:ValidSchemaHowToSection a sh:NodeShape;
+	sh:targetClass schema:HowToSection;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:steps;
+		sh:or (
+			[sh:node :CreativeWork]
+			[sh:node :ItemList]
+			[sh:node :Text]
+		);
+	].

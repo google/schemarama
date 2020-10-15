@@ -1,0 +1,27 @@
+:ValidSchemaTrainTrip a sh:NodeShape;
+	sh:targetClass schema:TrainTrip;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:arrivalPlatform;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:arrivalStation;
+		sh:node :ValidSchemaTrainStation;
+	];
+	sh:property [
+		sh:path schema:departurePlatform;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:departureStation;
+		sh:node :ValidSchemaTrainStation;
+	];
+	sh:property [
+		sh:path schema:trainName;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:trainNumber;
+		sh:node :ValidSchemaText;
+	].

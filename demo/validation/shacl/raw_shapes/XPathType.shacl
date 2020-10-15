@@ -1,0 +1,3 @@
+:ValidSchemaXPathType a sh:NodeShape;
+	sh:targetClass schema:XPathType;
+	sh:nodeKind sh:BlankNodeOrIRI.

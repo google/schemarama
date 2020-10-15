@@ -1,0 +1,3 @@
+:ValidSchemaPond a sh:NodeShape;
+	sh:targetClass schema:Pond;
+	sh:nodeKind sh:BlankNodeOrIRI.

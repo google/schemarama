@@ -1,0 +1,46 @@
+:ValidSchemaMusicComposition a sh:NodeShape;
+	sh:targetClass schema:MusicComposition;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:composer;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Person]
+		);
+	];
+	sh:property [
+		sh:path schema:firstPerformance;
+		sh:node :ValidSchemaEvent;
+	];
+	sh:property [
+		sh:path schema:includedComposition;
+		sh:node :ValidSchemaMusicComposition;
+	];
+	sh:property [
+		sh:path schema:iswcCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:lyricist;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:lyrics;
+		sh:node :ValidSchemaCreativeWork;
+	];
+	sh:property [
+		sh:path schema:musicArrangement;
+		sh:node :ValidSchemaMusicComposition;
+	];
+	sh:property [
+		sh:path schema:musicCompositionForm;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:musicalKey;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:recordedAs;
+		sh:node :ValidSchemaMusicRecording;
+	].

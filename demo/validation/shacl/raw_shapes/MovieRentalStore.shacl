@@ -1,0 +1,3 @@
+:ValidSchemaMovieRentalStore a sh:NodeShape;
+	sh:targetClass schema:MovieRentalStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

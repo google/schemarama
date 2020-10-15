@@ -1,0 +1,7 @@
+:ValidSchemaDrug a sh:NodeShape;
+	sh:targetClass schema:Drug;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:manufacturer;
+		sh:node :ValidSchemaOrganization;
+	].

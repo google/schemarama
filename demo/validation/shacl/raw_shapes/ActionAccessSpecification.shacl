@@ -1,0 +1,47 @@
+:ValidSchemaActionAccessSpecification a sh:NodeShape;
+	sh:targetClass schema:ActionAccessSpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:availabilityEnds;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+			[sh:node :Date]
+		);
+	];
+	sh:property [
+		sh:path schema:availabilityStarts;
+		sh:or (
+			[sh:node :Date]
+			[sh:node :Time]
+			[sh:node :DateTime]
+		);
+	];
+	sh:property [
+		sh:path schema:category;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :URL]
+			[sh:node :PhysicalActivityCategory]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:eligibleRegion;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:expectsAcceptanceOf;
+		sh:node :ValidSchemaOffer;
+	];
+	sh:property [
+		sh:path schema:requiresSubscription;
+		sh:or (
+			[sh:node :MediaSubscription]
+			[sh:node :Boolean]
+		);
+	].

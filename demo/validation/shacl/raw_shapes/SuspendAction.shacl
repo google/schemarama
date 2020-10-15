@@ -1,0 +1,3 @@
+:ValidSchemaSuspendAction a sh:NodeShape;
+	sh:targetClass schema:SuspendAction;
+	sh:nodeKind sh:BlankNodeOrIRI.

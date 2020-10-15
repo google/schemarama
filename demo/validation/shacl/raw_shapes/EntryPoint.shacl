@@ -1,0 +1,34 @@
+:ValidSchemaEntryPoint a sh:NodeShape;
+	sh:targetClass schema:EntryPoint;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actionApplication;
+		sh:node :ValidSchemaSoftwareApplication;
+	];
+	sh:property [
+		sh:path schema:actionPlatform;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:application;
+		sh:node :ValidSchemaSoftwareApplication;
+	];
+	sh:property [
+		sh:path schema:contentType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:encodingType;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:httpMethod;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:urlTemplate;
+		sh:node :ValidSchemaText;
+	].

@@ -1,0 +1,19 @@
+:ValidSchemaDeliveryEvent a sh:NodeShape;
+	sh:targetClass schema:DeliveryEvent;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:accessCode;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:availableFrom;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:availableThrough;
+		sh:node :ValidSchemaDateTime;
+	];
+	sh:property [
+		sh:path schema:hasDeliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	].

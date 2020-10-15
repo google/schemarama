@@ -1,0 +1,3 @@
+<#ValidSchemaDentist> @<#ValidSchemaLocalBusiness> AND EXTRA a {
+	a [schema:Dentist];
+}

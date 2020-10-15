@@ -1,0 +1,27 @@
+<#ValidSchemaVehicle> @<#ValidSchemaProduct> AND EXTRA a {
+	a [schema:Car schema:Vehicle];
+	schema:cargoVolume @<#ValidSchemaQuantitativeValue> * ;
+	schema:dateVehicleFirstRegistered @<#ValidSchemaDate> * ;
+	schema:driveWheelConfiguration (@<#ValidSchemaText> OR @<#ValidSchemaDriveWheelConfigurationValue>) * ;
+	schema:fuelConsumption @<#ValidSchemaQuantitativeValue> * ;
+	schema:fuelEfficiency @<#ValidSchemaQuantitativeValue> * ;
+	schema:fuelType (@<#ValidSchemaQualitativeValue> OR @<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
+	schema:knownVehicleDamages @<#ValidSchemaText> * ;
+	schema:mileageFromOdometer @<#ValidSchemaQuantitativeValue> * ;
+	schema:numberOfAirbags (@<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+	schema:numberOfAxles (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:numberOfDoors (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:numberOfForwardGears (@<#ValidSchemaQuantitativeValue> OR @<#ValidSchemaNumber>) * ;
+	schema:numberOfPreviousOwners (@<#ValidSchemaNumber> OR @<#ValidSchemaQuantitativeValue>) * ;
+	schema:productionDate @<#ValidSchemaDate> * ;
+	schema:purchaseDate @<#ValidSchemaDate> * ;
+	schema:steeringPosition @<#ValidSchemaSteeringPositionValue> * ;
+	schema:vehicleConfiguration @<#ValidSchemaText> * ;
+	schema:vehicleEngine @<#ValidSchemaEngineSpecification> * ;
+	schema:vehicleIdentificationNumber @<#ValidSchemaText> * ;
+	schema:vehicleInteriorColor @<#ValidSchemaText> * ;
+	schema:vehicleInteriorType @<#ValidSchemaText> * ;
+	schema:vehicleModelDate @<#ValidSchemaDate> * ;
+	schema:vehicleSeatingCapacity (@<#ValidSchemaNumber> OR @<#ValidSchemaQuantitativeValue>) * ;
+	schema:vehicleTransmission (@<#ValidSchemaURL> OR @<#ValidSchemaText> OR @<#ValidSchemaQualitativeValue>) * ;
+}

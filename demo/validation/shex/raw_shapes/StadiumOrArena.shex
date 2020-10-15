@@ -1,0 +1,3 @@
+<#ValidSchemaStadiumOrArena> @<#ValidSchemaCivicStructure> AND EXTRA a {
+	a [schema:StadiumOrArena];
+}

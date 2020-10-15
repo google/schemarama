@@ -1,0 +1,3 @@
+:ValidSchemaTheaterGroup a sh:NodeShape;
+	sh:targetClass schema:TheaterGroup;
+	sh:nodeKind sh:BlankNodeOrIRI.

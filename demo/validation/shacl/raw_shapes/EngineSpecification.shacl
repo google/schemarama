@@ -1,0 +1,11 @@
+:ValidSchemaEngineSpecification a sh:NodeShape;
+	sh:targetClass schema:EngineSpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:fuelType;
+		sh:or (
+			[sh:node :QualitativeValue]
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	].

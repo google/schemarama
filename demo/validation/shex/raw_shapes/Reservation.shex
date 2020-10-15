@@ -1,0 +1,16 @@
+<#ValidSchemaReservation> @<#ValidSchemaIntangible> AND EXTRA a {
+	a [schema:TrainReservation schema:FoodEstablishmentReservation schema:RentalCarReservation schema:TaxiReservation schema:FlightReservation schema:ReservationPackage schema:LodgingReservation schema:BusReservation schema:EventReservation schema:Reservation];
+	schema:bookingAgent (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
+	schema:bookingTime @<#ValidSchemaDateTime> * ;
+	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+	schema:modifiedTime @<#ValidSchemaDateTime> * ;
+	schema:priceCurrency @<#ValidSchemaText> * ;
+	schema:programMembershipUsed @<#ValidSchemaProgramMembership> * ;
+	schema:provider (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
+	schema:reservationFor @<#ValidSchemaThing> * ;
+	schema:reservationId @<#ValidSchemaText> * ;
+	schema:reservationStatus @<#ValidSchemaReservationStatusType> * ;
+	schema:reservedTicket @<#ValidSchemaTicket> * ;
+	schema:totalPrice (@<#ValidSchemaPriceSpecification> OR @<#ValidSchemaText> OR @<#ValidSchemaNumber>) * ;
+	schema:underName (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
+}

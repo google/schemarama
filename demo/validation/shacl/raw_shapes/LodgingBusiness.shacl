@@ -1,0 +1,50 @@
+:ValidSchemaLodgingBusiness a sh:NodeShape;
+	sh:targetClass schema:LodgingBusiness;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:amenityFeature;
+		sh:node :ValidSchemaLocationFeatureSpecification;
+	];
+	sh:property [
+		sh:path schema:audience;
+		sh:node :ValidSchemaAudience;
+	];
+	sh:property [
+		sh:path schema:availableLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	];
+	sh:property [
+		sh:path schema:checkinTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:checkoutTime;
+		sh:or (
+			[sh:node :DateTime]
+			[sh:node :Time]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfRooms;
+		sh:or (
+			[sh:node :QuantitativeValue]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:petsAllowed;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Boolean]
+		);
+	];
+	sh:property [
+		sh:path schema:starRating;
+		sh:node :ValidSchemaRating;
+	].

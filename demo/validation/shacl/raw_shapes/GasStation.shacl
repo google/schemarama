@@ -1,0 +1,3 @@
+:ValidSchemaGasStation a sh:NodeShape;
+	sh:targetClass schema:GasStation;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,3 @@
+<#ValidSchemaDefinedTerm>  EXTRA a {
+	a [schema:DefinedTerm];
+}

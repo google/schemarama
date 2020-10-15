@@ -1,0 +1,13 @@
+[
+  {
+    "property": "http://schema.org/identifier",
+    "severity": "warning",
+    "shape": "https://schema.org/validation#Thing"
+  },
+  {
+    "property": "http://schema.org/description",
+    "severity": "warning",
+    "shape": "https://schema.org/validation#Thing",
+    "description": "Description is required for SomeProduct"
+  }
+]

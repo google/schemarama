@@ -1,0 +1,6 @@
+<#ValidSchemaBroadcastEvent> @<#ValidSchemaPublicationEvent> AND EXTRA a {
+	a [schema:BroadcastEvent];
+	schema:broadcastOfEvent @<#ValidSchemaEvent> * ;
+	schema:isLiveBroadcast @<#ValidSchemaBoolean> * ;
+	schema:videoFormat @<#ValidSchemaText> * ;
+}

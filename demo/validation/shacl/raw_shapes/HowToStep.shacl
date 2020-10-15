@@ -1,0 +1,3 @@
+:ValidSchemaHowToStep a sh:NodeShape;
+	sh:targetClass schema:HowToStep;
+	sh:nodeKind sh:BlankNodeOrIRI.

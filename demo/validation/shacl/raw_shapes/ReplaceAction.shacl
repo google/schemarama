@@ -1,0 +1,11 @@
+:ValidSchemaReplaceAction a sh:NodeShape;
+	sh:targetClass schema:ReplaceAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:replacee;
+		sh:node :ValidSchemaThing;
+	];
+	sh:property [
+		sh:path schema:replacer;
+		sh:node :ValidSchemaThing;
+	].

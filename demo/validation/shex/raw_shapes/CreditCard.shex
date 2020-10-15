@@ -1,0 +1,3 @@
+<#ValidSchemaCreditCard> @<#ValidSchemaLoanOrCredit> AND EXTRA a {
+	a [schema:CreditCard];
+}

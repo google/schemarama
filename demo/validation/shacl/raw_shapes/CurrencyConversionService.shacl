@@ -1,0 +1,3 @@
+:ValidSchemaCurrencyConversionService a sh:NodeShape;
+	sh:targetClass schema:CurrencyConversionService;
+	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,14 @@
+:ValidSchemaCourseInstance a sh:NodeShape;
+	sh:targetClass schema:CourseInstance;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:courseMode;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:instructor;
+		sh:node :ValidSchemaPerson;
+	].

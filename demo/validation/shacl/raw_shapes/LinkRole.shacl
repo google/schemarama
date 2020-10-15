@@ -1,0 +1,10 @@
+:ValidSchemaLinkRole a sh:NodeShape;
+	sh:targetClass schema:LinkRole;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:inLanguage;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Language]
+		);
+	].

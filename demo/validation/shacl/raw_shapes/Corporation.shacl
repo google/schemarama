@@ -1,0 +1,7 @@
+:ValidSchemaCorporation a sh:NodeShape;
+	sh:targetClass schema:Corporation;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:tickerSymbol;
+		sh:node :ValidSchemaText;
+	].

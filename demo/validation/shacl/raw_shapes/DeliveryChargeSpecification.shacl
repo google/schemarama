@@ -1,0 +1,24 @@
+:ValidSchemaDeliveryChargeSpecification a sh:NodeShape;
+	sh:targetClass schema:DeliveryChargeSpecification;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:appliesToDeliveryMethod;
+		sh:node :ValidSchemaDeliveryMethod;
+	];
+	sh:property [
+		sh:path schema:areaServed;
+		sh:or (
+			[sh:node :AdministrativeArea]
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	];
+	sh:property [
+		sh:path schema:eligibleRegion;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Place]
+			[sh:node :GeoShape]
+		);
+	].

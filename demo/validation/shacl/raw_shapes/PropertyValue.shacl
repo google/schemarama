@@ -1,0 +1,48 @@
+:ValidSchemaPropertyValue a sh:NodeShape;
+	sh:targetClass schema:PropertyValue;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:maxValue;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:minValue;
+		sh:node :ValidSchemaNumber;
+	];
+	sh:property [
+		sh:path schema:propertyID;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:unitCode;
+		sh:or (
+			[sh:node :URL]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:unitText;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:value;
+		sh:or (
+			[sh:node :Boolean]
+			[sh:node :StructuredValue]
+			[sh:node :Number]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:valueReference;
+		sh:or (
+			[sh:node :PropertyValue]
+			[sh:node :StructuredValue]
+			[sh:node :QualitativeValue]
+			[sh:node :QuantitativeValue]
+			[sh:node :Enumeration]
+		);
+	].

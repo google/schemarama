@@ -1,0 +1,25 @@
+:ValidSchemaLoanOrCredit a sh:NodeShape;
+	sh:targetClass schema:LoanOrCredit;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:amount;
+		sh:or (
+			[sh:node :MonetaryAmount]
+			[sh:node :Number]
+		);
+	];
+	sh:property [
+		sh:path schema:currency;
+		sh:node :ValidSchemaText;
+	];
+	sh:property [
+		sh:path schema:loanTerm;
+		sh:node :ValidSchemaQuantitativeValue;
+	];
+	sh:property [
+		sh:path schema:requiredCollateral;
+		sh:or (
+			[sh:node :Text]
+			[sh:node :Thing]
+		);
+	].

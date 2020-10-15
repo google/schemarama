@@ -1,0 +1,107 @@
+:ValidServiceBRecipe a sh:NodeShape;
+    sh:targetClass schema:Recipe;
+    sh:property [
+        sh:path schema:name;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/name";
+        schema:description "The name of the dish.";
+    ];
+    sh:property [
+        sh:path schema:image;
+        sh:minCount 1;
+        sh:severity sh:Violation;
+        schema:url "https://schema.org/image";
+        schema:description "Image of the completed dish.";
+    ];
+    sh:property [
+        sh:path schema:aggregateRating;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/aggregateRating";
+        schema:description "Annotation for the average review score assigned to the item.";
+    ];
+    sh:property [
+        sh:path schema:author;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/author";
+        schema:description: "The name of the person or organization that wrote the recipe.";
+    ];
+    sh:property [
+        sh:path schema:cookTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/cookTime";
+        schema:description "The time it takes to actually cook the dish in ISO 8601 format";
+    ];
+    sh:property [
+        sh:path schema:datePublished;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/datePublished";
+        schema:description "The date the recipe was published in ISO 8601 format";
+    ];
+    sh:property [
+        sh:path schema:description;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/description";
+        schema:description "A short summary describing the dish.";
+    ];
+    sh:property [
+        sh:path schema:keywords;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/keywords";
+        schema:description "Other terms for your recipe such as the season, the holiday, or other descriptors";
+    ];
+    sh:property [
+        sh:path schema:prepTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/prepTime";
+        schema:description "The length of time it takes to prepare the dish, in ISO 8601 format";
+    ];
+    sh:property [
+        sh:path schema:recipeCategory;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeCategoty";
+        schema:description "The type of meal or course your recipe is about";
+    ];
+    sh:property [
+        sh:path schema:recipeCuisine;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeCusine";
+        schema:description "The region associated with your recipe";
+    ];
+    sh:property [
+        sh:path schema:recipeIngredient;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeIngredient";
+        schema:description "An ingredient used in the recipe.";
+    ];
+    sh:property [
+        sh:path schema:recipeInstructions;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeInstructions";
+        schema:description "The steps to make the dish";
+    ];
+    sh:property [
+        sh:path schema:recipeYield;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/recipeYield";
+        schema:description "The quantity produced by the recipe. Specify the number of servings produced from this recipe with just a number";
+    ];
+    sh:property [
+        sh:path schema:totalTime;
+        sh:minCount 1;
+        sh:severity sh:Warning;
+        schema:url "https://schema.org/totalTime";
+        schema:description "The total time it takes to prepare the cook the dish, in ISO 8601 format";
+    ].

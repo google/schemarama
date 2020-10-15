@@ -1,0 +1,3 @@
+:ValidSchemaPaymentCard a sh:NodeShape;
+	sh:targetClass schema:PaymentCard;
+	sh:nodeKind sh:BlankNodeOrIRI.

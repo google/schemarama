@@ -1,0 +1,65 @@
+:ValidSchemaRadioSeries a sh:NodeShape;
+	sh:targetClass schema:RadioSeries;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actor;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:actors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:containsSeason;
+		sh:node :ValidSchemaCreativeWorkSeason;
+	];
+	sh:property [
+		sh:path schema:director;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:directors;
+		sh:node :ValidSchemaPerson;
+	];
+	sh:property [
+		sh:path schema:episode;
+		sh:node :ValidSchemaEpisode;
+	];
+	sh:property [
+		sh:path schema:episodes;
+		sh:node :ValidSchemaEpisode;
+	];
+	sh:property [
+		sh:path schema:musicBy;
+		sh:or (
+			[sh:node :Person]
+			[sh:node :MusicGroup]
+		);
+	];
+	sh:property [
+		sh:path schema:numberOfEpisodes;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:numberOfSeasons;
+		sh:node :ValidSchemaInteger;
+	];
+	sh:property [
+		sh:path schema:productionCompany;
+		sh:node :ValidSchemaOrganization;
+	];
+	sh:property [
+		sh:path schema:season;
+		sh:or (
+			[sh:node :CreativeWorkSeason]
+			[sh:node :URL]
+		);
+	];
+	sh:property [
+		sh:path schema:seasons;
+		sh:node :ValidSchemaCreativeWorkSeason;
+	];
+	sh:property [
+		sh:path schema:trailer;
+		sh:node :ValidSchemaVideoObject;
+	].

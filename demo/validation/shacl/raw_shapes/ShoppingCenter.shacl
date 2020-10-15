@@ -1,0 +1,3 @@
+:ValidSchemaShoppingCenter a sh:NodeShape;
+	sh:targetClass schema:ShoppingCenter;
+	sh:nodeKind sh:BlankNodeOrIRI.

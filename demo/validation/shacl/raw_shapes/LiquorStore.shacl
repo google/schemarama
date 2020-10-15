@@ -1,0 +1,3 @@
+:ValidSchemaLiquorStore a sh:NodeShape;
+	sh:targetClass schema:LiquorStore;
+	sh:nodeKind sh:BlankNodeOrIRI.

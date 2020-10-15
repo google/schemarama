@@ -1,0 +1,17 @@
+:ValidSchemaChooseAction a sh:NodeShape;
+	sh:targetClass schema:ChooseAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:actionOption;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :Text]
+		);
+	];
+	sh:property [
+		sh:path schema:option;
+		sh:or (
+			[sh:node :Thing]
+			[sh:node :Text]
+		);
+	].

@@ -1,0 +1,3 @@
+<#ValidSchemaAssessAction> @<#ValidSchemaAction> AND EXTRA a {
+	a [schema:WantAction schema:VoteAction schema:AgreeAction schema:IgnoreAction schema:ReactAction schema:EndorseAction schema:DisagreeAction schema:ReviewAction schema:ChooseAction schema:DislikeAction schema:LikeAction schema:AssessAction];
+}

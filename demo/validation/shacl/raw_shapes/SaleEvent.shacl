@@ -1,0 +1,3 @@
+:ValidSchemaSaleEvent a sh:NodeShape;
+	sh:targetClass schema:SaleEvent;
+	sh:nodeKind sh:BlankNodeOrIRI.

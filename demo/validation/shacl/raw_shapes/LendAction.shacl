@@ -1,0 +1,7 @@
+:ValidSchemaLendAction a sh:NodeShape;
+	sh:targetClass schema:LendAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:borrower;
+		sh:node :ValidSchemaPerson;
+	].

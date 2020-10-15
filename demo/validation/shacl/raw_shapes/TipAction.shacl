@@ -1,0 +1,12 @@
+:ValidSchemaTipAction a sh:NodeShape;
+	sh:targetClass schema:TipAction;
+	sh:nodeKind sh:BlankNodeOrIRI;
+	sh:property [
+		sh:path schema:recipient;
+		sh:or (
+			[sh:node :Organization]
+			[sh:node :Audience]
+			[sh:node :ContactPoint]
+			[sh:node :Person]
+		);
+	].

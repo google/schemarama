@@ -1,0 +1,3 @@
+<#ValidSchemaPeriodical> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
+	a [schema:Periodical];
+}

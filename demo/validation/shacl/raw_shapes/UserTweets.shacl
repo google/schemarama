@@ -1,0 +1,3 @@
+:ValidSchemaUserTweets a sh:NodeShape;
+	sh:targetClass schema:UserTweets;
+	sh:nodeKind sh:BlankNodeOrIRI.
