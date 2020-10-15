@@ -3572,7 +3572,6 @@ api.isRelative = v => types.isString(v);
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
- * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21245,7 +21244,6 @@ module.exports = NamedNode
 /***/ (function(module, exports) {
 
 /**
- * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24707,7 +24705,6 @@ module.exports = typeof queueMicrotask === 'function'
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
- * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24737,7 +24734,6 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
- * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46469,7 +46465,6 @@ var objectKeys = Object.keys || function (obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
- * Copyright 2020 Anastasiia Byvsheva & Dan Brickley
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
