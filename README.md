@@ -16,4 +16,5 @@ can be used when checking a single piece of content, allowing users to
 understand the larger ecosystem of data consuming applications that their
 markup may be eligible for.
 
-
+This is an initial release, and is not recommended for production use at this
+time. 
