@@ -1,4 +1,5 @@
 /**
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +20,7 @@ const n3 = require('n3');
 
 const ShexValidator = require('./shexValidator').Validator;
 const utils = require('./util');
+const parser = require('./parser');
 
 class CliError extends Error {
     constructor(message) {
@@ -53,7 +55,7 @@ function writeResult(val, args) {
 }
 
 function writeQuads(quads, output, format) {
-    let writer = new n3.Writer({format: cliFormatToN3(format)});
+    const writer = new n3.Writer({format: cliFormatToN3(format)});
     quads.forEach(quad => writer.addQuad(quad.subject, quad.predicate, quad.object));
     writer.end((error, result) => {
         if (error) throw new CliError(error);
@@ -63,15 +65,15 @@ function writeQuads(quads, output, format) {
 
 async function validateShEx(data, base, args) {
     args.service = args.service || '';
-    let shapes = await utils.loadData(args.shex);
-    let annotations = args.annotations ? JSON.parse(await utils.loadData(args.annotations)) : undefined;
-    let validator = new ShexValidator(shapes, {annotations: annotations});
-    let report = await validator.validate(data, args.target, {baseUrl: base});
+    const shapes = await utils.loadData(args.shex);
+    const annotations = args.annotations ? JSON.parse(await utils.loadData(args.annotations)) : undefined;
+    const validator = new ShexValidator(shapes, {annotations: annotations});
+    const report = await validator.validate(data, args.target, {baseUrl: base});
     writeResult(JSON.stringify(report.failures, undefined, 2), args);
 }
 
 async function validateShacl(data, base, args) {
-    let shapes = await utils.loadData(args.shacl);
+    const shapes = await utils.loadData(args.shacl);
     let subclasses, annotations;
     if (args.subclasses) {
         subclasses = await utils.loadData(args.subclasses);
@@ -79,11 +81,11 @@ async function validateShacl(data, base, args) {
     if (args.annotations) {
         annotations = JSON.parse(await utils.loadData(args.annotations));
     }
-    let validator = new ShaclValidator(shapes, {
+    const validator = new ShaclValidator(shapes, {
         subclasses: subclasses,
         annotations: annotations
     });
-    let report = validator.validate(data, {baseUrl: base});
+    const report = validator.validate(data, {baseUrl: base});
     writeResult(JSON.stringify(report.failures, undefined, 2), args);
 }
 
@@ -94,10 +96,10 @@ async function validateShacl(data, base, args) {
 async function main(args) {
     if (!args.input) throw new CliError('No input file path specified');
     if (args.output && !fs.existsSync(path.parse(args.output).dir)) throw new CliError(`Output directory \'${path.parse(args.output).dir}\' doesn\'t exist`);
-    let data = fs.readFileSync(args.input).toString();
-    let base = args.base || utils.randomUrl()
+    const data = fs.readFileSync(args.input).toString();
+    const base = args.base || utils.randomUrl()
     if (args.parse) {
-        let quads = await utils.inputToQuads(data, base);
+        const quads = await parser.stringToQuads(data, base);
         writeQuads(quads, args.output, args.format);
     } else if (args.validate) {
         if (args.shex && args.shacl) throw new CliError('Validation is possible for ShEx or SHACL, but not for both');
@@ -123,6 +125,6 @@ async function main(args) {
  * }} args - possible options for args
  */
 
-let args = minimist(process.argv.slice(2));
+const args = minimist(process.argv.slice(2));
 main(args);
 

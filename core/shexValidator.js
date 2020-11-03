@@ -1,4 +1,5 @@
 /**
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +15,7 @@
  */
 const shex = require('./third_party/shex/shex');
 const utils = require('./util');
+const parser = require('./parser');
 const errors = require('./errors');
 
 const TYPE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type';
@@ -75,7 +77,7 @@ class ValidationReport {
         // STEP 3: handle closed shape errors
         if (jsonReport.type === 'ClosedShapeViolation') {
             jsonReport.unexpectedTriples.forEach(trpl => {
-                let failure = {
+                const failure = {
                     type: jsonReport.type,
                     property: trpl.predicate,
                     message: `Unexpected property ${trpl.predicate}`,
@@ -96,7 +98,7 @@ class ValidationReport {
         };
         switch (jsonReport.type) {
             case 'TypeMismatch':
-                failure.message = `Value provided for property ${failure.property} has a wrong type`;
+                failure.message = `Value provided for property ${failure.property} has an unexpected type`;
                 this.simplify(jsonReport.errors, undefined, undefined);
                 break;
             case 'MissingProperty':
@@ -128,9 +130,10 @@ class ValidationReport {
             return node;
         }
         if (node.shapeExprs) {
-            return node.shapeExprs
+            const nodes = node.shapeExprs
                 .map(/** @param {*} nestedStruct */nestedStruct => this.getShapeCore(nestedStruct))
                 .filter(/** @param {*} nestedStruct */nestedStruct => nestedStruct !== undefined);
+            if (nodes.length > 0) return nodes[0];
         }
     }
 
@@ -142,11 +145,17 @@ class ValidationReport {
      */
     getAnnotations(shape, property) {
         const mapper = new Map();
-        if (!this.shapes.get(shape) || this.shapes.get(shape).length === 0) return mapper;
-        let propStructure = this.shapes.get(shape).expression.expressions
-            .filter(/** @param {{predicate: string}} x */x => x.predicate === property)[0];
+        let shapeObj = this.shapes.get(shape);
+        if (!shapeObj || !shapeObj.expression) return mapper;
+        let propStructure;
+        if (shapeObj.expression.expressions !== undefined) {
+            propStructure = shapeObj.expression.expressions
+                .filter(x => x.predicate === property)[0];
+        } else if (shapeObj.expression.predicate === property){
+            propStructure = shapeObj.expression;
+        }
         if (!propStructure || !propStructure.annotations) return mapper;
-        propStructure.annotations.forEach(/** @param {{predicate: string, object:{value: string}}} x*/x => {
+        propStructure.annotations.forEach(x => {
             mapper.set(x.predicate, x.object.value);
         });
         return mapper;
@@ -171,16 +180,16 @@ class ValidationReport {
     toStructuredDataReport() {
         return this.failures.map(err => {
             /** @type StructuredDataFailure */
-            let failure = {
+            const failure = {
                 property: err.property,
                 message: err.message,
                 shape: err.shape,
                 severity: 'error'
             }
             if (err.shape && err.property && this.annotations) {
-                let shapeAnnotations = this.getAnnotations(err.shape, err.property);
+                const shapeAnnotations = this.getAnnotations(err.shape, err.property);
                 for (const [key, value] of Object.entries(this.annotations)) {
-                    let annotation = shapeAnnotations.get(value) || failure[key];
+                    const annotation = shapeAnnotations.get(value) || failure[key];
                     if (annotation) failure[key] = annotation;
                 }
             }
@@ -205,15 +214,17 @@ class ShexValidator {
 
     /**
      * Validates data against ShEx shapes
-     * @param {string} data
+     * @param {string|Store} data
      * @param {string} shape -  identifier of the target shape
      * @param {{ baseUrl: string|undefined }} options
-     * @returns {Promise<{baseUrl: string, quads: Store, report: [StructuredDataFailure]}>}
+     * @returns {Promise<{baseUrl: string, store: Store, failures: [StructuredDataFailure]}>}
      */
     async validate(data, shape, options = {}) {
         const baseUrl = options.baseUrl || utils.randomUrl();
-        const quads = await utils.inputToQuads(data, baseUrl);
-        const db = shex.Util.makeN3DB(quads);
+        if (typeof data === 'string') {
+            data = await parser.stringToQuads(data, baseUrl);
+        }
+        const db = shex.Util.makeN3DB(data);
         const validator = shex.Validator.construct(this.shapes);
         const errors = new ValidationReport(validator.validate(db, [{
             node: baseUrl,
@@ -221,7 +232,7 @@ class ShexValidator {
         }]), this.shapes, this.annotations);
         return {
             baseUrl: baseUrl,
-            quads: quads,
+            store: data,
             failures: errors.toStructuredDataReport()
         };
     }

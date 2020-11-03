@@ -1,4 +1,4 @@
-<div itemscope itemtype="http://schema.org/Thing">
+<div itemscope itemtype="http://schema.org/Thing" itemid="http://example.org/test">
     <span itemprop="name">test1</span>
     <span itemprop="identifier">AAAA</span>
 </div>

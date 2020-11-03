@@ -1,4 +1,5 @@
 /**
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,10 +16,11 @@
 module.exports = {
     ShexValidator: require('./shexValidator').Validator,
     ShaclValidator: require('./shaclValidator').Validator,
-    inputToQuads: require('./util').inputToQuads,
-    parseJsonLd: require('./util').parseJsonLd,
-    parseMicrodata: require('./util').parseMicrodata,
-    parseRdfa: require('./util').parseRdfa,
-    parseTurtle: require('./util').parseTurtle,
-    randomUrl: require('./util').randomUrl
+    stringToQuads: require('./parser').stringToQuads,
+    parseJsonLd: require('./parser').parseJsonLd,
+    parseMicrodata: require('./parser').parseMicrodata,
+    parseRdfa: require('./parser').parseRdfa,
+    parseNQuads: require('./parser').parseNQuads,
+    randomUrl: require('./util').randomUrl,
+    quadsToShapes: require('./util').quadsToShapes
 }

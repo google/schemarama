@@ -1,0 +1,12 @@
+[
+  {
+    "property": "http://schema.org/name",
+    "severity": "error",
+    "shape": "https://schema.org/validation#Thing"
+  },
+  {
+    "property": "http://schema.org/text",
+    "severity": "error",
+    "shape": "https://schema.org/validation#CreativeWork"
+  }
+]
