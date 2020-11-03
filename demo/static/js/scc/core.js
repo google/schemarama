@@ -1,4 +1,5 @@
 /*
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,20 +41,6 @@ $(document).ready(async () => {
     });
 });
 
-async function getType(data, baseUrl) {
-    try {
-        let quads = await schemarama.inputToQuads(data, baseUrl);
-        let typeQuads = quads.getQuads(baseUrl, 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type', undefined);
-        if (typeQuads.length === 0) {
-            alert('No type detected, validation is not possible');
-        } else {
-            return typeQuads[0].object.value;
-        }
-    } catch (err) {
-        alert(err.message);
-    }
-}
-
 function randomString(length=16) {
     let result = '';
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -63,29 +50,43 @@ function randomString(length=16) {
     return result;
 }
 
-function removeUrls(text) {
-    return text.replaceAll(/https?:\/\/[^\s]+[\/#]/g, '');
+function replacePrefix(text) {
+    text = text.split(/https?:\/\/schema.org\//g).join('');
+    text = text.split(/http:\/\/www.w3.org\/1999\/02\/22-rdf-syntax-ns#/g).join('@');
+    text = text.split(/http:\/\/www.w3.org\/2000\/01\/rdf-schema#/g).join('@');
+    text = text.split(/http:\/\/www.w3.org\/ns\/rdfa#/g).join('');
+    return text;
 }
+
 
 async function validate(data, lang) {
-    let report;
-    let baseUrl = `${window.location.href}${randomString()}`;
-    let type = (await getType(data, baseUrl)).replace(/.*[/#]/, '');
-    if (lang === 'shex') {
-        report = await validateShex(data, type, baseUrl);
-    } else if (lang === 'shacl') {
-        report = await validateShacl(data, baseUrl);
+    const baseUrl = `${window.location.href}${randomString()}`;
+    const shapes = schemarama.quadsToShapes(await schemarama.stringToQuads(data, baseUrl));
+    for (const [id, shape] of shapes) {
+        let report;
+        let type = shape.getObjects(id, 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type');
+        if (type.length === 0) return;
+        type = replacePrefix(type[0].value);
+        if (lang === 'shex') {
+            report = await validateShex(shape, type, id);
+        } else if (lang === 'shacl') {
+            report = await validateShacl(shape, id);
+        }
+        let dataItems = parseDataItems(report.store, report.baseUrl, 0, []);
+        addReport(type, minifyFailuresList(report.failures), dataItems);
     }
-    let dataItems = parseDataItems(report.quads, report.baseUrl, 0);
-    addReport(type, minifyFailuresList(report.failures), dataItems);
+
 }
 
-function parseDataItems(dataset, shapeId, indent) {
+function parseDataItems(dataset, shapeId, indent, used) {
+    used.push(shapeId);
     let dataItems = [];
     let shape = dataset.getQuads(shapeId, undefined, undefined);
     shape.forEach(quad => {
-        dataItems.push(dataItemLayout(quad.predicate.value, quad.object.value, indent));
-        dataItems.push(...parseDataItems(dataset, quad.object, indent + 1));
+        dataItems.push(dataItemLayout(quad.predicate.value, quad.object.id, indent));
+        if (!used.includes(quad.object.id) && dataset.getQuads(quad.object.id, undefined, undefined).length > 0) {
+            dataItems.push(...parseDataItems(dataset, quad.object.id, indent + 1, used));
+        }
     });
     return dataItems;
 }

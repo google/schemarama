@@ -1,4 +1,5 @@
 /*
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +58,7 @@ function initTests(tests) {
 
 function dataItemLayout(predicate, object, indent) {
     let trueIndent = indent * 30;
-    predicate = removeUrls(predicate);
+    predicate = replacePrefix(predicate);
     return `<div class="data-item">
         <div class="info">
             <div class="predicate"><div style='width: ${trueIndent}px'></div><div>${predicate}</div></div>
@@ -75,10 +76,10 @@ function failureLayout(failure, type) {
     return `<div class="failure ${type}">
         <div class="property">
             <img src="static/images/icons/${type}.svg" alt="${type}">
-            <div>${removeUrls(failure.property)}</div>
+            <div>${replacePrefix(failure.property)}</div>
         </div>
         <div class="message">
-            <div class="text-justify">${removeUrls(failure.message) || ""}.</div> 
+            <div class="text-justify">${replacePrefix(failure.message) || ""}.</div> 
         </div>
         <div class="services"><div>${services}</div></div>
     </div>`
