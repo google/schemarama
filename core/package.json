@@ -1,6 +1,11 @@
 {
-  "name": "schema-validation-node",
+  "name": "schemarama",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/google/schemarama"
+  },
+  "license": "SEE LICENSE IN core/license",
   "dependencies": {
     "axios": "^0.20.0",
     "child_process": "^1.0.2",
