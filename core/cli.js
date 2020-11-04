@@ -48,7 +48,7 @@ function cliFormatToN3(val) {
 
 function writeResult(val, args) {
     if (!args.output) {
-        console.log(result);
+        console.log(val);
     } else {
         fs.writeFileSync(args.output, val);
     }
