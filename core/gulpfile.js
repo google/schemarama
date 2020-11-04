@@ -33,3 +33,32 @@ gulp.task('build', function () {
         // .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
+
+gulp.task('parsing', function () {
+    return browserify({entries: ['./parsing-index.js'], extensions: ['.js'], debug: true, standalone: 'schemarama'})
+        .transform(babelify, {
+            global: true,
+            presets: ["@babel/preset-env"],
+            plugins: [
+                [
+                    '@babel/plugin-proposal-decorators',
+                    {
+                        legacy: true,
+                    },
+                ],
+                '@babel/plugin-proposal-class-properties',
+                [
+                    '@babel/plugin-transform-runtime',
+                    {
+                        regenerator: true,
+                    },
+                ],
+            ]
+        })
+        .bundle()
+        .pipe(source('schemarama-parsing.bundle.js'))
+        // uncomment to minimize bundle
+        // .pipe(buffer())
+        // .pipe(uglify())
+        .pipe(gulp.dest('dist'));
+});

@@ -2,4 +2,4 @@
 dist/
 package-lock.json
 node_modules/
-test/data/utils/temp.txt
+temp.txt
