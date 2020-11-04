@@ -311,7 +311,7 @@ function _prettyMarkupHtml() {
                         target = options && options.target ? options.target : undefined;
                         _context.t0 = schemarama;
                         _context.next = 7;
-                        return schemarama.inputToQuads(data, baseUrl);
+                        return schemarama.stringToQuads(data, baseUrl);
 
                     case 7:
                         _context.t1 = _context.sent;
@@ -376,7 +376,7 @@ function _prettyMarkupText() {
                         target = options && options.target ? options.target : undefined;
                         _context2.t0 = schemarama;
                         _context2.next = 7;
-                        return schemarama.inputToQuads(data, baseUrl);
+                        return schemarama.stringToQuads(data, baseUrl);
 
                     case 7:
                         _context2.t1 = _context2.sent;

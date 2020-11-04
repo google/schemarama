@@ -35,17 +35,31 @@ validator.validate(data, {baseUrl: 'http://example.org/test'})
 ## Bundling
 To use this module in the browser, you need to create a bundle with webpack or browserify.<br /><br />
 **With Webpack:**
-1. ```npx webpack --config webpack.config.js```
-2. Collect the created bundle from the dist folder.
+1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
+or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
+2. run ```npm install```
+3. run ```npx webpack --config webpack.config.js```
+4. Collect the created bundle from the dist folder.
 <br/><br/>
 
 **With browserify:**<br/>
-1. ```gulp build```
-2. Collect the created bundle from the dist folder.
+1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
+   or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
+2. run ```npm install```
+3. If you don't already have gulp, please install it with ```npm install --global gulp-cli```
+4. run ```gulp build```
+5. Collect the created bundle from the dist folder.<br/><br/>
 
-(browserify also sompiles the bundle to ES5, which makes it 
-compatible with IE11)
+**A special parsing-only bundle for pretty-markup:** <br/>
+1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
+   or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
+2. run ```npm install```
+3. If you don't already have gulp, please install it with ```npm install --global gulp-cli```
+4. run ```gulp parsing```
+5. Collect the created bundle (schemarama-parsing.bundle.js) from the dist folder.<br/><br/>
 
+Browserify bundler using babel to transpile ES6 to ES5, so if you are planning to use it in 
+IE, please use the browserify version. 
 
 ## Cli mode
 To use this project as a cli, first you need to do an ```npm install```
