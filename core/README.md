@@ -33,7 +33,8 @@ validator.validate(data, {baseUrl: 'http://example.org/test'})
     .then(report => report.failures.forEach(failure => console.log(failure)));
 ```
 ## Bundling
-To use this module in the browser, you need to create a bundle with webpack or browserify.<br /><br />
+To use this module in the browser, you need to create a bundle with webpack or browserify.<br /> 
+**All commands below should be executed in the ```core``` directory of the project**<br /><br />
 **With Webpack:**
 1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
 or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
@@ -42,15 +43,7 @@ or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt inst
 4. Collect the created bundle from the dist folder.
 <br/><br/>
 
-**With browserify:**<br/>
-1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
-   or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
-2. run ```npm install```
-3. If you don't already have gulp, please install it with ```npm install --global gulp-cli```
-4. run ```gulp build```
-5. Collect the created bundle from the dist folder.<br/><br/>
-
-**A special parsing-only bundle for pretty-markup:** <br/>
+**A special parsing-only bundle for pretty-markup (browserify):** <br/>
 1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
    or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
 2. run ```npm install```
@@ -62,7 +55,7 @@ Browserify bundler using babel to transpile ES6 to ES5, so if you are planning t
 IE, please use the browserify version. 
 
 ## Cli mode
-To use this project as a cli, first you need to do an ```npm install```
+To use this project as a cli, first you need to do an ```npm install``` in the ```core``` folder
 ### Parsing: 
 ```node cli --parse```<br />
 **Required arguments:** <br />
@@ -84,7 +77,7 @@ in the failure report object and values are annotation predicates. If not specif
 ### SHACL validation:
 ```node cli --validate```
 **Required arguments:** <br />
-```--shex <file path>``` - path to SHACL shapes. Could be either local or URL <br />
+```--shacl <file path>``` - path to SHACL shapes. Could be either local or URL <br />
 ```--input <file path>``` - path to the input file. <br />
 **Optional arguments:**<br />
 ```--output <file path>``` - path to the output file. If not specified, output will be printed to the console. <br />
