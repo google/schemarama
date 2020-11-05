@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const browserify = require('browserify');
 const babelify = require('babelify');
 const buffer = require("vinyl-buffer");
+const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const source = require('vinyl-source-stream');
 
@@ -28,9 +29,10 @@ gulp.task('build', function () {
         })
         .bundle()
         .pipe(source('schemarama.bundle.js'))
-        // uncomment to minimize bundle
-        // .pipe(buffer())
-        // .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+        .pipe(rename('schemarama.bundle.min.js'))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
 
@@ -57,8 +59,9 @@ gulp.task('parsing', function () {
         })
         .bundle()
         .pipe(source('schemarama-parsing.bundle.js'))
-        // uncomment to minimize bundle
-        // .pipe(buffer())
-        // .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+        .pipe(rename('schemarama-parsing.bundle.min.js'))
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
