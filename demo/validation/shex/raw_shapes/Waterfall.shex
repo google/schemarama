@@ -1,3 +1,3 @@
 <#ValidSchemaWaterfall> @<#ValidSchemaBodyOfWater> AND EXTRA a {
-	a [schema:Waterfall];
+	a [schema:Waterfall] * ;
 }

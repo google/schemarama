@@ -1,3 +1,3 @@
 <#ValidSchemaTelevisionStation> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:TelevisionStation];
+	a [schema:TelevisionStation] * ;
 }

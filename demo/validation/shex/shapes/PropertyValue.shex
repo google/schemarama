@@ -1,5 +1,5 @@
 <#ValidSchemaPropertyValue> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:LocationFeatureSpecification schema:PropertyValue];
+	a [schema:LocationFeatureSpecification schema:PropertyValue] * ;
 	schema:maxValue @<#ValidSchemaNumber> *;
 	schema:minValue @<#ValidSchemaNumber> *;
 	schema:propertyID (@<#ValidSchemaText> OR @<#ValidSchemaURL>) *;

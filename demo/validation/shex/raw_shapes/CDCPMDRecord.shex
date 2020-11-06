@@ -1,4 +1,4 @@
 <#ValidSchemaCDCPMDRecord>  EXTRA a {
-	a [schema:CDCPMDRecord];
+	a [schema:CDCPMDRecord] * ;
 	schema:datePosted (@<#ValidSchemaDateTime> OR @<#ValidSchemaDate>) * ;
 }

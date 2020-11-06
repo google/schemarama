@@ -1,5 +1,5 @@
 <#ValidSchemaMovie> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Movie];
+	a [schema:Movie] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:countryOfOrigin @<#ValidSchemaCountry> * ;

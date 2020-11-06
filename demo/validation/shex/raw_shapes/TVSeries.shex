@@ -1,5 +1,5 @@
 <#ValidSchemaTVSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
-	a [schema:TVSeries];
+	a [schema:TVSeries] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:containsSeason @<#ValidSchemaCreativeWorkSeason> * ;

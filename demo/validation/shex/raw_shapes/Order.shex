@@ -1,5 +1,5 @@
 <#ValidSchemaOrder> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:Order];
+	a [schema:Order] * ;
 	schema:acceptedOffer @<#ValidSchemaOffer> * ;
 	schema:billingAddress @<#ValidSchemaPostalAddress> * ;
 	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;

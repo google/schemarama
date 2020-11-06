@@ -1,4 +1,4 @@
 <#ValidSchemaSomeProducts> @<#ValidSchemaProduct> AND EXTRA a {
-	a [schema:SomeProducts];
+	a [schema:SomeProducts] * ;
 	schema:inventoryLevel @<#ValidSchemaQuantitativeValue> * ;
 }

@@ -1,5 +1,5 @@
 <#ValidSchemaSoftwareSourceCode> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:SoftwareSourceCode];
+	a [schema:SoftwareSourceCode] * ;
 	schema:codeRepository @<#ValidSchemaURL> * ;
 	schema:codeSampleType @<#ValidSchemaText> * ;
 	schema:programmingLanguage (@<#ValidSchemaText> OR @<#ValidSchemaComputerLanguage>) * ;

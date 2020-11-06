@@ -1,5 +1,5 @@
 <#ValidSchemaOpeningHoursSpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:OpeningHoursSpecification];
+	a [schema:OpeningHoursSpecification] * ;
 	schema:closes @<#ValidSchemaTime> * ;
 	schema:dayOfWeek @<#ValidSchemaDayOfWeek> * ;
 	schema:opens @<#ValidSchemaTime> * ;

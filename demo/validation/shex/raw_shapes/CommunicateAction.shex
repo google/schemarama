@@ -1,5 +1,5 @@
 <#ValidSchemaCommunicateAction> @<#ValidSchemaInteractAction> AND EXTRA a {
-	a [schema:CheckInAction schema:InformAction schema:RsvpAction schema:ShareAction schema:ReplyAction schema:InviteAction schema:CheckOutAction schema:CommentAction schema:AskAction schema:ConfirmAction schema:CommunicateAction];
+	a [schema:CheckInAction schema:InformAction schema:RsvpAction schema:ShareAction schema:ReplyAction schema:InviteAction schema:CheckOutAction schema:CommentAction schema:AskAction schema:ConfirmAction schema:CommunicateAction] * ;
 	schema:about @<#ValidSchemaThing> * ;
 	schema:inLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
 	schema:language @<#ValidSchemaLanguage> * ;

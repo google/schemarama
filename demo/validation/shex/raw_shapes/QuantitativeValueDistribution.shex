@@ -1,5 +1,5 @@
 <#ValidSchemaQuantitativeValueDistribution> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:MonetaryAmountDistribution schema:QuantitativeValueDistribution];
+	a [schema:MonetaryAmountDistribution schema:QuantitativeValueDistribution] * ;
 	schema:duration @<#ValidSchemaDuration> * ;
 	schema:median @<#ValidSchemaNumber> * ;
 	schema:percentile10 @<#ValidSchemaNumber> * ;

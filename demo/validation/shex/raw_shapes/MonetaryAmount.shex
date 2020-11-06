@@ -1,5 +1,5 @@
 <#ValidSchemaMonetaryAmount> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:MonetaryAmount];
+	a [schema:MonetaryAmount] * ;
 	schema:currency @<#ValidSchemaText> * ;
 	schema:maxValue @<#ValidSchemaNumber> * ;
 	schema:minValue @<#ValidSchemaNumber> * ;

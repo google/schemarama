@@ -1,5 +1,5 @@
 <#ValidSchemaReservation> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:TrainReservation schema:FoodEstablishmentReservation schema:RentalCarReservation schema:TaxiReservation schema:FlightReservation schema:ReservationPackage schema:LodgingReservation schema:BusReservation schema:EventReservation schema:Reservation];
+	a [schema:TrainReservation schema:FoodEstablishmentReservation schema:RentalCarReservation schema:TaxiReservation schema:FlightReservation schema:ReservationPackage schema:LodgingReservation schema:BusReservation schema:EventReservation schema:Reservation] * ;
 	schema:bookingAgent (@<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
 	schema:bookingTime @<#ValidSchemaDateTime> * ;
 	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;

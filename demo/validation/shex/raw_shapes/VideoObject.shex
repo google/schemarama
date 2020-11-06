@@ -1,5 +1,5 @@
 <#ValidSchemaVideoObject> @<#ValidSchemaMediaObject> AND EXTRA a {
-	a [schema:VideoObject];
+	a [schema:VideoObject] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:caption (@<#ValidSchemaText> OR @<#ValidSchemaMediaObject>) * ;

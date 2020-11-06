@@ -1,5 +1,5 @@
 <#ValidSchemaTrip> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:BusTrip schema:TrainTrip schema:Flight schema:Trip];
+	a [schema:BusTrip schema:TrainTrip schema:Flight schema:Trip] * ;
 	schema:arrivalTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
 	schema:departureTime (@<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
 	schema:offers (@<#ValidSchemaDemand> OR @<#ValidSchemaOffer>) * ;

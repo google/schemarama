@@ -1,4 +1,4 @@
 <#ValidSchemaCommentAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
-	a [schema:CommentAction];
+	a [schema:CommentAction] * ;
 	schema:resultComment @<#ValidSchemaComment> * ;
 }

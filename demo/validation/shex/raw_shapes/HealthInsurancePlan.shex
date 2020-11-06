@@ -1,4 +1,4 @@
 <#ValidSchemaHealthInsurancePlan>  EXTRA a {
-	a [schema:HealthInsurancePlan];
+	a [schema:HealthInsurancePlan] * ;
 	schema:contactPoint @<#ValidSchemaContactPoint> * ;
 }

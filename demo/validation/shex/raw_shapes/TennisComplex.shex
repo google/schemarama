@@ -1,3 +1,3 @@
 <#ValidSchemaTennisComplex> @<#ValidSchemaSportsActivityLocation> AND EXTRA a {
-	a [schema:TennisComplex];
+	a [schema:TennisComplex] * ;
 }

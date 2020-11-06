@@ -1,5 +1,5 @@
 <#ValidSchemaVehicle> @<#ValidSchemaProduct> AND EXTRA a {
-	a [schema:Car schema:Vehicle];
+	a [schema:Car schema:Vehicle] * ;
 	schema:cargoVolume @<#ValidSchemaQuantitativeValue> * ;
 	schema:dateVehicleFirstRegistered @<#ValidSchemaDate> * ;
 	schema:driveWheelConfiguration (@<#ValidSchemaText> OR @<#ValidSchemaDriveWheelConfigurationValue>) * ;

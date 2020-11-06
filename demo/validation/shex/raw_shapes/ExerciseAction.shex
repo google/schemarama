@@ -1,5 +1,5 @@
 <#ValidSchemaExerciseAction> @<#ValidSchemaPlayAction> AND EXTRA a {
-	a [schema:ExerciseAction];
+	a [schema:ExerciseAction] * ;
 	schema:course @<#ValidSchemaPlace> * ;
 	schema:distance @<#ValidSchemaDistance> * ;
 	schema:exerciseCourse @<#ValidSchemaPlace> * ;

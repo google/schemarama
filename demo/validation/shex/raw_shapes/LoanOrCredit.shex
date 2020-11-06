@@ -1,5 +1,5 @@
 <#ValidSchemaLoanOrCredit> @<#ValidSchemaFinancialProduct> AND EXTRA a {
-	a [schema:CreditCard schema:LoanOrCredit];
+	a [schema:CreditCard schema:LoanOrCredit] * ;
 	schema:amount (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
 	schema:currency @<#ValidSchemaText> * ;
 	schema:loanTerm @<#ValidSchemaQuantitativeValue> * ;

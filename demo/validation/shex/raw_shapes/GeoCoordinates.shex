@@ -1,5 +1,5 @@
 <#ValidSchemaGeoCoordinates> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:GeoCoordinates];
+	a [schema:GeoCoordinates] * ;
 	schema:address (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaText>) * ;
 	schema:addressCountry (@<#ValidSchemaCountry> OR @<#ValidSchemaText>) * ;
 	schema:elevation (@<#ValidSchemaNumber> OR @<#ValidSchemaText>) * ;

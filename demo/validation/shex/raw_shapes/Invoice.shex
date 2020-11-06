@@ -1,5 +1,5 @@
 <#ValidSchemaInvoice> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:Invoice];
+	a [schema:Invoice] * ;
 	schema:accountId @<#ValidSchemaText> * ;
 	schema:billingPeriod @<#ValidSchemaDuration> * ;
 	schema:broker (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;

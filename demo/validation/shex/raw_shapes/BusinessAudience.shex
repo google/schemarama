@@ -1,5 +1,5 @@
 <#ValidSchemaBusinessAudience> @<#ValidSchemaAudience> AND EXTRA a {
-	a [schema:BusinessAudience];
+	a [schema:BusinessAudience] * ;
 	schema:numberOfEmployees @<#ValidSchemaQuantitativeValue> * ;
 	schema:yearlyRevenue @<#ValidSchemaQuantitativeValue> * ;
 	schema:yearsInOperation @<#ValidSchemaQuantitativeValue> * ;

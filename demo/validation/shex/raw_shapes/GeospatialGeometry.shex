@@ -1,5 +1,5 @@
 <#ValidSchemaGeospatialGeometry>  EXTRA a {
-	a [schema:GeospatialGeometry];
+	a [schema:GeospatialGeometry] * ;
 	schema:geoContains (@<#ValidSchemaGeospatialGeometry> OR @<#ValidSchemaPlace>) * ;
 	schema:geoCoveredBy (@<#ValidSchemaPlace> OR @<#ValidSchemaGeospatialGeometry>) * ;
 	schema:geoCovers (@<#ValidSchemaGeospatialGeometry> OR @<#ValidSchemaPlace>) * ;

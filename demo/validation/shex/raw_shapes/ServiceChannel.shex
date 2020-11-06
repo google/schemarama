@@ -1,5 +1,5 @@
 <#ValidSchemaServiceChannel> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:ServiceChannel];
+	a [schema:ServiceChannel] * ;
 	schema:availableLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
 	schema:processingTime @<#ValidSchemaDuration> * ;
 	schema:providesService @<#ValidSchemaService> * ;

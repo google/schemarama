@@ -1,5 +1,5 @@
 <#ValidSchemaComment> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Answer schema:Comment];
+	a [schema:Answer schema:Comment] * ;
 	schema:downvoteCount @<#ValidSchemaInteger> * ;
 	schema:parentItem @<#ValidSchemaQuestion> * ;
 	schema:upvoteCount @<#ValidSchemaInteger> * ;

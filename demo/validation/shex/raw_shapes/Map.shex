@@ -1,4 +1,4 @@
 <#ValidSchemaMap> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Map];
+	a [schema:Map] * ;
 	schema:mapType @<#ValidSchemaMapCategoryType> * ;
 }

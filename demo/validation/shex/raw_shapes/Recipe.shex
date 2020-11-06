@@ -1,5 +1,5 @@
 <#ValidSchemaRecipe> @<#ValidSchemaHowTo> AND EXTRA a {
-	a [schema:Recipe];
+	a [schema:Recipe] * ;
 	schema:cookTime @<#ValidSchemaDuration> * ;
 	schema:cookingMethod @<#ValidSchemaText> * ;
 	schema:ingredients @<#ValidSchemaText> * ;

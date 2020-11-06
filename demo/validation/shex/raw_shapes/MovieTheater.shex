@@ -1,4 +1,4 @@
 <#ValidSchemaMovieTheater> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
-	a [schema:MovieTheater];
+	a [schema:MovieTheater] * ;
 	schema:screenCount @<#ValidSchemaNumber> * ;
 }

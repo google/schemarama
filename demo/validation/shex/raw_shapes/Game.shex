@@ -1,5 +1,5 @@
 <#ValidSchemaGame> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:VideoGame schema:Game];
+	a [schema:VideoGame schema:Game] * ;
 	schema:characterAttribute @<#ValidSchemaThing> * ;
 	schema:gameItem @<#ValidSchemaThing> * ;
 	schema:gameLocation (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaPlace> OR @<#ValidSchemaURL>) * ;

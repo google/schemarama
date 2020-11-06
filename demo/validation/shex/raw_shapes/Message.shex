@@ -1,5 +1,5 @@
 <#ValidSchemaMessage> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:EmailMessage schema:Message];
+	a [schema:EmailMessage schema:Message] * ;
 	schema:bccRecipient (@<#ValidSchemaContactPoint> OR @<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
 	schema:ccRecipient (@<#ValidSchemaContactPoint> OR @<#ValidSchemaPerson> OR @<#ValidSchemaOrganization>) * ;
 	schema:dateRead (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;

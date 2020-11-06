@@ -1,5 +1,5 @@
 <#ValidSchemaDefinedRegion>  EXTRA a {
-	a [schema:DefinedRegion];
+	a [schema:DefinedRegion] * ;
 	schema:addressCountry (@<#ValidSchemaCountry> OR @<#ValidSchemaText>) * ;
 	schema:addressRegion @<#ValidSchemaText> * ;
 	schema:postalCode @<#ValidSchemaText> * ;

@@ -1,5 +1,5 @@
 <#ValidSchemaCreativeWorkSeason> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:TVSeason schema:RadioSeason schema:CreativeWorkSeason];
+	a [schema:TVSeason schema:RadioSeason schema:CreativeWorkSeason] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:director @<#ValidSchemaPerson> * ;
 	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;

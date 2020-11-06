@@ -1,5 +1,5 @@
 <#ValidSchemaBroadcastService> @<#ValidSchemaService> AND EXTRA a {
-	a [schema:BroadcastService];
+	a [schema:BroadcastService] * ;
 	schema:area @<#ValidSchemaPlace> * ;
 	schema:broadcastAffiliateOf @<#ValidSchemaOrganization> * ;
 	schema:broadcastDisplayName @<#ValidSchemaText> * ;

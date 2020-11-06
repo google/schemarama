@@ -1,5 +1,5 @@
 <#ValidSchemaQuestion> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Question];
+	a [schema:Question] * ;
 	schema:acceptedAnswer (@<#ValidSchemaItemList> OR @<#ValidSchemaAnswer>) * ;
 	schema:answerCount @<#ValidSchemaInteger> * ;
 	schema:downvoteCount @<#ValidSchemaInteger> * ;

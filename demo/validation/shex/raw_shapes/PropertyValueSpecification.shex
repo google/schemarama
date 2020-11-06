@@ -1,5 +1,5 @@
 <#ValidSchemaPropertyValueSpecification> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:PropertyValueSpecification];
+	a [schema:PropertyValueSpecification] * ;
 	schema:defaultValue (@<#ValidSchemaThing> OR @<#ValidSchemaText>) * ;
 	schema:maxValue @<#ValidSchemaNumber> * ;
 	schema:minValue @<#ValidSchemaNumber> * ;

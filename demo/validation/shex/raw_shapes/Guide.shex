@@ -1,4 +1,4 @@
 <#ValidSchemaGuide>  EXTRA a {
-	a [schema:Guide];
+	a [schema:Guide] * ;
 	schema:reviewAspect @<#ValidSchemaText> * ;
 }

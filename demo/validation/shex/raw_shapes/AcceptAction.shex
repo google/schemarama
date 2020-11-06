@@ -1,3 +1,3 @@
 <#ValidSchemaAcceptAction> @<#ValidSchemaAllocateAction> AND EXTRA a {
-	a [schema:AcceptAction];
+	a [schema:AcceptAction] * ;
 }

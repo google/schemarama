@@ -1,5 +1,5 @@
 <#ValidSchemaLodgingReservation> @<#ValidSchemaReservation> AND EXTRA a {
-	a [schema:LodgingReservation];
+	a [schema:LodgingReservation] * ;
 	schema:checkinTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
 	schema:checkoutTime (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime>) * ;
 	schema:lodgingUnitDescription @<#ValidSchemaText> * ;

@@ -1,5 +1,5 @@
 <#ValidSchemaOccupation> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:Occupation];
+	a [schema:Occupation] * ;
 	schema:estimatedSalary (@<#ValidSchemaNumber> OR @<#ValidSchemaMonetaryAmountDistribution> OR @<#ValidSchemaMonetaryAmount>) * ;
 	schema:experienceRequirements @<#ValidSchemaText> * ;
 	schema:occupationLocation @<#ValidSchemaAdministrativeArea> * ;
