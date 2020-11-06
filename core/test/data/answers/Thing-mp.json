@@ -1,7 +1,0 @@
-[
-  {
-    "property": "http://schema.org/name",
-    "severity": "error",
-    "shape": "https://schema.org/validation#Thing"
-  }
-]

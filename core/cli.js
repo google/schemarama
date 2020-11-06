@@ -97,15 +97,18 @@ async function main(args) {
     if (!args.input) throw new CliError('No input file path specified');
     if (args.output && !fs.existsSync(path.parse(args.output).dir)) throw new CliError(`Output directory \'${path.parse(args.output).dir}\' doesn\'t exist`);
     const data = fs.readFileSync(args.input).toString();
-    const base = args.base || utils.randomUrl()
+    const base = args.base || 'http://example.org/';
     if (args.parse) {
         const quads = await parser.stringToQuads(data, base);
         writeQuads(quads, args.output, args.format);
     } else if (args.validate) {
         if (args.shex && args.shacl) throw new CliError('Validation is possible for ShEx or SHACL, but not for both');
-        else if (args.shex) await validateShEx(data, base, args);
-        else if (args.shacl) await validateShacl(data, base, args);
-        else throw new CliError('No shapes provided for validation');
+        else if (!args.shex && !args.shacl) throw new CliError('No shapes provided for validation');
+        const components = utils.quadsToShapes(await parser.stringToQuads(data, base));
+        for (const [iri, component] of components.entries()) {
+            if (args.shex) await validateShEx(component, iri, args);
+            else if (args.shacl) await validateShacl(component, iri, args);
+        }
     }
 }
 

@@ -31,7 +31,6 @@ const errors = require('./errors.js');
  */
 async function parseJsonLd(text, baseUrl) {
     const data = JSON.parse(text);
-    data['@id'] = baseUrl;
     const nquads = await jsonld.toRDF(data, {format: 'application/n-quads', base: baseUrl});
     return parseNQuads(nquads, baseUrl);
 }
