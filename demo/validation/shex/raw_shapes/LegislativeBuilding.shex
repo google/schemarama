@@ -1,3 +1,3 @@
 <#ValidSchemaLegislativeBuilding> @<#ValidSchemaGovernmentBuilding> AND EXTRA a {
-	a [schema:LegislativeBuilding];
+	a [schema:LegislativeBuilding] * ;
 }

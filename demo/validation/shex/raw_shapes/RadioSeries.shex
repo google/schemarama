@@ -1,5 +1,5 @@
 <#ValidSchemaRadioSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
-	a [schema:RadioSeries];
+	a [schema:RadioSeries] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:containsSeason @<#ValidSchemaCreativeWorkSeason> * ;

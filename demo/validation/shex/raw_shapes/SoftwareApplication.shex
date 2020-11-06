@@ -1,5 +1,5 @@
 <#ValidSchemaSoftwareApplication> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:WebApplication schema:VideoGame schema:MobileApplication schema:SoftwareApplication];
+	a [schema:WebApplication schema:VideoGame schema:MobileApplication schema:SoftwareApplication] * ;
 	schema:applicationCategory (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
 	schema:applicationSubCategory (@<#ValidSchemaURL> OR @<#ValidSchemaText>) * ;
 	schema:applicationSuite @<#ValidSchemaText> * ;

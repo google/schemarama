@@ -1,5 +1,5 @@
 <#ValidSchemaPostalAddress> @<#ValidSchemaContactPoint> AND EXTRA a {
-	a [schema:PostalAddress];
+	a [schema:PostalAddress] * ;
 	schema:addressCountry (@<#ValidSchemaCountry> OR @<#ValidSchemaText>) * ;
 	schema:addressLocality @<#ValidSchemaText> * ;
 	schema:addressRegion @<#ValidSchemaText> * ;

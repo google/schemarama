@@ -1,5 +1,5 @@
 <#ValidSchemaFlight> @<#ValidSchemaTrip> AND EXTRA a {
-	a [schema:Flight];
+	a [schema:Flight] * ;
 	schema:aircraft (@<#ValidSchemaVehicle> OR @<#ValidSchemaText>) * ;
 	schema:arrivalAirport @<#ValidSchemaAirport> * ;
 	schema:arrivalGate @<#ValidSchemaText> * ;

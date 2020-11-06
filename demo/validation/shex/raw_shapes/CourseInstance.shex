@@ -1,5 +1,5 @@
 <#ValidSchemaCourseInstance> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:CourseInstance];
+	a [schema:CourseInstance] * ;
 	schema:courseMode (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;
 	schema:instructor @<#ValidSchemaPerson> * ;
 }

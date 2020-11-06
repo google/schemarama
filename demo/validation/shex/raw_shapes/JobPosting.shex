@@ -1,5 +1,5 @@
 <#ValidSchemaJobPosting> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:JobPosting];
+	a [schema:JobPosting] * ;
 	schema:baseSalary (@<#ValidSchemaPriceSpecification> OR @<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
 	schema:benefits @<#ValidSchemaText> * ;
 	schema:datePosted (@<#ValidSchemaDateTime> OR @<#ValidSchemaDate>) * ;

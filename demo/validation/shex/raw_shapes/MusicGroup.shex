@@ -1,5 +1,5 @@
 <#ValidSchemaMusicGroup> @<#ValidSchemaPerformingGroup> AND EXTRA a {
-	a [schema:MusicGroup];
+	a [schema:MusicGroup] * ;
 	schema:album @<#ValidSchemaMusicAlbum> * ;
 	schema:albums @<#ValidSchemaMusicAlbum> * ;
 	schema:genre (@<#ValidSchemaText> OR @<#ValidSchemaURL>) * ;

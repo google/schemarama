@@ -1,5 +1,5 @@
 <#ValidSchemaPermit> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:GovernmentPermit schema:Permit];
+	a [schema:GovernmentPermit schema:Permit] * ;
 	schema:issuedBy @<#ValidSchemaOrganization> * ;
 	schema:issuedThrough @<#ValidSchemaService> * ;
 	schema:permitAudience @<#ValidSchemaAudience> * ;

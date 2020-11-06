@@ -1,5 +1,5 @@
 <#ValidSchemaActionAccessSpecification> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:ActionAccessSpecification];
+	a [schema:ActionAccessSpecification] * ;
 	schema:availabilityEnds (@<#ValidSchemaDateTime> OR @<#ValidSchemaTime> OR @<#ValidSchemaDate>) * ;
 	schema:availabilityStarts (@<#ValidSchemaDate> OR @<#ValidSchemaTime> OR @<#ValidSchemaDateTime>) * ;
 	schema:category (@<#ValidSchemaThing> OR @<#ValidSchemaURL> OR @<#ValidSchemaPhysicalActivityCategory> OR @<#ValidSchemaText>) * ;

@@ -1,5 +1,5 @@
 <#ValidSchemaLiveBlogPosting> @<#ValidSchemaBlogPosting> AND EXTRA a {
-	a [schema:LiveBlogPosting];
+	a [schema:LiveBlogPosting] * ;
 	schema:coverageEndTime @<#ValidSchemaDateTime> * ;
 	schema:coverageStartTime @<#ValidSchemaDateTime> * ;
 	schema:liveBlogUpdate @<#ValidSchemaBlogPosting> * ;

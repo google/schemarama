@@ -1,4 +1,4 @@
 <#ValidSchemaWinAction> @<#ValidSchemaAchieveAction> AND EXTRA a {
-	a [schema:WinAction];
+	a [schema:WinAction] * ;
 	schema:loser @<#ValidSchemaPerson> * ;
 }

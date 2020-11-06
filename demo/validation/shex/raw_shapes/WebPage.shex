@@ -1,5 +1,5 @@
 <#ValidSchemaWebPage> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:CheckoutPage schema:AboutPage schema:ContactPage schema:ItemPage schema:CollectionPage schema:FAQPage schema:ProfilePage schema:MediaGallery schema:QAPage schema:ImageGallery schema:VideoGallery schema:SearchResultsPage schema:WebPage];
+	a [schema:CheckoutPage schema:AboutPage schema:ContactPage schema:ItemPage schema:CollectionPage schema:FAQPage schema:ProfilePage schema:MediaGallery schema:QAPage schema:ImageGallery schema:VideoGallery schema:SearchResultsPage schema:WebPage] * ;
 	schema:breadcrumb (@<#ValidSchemaURL> OR @<#ValidSchemaText> OR @<#ValidSchemaBreadcrumbList>) * ;
 	schema:lastReviewed @<#ValidSchemaDate> * ;
 	schema:mainContentOfPage @<#ValidSchemaWebPageElement> * ;

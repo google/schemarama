@@ -1,4 +1,4 @@
 <#ValidSchemaInvestmentOrDeposit> @<#ValidSchemaFinancialProduct> AND EXTRA a {
-	a [schema:DepositAccount schema:InvestmentOrDeposit];
+	a [schema:DepositAccount schema:InvestmentOrDeposit] * ;
 	schema:amount (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
 }

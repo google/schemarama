@@ -1,5 +1,5 @@
 <#ValidSchemaProduct> @<#ValidSchemaThing> AND EXTRA a {
-	a [schema:IndividualProduct schema:ProductModel schema:Car schema:SomeProducts schema:Vehicle schema:Product];
+	a [schema:IndividualProduct schema:ProductModel schema:Car schema:SomeProducts schema:Vehicle schema:Product] * ;
 	schema:additionalProperty @<#ValidSchemaPropertyValue> * ;
 	schema:aggregateRating @<#ValidSchemaAggregateRating> * ;
 	schema:audience @<#ValidSchemaAudience> * ;

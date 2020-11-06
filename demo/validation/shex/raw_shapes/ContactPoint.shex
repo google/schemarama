@@ -1,5 +1,5 @@
 <#ValidSchemaContactPoint> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:PostalAddress schema:ContactPoint];
+	a [schema:PostalAddress schema:ContactPoint] * ;
 	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;
 	schema:availableLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;
 	schema:contactOption @<#ValidSchemaContactPointOption> * ;

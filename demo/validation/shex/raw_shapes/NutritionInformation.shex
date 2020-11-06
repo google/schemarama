@@ -1,5 +1,5 @@
 <#ValidSchemaNutritionInformation> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:NutritionInformation];
+	a [schema:NutritionInformation] * ;
 	schema:calories @<#ValidSchemaEnergy> * ;
 	schema:carbohydrateContent @<#ValidSchemaMass> * ;
 	schema:cholesterolContent @<#ValidSchemaMass> * ;

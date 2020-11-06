@@ -1,4 +1,4 @@
 <#ValidSchemaMoneyTransfer>  EXTRA a {
-	a [schema:MoneyTransfer];
+	a [schema:MoneyTransfer] * ;
 	schema:amount (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
 }

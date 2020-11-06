@@ -1,5 +1,5 @@
 <#ValidSchemaOffer> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:AggregateOffer schema:Offer];
+	a [schema:AggregateOffer schema:Offer] * ;
 	schema:acceptedPaymentMethod (@<#ValidSchemaLoanOrCredit> OR @<#ValidSchemaPaymentMethod>) * ;
 	schema:addOn @<#ValidSchemaOffer> * ;
 	schema:advanceBookingRequirement @<#ValidSchemaQuantitativeValue> * ;

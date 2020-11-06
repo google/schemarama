@@ -1,5 +1,5 @@
 <#ValidSchemaHowToDirection> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:HowToDirection];
+	a [schema:HowToDirection] * ;
 	schema:afterMedia (@<#ValidSchemaMediaObject> OR @<#ValidSchemaURL>) * ;
 	schema:beforeMedia (@<#ValidSchemaURL> OR @<#ValidSchemaMediaObject>) * ;
 	schema:duringMedia (@<#ValidSchemaURL> OR @<#ValidSchemaMediaObject>) * ;

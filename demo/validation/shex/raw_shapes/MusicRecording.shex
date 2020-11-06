@@ -1,5 +1,5 @@
 <#ValidSchemaMusicRecording> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:MusicRecording];
+	a [schema:MusicRecording] * ;
 	schema:byArtist (@<#ValidSchemaMusicGroup> OR @<#ValidSchemaPerson>) * ;
 	schema:duration @<#ValidSchemaDuration> * ;
 	schema:inAlbum @<#ValidSchemaMusicAlbum> * ;

@@ -1,5 +1,5 @@
 <#ValidSchemaAPIReference> @<#ValidSchemaTechArticle> AND EXTRA a {
-	a [schema:APIReference];
+	a [schema:APIReference] * ;
 	schema:assembly @<#ValidSchemaText> * ;
 	schema:assemblyVersion @<#ValidSchemaText> * ;
 	schema:executableLibraryName @<#ValidSchemaText> * ;

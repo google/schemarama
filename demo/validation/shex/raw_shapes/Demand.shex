@@ -1,5 +1,5 @@
 <#ValidSchemaDemand> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:Demand];
+	a [schema:Demand] * ;
 	schema:acceptedPaymentMethod (@<#ValidSchemaLoanOrCredit> OR @<#ValidSchemaPaymentMethod>) * ;
 	schema:advanceBookingRequirement @<#ValidSchemaQuantitativeValue> * ;
 	schema:areaServed (@<#ValidSchemaAdministrativeArea> OR @<#ValidSchemaText> OR @<#ValidSchemaPlace> OR @<#ValidSchemaGeoShape>) * ;

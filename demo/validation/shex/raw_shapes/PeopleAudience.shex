@@ -1,5 +1,5 @@
 <#ValidSchemaPeopleAudience> @<#ValidSchemaAudience> AND EXTRA a {
-	a [schema:ParentAudience schema:PeopleAudience];
+	a [schema:ParentAudience schema:PeopleAudience] * ;
 	schema:requiredGender @<#ValidSchemaText> * ;
 	schema:requiredMaxAge @<#ValidSchemaInteger> * ;
 	schema:requiredMinAge @<#ValidSchemaInteger> * ;

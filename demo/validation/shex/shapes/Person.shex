@@ -1,5 +1,5 @@
 <#ValidSchemaPerson> @<#ValidSchemaText> OR @<#ValidSchemaURL> OR ( @<#ValidSchemaThing> AND EXTRA a {
-	a [schema:Person];
+	a [schema:Person] * ;
 	schema:additionalName @<#ValidSchemaText> * ;
 	schema:address (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaText>) * ;
 	schema:affiliation @<#ValidSchemaOrganization> * ;

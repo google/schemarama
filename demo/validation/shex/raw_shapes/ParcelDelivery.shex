@@ -1,5 +1,5 @@
 <#ValidSchemaParcelDelivery> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:ParcelDelivery];
+	a [schema:ParcelDelivery] * ;
 	schema:carrier @<#ValidSchemaOrganization> * ;
 	schema:deliveryAddress @<#ValidSchemaPostalAddress> * ;
 	schema:deliveryStatus @<#ValidSchemaDeliveryEvent> * ;

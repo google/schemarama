@@ -1,5 +1,5 @@
 <#ValidSchemaBook> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Book];
+	a [schema:Book] * ;
 	schema:bookEdition @<#ValidSchemaText> * ;
 	schema:bookFormat @<#ValidSchemaBookFormatType> * ;
 	schema:illustrator @<#ValidSchemaPerson> * ;

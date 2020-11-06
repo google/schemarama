@@ -1,4 +1,4 @@
 <#ValidSchemaCompoundPriceSpecification> @<#ValidSchemaPriceSpecification> AND EXTRA a {
-	a [schema:CompoundPriceSpecification];
+	a [schema:CompoundPriceSpecification] * ;
 	schema:priceComponent @<#ValidSchemaUnitPriceSpecification> * ;
 }

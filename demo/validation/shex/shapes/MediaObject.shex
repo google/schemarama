@@ -1,5 +1,5 @@
 <#ValidSchemaMediaObject> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Barcode schema:DataDownload schema:MusicVideoObject schema:AudioObject schema:ImageObject schema:VideoObject schema:MediaObject];
+	a [schema:Barcode schema:DataDownload schema:MusicVideoObject schema:AudioObject schema:ImageObject schema:VideoObject schema:MediaObject] * ;
 	schema:associatedArticle @<#ValidSchemaNewsArticle> *;
 	schema:bitrate @<#ValidSchemaText> *;
 	schema:contentSize @<#ValidSchemaText> *;

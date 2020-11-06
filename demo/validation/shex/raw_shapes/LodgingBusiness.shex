@@ -1,5 +1,5 @@
 <#ValidSchemaLodgingBusiness> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:Hostel schema:Motel schema:Resort schema:BedAndBreakfast schema:Hotel schema:Campground schema:LodgingBusiness];
+	a [schema:Hostel schema:Motel schema:Resort schema:BedAndBreakfast schema:Hotel schema:Campground schema:LodgingBusiness] * ;
 	schema:amenityFeature @<#ValidSchemaLocationFeatureSpecification> * ;
 	schema:audience @<#ValidSchemaAudience> * ;
 	schema:availableLanguage (@<#ValidSchemaText> OR @<#ValidSchemaLanguage>) * ;

@@ -1,5 +1,5 @@
 <#ValidSchemaDeliveryEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:DeliveryEvent];
+	a [schema:DeliveryEvent] * ;
 	schema:accessCode @<#ValidSchemaText> * ;
 	schema:availableFrom @<#ValidSchemaDateTime> * ;
 	schema:availableThrough @<#ValidSchemaDateTime> * ;

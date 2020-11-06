@@ -1,4 +1,4 @@
 <#ValidSchemaGrant>  EXTRA a {
-	a [schema:Grant];
+	a [schema:Grant] * ;
 	schema:sponsor (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
 }

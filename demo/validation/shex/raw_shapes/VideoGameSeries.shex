@@ -1,5 +1,5 @@
 <#ValidSchemaVideoGameSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
-	a [schema:VideoGameSeries];
+	a [schema:VideoGameSeries] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:characterAttribute @<#ValidSchemaThing> * ;

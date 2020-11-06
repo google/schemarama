@@ -1,5 +1,5 @@
 <#ValidSchemaRsvpAction> @<#ValidSchemaInformAction> AND EXTRA a {
-	a [schema:RsvpAction];
+	a [schema:RsvpAction] * ;
 	schema:additionalNumberOfGuests @<#ValidSchemaNumber> * ;
 	schema:comment @<#ValidSchemaComment> * ;
 	schema:rsvpResponse @<#ValidSchemaRsvpResponseType> * ;

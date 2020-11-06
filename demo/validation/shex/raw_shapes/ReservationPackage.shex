@@ -1,4 +1,4 @@
 <#ValidSchemaReservationPackage> @<#ValidSchemaReservation> AND EXTRA a {
-	a [schema:ReservationPackage];
+	a [schema:ReservationPackage] * ;
 	schema:subReservation @<#ValidSchemaReservation> * ;
 }

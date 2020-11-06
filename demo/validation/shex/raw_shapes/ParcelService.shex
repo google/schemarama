@@ -1,3 +1,3 @@
 <#ValidSchemaParcelService> @<#ValidSchemaDeliveryMethod> AND EXTRA a {
-	a [schema:ParcelService];
+	a [schema:ParcelService] * ;
 }

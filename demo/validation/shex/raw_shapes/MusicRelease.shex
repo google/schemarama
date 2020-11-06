@@ -1,5 +1,5 @@
 <#ValidSchemaMusicRelease> @<#ValidSchemaMusicPlaylist> AND EXTRA a {
-	a [schema:MusicRelease];
+	a [schema:MusicRelease] * ;
 	schema:catalogNumber @<#ValidSchemaText> * ;
 	schema:creditedTo (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
 	schema:duration @<#ValidSchemaDuration> * ;

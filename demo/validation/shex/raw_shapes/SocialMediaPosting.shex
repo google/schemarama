@@ -1,4 +1,4 @@
 <#ValidSchemaSocialMediaPosting> @<#ValidSchemaArticle> AND EXTRA a {
-	a [schema:LiveBlogPosting schema:DiscussionForumPosting schema:BlogPosting schema:SocialMediaPosting];
+	a [schema:LiveBlogPosting schema:DiscussionForumPosting schema:BlogPosting schema:SocialMediaPosting] * ;
 	schema:sharedContent @<#ValidSchemaCreativeWork> * ;
 }

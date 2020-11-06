@@ -1,5 +1,5 @@
 <#ValidSchemaProductModel> @<#ValidSchemaProduct> AND EXTRA a {
-	a [schema:ProductModel];
+	a [schema:ProductModel] * ;
 	schema:isVariantOf @<#ValidSchemaProductModel> * ;
 	schema:predecessorOf @<#ValidSchemaProductModel> * ;
 	schema:successorOf @<#ValidSchemaProductModel> * ;

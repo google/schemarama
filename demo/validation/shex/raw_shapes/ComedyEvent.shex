@@ -1,3 +1,3 @@
 <#ValidSchemaComedyEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:ComedyEvent];
+	a [schema:ComedyEvent] * ;
 }

@@ -1,5 +1,5 @@
 <#ValidSchemaPriceSpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:PaymentChargeSpecification schema:DeliveryChargeSpecification schema:CompoundPriceSpecification schema:UnitPriceSpecification schema:PriceSpecification];
+	a [schema:PaymentChargeSpecification schema:DeliveryChargeSpecification schema:CompoundPriceSpecification schema:UnitPriceSpecification schema:PriceSpecification] * ;
 	schema:eligibleQuantity @<#ValidSchemaQuantitativeValue> * ;
 	schema:eligibleTransactionVolume @<#ValidSchemaPriceSpecification> * ;
 	schema:maxPrice @<#ValidSchemaNumber> * ;

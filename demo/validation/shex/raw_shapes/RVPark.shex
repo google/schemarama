@@ -1,3 +1,3 @@
 <#ValidSchemaRVPark> @<#ValidSchemaCivicStructure> AND EXTRA a {
-	a [schema:RVPark];
+	a [schema:RVPark] * ;
 }

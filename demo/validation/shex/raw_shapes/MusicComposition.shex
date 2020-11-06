@@ -1,5 +1,5 @@
 <#ValidSchemaMusicComposition> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:MusicComposition];
+	a [schema:MusicComposition] * ;
 	schema:composer (@<#ValidSchemaOrganization> OR @<#ValidSchemaPerson>) * ;
 	schema:firstPerformance @<#ValidSchemaEvent> * ;
 	schema:includedComposition @<#ValidSchemaMusicComposition> * ;

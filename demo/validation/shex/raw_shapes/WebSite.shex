@@ -1,4 +1,4 @@
 <#ValidSchemaWebSite> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:WebSite];
+	a [schema:WebSite] * ;
 	schema:issn @<#ValidSchemaText> * ;
 }

@@ -1,5 +1,5 @@
 <#ValidSchemaTrainTrip> @<#ValidSchemaTrip> AND EXTRA a {
-	a [schema:TrainTrip];
+	a [schema:TrainTrip] * ;
 	schema:arrivalPlatform @<#ValidSchemaText> * ;
 	schema:arrivalStation @<#ValidSchemaTrainStation> * ;
 	schema:departurePlatform @<#ValidSchemaText> * ;

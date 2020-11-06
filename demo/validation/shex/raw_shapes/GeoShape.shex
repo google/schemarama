@@ -1,5 +1,5 @@
 <#ValidSchemaGeoShape> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:GeoCircle schema:GeoShape];
+	a [schema:GeoCircle schema:GeoShape] * ;
 	schema:address (@<#ValidSchemaPostalAddress> OR @<#ValidSchemaText>) * ;
 	schema:addressCountry (@<#ValidSchemaCountry> OR @<#ValidSchemaText>) * ;
 	schema:box @<#ValidSchemaText> * ;

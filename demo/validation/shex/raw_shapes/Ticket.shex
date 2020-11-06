@@ -1,5 +1,5 @@
 <#ValidSchemaTicket> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:Ticket];
+	a [schema:Ticket] * ;
 	schema:dateIssued (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
 	schema:issuedBy @<#ValidSchemaOrganization> * ;
 	schema:priceCurrency @<#ValidSchemaText> * ;

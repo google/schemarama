@@ -1,5 +1,5 @@
 <#ValidSchemaQualitativeValue> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:BedType schema:DriveWheelConfigurationValue schema:SteeringPositionValue schema:QualitativeValue];
+	a [schema:BedType schema:DriveWheelConfigurationValue schema:SteeringPositionValue schema:QualitativeValue] * ;
 	schema:additionalProperty @<#ValidSchemaPropertyValue> * ;
 	schema:equal @<#ValidSchemaQualitativeValue> * ;
 	schema:greater @<#ValidSchemaQualitativeValue> * ;

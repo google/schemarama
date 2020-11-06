@@ -1,5 +1,5 @@
 <#ValidSchemaVideoGame> @<#ValidSchemaSoftwareApplication> AND EXTRA a {
-	a [schema:VideoGame];
+	a [schema:VideoGame] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:cheatCode @<#ValidSchemaCreativeWork> * ;

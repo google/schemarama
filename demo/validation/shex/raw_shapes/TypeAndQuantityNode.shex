@@ -1,5 +1,5 @@
 <#ValidSchemaTypeAndQuantityNode> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:TypeAndQuantityNode];
+	a [schema:TypeAndQuantityNode] * ;
 	schema:amountOfThisGood @<#ValidSchemaNumber> * ;
 	schema:businessFunction @<#ValidSchemaBusinessFunction> * ;
 	schema:typeOfGood (@<#ValidSchemaService> OR @<#ValidSchemaProduct>) * ;

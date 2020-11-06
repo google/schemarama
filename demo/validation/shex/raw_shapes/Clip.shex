@@ -1,5 +1,5 @@
 <#ValidSchemaClip> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:RadioClip schema:VideoGameClip schema:MovieClip schema:TVClip schema:Clip];
+	a [schema:RadioClip schema:VideoGameClip schema:MovieClip schema:TVClip schema:Clip] * ;
 	schema:actor @<#ValidSchemaPerson> * ;
 	schema:actors @<#ValidSchemaPerson> * ;
 	schema:clipNumber (@<#ValidSchemaText> OR @<#ValidSchemaInteger>) * ;
