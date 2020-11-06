@@ -18,3 +18,6 @@ markup may be eligible for.
 
 This is an initial release, and is not recommended for production use at this
 time. 
+
+For background on the underlying technologies, see the book, 
+"[Validating RDF data](https://book.validatingrdf.com/)".
