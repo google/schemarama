@@ -18,10 +18,13 @@ const fs = require('fs');
 const path = require('path');
 
 const ShexValidator = require('../shexValidator').Validator;
+const utils = require('../util');
+const parser = require('../parser');
 
 const testsPath = path.join(__dirname, 'data', 'tests');
 const answersPath = path.join(__dirname, 'data', 'expected');
 const shapesPath = path.join(__dirname, 'data', 'shapes');
+
 
 function stringifyFailure(failure) {
     const keys = Object.keys(failure);
@@ -32,12 +35,16 @@ function stringifyFailure(failure) {
 
 async function test(validator, test, valid, shapeId) {
     const data = fs.readFileSync(path.join(testsPath, test)).toString();
-    const answer = JSON.parse(fs.readFileSync(path.join(answersPath, valid)).toString());
-    const res = await validator.validate(data, shapeId, {baseUrl: 'http://example.org/test'});
-    res.failures.forEach(failure => delete failure['message']);
-
-    const actual = res.failures.map(stringifyFailure);
-    const expected = answer.map(stringifyFailure);
+    const expected = JSON.parse(fs.readFileSync(path.join(answersPath, valid)).toString())
+        .map(stringifyFailure);
+    const components = utils.quadsToShapes(await parser.stringToQuads(data, 'http://example.org/'));
+    const failures = [];
+    for (const [iri, component] of components.entries()) {
+        const report = await validator.validate(component, shapeId, {baseUrl: iri});
+        report.failures.forEach(failure => delete failure['message']);
+        failures.push(...report.failures);
+    }
+    const actual = failures.map(stringifyFailure);
     actual.sort();
     expected.sort();
 
