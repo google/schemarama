@@ -26,10 +26,16 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var data = "\n            {\n              \"@context\": \"https://schema.org\",\n              \"@graph\": [\n                {\n                  \"@id\": \"#author\",\n                  \"@type\": \"Person\",\n                  \"birthDate\": \"1892\",\n                  \"deathDate\": \"1973\",\n                  \"name\": \"Tolkien, J. R. R. (John Ronald Reuel)\",\n                  \"sameAs\": \"http://viaf.org/viaf/95218067\"\n                },\n                {\n                  \"@id\": \"#trilogy\",\n                  \"@type\": \"Book\",\n                  \"about\": \"http://id.worldcat.org/fast/1020337\",\n                  \"hasPart\": [\n                    {\n                      \"@id\": \"#book3\",\n                      \"@type\": [\n                        \"Book\",\n                        \"PublicationVolume\"\n                      ],\n                      \"name\": \"The Return of the King\",\n                      \"about\": \"http://id.worldcat.org/fast/1020337\",\n                      \"isPartOf\": \"#trilogy\",\n \"inLanguage\": \"en\",\n" +
-    "                      \"volumeNumber\": \"3\",\n                      \"author\": \"#author\"\n                    },\n                    {\n                      \"@id\": \"#book2\",\n                      \"@type\": [\n                          \"Book\",\n                          \"PublicationVolume\"\n                      ],\n                      \"name\": \"The Two Towers\",\n                      \"about\": \"http://id.worldcat.org/fast/1020337\",\n                      \"isPartOf\": \"#trilogy\",\n                      \"inLanguage\": \"en\",\n                      \"volumeNumber\": \"2\",\n                      \"author\": \"#author\"\n                    },\n                    {\n                      \"@id\": \"#book1\",\n                      \"@type\": [\n                        \"Book\",\n                        \"PublicationVolume\"\n                      ],\n                      \"name\": \"The Fellowship of the Ring\",\n                      \"about\": \"http://id.worldcat.org/fast/1020337\",\n                      \"isPartOf\": \"#trilogy\",\n   "+
-    "                   \"inLanguage\": \"en\",\n                      \"volumeNumber\": \"1\",\n                      \"author\": \"#author\"\n                    }\n                  ],\n                  \"name\": \"Lord of the Rings\",\n                  \"inLanguage\": \"en\",\n                  \"genre\": \"fictional\",\n                  \"author\": \"#author\"\n                }\n              ]\n            }\n            ";
+function markupChanged() {
+    document.getElementById('pretty-markup').innerHTML = '';
+    document.getElementById('text-pretty-markup').innerHTML = '';
+    var data = document.getElementById('input').value;
+    prettyMarkup(data);
+}
 
+document.getElementById('input').addEventListener('input', function () {
+    markupChanged();
+});
 
 function prettyMarkup(_x) {
     return _prettyMarkup.apply(this, arguments);
@@ -78,4 +84,4 @@ function _prettyMarkup() {
     return _prettyMarkup.apply(this, arguments);
 }
 
-prettyMarkup(data);
+markupChanged();
