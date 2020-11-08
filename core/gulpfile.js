@@ -6,36 +6,6 @@ const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const source = require('vinyl-source-stream');
 
-gulp.task('build', function () {
-    return browserify({entries: ['./index.js'], extensions: ['.js'], debug: true, standalone: 'schemarama'})
-        .transform(babelify, {
-            global: true,
-            presets: ["@babel/preset-env"],
-            plugins: [
-                [
-                    '@babel/plugin-proposal-decorators',
-                    {
-                        legacy: true,
-                    },
-                ],
-                '@babel/plugin-proposal-class-properties',
-                [
-                    '@babel/plugin-transform-runtime',
-                    {
-                        regenerator: true,
-                    },
-                ],
-            ]
-        })
-        .bundle()
-        .pipe(source('schemarama.bundle.js'))
-        .pipe(gulp.dest('dist'))
-        .pipe(rename('schemarama.bundle.min.js'))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('parsing', function () {
     return browserify({entries: ['./parsing-index.js'], extensions: ['.js'], debug: true, standalone: 'schemarama'})
         .transform(babelify, {
