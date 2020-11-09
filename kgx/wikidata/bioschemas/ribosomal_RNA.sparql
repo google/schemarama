@@ -1,0 +1,15 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?ribosomal_RNA wdt:P31 wd:Q28885102.
+?ribosomal_RNA wdt:P703 ?taxon.
+}
+  
+WHERE {
+{?ribosomal_RNA wdt:P31/wdt:P279* wd:Q215980}
+UNION {?ribosomal_RNA wdt:P31/wdt:P279* wd:Q215980. ?ribosomal_RNA wdt:P703 ?taxon.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

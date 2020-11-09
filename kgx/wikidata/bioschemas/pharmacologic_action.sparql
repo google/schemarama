@@ -1,0 +1,17 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?pharmacologic_action wdt:P31 wd:Q50377224.
+?pharmacologic_action wdt:P3780 ?active_ingredient_in.
+?pharmacologic_action wdt:P2175 ?medical_condition_treated.
+}
+  
+WHERE {
+{?pharmacologic_action wdt:P31/wdt:P279* wd:Q50377224}
+UNION {?pharmacologic_action wdt:P31/wdt:P279* wd:Q50377224. ?pharmacologic_action wdt:P3780 ?active_ingredient_in.}
+UNION {?pharmacologic_action wdt:P31/wdt:P279* wd:Q50377224. ?pharmacologic_action wdt:P2175 ?medical_condition_treated.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

@@ -1,0 +1,17 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?protein_domain wdt:P31 wd:Q898273.
+?protein_domain wdt:P527 ?has_part.
+?protein_domain wdt:P361 ?part_of.
+}
+  
+WHERE {
+{?protein_domain wdt:P31/wdt:P279* wd:Q898273}
+UNION {?protein_domain wdt:P31/wdt:P279* wd:Q898273. ?protein_domain wdt:P527 ?has_part.}
+UNION {?protein_domain wdt:P31/wdt:P279* wd:Q898273. ?protein_domain wdt:P361 ?part_of.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

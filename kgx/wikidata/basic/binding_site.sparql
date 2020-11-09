@@ -1,0 +1,15 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?binding_site wdt:P31 wd:Q616005.
+?binding_site wdt:P361 ?part_of.
+}
+  
+WHERE {
+{?binding_site wdt:P31/wdt:P279* wd:Q616005}
+UNION {?binding_site wdt:P31/wdt:P279* wd:Q616005. ?binding_site wdt:P361 ?part_of.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

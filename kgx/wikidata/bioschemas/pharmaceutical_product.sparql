@@ -1,0 +1,17 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?pharmaceutical_product wdt:P31 wd:Q28885102.
+?pharmaceutical_product wdt:P3780 ?active_ingredient_in.
+?pharmaceutical_product wdt:P4044 ?disease.
+}
+  
+WHERE {
+{?pharmaceutical_product wdt:P31/wdt:P279* wd:Q28885102}
+UNION {?pharmaceutical_product wdt:P31/wdt:P279* wd:Q28885102. ?pharmaceutical_product wdt:P3780 ?active_ingredient_in.}
+UNION {?pharmaceutical_product wdt:P31/wdt:P279* wd:Q28885102. ?pharmaceutical_product wdt:P4044 ?disease.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

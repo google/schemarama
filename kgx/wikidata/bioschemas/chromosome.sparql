@@ -1,0 +1,13 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?chromosome wdt:P31 wd:Q37748.
+}
+  
+WHERE {
+{?chromosome wdt:P31/wdt:P279* wd:Q37748}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

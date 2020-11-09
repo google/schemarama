@@ -1,0 +1,15 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?protein_family wdt:P31 wd:Q417841.
+?protein_family wdt:P527 ?has_part.
+}
+  
+WHERE {
+{?protein_family wdt:P31/wdt:P279* wd:Q417841}
+UNION {?protein_family wdt:P31/wdt:P279* wd:Q417841. ?protein_family wdt:P527 ?has_part.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

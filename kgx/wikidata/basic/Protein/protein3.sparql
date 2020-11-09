@@ -1,0 +1,30 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?protein wdt:P31 wd:Q8054.
+?protein wdt:P129 ?element_protein_interacts_with.
+?protein wdt:P702 ?gene_protein_is_encoded_by.
+?protein wdt:P361 ?part_of.
+?protein wdt:P527 ?has_part.
+?protein wdt:P680 ?molecular_function.
+?protein wdt:P682 ?biological_process.
+?protein wdt:P703 ?taxon.
+?protein wdt:P681 ?cellular_location.
+?protein wdt:P129 ?physically_interacts_with.
+}
+
+WHERE {
+#{?protein wdt:P31|wdt:P279 wd:Q8054.} # Instance of or subclass of Protein.  
+#UNION {?protein wdt:P31|wdt:P279 wd:Q8054. ?protein wdt:P129 ?element_protein_interacts_with.}
+#UNION {?protein wdt:P31/wdt:P279 wd:Q8054. ?protein wdt:P702 ?gene_protein_is_encoded_by.}
+#UNION {?protein wdt:P31|wdt:P279 wd:Q8054. ?protein wdt:P361 ?part_of.} #timesout
+ #{?protein wdt:P31/wdt:P279 wd:Q8054. ?protein wdt:P527 ?has_part}
+ {?protein wdt:P31|wdt:P279 wd:Q8054. ?protein wdt:P680 ?molecular_function}
+#UNION {?protein wdt:P31|wdt:P279 wd:Q8054. ?protein wdt:P682 ?biological_process}
+#UNION {?protein wdt:P31|wdt:P279 wd:Q8054. ?protein wdt:P703 ?taxon.}
+#UNION {?protein wdt:P31/wdt:P279 wd:Q8054. ?protein wdt:P681 ?cellular_location.}
+#UNION {?protein wdt:P31/wdt:P279 wd:Q8054. ?protein wdt:P129 ?physically_interacts_with.}
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

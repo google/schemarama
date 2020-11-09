@@ -1,0 +1,26 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?gene a bio:Gene.
+?gene wdt:P703 ?taxon.
+?gene wdt:P684 ?ortholog_gene.
+?gene wdt:P682 ?biological_process.
+?gene wdt:P688 ?protein_encoded_by_gene.
+?gene wdt:P527 ?has_part.
+?gene wdt:P1057 ?chromosome.  
+ 
+}
+
+WHERE {
+{?gene wdt:P31/wdt:P279 wd:Q7187.}
+UNION {?gene wdt:P31/wdt:P270 wd:Q7187. ?gene wdt:P703 ?taxon. }
+UNION {?gene wdt:P31/wdt:P279 wd:Q7187. ?gene wdt:P684 ?ortholog_gene.}
+UNION {?gene wdt:P31/wdt:P279 wd:Q7187. ?gene wdt:P682 ?biological_process.}
+UNION {?gene wdt:P31/wdt:P279 wd:Q7187. ?gene wdt:P688 ?protein_encoded_by_gene.}
+UNION {?gene wdt:P31/wdt:P279 wd:Q7187. ?gene wdt:P527 ?has_part.}
+UNION {?gene wdt:P31/wdt:P279 wd:Q7187. ?gene wdt:P1057 ?chromosome.}
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}
+

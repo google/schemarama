@@ -1,0 +1,23 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?sequence_variant wdt:P31 wd:Q15304597.
+?sequence_variant wdt:P361 ?negative_therapeutic_predictor.
+?sequence_variant wdt:P3354 ?positive_therapeutic_predictor.
+?sequence_variant wdt:P3433 ?biological_variant.
+?sequence_variant wdt:P1057 ?chromosome.
+}
+  
+WHERE {
+{?sequence_variant wdt:P31/wdt:P279* wd:Q15304597}
+UNION {?sequence_variant wdt:P31/wdt:P279* wd:Q15304597. ?sequence_variant wdt:P3355 ?negative_therapeutic_predictor.}
+UNION {?sequence_variant wdt:P31/wdt:P279* wd:Q15304597. ?sequence_variant wdt:P3354 ?positive_therapeutic_predictor.}
+UNION {?sequence_variant wdt:P31/wdt:P279* wd:Q15304597. ?sequence_variant wdt:P3433 ?biological_variant.}
+UNION {?sequence_variant wdt:P31/wdt:P279* wd:Q15304597. ?sequence_variant wdt:P1057 ?chromosome.}
+
+  
+  
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

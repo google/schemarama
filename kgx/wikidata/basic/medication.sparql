@@ -1,0 +1,27 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?drug wdt:P31 wd:Q12140.
+?drug wdt:P2175 ?medical_condition_treated. ?medical_condition_treated wdt:P2176 ?drug.
+?drug wdt:P3780 ?active_ingredient_in_pharmaceutical_product.
+?drug wdt:P527 ?biological_pathway_drug_has_part.
+?drug wdt:P769 ?significant_drug_interaction.  
+?drug wdt:P2868 ?role.
+?drug wdt:P279 wd:Q50377224.
+?drug wdt:P279 wd:Q50379781.
+}
+
+WHERE {
+{?drug wdt:P31/wdt:P279* wd:Q12140.} # Instance of medication.
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P2175 ?medical_condition_treated.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P3780 ?active_ingredient_in_pharmaceutical_product.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P527 ?drug_has_part.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P769 ?significant_drug_interaction.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P2868 ?role.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P279* wd:Q50377224.}
+UNION {?drug wdt:P31/wdt:P279* wd:Q12140. ?drug wdt:P279* wd:Q50379781.}
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}
+

@@ -1,0 +1,32 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?chemical_compound a schema:ChemicalSubstance.
+?chemical_compound schema:chemicalRole ?subject_has_role.
+?chemical_compound wdt:P769 ?significant_drug_interaction.
+?chemical_compound wdt:P279 ?subclass_of.
+?chemical_compound wdt:P3780 ?active_ingredient_in.
+?chemical_compound schema:associatedDisease ?medical_condition_treated.
+?chemical_compound schema:hasBioChemEntityPart ?has_part.
+?chemical_compound schema:isPartOfBioChemEntity ?part_of.
+?chemical_compound schema:taxonomicRange ?found_in_taxon.
+?chemical_compound wdt:P3364 ?stereoisomer_of.
+}
+
+WHERE {
+{?chemical_compound wdt:P31 wd:Q11173.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P2868 ?subject_has_role.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P769 ?significant_drug_interaction.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P279 ?subclass_of.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P3780 ?active_ingredient_in.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P2175 ?medical_condition_treated.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P527 ?has_part.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P361 ?part_of.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P703 ?found_in_taxon.}
+UNION {?chemical_compound wdt:P31 wd:Q11173. ?chemical_compound wdt:P3364 ?stereoisomer_of.}
+
+  
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

@@ -1,0 +1,20 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?biological_pathway wdt:P31 wd:Q4915012.
+?biological_pathway wdt:P361 ?part_of.
+?biological_pathway wdt:P527 ?has_part.
+?biological_pathway wdt:P31 ?biological_process
+}
+
+
+WHERE {
+{?biological_pathway wdt:P31/wdt:P279* wd:Q4915012}
+UNION {?biological_pathway wdt:P31/wdt:P279* wd:Q4915012. ?biological_pathway wdt:P361 ?part_of.}
+UNION {?biological_pathway wdt:P31/wdt:P279* wd:Q4915012. ?biological_pathway wdt:P527 ?has_part.}
+UNION {?biological_pathway wdt:P31/wdt:P279* wd:Q4915012. ?biological_pathway wdt:P31 ?biological_process. ?biological_process wdt:P31/wdt:P279* wdt:P682}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

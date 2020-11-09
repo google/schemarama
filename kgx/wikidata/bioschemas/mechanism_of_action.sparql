@@ -1,0 +1,16 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?mechanism_of_action wdt:P31 wd:Q3271540.
+
+}
+  
+WHERE {
+{?mechanism_of_action wdt:P31|wdt:P279* wd:Q3271540}
+
+  
+  
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

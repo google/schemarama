@@ -1,0 +1,17 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?therapeutic_use a schema:MedicalTherapy.
+?therapeutic_use schema:Drug ?pharmaceutical_product.
+?therapeutic_use wdt:P2175 ?disease.
+}
+
+WHERE {
+{?therapeutic_use wdt:P31/wdt:P279* wd:Q50379781.}
+UNION {?therapeutic_use wdt:P31/wdt:P279* wd:Q50379781. ?therapeutic_use wdt:P3781 ?pharmaceutical_product.}
+UNION {?therapeutic_use wdt:P31/wdt:P279* wd:Q50379781. ?therapeutic_use wdt:P2175 ?disease.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

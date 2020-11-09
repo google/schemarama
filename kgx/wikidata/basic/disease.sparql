@@ -1,0 +1,22 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?disease wdt:P31 wd:Q12136.
+?disease wdt:P780 ?symptoms.  
+?disease wdt:P828 ?taxon.
+?disease wdt:P2293 ?associated_gene.
+?disease wdt:P927 ?anatomical_location.
+?disease wdt:P2176 ?drug_used_for_treatment.
+}
+
+WHERE {
+{?disease wdt:P31/wdt:P279* wd:Q12136.} # Instance of or subclass of Disease.
+UNION {?disease wdt:P31/wdt:P279* wd:Q12136. ?disease wdt:P780 ?symptoms.}
+UNION {?disease wdt:P31/wdt:P279* wd:Q12136. ?disease wdt:P828 ?taxon.}
+UNION {?disease wdt:P31/wdt:P279* wd:Q12136. ?disease wdt:P2293 ?associated_gene.}
+UNION {?disease wdt:P31/wdt:P279* wd:Q12136. ?disease wdt:P927 ?anatomical_location.}
+UNION {?disease wdt:P31/wdt:P279* wd:Q12136. ?disease wdt:P2176 ?drug_used_for_treatment.}
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}

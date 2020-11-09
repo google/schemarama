@@ -1,0 +1,18 @@
+PREFIX schema: <https://schema.org/> 
+PREFIX bio: <https://bioschemas.org/> # tmp
+PREFIX wikibase: <http://wikiba.se/ontology#>
+
+CONSTRUCT {
+?anatomical_structure a schema:AnatomicalStructure.
+?anatomical_structure schema:partOfSystem ?part_of.
+?anatomical_structure wdt:P527 ?has_part.
+}
+
+
+WHERE {
+{?anatomical_structure wdt:P31/wdt:P279* wd:Q4936952}
+UNION {?anatomical_structure wdt:P31/wdt:P279* wd:Q4936952. ?anatomical_structure wdt:P361 ?part_of.}
+UNION {?anatomical_structure wdt:P31/wdt:P279* wd:Q4936952. ?anatomical_structure wdt:P527 ?has_part.}
+
+SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
+}
