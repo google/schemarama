@@ -33,9 +33,8 @@ validator.validate(data, {baseUrl: 'http://example.org/test'})
     .then(report => report.failures.forEach(failure => console.log(failure)));
 ```
 ## Bundling
-To use this module in the browser, you need to create a bundle with webpack or browserify.<br /> 
-**All commands below should be executed in the ```core``` directory of the project**<br /><br />
-**With Webpack (full and parsing-only):**
+To use this module in the browser, you need to create a bundle with webpack.<br /> 
+**All commands below should be executed in the ```core``` directory of the project:**
 1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
 or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
 2. run ```npm install```
@@ -45,16 +44,7 @@ or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt inst
     * A minimized bundle for the full package - ```schemarama.bundle.min.js```;
     * An uncompressed bundle for the parsing-only package - ```schemarama-parsing.bundle.js```;
     * A minimized bundle for the parsing-only package - ```schemarama-parsing.bundle.min.js```;
-<br/><br/>
 
-**Parsing-only bundle for pretty-markup (browserify):** <br/>
-1. If you don't have node and npm installed, please download an installer from [here](https://nodejs.org/en/download/)
-   or run ```sudo apt update```, ```sudo apt install nodejs``` and ```sudo apt install npm``` for Ubuntu.
-2. run ```npm install```
-3. If you don't already have gulp, please install it with ```npm install --global gulp-cli```
-4. run ```gulp parsing```
-5. Collect the created uncompressed (```schemarama-parsing.bundle.js```) or minimized (```schemarama-parsing.bundle.min.js```) 
-bundle from the dist folder.<br/><br/>
 
 ## Cli mode
 To use this project as a cli, first you need to do an ```npm install``` in the ```core``` folder
