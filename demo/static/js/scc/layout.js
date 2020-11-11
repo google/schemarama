@@ -19,7 +19,8 @@ let lastValidation;
 $('#validate-btn').click(() => {
     $('.reports').empty();
     lastValidation = $('#input-text').val();
-    validate(lastValidation, $('#validation-lang-select').val());
+    validate(lastValidation, $('#validation-lang-select').val())
+        .catch(e => new Noty({text: `<b>Validation error:</b> ${e.message}`, type: 'error', timeout: 3000}).show());
 });
 
 $(document).bind('keypress', function (e) {
@@ -29,11 +30,11 @@ $(document).bind('keypress', function (e) {
 });
 
 $(document).delegate('#input-text', 'keydown', function (e) {
-    var keyCode = e.keyCode || e.which;
+    const keyCode = e.keyCode || e.which;
     if (keyCode === 9) {
         e.preventDefault();
-        var start = this.selectionStart;
-        var end = this.selectionEnd;
+        const start = this.selectionStart;
+        const end = this.selectionEnd;
         $(this).val($(this).val().substring(0, start)
             + "\t"
             + $(this).val().substring(end));
@@ -53,18 +54,17 @@ function initTests(tests) {
     })
 }
 
-
-
-
-function dataItemLayout(predicate, object, indent) {
-    let trueIndent = indent * 30;
-    predicate = replacePrefix(predicate);
-    return `<div class="data-item">
-        <div class="info">
-            <div class="predicate"><div style='width: ${trueIndent}px'></div><div>${predicate}</div></div>
-            <div class="object">${object}</div>
-        </div>
-    </div>`;
+function parseDataItems(dataset, shapeId, indent, used) {
+    used.push(shapeId);
+    let dataItems = [];
+    let shape = dataset.getQuads(shapeId, undefined, undefined);
+    shape.forEach(quad => {
+        dataItems.push(dataItemLayout(quad.predicate.value, quad.object.id, indent));
+        if (!used.includes(quad.object.id) && dataset.getQuads(quad.object.id, undefined, undefined).length > 0) {
+            dataItems.push(...parseDataItems(dataset, quad.object.id, indent + 1, used));
+        }
+    });
+    return dataItems;
 }
 
 function failureLayout(failure, type) {
@@ -85,11 +85,11 @@ function failureLayout(failure, type) {
     </div>`
 }
 
-function addReport(type, report, dataItems) {
-    let errors = report.filter(x => x.severity === 'error').map(x => failureLayout(x, x.severity));
-    let warnings = report.filter(x => x.severity === 'warning').map(x => failureLayout(x, x.severity));
-    let infos = report.filter(x => x.severity === 'info').map(x => failureLayout(x, 'recommendation'));
-    let id = $('.report').length;
+function addReport(type, report) {
+    const errors = report.failures.filter(x => x.severity === 'error').map(x => failureLayout(x, x.severity));
+    const warnings = report.failures.filter(x => x.severity === 'warning').map(x => failureLayout(x, x.severity));
+    const infos = report.failures.filter(x => x.severity === 'info').map(x => failureLayout(x, 'recommendation'));
+    const id = $('.report').length;
     let reportLayout = `
         <div class="report" id="report-${id}">
             <div class="title">
@@ -97,11 +97,15 @@ function addReport(type, report, dataItems) {
                 <div class="error"><span id="errors-count">${errors.length}</span> errors</div>
                 <div class="warning"><span id="warnings-count">${warnings.length}</span> warnings</div>
             </div>
-            <div class="data-items">${dataItems.join('')}</div>
+            <div class="data-items"></div>
             <div class="errors">${errors.join('') + warnings.join('') + infos.join('')}</div>
         </div>
     `;
     $('.reports').append(reportLayout);
+    const dataItems = $(`#report-${id} .data-items`);
+    for (const tripleRow of markupLevel(report.store, report.baseUrl, [], 0, dataItemLayoutHtml)) {
+        dataItems.append(tripleRow);
+    }
     $(`#report-${id}>.title`).on("click", function () {
         $(this).parent().find('.errors').toggle();
         $(this).parent().find('.data-items').toggle();

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Schema.org Content Checker  (work-in-progress)</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
     {% block styles %}
@@ -14,6 +15,8 @@
 {% endblock %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Noty - for pretty notifications -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 {% block scripts %}
 {% endblock %}
 </body>

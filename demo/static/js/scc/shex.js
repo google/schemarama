@@ -26,7 +26,7 @@ async function recursiveValidate(node, type, data, baseUrl) {
         report = await shexValidator.validate(data, startShape, {baseUrl: baseUrl});
     } catch (e) {
         if (e.message.includes(`shape ${startShape} not found in:`)) {
-            console.log(`Shape ${startShape} is not defined, validation skipped`);
+            //console.log(`Shape ${startShape} is not defined, validation skipped`);
             return;
         } else {
             throw e;

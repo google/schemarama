@@ -136,20 +136,21 @@ body, html {
     padding: 5px 10px;
 }
 
-.data-item > .info {
+.triple-row {
     display: flex;
+    border-bottom: lightgrey 0.3px solid;
+    padding: 5px 10px;
     justify-content: space-between;
-    flex-grow: 1;
-
 }
 
-.data-item > .info > .predicate {
+.predicate {
     font-weight: bold;
     display: flex;
 }
 
-.data-item > .info > .object {
+.object {
     width: 60%;
+    padding-left: 3px;
     word-break: break-all;
 }
 

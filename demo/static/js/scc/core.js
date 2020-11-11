@@ -41,7 +41,7 @@ $(document).ready(async () => {
     });
 });
 
-function randomString(length=16) {
+function randomString(length = 16) {
     let result = '';
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) {
@@ -72,46 +72,30 @@ async function validate(data, lang) {
         } else if (lang === 'shacl') {
             report = await validateShacl(shape, id);
         }
-        let dataItems = parseDataItems(report.store, report.baseUrl, 0, []);
-        addReport(type, minifyFailuresList(report.failures), dataItems);
+        report.failures = minifyFailuresList(report.failures);
+        addReport(type, report);
     }
 
 }
 
-function parseDataItems(dataset, shapeId, indent, used) {
-    used.push(shapeId);
-    let dataItems = [];
-    let shape = dataset.getQuads(shapeId, undefined, undefined);
-    shape.forEach(quad => {
-        dataItems.push(dataItemLayout(quad.predicate.value, quad.object.id, indent));
-        if (!used.includes(quad.object.id) && dataset.getQuads(quad.object.id, undefined, undefined).length > 0) {
-            dataItems.push(...parseDataItems(dataset, quad.object.id, indent + 1, used));
-        }
-    });
-    return dataItems;
-}
-
-function minifyFailuresList (failures) {
-    let properties = {};
-    failures.forEach(item => {
+function minifyFailuresList(failures) {
+    const properties = {};
+    for (const item of failures) {
         let key = item.property;
-        if (properties[key] && properties[key].services.filter(x => x.service === item.service).length > 0) return;
-        if (properties[key]) {
-            properties[key].services.push({
-                service: item.service,
-                description: item.description,
-                url: item.url
-            });
-        } else properties[key] = {
-            property: item.property,
-            severity: item.severity,
-            message: item.message,
-            services: [{
-                service: item.service,
-                description: item.description,
-                url: item.url
-            }]
-        };
-    });
+        if (properties[key] && properties[key].services.filter(x => x.service === item.service).length > 0) continue;
+        if (!properties[key]) {
+            properties[key] = {
+                property: item.property,
+                severity: item.severity,
+                message: item.message,
+                services: [],
+            }
+        }
+        properties[key].services.push({
+            service: item.service,
+            description: item.description,
+            url: item.url
+        });
+    }
     return Object.values(properties);
 }

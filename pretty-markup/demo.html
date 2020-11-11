@@ -6,14 +6,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Html representation:</h2>
-    <div id="pretty-markup">
+<h2>Paste JSON-LD to here:</h2>
+<textarea style="width: 100%; height: 500px;" id="input" placeholder="Paste structured data to here">
+{
+    "@context":  "https://schema.org/",
+    "@id": "#record",
+    "@type": "Book",
+    "additionalType": "Product",
+    "name": "Le concerto",
+    "author": "Ferchault, Guy",
+    "offers":{
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "serialNumber": "CONC91000937",
+        "sku": "780 R2",
+        "offeredBy": {
+            "@type": "Library",
+            "@id": "http://library.anytown.gov.uk",
+            "name": "Anytown City Library"
+        },
+        "businessFunction": "http://purl.org/goodrelations/v1#LeaseOut",
+        "itemOffered": "#record"
+    }
+}
+</textarea>
+<h2>Html representation:</h2>
+<div id="pretty-markup">
 
-    </div>
-    <h2>Textual representation:</h2>
-    <textarea style="width: 100%; height: 500px;" id="text-pretty-markup"></textarea>
-    <script src="schemarama-parsing.bundle.js"></script>
-    <script src="layout.js"></script>
-    <script src="demo.js"></script>
+</div>
+<h2>Textual representation:</h2>
+<textarea style="width: 100%; height: 500px;" id="text-pretty-markup"></textarea>
+<script src="schemarama-parsing.bundle.js"></script>
+<script src="layout.js"></script>
+<script src="demo.js"></script>
 </body>
 </html>
