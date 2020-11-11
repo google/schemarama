@@ -19,7 +19,8 @@ let lastValidation;
 $('#validate-btn').click(() => {
     $('.reports').empty();
     lastValidation = $('#input-text').val();
-    validate(lastValidation, $('#validation-lang-select').val());
+    validate(lastValidation, $('#validation-lang-select').val())
+        .catch(e => new Noty({text: `<b>Validation error:</b> ${e.message}`, type: 'error', timeout: 3000}).show());
 });
 
 $(document).bind('keypress', function (e) {
