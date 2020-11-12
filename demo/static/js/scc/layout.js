@@ -16,12 +16,48 @@
 
 let lastValidation;
 
-$('#validate-btn').click(() => {
+async function parseInput(text) {
+    try {
+        JSON.parse(text);
+        return [text.split('http://schema.org').join('https://schema.org')];
+    } catch {
+        try {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+            const scripts = Array.from(doc.getElementsByTagName('script'))
+                .filter(script => script.type === 'application/ld+json')
+                .map(script => script.innerText.split('http://schema.org').join('https://schema.org'));
+            try {
+                await schemarama.stringToQuads(text);
+                scripts.push(text);
+            } catch {}
+            return scripts;
+        } catch {
+            return [];
+        }
+    }
+}
+
+$('#validate-btn').click(async () => {
     $('.reports').empty();
-    lastValidation = $('#input-text').val();
-    validate(lastValidation, $('#validation-lang-select').val())
-        .catch(e => new Noty({text: `<b>Validation error:</b> ${e.message}`, type: 'error', timeout: 3000}).show());
+    const validationItems = await parseInput($('#input-text').val());
+    if (validationItems.length === 0)
+        new Noty({text: 'The input doesn\'t contain structured data', type: 'warning', timeout: 3000}).show();
+    for (let item of validationItems) {
+        try {
+            await validate(item, $('#validation-lang-select').val());
+        } catch (e) {
+            new Noty({text: `<b>Validation error:</b> ${e.message}`, type: 'error', timeout: 3000}).show();
+        }
+    }
 });
+
+$('#url-submit-button').click(() => {
+    $('#input-text').empty();
+    $.post('/page', {url: $('#url-input').val()})
+        .then(res => $('#input-text').val(res))
+        .catch(err => new Noty({text: err.message, type: 'error', timeout: 3000}).show());
+})
 
 $(document).bind('keypress', function (e) {
     if (e.keyCode === 10 && e.ctrlKey) {

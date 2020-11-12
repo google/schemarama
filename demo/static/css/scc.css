@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+:root {
+    --main: #1984c8;
+    --main-transparent: rgba(25, 132, 173, 0.7);
+    --background: #fafafa;
+}
+
 body, html {
     height: 100%;
     padding: 0;
@@ -30,13 +36,13 @@ body, html {
 
 .header {
     height: 60px;
-    background: #1984ad;
+    background: var(--main);
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
     color: white;
     font-weight: bold;
-}
+    }
 
 .header div {
     display: flex;
@@ -51,7 +57,7 @@ body, html {
 }
 
 .header a:hover {
-    color: #fafafa;
+    color: var(--background);
     text-decoration: none;
 }
 
@@ -63,6 +69,7 @@ body, html {
 .content {
     display: flex;
     height: calc(100vh - 60px);
+    background: var(--background);
 }
 
 .block {
@@ -72,12 +79,31 @@ body, html {
 
 .output-block {
     overflow: auto;
-    background: #fafafa;
+}
+
+.url-input {
+    height: 8%;
+    display: flex;
+}
+
+.url-input * {
+    margin:auto 5px;
+    height: 40px;
+}
+
+.url-input .btn {
+    background: var(--main);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 #input-text {
     width: 100%;
-    height: 100%;
+    height: 92%;
 }
 
 #validate-btn {
@@ -87,7 +113,7 @@ body, html {
     height: 56px;
     width: 56px;
     padding: 13px;
-    background: #1984ad;
+    background: var(--main);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -259,7 +285,7 @@ body, html {
     left: 10px;
     color: white;
     font-size: 16px;
-    background: rgba(25, 132, 173, 0.7);
+    background: var(--main-transparent);
     cursor: pointer;
     border: 1px solid rgba(25, 132, 173, 0.9);
 }
@@ -280,4 +306,27 @@ body, html {
 
 .test:hover {
     background: rgba(25, 132, 173, 0.9);
+}
+
+.source-block {
+    position: absolute;
+    background: var(--main);
+    border: 2px solid #004085;
+    color: white;
+    z-index: 2;
+    width: 400px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 7px;
+}
+
+.curtain {
+    position: absolute;
+    background: rgba(27, 30, 33, 0.7);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
 }
