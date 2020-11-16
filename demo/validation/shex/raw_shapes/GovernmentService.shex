@@ -1,4 +1,0 @@
-<#ValidSchemaGovernmentService> @<#ValidSchemaService> AND EXTRA a {
-	a [schema:GovernmentService] * ;
-	schema:serviceOperator @<#ValidSchemaOrganization> * ;
-}

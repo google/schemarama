@@ -1,3 +1,0 @@
-<#ValidSchemaAnswer> @<#ValidSchemaComment> AND EXTRA a {
-	a [schema:Answer] * ;
-}

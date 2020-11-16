@@ -1,3 +1,0 @@
-<#ValidSchemaContinent> @<#ValidSchemaLandform> AND EXTRA a {
-	a [schema:Continent] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaBoolean a sh:NodeShape;
-	sh:targetClass schema:Boolean;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaGameServerStatus> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:GameServerStatus] * ;
-}

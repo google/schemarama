@@ -1,3 +1,0 @@
-:ValidSchemaMusicAlbumProductionType a sh:NodeShape;
-	sh:targetClass schema:MusicAlbumProductionType;
-	sh:nodeKind sh:BlankNodeOrIRI.

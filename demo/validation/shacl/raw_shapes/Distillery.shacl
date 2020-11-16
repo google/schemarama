@@ -1,3 +1,0 @@
-:ValidSchemaDistillery a sh:NodeShape;
-	sh:targetClass schema:Distillery;
-	sh:nodeKind sh:BlankNodeOrIRI.

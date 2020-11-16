@@ -1,3 +1,0 @@
-<#ValidSchemaRadioSeason> @<#ValidSchemaCreativeWorkSeason> AND EXTRA a {
-	a [schema:RadioSeason] * ;
-}

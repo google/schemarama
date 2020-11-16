@@ -1,3 +1,0 @@
-<#ValidSchemaMusicStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:MusicStore] * ;
-}

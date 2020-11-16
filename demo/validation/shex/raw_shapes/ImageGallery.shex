@@ -1,3 +1,0 @@
-<#ValidSchemaImageGallery> @<#ValidSchemaMediaGallery> AND EXTRA a {
-	a [schema:ImageGallery] * ;
-}

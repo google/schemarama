@@ -1,3 +1,0 @@
-:ValidSchemaAutoRental a sh:NodeShape;
-	sh:targetClass schema:AutoRental;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaDrinkAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
-	a [schema:DrinkAction] * ;
-}

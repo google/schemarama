@@ -1,0 +1,191 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaMediaObject",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaCreativeWork",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://schema.org/Barcode",
+                "http://schema.org/DataDownload",
+                "http://schema.org/MusicVideoObject",
+                "http://schema.org/AudioObject",
+                "http://schema.org/ImageObject",
+                "http://schema.org/VideoObject",
+                "http://schema.org/MediaObject"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/associatedArticle",
+            "valueExpr": "http://schema.org/validation#ValidSchemaNewsArticle",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/bitrate",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/contentSize",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/contentUrl",
+            "valueExpr": "http://schema.org/validation#ValidSchemaURL",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/duration",
+            "valueExpr": "http://schema.org/validation#ValidSchemaDuration",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/embedUrl",
+            "valueExpr": "http://schema.org/validation#ValidSchemaURL",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/encodesCreativeWork",
+            "valueExpr": "http://schema.org/validation#ValidSchemaCreativeWork",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/encodingFormat",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaURL",
+                "http://schema.org/validation#ValidSchemaText"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/endTime",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaDateTime",
+                "http://schema.org/validation#ValidSchemaTime"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/height",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaQuantitativeValue",
+                "http://schema.org/validation#ValidSchemaDistance"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/playerType",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/productionCompany",
+            "valueExpr": "http://schema.org/validation#ValidSchemaOrganization",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/regionsAllowed",
+            "valueExpr": "http://schema.org/validation#ValidSchemaPlace",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/requiresSubscription",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaMediaSubscription",
+                "http://schema.org/validation#ValidSchemaBoolean"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/startTime",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaTime",
+                "http://schema.org/validation#ValidSchemaDateTime"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/uploadDate",
+            "valueExpr": "http://schema.org/validation#ValidSchemaDate",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/width",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaQuantitativeValue",
+                "http://schema.org/validation#ValidSchemaDistance"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

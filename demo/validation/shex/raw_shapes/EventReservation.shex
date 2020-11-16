@@ -1,3 +1,0 @@
-<#ValidSchemaEventReservation> @<#ValidSchemaReservation> AND EXTRA a {
-	a [schema:EventReservation] * ;
-}

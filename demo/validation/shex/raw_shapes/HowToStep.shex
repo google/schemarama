@@ -1,3 +1,0 @@
-<#ValidSchemaHowToStep> @<#ValidSchemaListItem> AND EXTRA a {
-	a [schema:HowToStep] * ;
-}

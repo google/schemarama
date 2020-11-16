@@ -1,3 +1,0 @@
-:ValidSchemaParcelService a sh:NodeShape;
-	sh:targetClass schema:ParcelService;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaToyStore a sh:NodeShape;
-	sh:targetClass schema:ToyStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

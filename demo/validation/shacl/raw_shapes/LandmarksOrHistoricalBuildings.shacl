@@ -1,3 +1,0 @@
-:ValidSchemaLandmarksOrHistoricalBuildings a sh:NodeShape;
-	sh:targetClass schema:LandmarksOrHistoricalBuildings;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaPhotographAction a sh:NodeShape;
-	sh:targetClass schema:PhotographAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

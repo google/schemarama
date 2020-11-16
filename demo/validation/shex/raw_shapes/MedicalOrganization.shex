@@ -1,3 +1,0 @@
-<#ValidSchemaMedicalOrganization> @<#ValidSchemaOrganization> AND EXTRA a {
-	a [schema:Pharmacy schema:Dentist schema:Physician schema:Hospital schema:MedicalOrganization] * ;
-}

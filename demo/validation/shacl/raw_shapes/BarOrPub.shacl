@@ -1,3 +1,0 @@
-:ValidSchemaBarOrPub a sh:NodeShape;
-	sh:targetClass schema:BarOrPub;
-	sh:nodeKind sh:BlankNodeOrIRI.

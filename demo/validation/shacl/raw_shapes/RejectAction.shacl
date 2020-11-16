@@ -1,3 +1,0 @@
-:ValidSchemaRejectAction a sh:NodeShape;
-	sh:targetClass schema:RejectAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

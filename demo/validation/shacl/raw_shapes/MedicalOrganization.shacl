@@ -1,3 +1,0 @@
-:ValidSchemaMedicalOrganization a sh:NodeShape;
-	sh:targetClass schema:MedicalOrganization;
-	sh:nodeKind sh:BlankNodeOrIRI.

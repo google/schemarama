@@ -1,3 +1,0 @@
-<#ValidSchemaBlogPosting> @<#ValidSchemaSocialMediaPosting> AND EXTRA a {
-	a [schema:LiveBlogPosting schema:BlogPosting] * ;
-}

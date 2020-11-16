@@ -1,3 +1,0 @@
-<#ValidSchemaPaintAction> @<#ValidSchemaCreateAction> AND EXTRA a {
-	a [schema:PaintAction] * ;
-}

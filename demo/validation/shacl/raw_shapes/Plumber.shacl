@@ -1,3 +1,0 @@
-:ValidSchemaPlumber a sh:NodeShape;
-	sh:targetClass schema:Plumber;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaHomeAndConstructionBusiness> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:MovingCompany schema:HousePainter schema:GeneralContractor schema:RoofingContractor schema:HVACBusiness schema:Plumber schema:Electrician schema:Locksmith schema:HomeAndConstructionBusiness] * ;
-}

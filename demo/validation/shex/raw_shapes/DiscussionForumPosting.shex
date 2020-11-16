@@ -1,3 +1,0 @@
-<#ValidSchemaDiscussionForumPosting> @<#ValidSchemaSocialMediaPosting> AND EXTRA a {
-	a [schema:DiscussionForumPosting] * ;
-}

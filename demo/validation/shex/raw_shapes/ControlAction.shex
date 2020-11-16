@@ -1,3 +1,0 @@
-<#ValidSchemaControlAction> @<#ValidSchemaAction> AND EXTRA a {
-	a [schema:ResumeAction schema:DeactivateAction schema:SuspendAction schema:ActivateAction schema:ControlAction] * ;
-}

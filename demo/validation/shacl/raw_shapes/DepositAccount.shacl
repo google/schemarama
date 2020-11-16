@@ -1,3 +1,0 @@
-:ValidSchemaDepositAccount a sh:NodeShape;
-	sh:targetClass schema:DepositAccount;
-	sh:nodeKind sh:BlankNodeOrIRI.

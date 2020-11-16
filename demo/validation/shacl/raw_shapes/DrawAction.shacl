@@ -1,3 +1,0 @@
-:ValidSchemaDrawAction a sh:NodeShape;
-	sh:targetClass schema:DrawAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

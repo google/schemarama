@@ -1,3 +1,0 @@
-:ValidSchemaAutoBodyShop a sh:NodeShape;
-	sh:targetClass schema:AutoBodyShop;
-	sh:nodeKind sh:BlankNodeOrIRI.

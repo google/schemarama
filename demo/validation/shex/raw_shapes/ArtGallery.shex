@@ -1,3 +1,0 @@
-<#ValidSchemaArtGallery> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
-	a [schema:ArtGallery] * ;
-}

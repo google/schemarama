@@ -1,3 +1,0 @@
-<#ValidSchemaHinduTemple> @<#ValidSchemaPlaceOfWorship> AND EXTRA a {
-	a [schema:HinduTemple] * ;
-}

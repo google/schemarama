@@ -1,3 +1,0 @@
-:ValidSchemaPlayground a sh:NodeShape;
-	sh:targetClass schema:Playground;
-	sh:nodeKind sh:BlankNodeOrIRI.

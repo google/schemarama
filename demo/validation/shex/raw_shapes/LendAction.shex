@@ -1,4 +1,0 @@
-<#ValidSchemaLendAction> @<#ValidSchemaTransferAction> AND EXTRA a {
-	a [schema:LendAction] * ;
-	schema:borrower @<#ValidSchemaPerson> * ;
-}

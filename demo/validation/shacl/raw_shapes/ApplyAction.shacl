@@ -1,3 +1,0 @@
-:ValidSchemaApplyAction a sh:NodeShape;
-	sh:targetClass schema:ApplyAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

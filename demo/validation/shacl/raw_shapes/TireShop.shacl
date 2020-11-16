@@ -1,3 +1,0 @@
-:ValidSchemaTireShop a sh:NodeShape;
-	sh:targetClass schema:TireShop;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaPresentationDigitalDocument> @<#ValidSchemaDigitalDocument> AND EXTRA a {
-	a [schema:PresentationDigitalDocument] * ;
-}

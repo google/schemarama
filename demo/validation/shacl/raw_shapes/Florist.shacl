@@ -1,3 +1,0 @@
-:ValidSchemaFlorist a sh:NodeShape;
-	sh:targetClass schema:Florist;
-	sh:nodeKind sh:BlankNodeOrIRI.

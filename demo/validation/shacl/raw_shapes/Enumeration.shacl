@@ -1,3 +1,0 @@
-:ValidSchemaEnumeration a sh:NodeShape;
-	sh:targetClass schema:Enumeration;
-	sh:nodeKind sh:BlankNodeOrIRI.

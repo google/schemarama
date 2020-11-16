@@ -1,3 +1,0 @@
-:ValidSchemaAdministrativeArea a sh:NodeShape;
-	sh:targetClass schema:AdministrativeArea;
-	sh:nodeKind sh:BlankNodeOrIRI.

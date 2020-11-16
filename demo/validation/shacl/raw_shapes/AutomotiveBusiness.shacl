@@ -1,3 +1,0 @@
-:ValidSchemaAutomotiveBusiness a sh:NodeShape;
-	sh:targetClass schema:AutomotiveBusiness;
-	sh:nodeKind sh:BlankNodeOrIRI.

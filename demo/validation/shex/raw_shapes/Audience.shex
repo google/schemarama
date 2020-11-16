@@ -1,5 +1,0 @@
-<#ValidSchemaAudience> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:PeopleAudience schema:EducationalAudience schema:ParentAudience schema:BusinessAudience schema:Audience] * ;
-	schema:audienceType @<#ValidSchemaText> * ;
-	schema:geographicArea @<#ValidSchemaAdministrativeArea> * ;
-}

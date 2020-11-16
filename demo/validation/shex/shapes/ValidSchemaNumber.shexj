@@ -1,0 +1,15 @@
+{
+  "type": "ShapeOr",
+  "id": "http://schema.org/validation#ValidSchemaNumber",
+  "shapeExprs": [
+    {
+      "type": "NodeConstraint",
+      "nodeKind": "literal"
+    },
+    {
+      "type": "NodeConstraint",
+      "datatype": "http://www.w3.org/2001/XMLSchema#decimal"
+    },
+    "http://schema.org/validation#ValidSchemaInteger"
+  ]
+}

@@ -1,3 +1,0 @@
-<#ValidSchemaSeason> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Season] * ;
-}

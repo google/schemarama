@@ -1,3 +1,0 @@
-<#ValidSchemaPrependAction> @<#ValidSchemaInsertAction> AND EXTRA a {
-	a [schema:PrependAction] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaDriveWheelConfigurationValue> @<#ValidSchemaQualitativeValue> AND EXTRA a {
-	a [schema:DriveWheelConfigurationValue] * ;
-}

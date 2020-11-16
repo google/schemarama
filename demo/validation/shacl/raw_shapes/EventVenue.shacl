@@ -1,3 +1,0 @@
-:ValidSchemaEventVenue a sh:NodeShape;
-	sh:targetClass schema:EventVenue;
-	sh:nodeKind sh:BlankNodeOrIRI.

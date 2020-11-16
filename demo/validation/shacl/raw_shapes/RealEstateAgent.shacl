@@ -1,3 +1,0 @@
-:ValidSchemaRealEstateAgent a sh:NodeShape;
-	sh:targetClass schema:RealEstateAgent;
-	sh:nodeKind sh:BlankNodeOrIRI.

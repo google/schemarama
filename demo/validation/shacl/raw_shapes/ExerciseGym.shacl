@@ -1,3 +1,0 @@
-:ValidSchemaExerciseGym a sh:NodeShape;
-	sh:targetClass schema:ExerciseGym;
-	sh:nodeKind sh:BlankNodeOrIRI.

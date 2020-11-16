@@ -1,3 +1,0 @@
-:ValidSchemaText a sh:NodeShape;
-	sh:targetClass schema:Text;
-	sh:nodeKind sh:BlankNodeOrIRI.

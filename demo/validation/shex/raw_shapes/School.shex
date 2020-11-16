@@ -1,3 +1,0 @@
-<#ValidSchemaSchool> @<#ValidSchemaEducationalOrganization> AND EXTRA a {
-	a [schema:School] * ;
-}

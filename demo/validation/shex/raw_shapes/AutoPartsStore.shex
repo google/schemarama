@@ -1,3 +1,0 @@
-<#ValidSchemaAutoPartsStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:AutoPartsStore] * ;
-}

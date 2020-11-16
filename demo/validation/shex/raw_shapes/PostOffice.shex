@@ -1,3 +1,0 @@
-<#ValidSchemaPostOffice> @<#ValidSchemaGovernmentOffice> AND EXTRA a {
-	a [schema:PostOffice] * ;
-}

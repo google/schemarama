@@ -1,3 +1,0 @@
-<#ValidSchemaLakeBodyOfWater> @<#ValidSchemaBodyOfWater> AND EXTRA a {
-	a [schema:LakeBodyOfWater] * ;
-}

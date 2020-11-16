@@ -1,3 +1,0 @@
-<#ValidSchemaHowToTip> @<#ValidSchemaListItem> AND EXTRA a {
-	a [schema:HowToTip] * ;
-}

@@ -1,4 +1,0 @@
-<#ValidSchemaReport> @<#ValidSchemaArticle> AND EXTRA a {
-	a [schema:Report] * ;
-	schema:reportNumber @<#ValidSchemaText> * ;
-}

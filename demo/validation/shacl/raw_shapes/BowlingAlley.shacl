@@ -1,3 +1,0 @@
-:ValidSchemaBowlingAlley a sh:NodeShape;
-	sh:targetClass schema:BowlingAlley;
-	sh:nodeKind sh:BlankNodeOrIRI.

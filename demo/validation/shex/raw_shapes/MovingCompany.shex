@@ -1,3 +1,0 @@
-<#ValidSchemaMovingCompany> @<#ValidSchemaHomeAndConstructionBusiness> AND EXTRA a {
-	a [schema:MovingCompany] * ;
-}

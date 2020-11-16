@@ -1,3 +1,0 @@
-:ValidSchemaCourthouse a sh:NodeShape;
-	sh:targetClass schema:Courthouse;
-	sh:nodeKind sh:BlankNodeOrIRI.

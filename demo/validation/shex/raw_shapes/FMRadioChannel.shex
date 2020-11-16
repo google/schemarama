@@ -1,3 +1,0 @@
-<#ValidSchemaFMRadioChannel> @<#ValidSchemaRadioChannel> AND EXTRA a {
-	a [schema:FMRadioChannel] * ;
-}

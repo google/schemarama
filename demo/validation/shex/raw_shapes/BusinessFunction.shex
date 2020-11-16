@@ -1,3 +1,0 @@
-<#ValidSchemaBusinessFunction> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:BusinessFunction] * ;
-}

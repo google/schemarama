@@ -1,3 +1,0 @@
-:ValidSchemaEmergencyService a sh:NodeShape;
-	sh:targetClass schema:EmergencyService;
-	sh:nodeKind sh:BlankNodeOrIRI.

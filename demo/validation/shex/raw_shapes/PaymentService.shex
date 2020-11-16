@@ -1,3 +1,0 @@
-<#ValidSchemaPaymentService> @<#ValidSchemaFinancialProduct> AND EXTRA a {
-	a [schema:PaymentService] * ;
-}

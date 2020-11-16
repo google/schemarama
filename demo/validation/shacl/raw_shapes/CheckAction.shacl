@@ -1,3 +1,0 @@
-:ValidSchemaCheckAction a sh:NodeShape;
-	sh:targetClass schema:CheckAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,4 +1,0 @@
-<#ValidSchemaMonetaryAmountDistribution> @<#ValidSchemaQuantitativeValueDistribution> AND EXTRA a {
-	a [schema:MonetaryAmountDistribution] * ;
-	schema:currency @<#ValidSchemaText> * ;
-}

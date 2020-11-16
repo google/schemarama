@@ -1,3 +1,0 @@
-<#ValidSchemaLandmarksOrHistoricalBuildings> @<#ValidSchemaPlace> AND EXTRA a {
-	a [schema:LandmarksOrHistoricalBuildings] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaInteger a sh:NodeShape;
-	sh:targetClass schema:Integer;
-	sh:nodeKind sh:BlankNodeOrIRI.

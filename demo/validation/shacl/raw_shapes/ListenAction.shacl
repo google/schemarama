@@ -1,3 +1,0 @@
-:ValidSchemaListenAction a sh:NodeShape;
-	sh:targetClass schema:ListenAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

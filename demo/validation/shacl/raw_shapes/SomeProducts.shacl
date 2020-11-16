@@ -1,7 +1,0 @@
-:ValidSchemaSomeProducts a sh:NodeShape;
-	sh:targetClass schema:SomeProducts;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:inventoryLevel;
-		sh:node :ValidSchemaQuantitativeValue;
-	].

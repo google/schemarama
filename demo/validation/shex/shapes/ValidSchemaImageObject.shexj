@@ -1,0 +1,77 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaImageObject",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaMediaObject",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://schema.org/Barcode",
+                "http://schema.org/ImageObject"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/caption",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaText",
+                "http://schema.org/validation#ValidSchemaMediaObject"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/exifData",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaText",
+                "http://schema.org/validation#ValidSchemaPropertyValue"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/representativeOfPage",
+            "valueExpr": "http://schema.org/validation#ValidSchemaBoolean",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/thumbnail",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaURL",
+                "http://schema.org/validation#ValidSchemaImageObject"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

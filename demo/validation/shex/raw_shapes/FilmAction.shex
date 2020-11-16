@@ -1,3 +1,0 @@
-<#ValidSchemaFilmAction> @<#ValidSchemaCreateAction> AND EXTRA a {
-	a [schema:FilmAction] * ;
-}

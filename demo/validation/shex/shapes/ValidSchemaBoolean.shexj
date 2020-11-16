@@ -1,0 +1,14 @@
+{
+  "type": "ShapeOr",
+  "id": "http://schema.org/validation#ValidSchemaBoolean",
+  "shapeExprs": [
+    {
+      "type": "NodeConstraint",
+      "nodeKind": "literal"
+    },
+    {
+      "type": "NodeConstraint",
+      "datatype": "http://www.w3.org/2001/XMLSchema#boolean"
+    }
+  ]
+}

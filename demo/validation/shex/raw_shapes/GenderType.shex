@@ -1,3 +1,0 @@
-<#ValidSchemaGenderType> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:GenderType] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaStructuredValue a sh:NodeShape;
-	sh:targetClass schema:StructuredValue;
-	sh:nodeKind sh:BlankNodeOrIRI.

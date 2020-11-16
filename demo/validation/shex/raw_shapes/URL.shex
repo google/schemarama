@@ -1,3 +1,0 @@
-<#ValidSchemaURL> @<#ValidSchemaText> AND EXTRA a {
-	a [schema:URL] * ;
-}

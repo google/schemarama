@@ -1,3 +1,0 @@
-<#ValidSchemaCssSelectorType>  EXTRA a {
-	a [schema:CssSelectorType] * ;
-}

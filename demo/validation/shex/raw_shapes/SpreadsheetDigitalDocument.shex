@@ -1,3 +1,0 @@
-<#ValidSchemaSpreadsheetDigitalDocument> @<#ValidSchemaDigitalDocument> AND EXTRA a {
-	a [schema:SpreadsheetDigitalDocument] * ;
-}

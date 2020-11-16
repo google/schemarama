@@ -1,3 +1,0 @@
-<#ValidSchemaCasino> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
-	a [schema:Casino] * ;
-}

@@ -1,0 +1,27 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaURL",
+  "shapeExprs": [
+    {
+      "type": "ShapeOr",
+      "shapeExprs": [
+        {
+          "type": "NodeConstraint",
+          "nodeKind": "iri"
+        },
+        {
+          "type": "NodeConstraint",
+          "nodeKind": "literal"
+        }
+      ]
+    },
+    {
+      "type": "Shape",
+      "closed": true
+    },
+    {
+      "type": "NodeConstraint",
+      "pattern": "^(https?|gopher|ftps?):"
+    }
+  ]
+}

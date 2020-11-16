@@ -1,3 +1,0 @@
-<#ValidSchemaTireShop> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:TireShop] * ;
-}

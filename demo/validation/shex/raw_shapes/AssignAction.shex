@@ -1,3 +1,0 @@
-<#ValidSchemaAssignAction> @<#ValidSchemaAllocateAction> AND EXTRA a {
-	a [schema:AssignAction] * ;
-}

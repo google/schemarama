@@ -1,3 +1,0 @@
-:ValidSchemaHowToTip a sh:NodeShape;
-	sh:targetClass schema:HowToTip;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaIntangible a sh:NodeShape;
-	sh:targetClass schema:Intangible;
-	sh:nodeKind sh:BlankNodeOrIRI.

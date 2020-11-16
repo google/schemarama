@@ -1,3 +1,0 @@
-<#ValidSchemaNoteDigitalDocument> @<#ValidSchemaDigitalDocument> AND EXTRA a {
-	a [schema:NoteDigitalDocument] * ;
-}

@@ -1,5 +1,0 @@
-<#ValidSchemaAirport> @<#ValidSchemaCivicStructure> AND EXTRA a {
-	a [schema:Airport] * ;
-	schema:iataCode @<#ValidSchemaText> * ;
-	schema:icaoCode @<#ValidSchemaText> * ;
-}

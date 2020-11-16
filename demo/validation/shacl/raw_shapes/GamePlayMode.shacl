@@ -1,3 +1,0 @@
-:ValidSchemaGamePlayMode a sh:NodeShape;
-	sh:targetClass schema:GamePlayMode;
-	sh:nodeKind sh:BlankNodeOrIRI.

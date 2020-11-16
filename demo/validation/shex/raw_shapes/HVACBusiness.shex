@@ -1,3 +1,0 @@
-<#ValidSchemaHVACBusiness> @<#ValidSchemaHomeAndConstructionBusiness> AND EXTRA a {
-	a [schema:HVACBusiness] * ;
-}

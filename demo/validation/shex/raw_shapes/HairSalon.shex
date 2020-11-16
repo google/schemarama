@@ -1,3 +1,0 @@
-<#ValidSchemaHairSalon> @<#ValidSchemaHealthAndBeautyBusiness> AND EXTRA a {
-	a [schema:HairSalon] * ;
-}

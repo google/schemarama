@@ -1,3 +1,0 @@
-:ValidSchemaBankOrCreditUnion a sh:NodeShape;
-	sh:targetClass schema:BankOrCreditUnion;
-	sh:nodeKind sh:BlankNodeOrIRI.

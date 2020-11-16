@@ -1,7 +1,0 @@
-:ValidSchemaCompoundPriceSpecification a sh:NodeShape;
-	sh:targetClass schema:CompoundPriceSpecification;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:priceComponent;
-		sh:node :ValidSchemaUnitPriceSpecification;
-	].

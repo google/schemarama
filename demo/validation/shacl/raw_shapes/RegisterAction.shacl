@@ -1,3 +1,0 @@
-:ValidSchemaRegisterAction a sh:NodeShape;
-	sh:targetClass schema:RegisterAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

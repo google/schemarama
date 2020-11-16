@@ -1,3 +1,0 @@
-:ValidSchemaEmailMessage a sh:NodeShape;
-	sh:targetClass schema:EmailMessage;
-	sh:nodeKind sh:BlankNodeOrIRI.

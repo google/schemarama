@@ -1,3 +1,0 @@
-<#ValidSchemaDeliveryMethod> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:LockerDelivery schema:ParcelService schema:DeliveryMethod] * ;
-}

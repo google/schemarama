@@ -1,3 +1,0 @@
-<#ValidSchemaReservoir> @<#ValidSchemaBodyOfWater> AND EXTRA a {
-	a [schema:Reservoir] * ;
-}

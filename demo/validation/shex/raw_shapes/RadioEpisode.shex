@@ -1,3 +1,0 @@
-<#ValidSchemaRadioEpisode> @<#ValidSchemaEpisode> AND EXTRA a {
-	a [schema:RadioEpisode] * ;
-}

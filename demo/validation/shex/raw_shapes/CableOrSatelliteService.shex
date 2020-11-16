@@ -1,3 +1,0 @@
-<#ValidSchemaCableOrSatelliteService> @<#ValidSchemaService> AND EXTRA a {
-	a [schema:CableOrSatelliteService] * ;
-}

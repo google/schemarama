@@ -1,3 +1,0 @@
-<#ValidSchemaMosque> @<#ValidSchemaPlaceOfWorship> AND EXTRA a {
-	a [schema:Mosque] * ;
-}

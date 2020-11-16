@@ -1,3 +1,0 @@
-:ValidSchemaPerformingGroup a sh:NodeShape;
-	sh:targetClass schema:PerformingGroup;
-	sh:nodeKind sh:BlankNodeOrIRI.

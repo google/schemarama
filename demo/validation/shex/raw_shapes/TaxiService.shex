@@ -1,3 +1,0 @@
-<#ValidSchemaTaxiService> @<#ValidSchemaService> AND EXTRA a {
-	a [schema:TaxiService] * ;
-}

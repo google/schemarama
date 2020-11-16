@@ -1,3 +1,0 @@
-:ValidSchemaAttorney a sh:NodeShape;
-	sh:targetClass schema:Attorney;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaBeach a sh:NodeShape;
-	sh:targetClass schema:Beach;
-	sh:nodeKind sh:BlankNodeOrIRI.

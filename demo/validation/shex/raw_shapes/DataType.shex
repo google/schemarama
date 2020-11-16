@@ -1,3 +1,0 @@
-<#ValidSchemaDataType> EXTRA a {
-	a [schema:DataType] * ;
-}

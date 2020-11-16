@@ -1,3 +1,0 @@
-:ValidSchemaMeetingRoom a sh:NodeShape;
-	sh:targetClass schema:MeetingRoom;
-	sh:nodeKind sh:BlankNodeOrIRI.

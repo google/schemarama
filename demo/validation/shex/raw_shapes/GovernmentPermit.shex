@@ -1,3 +1,0 @@
-<#ValidSchemaGovernmentPermit> @<#ValidSchemaPermit> AND EXTRA a {
-	a [schema:GovernmentPermit] * ;
-}

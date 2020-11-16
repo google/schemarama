@@ -1,3 +1,0 @@
-:ValidSchemaPrependAction a sh:NodeShape;
-	sh:targetClass schema:PrependAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

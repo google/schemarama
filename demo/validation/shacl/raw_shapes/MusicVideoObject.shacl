@@ -1,3 +1,0 @@
-:ValidSchemaMusicVideoObject a sh:NodeShape;
-	sh:targetClass schema:MusicVideoObject;
-	sh:nodeKind sh:BlankNodeOrIRI.

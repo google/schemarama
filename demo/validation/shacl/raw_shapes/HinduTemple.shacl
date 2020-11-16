@@ -1,3 +1,0 @@
-:ValidSchemaHinduTemple a sh:NodeShape;
-	sh:targetClass schema:HinduTemple;
-	sh:nodeKind sh:BlankNodeOrIRI.

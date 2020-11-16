@@ -1,3 +1,0 @@
-<#ValidSchemaResidence> @<#ValidSchemaPlace> AND EXTRA a {
-	a [schema:ApartmentComplex schema:GatedResidenceCommunity schema:Residence] * ;
-}

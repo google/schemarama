@@ -1,3 +1,0 @@
-:ValidSchemaCheckoutPage a sh:NodeShape;
-	sh:targetClass schema:CheckoutPage;
-	sh:nodeKind sh:BlankNodeOrIRI.

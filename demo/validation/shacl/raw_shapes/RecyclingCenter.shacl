@@ -1,3 +1,0 @@
-:ValidSchemaRecyclingCenter a sh:NodeShape;
-	sh:targetClass schema:RecyclingCenter;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaDownloadAction> @<#ValidSchemaTransferAction> AND EXTRA a {
-	a [schema:DownloadAction] * ;
-}

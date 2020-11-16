@@ -1,3 +1,0 @@
-:ValidSchemaQuantity a sh:NodeShape;
-	sh:targetClass schema:Quantity;
-	sh:nodeKind sh:BlankNodeOrIRI.

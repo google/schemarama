@@ -1,7 +1,0 @@
-<#ValidSchemaDatedMoneySpecification> @<#ValidSchemaStructuredValue> AND EXTRA a {
-	a [schema:DatedMoneySpecification] * ;
-	schema:amount (@<#ValidSchemaMonetaryAmount> OR @<#ValidSchemaNumber>) * ;
-	schema:currency @<#ValidSchemaText> * ;
-	schema:endDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
-	schema:startDate (@<#ValidSchemaDate> OR @<#ValidSchemaDateTime>) * ;
-}

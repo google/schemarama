@@ -1,3 +1,0 @@
-<#ValidSchemaCode> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Code] * ;
-}

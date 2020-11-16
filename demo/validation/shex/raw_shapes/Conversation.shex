@@ -1,3 +1,0 @@
-<#ValidSchemaConversation> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Conversation] * ;
-}

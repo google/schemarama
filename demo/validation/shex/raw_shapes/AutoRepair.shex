@@ -1,3 +1,0 @@
-<#ValidSchemaAutoRepair> @<#ValidSchemaAutomotiveBusiness> AND EXTRA a {
-	a [schema:AutoRepair] * ;
-}

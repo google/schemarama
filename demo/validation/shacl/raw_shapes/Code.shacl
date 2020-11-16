@@ -1,3 +1,0 @@
-:ValidSchemaCode a sh:NodeShape;
-	sh:targetClass schema:Code;
-	sh:nodeKind sh:BlankNodeOrIRI.

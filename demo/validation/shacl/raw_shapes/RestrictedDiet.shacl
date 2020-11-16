@@ -1,3 +1,0 @@
-:ValidSchemaRestrictedDiet a sh:NodeShape;
-	sh:targetClass schema:RestrictedDiet;
-	sh:nodeKind sh:BlankNodeOrIRI.

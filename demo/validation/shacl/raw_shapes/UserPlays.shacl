@@ -1,3 +1,0 @@
-:ValidSchemaUserPlays a sh:NodeShape;
-	sh:targetClass schema:UserPlays;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaMobilePhoneStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:MobilePhoneStore] * ;
-}

@@ -1,5 +1,0 @@
-<#ValidSchemaSellAction> @<#ValidSchemaTradeAction> AND EXTRA a {
-	a [schema:SellAction] * ;
-	schema:buyer @<#ValidSchemaPerson> * ;
-	schema:warrantyPromise @<#ValidSchemaWarrantyPromise> * ;
-}

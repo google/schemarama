@@ -1,3 +1,0 @@
-:ValidSchemaJewelryStore a sh:NodeShape;
-	sh:targetClass schema:JewelryStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

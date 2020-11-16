@@ -1,3 +1,0 @@
-<#ValidSchemaWholesaleStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:WholesaleStore] * ;
-}

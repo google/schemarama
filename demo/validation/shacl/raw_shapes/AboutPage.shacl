@@ -1,3 +1,0 @@
-:ValidSchemaAboutPage a sh:NodeShape;
-	sh:targetClass schema:AboutPage;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaWPAdBlock> @<#ValidSchemaWebPageElement> AND EXTRA a {
-	a [schema:WPAdBlock] * ;
-}

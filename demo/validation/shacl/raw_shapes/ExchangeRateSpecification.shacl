@@ -1,7 +1,0 @@
-:ValidSchemaExchangeRateSpecification a sh:NodeShape;
-	sh:targetClass schema:ExchangeRateSpecification;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:currency;
-		sh:node :ValidSchemaText;
-	].

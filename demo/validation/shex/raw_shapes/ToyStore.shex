@@ -1,3 +1,0 @@
-<#ValidSchemaToyStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:ToyStore] * ;
-}

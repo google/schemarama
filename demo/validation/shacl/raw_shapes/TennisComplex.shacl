@@ -1,3 +1,0 @@
-:ValidSchemaTennisComplex a sh:NodeShape;
-	sh:targetClass schema:TennisComplex;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaEntertainmentBusiness> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:AdultEntertainment schema:NightClub schema:AmusementPark schema:ArtGallery schema:ComedyClub schema:MovieTheater schema:Casino schema:EntertainmentBusiness] * ;
-}

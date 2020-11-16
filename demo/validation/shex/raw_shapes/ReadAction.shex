@@ -1,3 +1,0 @@
-<#ValidSchemaReadAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
-	a [schema:ReadAction] * ;
-}

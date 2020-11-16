@@ -1,3 +1,0 @@
-:ValidSchemaAnimalShelter a sh:NodeShape;
-	sh:targetClass schema:AnimalShelter;
-	sh:nodeKind sh:BlankNodeOrIRI.

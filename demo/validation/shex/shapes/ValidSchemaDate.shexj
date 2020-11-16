@@ -1,0 +1,11 @@
+{
+  "type": "ShapeOr",
+  "id": "http://schema.org/validation#ValidSchemaDate",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaText",
+    {
+      "type": "NodeConstraint",
+      "datatype": "http://www.w3.org/2001/XMLSchema#date"
+    }
+  ]
+}

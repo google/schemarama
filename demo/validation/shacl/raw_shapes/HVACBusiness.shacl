@@ -1,3 +1,0 @@
-:ValidSchemaHVACBusiness a sh:NodeShape;
-	sh:targetClass schema:HVACBusiness;
-	sh:nodeKind sh:BlankNodeOrIRI.

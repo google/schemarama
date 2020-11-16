@@ -1,4 +1,0 @@
-<#ValidSchemaPerformanceRole> @<#ValidSchemaRole> AND EXTRA a {
-	a [schema:PerformanceRole] * ;
-	schema:characterName @<#ValidSchemaText> * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaAutomatedTeller a sh:NodeShape;
-	sh:targetClass schema:AutomatedTeller;
-	sh:nodeKind sh:BlankNodeOrIRI.

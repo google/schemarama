@@ -1,5 +1,0 @@
-<#ValidSchemaMenu> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Menu] * ;
-	schema:hasMenuItem @<#ValidSchemaMenuItem> * ;
-	schema:hasMenuSection @<#ValidSchemaMenuSection> * ;
-}

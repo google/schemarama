@@ -1,3 +1,0 @@
-:ValidSchemaAutoDealer a sh:NodeShape;
-	sh:targetClass schema:AutoDealer;
-	sh:nodeKind sh:BlankNodeOrIRI.

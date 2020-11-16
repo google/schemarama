@@ -1,4 +1,0 @@
-<#ValidSchemaMobileApplication> @<#ValidSchemaSoftwareApplication> AND EXTRA a {
-	a [schema:MobileApplication] * ;
-	schema:carrierRequirements @<#ValidSchemaText> * ;
-}

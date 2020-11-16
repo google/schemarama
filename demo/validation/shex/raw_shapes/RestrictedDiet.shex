@@ -1,3 +1,0 @@
-<#ValidSchemaRestrictedDiet> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:RestrictedDiet] * ;
-}

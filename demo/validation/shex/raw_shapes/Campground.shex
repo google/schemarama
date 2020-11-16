@@ -1,3 +1,0 @@
-<#ValidSchemaCampground> @<#ValidSchemaLodgingBusiness> AND EXTRA a {
-	a [schema:Campground] * ;
-}

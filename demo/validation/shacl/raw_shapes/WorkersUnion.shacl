@@ -1,3 +1,0 @@
-:ValidSchemaWorkersUnion a sh:NodeShape;
-	sh:targetClass schema:WorkersUnion;
-	sh:nodeKind sh:BlankNodeOrIRI.

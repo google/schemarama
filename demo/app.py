@@ -55,7 +55,7 @@ def shex_shapes():
 
 @app.route('/shacl/shapes')
 def shacl_shapes_full():
-    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', 'full.shacl')
+    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', 'raw.shacl')
     return send_file(shacl_path)
 
 

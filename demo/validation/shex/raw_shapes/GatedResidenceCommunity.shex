@@ -1,3 +1,0 @@
-<#ValidSchemaGatedResidenceCommunity> @<#ValidSchemaResidence> AND EXTRA a {
-	a [schema:GatedResidenceCommunity] * ;
-}

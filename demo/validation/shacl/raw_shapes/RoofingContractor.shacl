@@ -1,3 +1,0 @@
-:ValidSchemaRoofingContractor a sh:NodeShape;
-	sh:targetClass schema:RoofingContractor;
-	sh:nodeKind sh:BlankNodeOrIRI.

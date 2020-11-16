@@ -1,3 +1,0 @@
-:ValidSchemaUserPageVisits a sh:NodeShape;
-	sh:targetClass schema:UserPageVisits;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaPreschool a sh:NodeShape;
-	sh:targetClass schema:Preschool;
-	sh:nodeKind sh:BlankNodeOrIRI.

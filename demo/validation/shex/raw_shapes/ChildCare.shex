@@ -1,3 +1,0 @@
-<#ValidSchemaChildCare> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:ChildCare] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaDeleteAction> @<#ValidSchemaUpdateAction> AND EXTRA a {
-	a [schema:DeleteAction] * ;
-}

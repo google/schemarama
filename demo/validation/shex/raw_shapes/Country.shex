@@ -1,3 +1,0 @@
-<#ValidSchemaCountry> @<#ValidSchemaAdministrativeArea> AND EXTRA a {
-	a [schema:Country] * ;
-}

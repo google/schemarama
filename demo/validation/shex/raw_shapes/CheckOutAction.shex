@@ -1,3 +1,0 @@
-<#ValidSchemaCheckOutAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
-	a [schema:CheckOutAction] * ;
-}

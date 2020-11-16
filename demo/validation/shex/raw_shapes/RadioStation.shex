@@ -1,3 +1,0 @@
-<#ValidSchemaRadioStation> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:RadioStation] * ;
-}

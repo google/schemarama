@@ -1,3 +1,0 @@
-:ValidSchemaPerformingArtsTheater a sh:NodeShape;
-	sh:targetClass schema:PerformingArtsTheater;
-	sh:nodeKind sh:BlankNodeOrIRI.

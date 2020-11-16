@@ -1,7 +1,0 @@
-:ValidSchemaAskAction a sh:NodeShape;
-	sh:targetClass schema:AskAction;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:question;
-		sh:node :ValidSchemaQuestion;
-	].

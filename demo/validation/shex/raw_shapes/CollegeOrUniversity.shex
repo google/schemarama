@@ -1,3 +1,0 @@
-<#ValidSchemaCollegeOrUniversity> @<#ValidSchemaEducationalOrganization> AND EXTRA a {
-	a [schema:CollegeOrUniversity] * ;
-}

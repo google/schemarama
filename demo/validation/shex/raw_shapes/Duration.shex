@@ -1,3 +1,0 @@
-<#ValidSchemaDuration> @<#ValidSchemaQuantity> AND EXTRA a {
-	a [schema:Duration] * ;
-}

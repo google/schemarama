@@ -1,3 +1,0 @@
-<#ValidSchemaComedyClub> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
-	a [schema:ComedyClub] * ;
-}

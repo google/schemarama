@@ -1,3 +1,0 @@
-<#ValidSchemaWPFooter> @<#ValidSchemaWebPageElement> AND EXTRA a {
-	a [schema:WPFooter] * ;
-}

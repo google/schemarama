@@ -1,3 +1,0 @@
-:ValidSchemaBrewery a sh:NodeShape;
-	sh:targetClass schema:Brewery;
-	sh:nodeKind sh:BlankNodeOrIRI.

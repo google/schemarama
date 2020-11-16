@@ -1,3 +1,0 @@
-<#ValidSchemaLegalService> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:Notary schema:Attorney schema:LegalService] * ;
-}

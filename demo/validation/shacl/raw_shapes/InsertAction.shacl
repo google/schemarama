@@ -1,7 +1,0 @@
-:ValidSchemaInsertAction a sh:NodeShape;
-	sh:targetClass schema:InsertAction;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:toLocation;
-		sh:node :ValidSchemaPlace;
-	].

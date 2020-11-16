@@ -1,3 +1,0 @@
-:ValidSchemaDiscoverAction a sh:NodeShape;
-	sh:targetClass schema:DiscoverAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

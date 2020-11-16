@@ -1,3 +1,0 @@
-<#ValidSchemaCampingPitch> @<#ValidSchemaAccommodation> AND EXTRA a {
-	a [schema:CampingPitch] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaSubscribeAction a sh:NodeShape;
-	sh:targetClass schema:SubscribeAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

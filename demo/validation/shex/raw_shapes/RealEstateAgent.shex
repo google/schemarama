@@ -1,3 +1,0 @@
-<#ValidSchemaRealEstateAgent> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:RealEstateAgent] * ;
-}

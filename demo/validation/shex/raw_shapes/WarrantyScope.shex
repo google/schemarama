@@ -1,3 +1,0 @@
-<#ValidSchemaWarrantyScope> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:WarrantyScope] * ;
-}

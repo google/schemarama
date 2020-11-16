@@ -1,3 +1,0 @@
-:ValidSchemaDentist a sh:NodeShape;
-	sh:targetClass schema:Dentist;
-	sh:nodeKind sh:BlankNodeOrIRI.

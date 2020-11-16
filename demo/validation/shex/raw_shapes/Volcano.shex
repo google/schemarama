@@ -1,3 +1,0 @@
-<#ValidSchemaVolcano> @<#ValidSchemaLandform> AND EXTRA a {
-	a [schema:Volcano] * ;
-}

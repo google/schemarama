@@ -1,3 +1,0 @@
-:ValidSchemaRadioEpisode a sh:NodeShape;
-	sh:targetClass schema:RadioEpisode;
-	sh:nodeKind sh:BlankNodeOrIRI.

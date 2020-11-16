@@ -1,3 +1,0 @@
-<#ValidSchemaShoppingCenter> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:ShoppingCenter] * ;
-}

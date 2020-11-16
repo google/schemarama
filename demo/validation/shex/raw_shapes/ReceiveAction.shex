@@ -1,5 +1,0 @@
-<#ValidSchemaReceiveAction> @<#ValidSchemaTransferAction> AND EXTRA a {
-	a [schema:ReceiveAction] * ;
-	schema:deliveryMethod @<#ValidSchemaDeliveryMethod> * ;
-	schema:sender (@<#ValidSchemaOrganization> OR @<#ValidSchemaAudience> OR @<#ValidSchemaPerson>) * ;
-}

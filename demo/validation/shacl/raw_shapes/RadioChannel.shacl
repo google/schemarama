@@ -1,3 +1,0 @@
-:ValidSchemaRadioChannel a sh:NodeShape;
-	sh:targetClass schema:RadioChannel;
-	sh:nodeKind sh:BlankNodeOrIRI.

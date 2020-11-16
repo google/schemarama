@@ -1,3 +1,0 @@
-:ValidSchemaAquarium a sh:NodeShape;
-	sh:targetClass schema:Aquarium;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaControlAction a sh:NodeShape;
-	sh:targetClass schema:ControlAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

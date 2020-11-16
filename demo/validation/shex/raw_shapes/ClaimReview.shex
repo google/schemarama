@@ -1,4 +1,0 @@
-<#ValidSchemaClaimReview> @<#ValidSchemaReview> AND EXTRA a {
-	a [schema:ClaimReview] * ;
-	schema:claimReviewed @<#ValidSchemaText> * ;
-}

@@ -1,4 +1,0 @@
-<#ValidSchemaExchangeRateSpecification>  EXTRA a {
-	a [schema:ExchangeRateSpecification] * ;
-	schema:currency @<#ValidSchemaText> * ;
-}

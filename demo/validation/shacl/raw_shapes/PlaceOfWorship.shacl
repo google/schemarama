@@ -1,3 +1,0 @@
-:ValidSchemaPlaceOfWorship a sh:NodeShape;
-	sh:targetClass schema:PlaceOfWorship;
-	sh:nodeKind sh:BlankNodeOrIRI.

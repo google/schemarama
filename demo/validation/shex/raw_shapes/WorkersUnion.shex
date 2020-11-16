@@ -1,3 +1,0 @@
-<#ValidSchemaWorkersUnion> @<#ValidSchemaOrganization> AND EXTRA a {
-	a [schema:WorkersUnion] * ;
-}

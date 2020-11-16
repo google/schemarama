@@ -1,3 +1,0 @@
-<#ValidSchemaPoliceStation> @<#ValidSchemaEmergencyService> AND EXTRA a {
-	a [schema:PoliceStation] * ;
-}

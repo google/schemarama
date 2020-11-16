@@ -1,3 +1,0 @@
-<#ValidSchemaDryCleaningOrLaundry> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:DryCleaningOrLaundry] * ;
-}

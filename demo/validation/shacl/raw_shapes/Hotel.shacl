@@ -1,3 +1,0 @@
-:ValidSchemaHotel a sh:NodeShape;
-	sh:targetClass schema:Hotel;
-	sh:nodeKind sh:BlankNodeOrIRI.

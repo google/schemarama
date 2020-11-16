@@ -1,3 +1,0 @@
-:ValidSchemaPawnShop a sh:NodeShape;
-	sh:targetClass schema:PawnShop;
-	sh:nodeKind sh:BlankNodeOrIRI.

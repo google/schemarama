@@ -1,3 +1,0 @@
-:ValidSchemaWPFooter a sh:NodeShape;
-	sh:targetClass schema:WPFooter;
-	sh:nodeKind sh:BlankNodeOrIRI.

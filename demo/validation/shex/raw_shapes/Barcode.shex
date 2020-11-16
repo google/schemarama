@@ -1,3 +1,0 @@
-<#ValidSchemaBarcode> @<#ValidSchemaImageObject> AND EXTRA a {
-	a [schema:Barcode] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaRecyclingCenter> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:RecyclingCenter] * ;
-}

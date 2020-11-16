@@ -1,4 +1,0 @@
-<#ValidSchemaApartmentComplex> @<#ValidSchemaResidence> AND EXTRA a {
-	a [schema:ApartmentComplex] * ;
-	schema:petsAllowed (@<#ValidSchemaText> OR @<#ValidSchemaBoolean>) * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaLikeAction> @<#ValidSchemaReactAction> AND EXTRA a {
-	a [schema:LikeAction] * ;
-}

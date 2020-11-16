@@ -1,3 +1,0 @@
-:ValidSchemaUserPlusOnes a sh:NodeShape;
-	sh:targetClass schema:UserPlusOnes;
-	sh:nodeKind sh:BlankNodeOrIRI.

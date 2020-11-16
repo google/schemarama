@@ -1,3 +1,0 @@
-<#ValidSchemaAutomatedTeller> @<#ValidSchemaFinancialService> AND EXTRA a {
-	a [schema:AutomatedTeller] * ;
-}

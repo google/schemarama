@@ -1,3 +1,0 @@
-<#ValidSchemaConfirmAction> @<#ValidSchemaInformAction> AND EXTRA a {
-	a [schema:ConfirmAction] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaAccountingService a sh:NodeShape;
-	sh:targetClass schema:AccountingService;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaURL a sh:NodeShape;
-	sh:targetClass schema:URL;
-	sh:nodeKind sh:BlankNodeOrIRI.

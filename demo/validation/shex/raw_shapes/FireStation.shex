@@ -1,3 +1,0 @@
-<#ValidSchemaFireStation> @<#ValidSchemaCivicStructure> AND EXTRA a {
-	a [schema:FireStation] * ;
-}

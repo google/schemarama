@@ -1,3 +1,0 @@
-<#ValidSchemaCheckInAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
-	a [schema:CheckInAction] * ;
-}

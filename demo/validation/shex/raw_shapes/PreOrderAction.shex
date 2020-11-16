@@ -1,3 +1,0 @@
-<#ValidSchemaPreOrderAction> @<#ValidSchemaTradeAction> AND EXTRA a {
-	a [schema:PreOrderAction] * ;
-}

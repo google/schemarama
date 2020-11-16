@@ -1,3 +1,0 @@
-:ValidSchemaComedyClub a sh:NodeShape;
-	sh:targetClass schema:ComedyClub;
-	sh:nodeKind sh:BlankNodeOrIRI.

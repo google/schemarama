@@ -1,3 +1,0 @@
-<#ValidSchemaTrainStation> @<#ValidSchemaCivicStructure> AND EXTRA a {
-	a [schema:TrainStation] * ;
-}

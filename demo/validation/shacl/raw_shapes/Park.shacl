@@ -1,3 +1,0 @@
-:ValidSchemaPark a sh:NodeShape;
-	sh:targetClass schema:Park;
-	sh:nodeKind sh:BlankNodeOrIRI.

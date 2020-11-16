@@ -1,3 +1,0 @@
-<#ValidSchemaComputerLanguage> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:ComputerLanguage] * ;
-}

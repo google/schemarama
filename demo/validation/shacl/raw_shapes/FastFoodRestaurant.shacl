@@ -1,3 +1,0 @@
-:ValidSchemaFastFoodRestaurant a sh:NodeShape;
-	sh:targetClass schema:FastFoodRestaurant;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaMusicStore a sh:NodeShape;
-	sh:targetClass schema:MusicStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

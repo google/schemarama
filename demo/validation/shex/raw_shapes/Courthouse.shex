@@ -1,3 +1,0 @@
-<#ValidSchemaCourthouse> @<#ValidSchemaGovernmentBuilding> AND EXTRA a {
-	a [schema:Courthouse] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaGamePlayMode> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:GamePlayMode] * ;
-}

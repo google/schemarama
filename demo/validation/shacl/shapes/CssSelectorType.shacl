@@ -1,9 +1,0 @@
-:ValidSchemaCssSelectorType a sh:NodeShape;
-	sh:targetClass schema:CssSelectorType;
-	sh:or (
-        [sh:node :Text]
-        [
-            sh:targetClass schema:CssSelectorType;
-            sh:nodeKind sh:BlankNodeOrIRI
-        ]
-    ).

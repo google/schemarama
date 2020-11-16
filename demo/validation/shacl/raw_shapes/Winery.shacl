@@ -1,3 +1,0 @@
-:ValidSchemaWinery a sh:NodeShape;
-	sh:targetClass schema:Winery;
-	sh:nodeKind sh:BlankNodeOrIRI.

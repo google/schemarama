@@ -1,3 +1,0 @@
-<#ValidSchemaLiteraryEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:LiteraryEvent] * ;
-}

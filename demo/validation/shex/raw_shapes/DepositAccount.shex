@@ -1,3 +1,0 @@
-<#ValidSchemaDepositAccount> @<#ValidSchemaInvestmentOrDeposit> AND EXTRA a {
-	a [schema:DepositAccount] * ;
-}

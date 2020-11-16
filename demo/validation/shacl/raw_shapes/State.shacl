@@ -1,3 +1,0 @@
-:ValidSchemaState a sh:NodeShape;
-	sh:targetClass schema:State;
-	sh:nodeKind sh:BlankNodeOrIRI.

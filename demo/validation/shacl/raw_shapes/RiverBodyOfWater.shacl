@@ -1,3 +1,0 @@
-:ValidSchemaRiverBodyOfWater a sh:NodeShape;
-	sh:targetClass schema:RiverBodyOfWater;
-	sh:nodeKind sh:BlankNodeOrIRI.

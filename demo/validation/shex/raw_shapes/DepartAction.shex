@@ -1,3 +1,0 @@
-<#ValidSchemaDepartAction> @<#ValidSchemaMoveAction> AND EXTRA a {
-	a [schema:DepartAction] * ;
-}

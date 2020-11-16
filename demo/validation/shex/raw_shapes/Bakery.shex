@@ -1,3 +1,0 @@
-<#ValidSchemaBakery> @<#ValidSchemaFoodEstablishment> AND EXTRA a {
-	a [schema:Bakery] * ;
-}

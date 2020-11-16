@@ -1,3 +1,0 @@
-<#ValidSchemaContactPointOption> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:ContactPointOption] * ;
-}

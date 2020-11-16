@@ -1,3 +1,0 @@
-<#ValidSchemaUserTweets> @<#ValidSchemaUserInteraction> AND EXTRA a {
-	a [schema:UserTweets] * ;
-}

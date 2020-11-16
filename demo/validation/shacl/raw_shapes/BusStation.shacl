@@ -1,3 +1,0 @@
-:ValidSchemaBusStation a sh:NodeShape;
-	sh:targetClass schema:BusStation;
-	sh:nodeKind sh:BlankNodeOrIRI.

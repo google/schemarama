@@ -1,4 +1,0 @@
-<#ValidSchemaSearchAction> @<#ValidSchemaAction> AND EXTRA a {
-	a [schema:SearchAction] * ;
-	schema:query @<#ValidSchemaText> * ;
-}

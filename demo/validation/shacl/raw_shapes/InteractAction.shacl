@@ -1,3 +1,0 @@
-:ValidSchemaInteractAction a sh:NodeShape;
-	sh:targetClass schema:InteractAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

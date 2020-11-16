@@ -1,3 +1,0 @@
-:ValidSchemaReserveAction a sh:NodeShape;
-	sh:targetClass schema:ReserveAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

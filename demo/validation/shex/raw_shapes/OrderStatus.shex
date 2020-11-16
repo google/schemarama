@@ -1,3 +1,0 @@
-<#ValidSchemaOrderStatus> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:OrderStatus] * ;
-}

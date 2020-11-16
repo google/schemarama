@@ -1,3 +1,0 @@
-:ValidSchemaLocksmith a sh:NodeShape;
-	sh:targetClass schema:Locksmith;
-	sh:nodeKind sh:BlankNodeOrIRI.

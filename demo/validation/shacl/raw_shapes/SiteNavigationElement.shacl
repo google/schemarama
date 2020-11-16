@@ -1,3 +1,0 @@
-:ValidSchemaSiteNavigationElement a sh:NodeShape;
-	sh:targetClass schema:SiteNavigationElement;
-	sh:nodeKind sh:BlankNodeOrIRI.

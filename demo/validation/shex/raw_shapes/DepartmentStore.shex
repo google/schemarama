@@ -1,3 +1,0 @@
-<#ValidSchemaDepartmentStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:DepartmentStore] * ;
-}

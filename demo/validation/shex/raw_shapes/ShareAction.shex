@@ -1,3 +1,0 @@
-<#ValidSchemaShareAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
-	a [schema:ShareAction] * ;
-}

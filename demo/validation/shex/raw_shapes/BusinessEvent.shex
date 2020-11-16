@@ -1,3 +1,0 @@
-<#ValidSchemaBusinessEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:BusinessEvent] * ;
-}

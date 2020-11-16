@@ -1,3 +1,0 @@
-:ValidSchemaTelevisionChannel a sh:NodeShape;
-	sh:targetClass schema:TelevisionChannel;
-	sh:nodeKind sh:BlankNodeOrIRI.

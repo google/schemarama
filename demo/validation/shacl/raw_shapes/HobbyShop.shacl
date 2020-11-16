@@ -1,3 +1,0 @@
-:ValidSchemaHobbyShop a sh:NodeShape;
-	sh:targetClass schema:HobbyShop;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,150 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaRecipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaHowTo",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://schema.org/Recipe"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/cookTime",
+            "valueExpr": "http://schema.org/validation#ValidSchemaDuration",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/cookingMethod",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/ingredients",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/nutrition",
+            "valueExpr": "http://schema.org/validation#ValidSchemaNutritionInformation",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeCategory",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeCuisine",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeIngredient",
+            "valueExpr": "http://schema.org/validation#ValidSchemaText",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeInstructions",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaCreativeWork",
+                "http://schema.org/validation#ValidSchemaItemList",
+                "http://schema.org/validation#ValidSchemaText"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeYield",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaQuantitativeValue",
+                "http://schema.org/validation#ValidSchemaText"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/suitableForDiet",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                {
+                  "type": "ShapeAnd",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaText",
+                    {
+                      "type": "NodeConstraint",
+                      "pattern": "http://schema.org/(DiabeticDiet|GlutenFreeDiet|HalalDiet|HinduDiet|KosherDiet|LowCalorieDiet|LowFatDiet|LowLactoseDiet|LowSaltDiet|VeganDiet|VegetarianDiet)"
+                    }
+                  ]
+                },
+                {
+                  "type": "Shape",
+                  "expression": {
+                    "type": "TripleConstraint",
+                    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                    "valueExpr": {
+                      "type": "NodeConstraint",
+                      "values": [
+                        "http://schema.org/DiabeticDiet",
+                        "http://schema.org/GlutenFreeDiet",
+                        "http://schema.org/HalalDiet",
+                        "http://schema.org/HinduDiet",
+                        "http://schema.org/KosherDiet",
+                        "http://schema.org/LowCalorieDiet",
+                        "http://schema.org/LowFatDiet",
+                        "http://schema.org/LowLactoseDiet",
+                        "http://schema.org/LowSaltDiet",
+                        "http://schema.org/VeganDiet",
+                        "http://schema.org/VegetarianDiet"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "min": 0,
+            "max": -1
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

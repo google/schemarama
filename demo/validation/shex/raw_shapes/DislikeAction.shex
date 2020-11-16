@@ -1,3 +1,0 @@
-<#ValidSchemaDislikeAction> @<#ValidSchemaReactAction> AND EXTRA a {
-	a [schema:DislikeAction] * ;
-}

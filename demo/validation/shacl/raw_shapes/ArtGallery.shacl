@@ -1,3 +1,0 @@
-:ValidSchemaArtGallery a sh:NodeShape;
-	sh:targetClass schema:ArtGallery;
-	sh:nodeKind sh:BlankNodeOrIRI.

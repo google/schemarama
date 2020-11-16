@@ -1,0 +1,247 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaAction",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaThing",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueExpr": {
+              "type": "NodeConstraint",
+              "values": [
+                "http://schema.org/PerformAction",
+                "http://schema.org/SearchAction",
+                "http://schema.org/LikeAction",
+                "http://schema.org/EatAction",
+                "http://schema.org/RsvpAction",
+                "http://schema.org/ResumeAction",
+                "http://schema.org/DrinkAction",
+                "http://schema.org/CancelAction",
+                "http://schema.org/DepartAction",
+                "http://schema.org/CheckInAction",
+                "http://schema.org/DownloadAction",
+                "http://schema.org/ReceiveAction",
+                "http://schema.org/WinAction",
+                "http://schema.org/WatchAction",
+                "http://schema.org/TakeAction",
+                "http://schema.org/DrawAction",
+                "http://schema.org/GiveAction",
+                "http://schema.org/WantAction",
+                "http://schema.org/InteractAction",
+                "http://schema.org/AssessAction",
+                "http://schema.org/CheckOutAction",
+                "http://schema.org/QuoteAction",
+                "http://schema.org/FindAction",
+                "http://schema.org/ReadAction",
+                "http://schema.org/IgnoreAction",
+                "http://schema.org/PreOrderAction",
+                "http://schema.org/LendAction",
+                "http://schema.org/ApplyAction",
+                "http://schema.org/TransferAction",
+                "http://schema.org/EndorseAction",
+                "http://schema.org/UpdateAction",
+                "http://schema.org/ListenAction",
+                "http://schema.org/DeleteAction",
+                "http://schema.org/SellAction",
+                "http://schema.org/OrderAction",
+                "http://schema.org/MarryAction",
+                "http://schema.org/RejectAction",
+                "http://schema.org/SendAction",
+                "http://schema.org/LeaveAction",
+                "http://schema.org/TradeAction",
+                "http://schema.org/ControlAction",
+                "http://schema.org/CheckAction",
+                "http://schema.org/ShareAction",
+                "http://schema.org/DisagreeAction",
+                "http://schema.org/CommentAction",
+                "http://schema.org/RegisterAction",
+                "http://schema.org/ArriveAction",
+                "http://schema.org/UnRegisterAction",
+                "http://schema.org/ReactAction",
+                "http://schema.org/ReserveAction",
+                "http://schema.org/BefriendAction",
+                "http://schema.org/BookmarkAction",
+                "http://schema.org/InsertAction",
+                "http://schema.org/LoseAction",
+                "http://schema.org/DeactivateAction",
+                "http://schema.org/InviteAction",
+                "http://schema.org/ConfirmAction",
+                "http://schema.org/SuspendAction",
+                "http://schema.org/DiscoverAction",
+                "http://schema.org/AskAction",
+                "http://schema.org/DonateAction",
+                "http://schema.org/ScheduleAction",
+                "http://schema.org/ExerciseAction",
+                "http://schema.org/OrganizeAction",
+                "http://schema.org/TrackAction",
+                "http://schema.org/ReplaceAction",
+                "http://schema.org/AppendAction",
+                "http://schema.org/ReviewAction",
+                "http://schema.org/VoteAction",
+                "http://schema.org/UseAction",
+                "http://schema.org/ActivateAction",
+                "http://schema.org/BorrowAction",
+                "http://schema.org/AchieveAction",
+                "http://schema.org/PaintAction",
+                "http://schema.org/FilmAction",
+                "http://schema.org/ChooseAction",
+                "http://schema.org/SubscribeAction",
+                "http://schema.org/AcceptAction",
+                "http://schema.org/CookAction",
+                "http://schema.org/AuthorizeAction",
+                "http://schema.org/TieAction",
+                "http://schema.org/TravelAction",
+                "http://schema.org/DislikeAction",
+                "http://schema.org/PayAction",
+                "http://schema.org/PhotographAction",
+                "http://schema.org/PlayAction",
+                "http://schema.org/BuyAction",
+                "http://schema.org/RentAction",
+                "http://schema.org/TipAction",
+                "http://schema.org/AllocateAction",
+                "http://schema.org/CommunicateAction",
+                "http://schema.org/PlanAction",
+                "http://schema.org/AssignAction",
+                "http://schema.org/InformAction",
+                "http://schema.org/ConsumeAction",
+                "http://schema.org/ReturnAction",
+                "http://schema.org/AgreeAction",
+                "http://schema.org/FollowAction",
+                "http://schema.org/JoinAction",
+                "http://schema.org/WearAction",
+                "http://schema.org/ReplyAction",
+                "http://schema.org/PrependAction",
+                "http://schema.org/MoveAction",
+                "http://schema.org/InstallAction",
+                "http://schema.org/AddAction",
+                "http://schema.org/CreateAction",
+                "http://schema.org/ViewAction",
+                "http://schema.org/WriteAction",
+                "http://schema.org/Action"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/actionStatus",
+            "valueExpr": "http://schema.org/validation#ValidSchemaActionStatusType",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/agent",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaPerson",
+                "http://schema.org/validation#ValidSchemaOrganization"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/endTime",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaDateTime",
+                "http://schema.org/validation#ValidSchemaTime"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/error",
+            "valueExpr": "http://schema.org/validation#ValidSchemaThing",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/instrument",
+            "valueExpr": "http://schema.org/validation#ValidSchemaThing",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/location",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaVirtualLocation",
+                "http://schema.org/validation#ValidSchemaPlace",
+                "http://schema.org/validation#ValidSchemaText",
+                "http://schema.org/validation#ValidSchemaPostalAddress"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/object",
+            "valueExpr": "http://schema.org/validation#ValidSchemaThing",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/participant",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaOrganization",
+                "http://schema.org/validation#ValidSchemaPerson"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/result",
+            "valueExpr": "http://schema.org/validation#ValidSchemaThing",
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/startTime",
+            "valueExpr": {
+              "type": "ShapeOr",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaTime",
+                "http://schema.org/validation#ValidSchemaDateTime"
+              ]
+            },
+            "min": 0,
+            "max": -1
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/target",
+            "valueExpr": "http://schema.org/validation#ValidSchemaEntryPoint",
+            "min": 0,
+            "max": -1
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,0 @@
-<#ValidSchemaCatholicChurch> @<#ValidSchemaChurch> AND EXTRA a {
-	a [schema:CatholicChurch] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaSelfStorage a sh:NodeShape;
-	sh:targetClass schema:SelfStorage;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaVolcano a sh:NodeShape;
-	sh:targetClass schema:Volcano;
-	sh:nodeKind sh:BlankNodeOrIRI.

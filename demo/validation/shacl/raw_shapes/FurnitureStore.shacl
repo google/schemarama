@@ -1,3 +1,0 @@
-:ValidSchemaFurnitureStore a sh:NodeShape;
-	sh:targetClass schema:FurnitureStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

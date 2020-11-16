@@ -1,3 +1,0 @@
-:ValidSchemaAllocateAction a sh:NodeShape;
-	sh:targetClass schema:AllocateAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

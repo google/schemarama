@@ -1,3 +1,0 @@
-:ValidSchemaBedType a sh:NodeShape;
-	sh:targetClass schema:BedType;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaWPSideBar> @<#ValidSchemaWebPageElement> AND EXTRA a {
-	a [schema:WPSideBar] * ;
-}

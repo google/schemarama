@@ -1,3 +1,0 @@
-<#ValidSchemaDanceEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:DanceEvent] * ;
-}

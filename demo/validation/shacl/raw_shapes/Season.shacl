@@ -1,3 +1,0 @@
-:ValidSchemaSeason a sh:NodeShape;
-	sh:targetClass schema:Season;
-	sh:nodeKind sh:BlankNodeOrIRI.

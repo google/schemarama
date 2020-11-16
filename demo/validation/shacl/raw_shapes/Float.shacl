@@ -1,3 +1,0 @@
-:ValidSchemaFloat a sh:NodeShape;
-	sh:targetClass schema:Float;
-	sh:nodeKind sh:BlankNodeOrIRI.

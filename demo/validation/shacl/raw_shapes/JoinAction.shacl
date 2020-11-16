@@ -1,7 +1,0 @@
-:ValidSchemaJoinAction a sh:NodeShape;
-	sh:targetClass schema:JoinAction;
-	sh:nodeKind sh:BlankNodeOrIRI;
-	sh:property [
-		sh:path schema:event;
-		sh:node :ValidSchemaEvent;
-	].

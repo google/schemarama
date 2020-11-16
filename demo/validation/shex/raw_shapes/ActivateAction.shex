@@ -1,3 +1,0 @@
-<#ValidSchemaActivateAction> @<#ValidSchemaControlAction> AND EXTRA a {
-	a [schema:ActivateAction] * ;
-}

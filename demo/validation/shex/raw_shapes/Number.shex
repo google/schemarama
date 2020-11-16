@@ -1,3 +1,0 @@
-<#ValidSchemaNumber>  EXTRA a {
-	a [schema:Integer schema:Float schema:Number] * ;
-}

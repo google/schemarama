@@ -1,3 +1,0 @@
-:ValidSchemaSportingGoodsStore a sh:NodeShape;
-	sh:targetClass schema:SportingGoodsStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

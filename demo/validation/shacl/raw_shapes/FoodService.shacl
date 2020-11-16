@@ -1,3 +1,0 @@
-:ValidSchemaFoodService a sh:NodeShape;
-	sh:targetClass schema:FoodService;
-	sh:nodeKind sh:BlankNodeOrIRI.

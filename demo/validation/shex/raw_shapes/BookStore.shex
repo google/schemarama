@@ -1,3 +1,0 @@
-<#ValidSchemaBookStore> @<#ValidSchemaStore> AND EXTRA a {
-	a [schema:BookStore] * ;
-}

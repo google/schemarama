@@ -1,3 +1,0 @@
-<#ValidSchemaBowlingAlley> @<#ValidSchemaSportsActivityLocation> AND EXTRA a {
-	a [schema:BowlingAlley] * ;
-}

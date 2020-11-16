@@ -1,3 +1,0 @@
-<#ValidSchemaState> @<#ValidSchemaAdministrativeArea> AND EXTRA a {
-	a [schema:State] * ;
-}

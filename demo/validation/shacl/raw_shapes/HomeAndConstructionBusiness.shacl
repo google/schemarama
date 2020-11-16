@@ -1,3 +1,0 @@
-:ValidSchemaHomeAndConstructionBusiness a sh:NodeShape;
-	sh:targetClass schema:HomeAndConstructionBusiness;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaHowToTool a sh:NodeShape;
-	sh:targetClass schema:HowToTool;
-	sh:nodeKind sh:BlankNodeOrIRI.

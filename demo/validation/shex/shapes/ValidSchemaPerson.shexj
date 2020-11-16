@@ -1,0 +1,507 @@
+{
+  "type": "ShapeOr",
+  "id": "http://schema.org/validation#ValidSchemaPerson",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaText",
+    "http://schema.org/validation#ValidSchemaURL",
+    {
+      "type": "ShapeAnd",
+      "shapeExprs": [
+        "http://schema.org/validation#ValidSchemaThing",
+        {
+          "type": "Shape",
+          "expression": {
+            "type": "EachOf",
+            "expressions": [
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "valueExpr": {
+                  "type": "NodeConstraint",
+                  "values": [
+                    "http://schema.org/Person"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/additionalName",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/address",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaPostalAddress",
+                    "http://schema.org/validation#ValidSchemaText"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/affiliation",
+                "valueExpr": "http://schema.org/validation#ValidSchemaOrganization",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/alumniOf",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaEducationalOrganization",
+                    "http://schema.org/validation#ValidSchemaOrganization"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/award",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/awards",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/birthDate",
+                "valueExpr": "http://schema.org/validation#ValidSchemaDate",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/birthPlace",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPlace",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/brand",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaBrand",
+                    "http://schema.org/validation#ValidSchemaOrganization"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/children",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/colleague",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaURL",
+                    "http://schema.org/validation#ValidSchemaPerson"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/colleagues",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/contactPoint",
+                "valueExpr": "http://schema.org/validation#ValidSchemaContactPoint",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/contactPoints",
+                "valueExpr": "http://schema.org/validation#ValidSchemaContactPoint",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/deathDate",
+                "valueExpr": "http://schema.org/validation#ValidSchemaDate",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/deathPlace",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPlace",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/duns",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/email",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/familyName",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/faxNumber",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/follows",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/funder",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaOrganization",
+                    "http://schema.org/validation#ValidSchemaPerson"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/givenName",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/globalLocationNumber",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/hasOccupation",
+                "valueExpr": "http://schema.org/validation#ValidSchemaOccupation",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/hasOfferCatalog",
+                "valueExpr": "http://schema.org/validation#ValidSchemaOfferCatalog",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/hasPOS",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPlace",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/height",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaQuantitativeValue",
+                    "http://schema.org/validation#ValidSchemaDistance"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/homeLocation",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaContactPoint",
+                    "http://schema.org/validation#ValidSchemaPlace"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/honorificPrefix",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/honorificSuffix",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/interactionStatistic",
+                "valueExpr": "http://schema.org/validation#ValidSchemaInteractionCounter",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/isicV4",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/knows",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/makesOffer",
+                "valueExpr": "http://schema.org/validation#ValidSchemaOffer",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/memberOf",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaOrganization",
+                    "http://schema.org/validation#ValidSchemaProgramMembership"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/naics",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/nationality",
+                "valueExpr": "http://schema.org/validation#ValidSchemaCountry",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/netWorth",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaMonetaryAmount",
+                    "http://schema.org/validation#ValidSchemaPriceSpecification"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/owns",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaOwnershipInfo",
+                    "http://schema.org/validation#ValidSchemaProduct"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/parent",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/parents",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/performerIn",
+                "valueExpr": "http://schema.org/validation#ValidSchemaEvent",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/publishingPrinciples",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaCreativeWork",
+                    "http://schema.org/validation#ValidSchemaURL"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/relatedTo",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/seeks",
+                "valueExpr": "http://schema.org/validation#ValidSchemaDemand",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/sibling",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/siblings",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/sponsor",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaOrganization",
+                    "http://schema.org/validation#ValidSchemaPerson"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/spouse",
+                "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/taxID",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/telephone",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/vatID",
+                "valueExpr": "http://schema.org/validation#ValidSchemaText",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/weight",
+                "valueExpr": "http://schema.org/validation#ValidSchemaQuantitativeValue",
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/workLocation",
+                "valueExpr": {
+                  "type": "ShapeOr",
+                  "shapeExprs": [
+                    "http://schema.org/validation#ValidSchemaContactPoint",
+                    "http://schema.org/validation#ValidSchemaPlace"
+                  ]
+                },
+                "min": 0,
+                "max": -1
+              },
+              {
+                "type": "TripleConstraint",
+                "predicate": "http://schema.org/worksFor",
+                "valueExpr": "http://schema.org/validation#ValidSchemaOrganization",
+                "min": 0,
+                "max": -1
+              }
+            ]
+          },
+          "extra": [
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+          ]
+        }
+      ]
+    }
+  ]
+}

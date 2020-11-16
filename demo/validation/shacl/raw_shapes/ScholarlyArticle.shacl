@@ -1,3 +1,0 @@
-:ValidSchemaScholarlyArticle a sh:NodeShape;
-	sh:targetClass schema:ScholarlyArticle;
-	sh:nodeKind sh:BlankNodeOrIRI.

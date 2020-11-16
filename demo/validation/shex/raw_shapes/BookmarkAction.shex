@@ -1,3 +1,0 @@
-<#ValidSchemaBookmarkAction> @<#ValidSchemaOrganizeAction> AND EXTRA a {
-	a [schema:BookmarkAction] * ;
-}

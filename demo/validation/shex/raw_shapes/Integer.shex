@@ -1,3 +1,0 @@
-<#ValidSchemaInteger> @<#ValidSchemaNumber> AND EXTRA a {
-	a [schema:Integer] * ;
-}

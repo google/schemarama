@@ -1,3 +1,0 @@
-:ValidSchemaCity a sh:NodeShape;
-	sh:targetClass schema:City;
-	sh:nodeKind sh:BlankNodeOrIRI.

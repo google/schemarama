@@ -1,3 +1,0 @@
-:ValidSchemaChurch a sh:NodeShape;
-	sh:targetClass schema:Church;
-	sh:nodeKind sh:BlankNodeOrIRI.

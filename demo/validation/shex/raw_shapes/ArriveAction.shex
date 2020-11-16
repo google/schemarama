@@ -1,3 +1,0 @@
-<#ValidSchemaArriveAction> @<#ValidSchemaMoveAction> AND EXTRA a {
-	a [schema:ArriveAction] * ;
-}

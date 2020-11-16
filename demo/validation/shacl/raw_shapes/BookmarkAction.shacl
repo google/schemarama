@@ -1,3 +1,0 @@
-:ValidSchemaBookmarkAction a sh:NodeShape;
-	sh:targetClass schema:BookmarkAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

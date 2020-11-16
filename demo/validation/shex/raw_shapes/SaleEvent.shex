@@ -1,3 +1,0 @@
-<#ValidSchemaSaleEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:SaleEvent] * ;
-}

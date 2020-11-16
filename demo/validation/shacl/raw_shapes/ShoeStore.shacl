@@ -1,3 +1,0 @@
-:ValidSchemaShoeStore a sh:NodeShape;
-	sh:targetClass schema:ShoeStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

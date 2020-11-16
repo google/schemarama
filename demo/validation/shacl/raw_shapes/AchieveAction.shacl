@@ -1,3 +1,0 @@
-:ValidSchemaAchieveAction a sh:NodeShape;
-	sh:targetClass schema:AchieveAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

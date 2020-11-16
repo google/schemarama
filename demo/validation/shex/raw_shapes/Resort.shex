@@ -1,3 +1,0 @@
-<#ValidSchemaResort> @<#ValidSchemaLodgingBusiness> AND EXTRA a {
-	a [schema:Resort] * ;
-}

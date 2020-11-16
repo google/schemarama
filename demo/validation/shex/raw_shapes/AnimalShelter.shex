@@ -1,3 +1,0 @@
-<#ValidSchemaAnimalShelter> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:AnimalShelter] * ;
-}

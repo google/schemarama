@@ -1,3 +1,0 @@
-:ValidSchemaFireStation a sh:NodeShape;
-	sh:targetClass schema:FireStation;
-	sh:nodeKind sh:BlankNodeOrIRI.

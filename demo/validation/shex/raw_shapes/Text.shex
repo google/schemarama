@@ -1,3 +1,0 @@
-<#ValidSchemaText>  EXTRA a {
-	a [schema:URL schema:Text] * ;
-}

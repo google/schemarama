@@ -1,3 +1,0 @@
-<#ValidSchemaHealthAndBeautyBusiness> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:NailSalon schema:TattooParlor schema:HairSalon schema:HealthClub schema:DaySpa schema:BeautySalon schema:HealthAndBeautyBusiness] * ;
-}

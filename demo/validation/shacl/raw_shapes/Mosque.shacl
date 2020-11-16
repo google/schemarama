@@ -1,3 +1,0 @@
-:ValidSchemaMosque a sh:NodeShape;
-	sh:targetClass schema:Mosque;
-	sh:nodeKind sh:BlankNodeOrIRI.

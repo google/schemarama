@@ -1,3 +1,0 @@
-:ValidSchemaLockerDelivery a sh:NodeShape;
-	sh:targetClass schema:LockerDelivery;
-	sh:nodeKind sh:BlankNodeOrIRI.

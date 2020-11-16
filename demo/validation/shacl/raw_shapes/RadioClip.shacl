@@ -1,3 +1,0 @@
-:ValidSchemaRadioClip a sh:NodeShape;
-	sh:targetClass schema:RadioClip;
-	sh:nodeKind sh:BlankNodeOrIRI.

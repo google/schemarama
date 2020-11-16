@@ -1,3 +1,0 @@
-<#ValidSchemaRejectAction> @<#ValidSchemaAllocateAction> AND EXTRA a {
-	a [schema:RejectAction] * ;
-}

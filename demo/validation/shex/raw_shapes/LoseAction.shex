@@ -1,4 +1,0 @@
-<#ValidSchemaLoseAction> @<#ValidSchemaAchieveAction> AND EXTRA a {
-	a [schema:LoseAction] * ;
-	schema:winner @<#ValidSchemaPerson> * ;
-}

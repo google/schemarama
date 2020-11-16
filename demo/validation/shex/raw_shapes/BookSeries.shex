@@ -1,3 +1,0 @@
-<#ValidSchemaBookSeries> @<#ValidSchemaCreativeWorkSeries> AND EXTRA a {
-	a [schema:BookSeries] * ;
-}

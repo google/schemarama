@@ -1,3 +1,0 @@
-<#ValidSchemaFloat> @<#ValidSchemaNumber> AND EXTRA a {
-	a [schema:Float] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaQuoteAction> @<#ValidSchemaTradeAction> AND EXTRA a {
-	a [schema:QuoteAction] * ;
-}

@@ -1,3 +1,0 @@
-:ValidSchemaZoo a sh:NodeShape;
-	sh:targetClass schema:Zoo;
-	sh:nodeKind sh:BlankNodeOrIRI.

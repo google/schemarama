@@ -1,3 +1,0 @@
-:ValidSchemaPaymentStatusType a sh:NodeShape;
-	sh:targetClass schema:PaymentStatusType;
-	sh:nodeKind sh:BlankNodeOrIRI.

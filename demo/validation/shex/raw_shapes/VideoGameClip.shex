@@ -1,3 +1,0 @@
-<#ValidSchemaVideoGameClip> @<#ValidSchemaClip> AND EXTRA a {
-	a [schema:VideoGameClip] * ;
-}

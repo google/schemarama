@@ -1,3 +1,0 @@
-:ValidSchemaUserInteraction a sh:NodeShape;
-	sh:targetClass schema:UserInteraction;
-	sh:nodeKind sh:BlankNodeOrIRI.

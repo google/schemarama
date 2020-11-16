@@ -1,3 +1,0 @@
-<#ValidSchemaEmploymentAgency> @<#ValidSchemaLocalBusiness> AND EXTRA a {
-	a [schema:EmploymentAgency] * ;
-}

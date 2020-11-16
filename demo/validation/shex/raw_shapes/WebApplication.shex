@@ -1,4 +1,0 @@
-<#ValidSchemaWebApplication> @<#ValidSchemaSoftwareApplication> AND EXTRA a {
-	a [schema:WebApplication] * ;
-	schema:browserRequirements @<#ValidSchemaText> * ;
-}

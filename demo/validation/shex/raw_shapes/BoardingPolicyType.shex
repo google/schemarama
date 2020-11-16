@@ -1,3 +1,0 @@
-<#ValidSchemaBoardingPolicyType> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:BoardingPolicyType] * ;
-}

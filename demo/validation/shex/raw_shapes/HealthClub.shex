@@ -1,3 +1,0 @@
-<#ValidSchemaHealthClub> @<#ValidSchemaHealthAndBeautyBusiness> AND EXTRA a {
-	a [schema:HealthClub] * ;
-}

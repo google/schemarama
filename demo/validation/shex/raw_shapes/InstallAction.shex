@@ -1,3 +1,0 @@
-<#ValidSchemaInstallAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
-	a [schema:InstallAction] * ;
-}

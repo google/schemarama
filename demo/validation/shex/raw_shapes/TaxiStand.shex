@@ -1,3 +1,0 @@
-<#ValidSchemaTaxiStand> @<#ValidSchemaCivicStructure> AND EXTRA a {
-	a [schema:TaxiStand] * ;
-}

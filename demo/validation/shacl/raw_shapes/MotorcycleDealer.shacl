@@ -1,3 +1,0 @@
-:ValidSchemaMotorcycleDealer a sh:NodeShape;
-	sh:targetClass schema:MotorcycleDealer;
-	sh:nodeKind sh:BlankNodeOrIRI.

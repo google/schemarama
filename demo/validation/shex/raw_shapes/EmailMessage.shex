@@ -1,3 +1,0 @@
-<#ValidSchemaEmailMessage> @<#ValidSchemaMessage> AND EXTRA a {
-	a [schema:EmailMessage] * ;
-}

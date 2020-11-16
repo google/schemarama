@@ -1,3 +1,0 @@
-<#ValidSchemaNGO> @<#ValidSchemaOrganization> AND EXTRA a {
-	a [schema:NGO] * ;
-}

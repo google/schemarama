@@ -1,3 +1,0 @@
-<#ValidSchemaUserCheckins> @<#ValidSchemaUserInteraction> AND EXTRA a {
-	a [schema:UserCheckins] * ;
-}

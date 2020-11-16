@@ -1,3 +1,0 @@
-<#ValidSchemaRadioClip> @<#ValidSchemaClip> AND EXTRA a {
-	a [schema:RadioClip] * ;
-}

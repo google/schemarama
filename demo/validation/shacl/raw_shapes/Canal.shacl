@@ -1,3 +1,0 @@
-:ValidSchemaCanal a sh:NodeShape;
-	sh:targetClass schema:Canal;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-<#ValidSchemaOfferItemCondition> @<#ValidSchemaEnumeration> AND EXTRA a {
-	a [schema:OfferItemCondition] * ;
-}

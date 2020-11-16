@@ -1,3 +1,0 @@
-:ValidSchemaConfirmAction a sh:NodeShape;
-	sh:targetClass schema:ConfirmAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

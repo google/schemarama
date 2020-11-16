@@ -1,3 +1,0 @@
-:ValidSchemaElementarySchool a sh:NodeShape;
-	sh:targetClass schema:ElementarySchool;
-	sh:nodeKind sh:BlankNodeOrIRI.

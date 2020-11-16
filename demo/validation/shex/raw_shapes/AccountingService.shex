@@ -1,3 +1,0 @@
-<#ValidSchemaAccountingService> @<#ValidSchemaFinancialService> AND EXTRA a {
-	a [schema:AccountingService] * ;
-}

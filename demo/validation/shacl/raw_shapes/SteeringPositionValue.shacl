@@ -1,3 +1,0 @@
-:ValidSchemaSteeringPositionValue a sh:NodeShape;
-	sh:targetClass schema:SteeringPositionValue;
-	sh:nodeKind sh:BlankNodeOrIRI.

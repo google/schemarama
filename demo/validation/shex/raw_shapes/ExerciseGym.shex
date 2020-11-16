@@ -1,3 +1,0 @@
-<#ValidSchemaExerciseGym> @<#ValidSchemaSportsActivityLocation> AND EXTRA a {
-	a [schema:ExerciseGym] * ;
-}

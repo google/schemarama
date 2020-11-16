@@ -1,4 +1,0 @@
-<#ValidSchemaInsertAction> @<#ValidSchemaAddAction> AND EXTRA a {
-	a [schema:AppendAction schema:PrependAction schema:InsertAction] * ;
-	schema:toLocation @<#ValidSchemaPlace> * ;
-}

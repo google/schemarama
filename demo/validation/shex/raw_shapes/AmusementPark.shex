@@ -1,3 +1,0 @@
-<#ValidSchemaAmusementPark> @<#ValidSchemaEntertainmentBusiness> AND EXTRA a {
-	a [schema:AmusementPark] * ;
-}

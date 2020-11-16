@@ -1,3 +1,0 @@
-<#ValidSchemaTelevisionChannel> @<#ValidSchemaBroadcastChannel> AND EXTRA a {
-	a [schema:TelevisionChannel] * ;
-}

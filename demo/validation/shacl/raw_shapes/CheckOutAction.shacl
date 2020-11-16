@@ -1,3 +1,0 @@
-:ValidSchemaCheckOutAction a sh:NodeShape;
-	sh:targetClass schema:CheckOutAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

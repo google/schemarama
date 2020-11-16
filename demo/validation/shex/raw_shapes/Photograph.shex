@@ -1,3 +1,0 @@
-<#ValidSchemaPhotograph> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Photograph] * ;
-}

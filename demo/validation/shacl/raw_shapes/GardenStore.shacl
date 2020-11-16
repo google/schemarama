@@ -1,3 +1,0 @@
-:ValidSchemaGardenStore a sh:NodeShape;
-	sh:targetClass schema:GardenStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

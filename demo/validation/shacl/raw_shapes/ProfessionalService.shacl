@@ -1,3 +1,0 @@
-:ValidSchemaProfessionalService a sh:NodeShape;
-	sh:targetClass schema:ProfessionalService;
-	sh:nodeKind sh:BlankNodeOrIRI.

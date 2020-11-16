@@ -1,3 +1,0 @@
-<#ValidSchemaBusReservation> @<#ValidSchemaReservation> AND EXTRA a {
-	a [schema:BusReservation] * ;
-}

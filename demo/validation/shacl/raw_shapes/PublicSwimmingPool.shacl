@@ -1,3 +1,0 @@
-:ValidSchemaPublicSwimmingPool a sh:NodeShape;
-	sh:targetClass schema:PublicSwimmingPool;
-	sh:nodeKind sh:BlankNodeOrIRI.

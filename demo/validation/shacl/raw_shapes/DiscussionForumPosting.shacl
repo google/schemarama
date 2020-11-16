@@ -1,3 +1,0 @@
-:ValidSchemaDiscussionForumPosting a sh:NodeShape;
-	sh:targetClass schema:DiscussionForumPosting;
-	sh:nodeKind sh:BlankNodeOrIRI.

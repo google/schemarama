@@ -1,3 +1,0 @@
-:ValidSchemaNoteDigitalDocument a sh:NodeShape;
-	sh:targetClass schema:NoteDigitalDocument;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,0 +1,49 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidSchemaStructuredValue",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaIntangible",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "TripleConstraint",
+        "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "valueExpr": {
+          "type": "NodeConstraint",
+          "values": [
+            "http://schema.org/DeliveryChargeSpecification",
+            "http://schema.org/MonetaryAmount",
+            "http://schema.org/GeoShape",
+            "http://schema.org/UnitPriceSpecification",
+            "http://schema.org/GeoCircle",
+            "http://schema.org/DatedMoneySpecification",
+            "http://schema.org/LocationFeatureSpecification",
+            "http://schema.org/GeoCoordinates",
+            "http://schema.org/OpeningHoursSpecification",
+            "http://schema.org/NutritionInformation",
+            "http://schema.org/OwnershipInfo",
+            "http://schema.org/TypeAndQuantityNode",
+            "http://schema.org/PropertyValue",
+            "http://schema.org/EngineSpecification",
+            "http://schema.org/CompoundPriceSpecification",
+            "http://schema.org/ContactPoint",
+            "http://schema.org/MonetaryAmountDistribution",
+            "http://schema.org/QuantitativeValue",
+            "http://schema.org/PostalAddress",
+            "http://schema.org/QuantitativeValueDistribution",
+            "http://schema.org/WarrantyPromise",
+            "http://schema.org/InteractionCounter",
+            "http://schema.org/PaymentChargeSpecification",
+            "http://schema.org/PriceSpecification",
+            "http://schema.org/StructuredValue"
+          ]
+        },
+        "min": 0,
+        "max": -1
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

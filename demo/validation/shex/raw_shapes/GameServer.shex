@@ -1,6 +1,0 @@
-<#ValidSchemaGameServer> @<#ValidSchemaIntangible> AND EXTRA a {
-	a [schema:GameServer] * ;
-	schema:game @<#ValidSchemaVideoGame> * ;
-	schema:playersOnline @<#ValidSchemaInteger> * ;
-	schema:serverStatus @<#ValidSchemaGameServerStatus> * ;
-}

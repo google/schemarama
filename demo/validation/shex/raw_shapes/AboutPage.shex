@@ -1,3 +1,0 @@
-<#ValidSchemaAboutPage> @<#ValidSchemaWebPage> AND EXTRA a {
-	a [schema:AboutPage] * ;
-}

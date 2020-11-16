@@ -1,3 +1,0 @@
-:ValidSchemaCancelAction a sh:NodeShape;
-	sh:targetClass schema:CancelAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

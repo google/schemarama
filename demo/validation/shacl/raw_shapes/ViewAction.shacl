@@ -1,3 +1,0 @@
-:ValidSchemaViewAction a sh:NodeShape;
-	sh:targetClass schema:ViewAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

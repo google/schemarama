@@ -1,3 +1,0 @@
-<#ValidSchemaPhotographAction> @<#ValidSchemaCreateAction> AND EXTRA a {
-	a [schema:PhotographAction] * ;
-}

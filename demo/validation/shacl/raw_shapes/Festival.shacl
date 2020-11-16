@@ -1,3 +1,0 @@
-:ValidSchemaFestival a sh:NodeShape;
-	sh:targetClass schema:Festival;
-	sh:nodeKind sh:BlankNodeOrIRI.

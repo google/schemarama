@@ -1,3 +1,0 @@
-:ValidSchemaEnergy a sh:NodeShape;
-	sh:targetClass schema:Energy;
-	sh:nodeKind sh:BlankNodeOrIRI.

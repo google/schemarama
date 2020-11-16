@@ -1,3 +1,0 @@
-<#ValidSchemaDanceGroup> @<#ValidSchemaPerformingGroup> AND EXTRA a {
-	a [schema:DanceGroup] * ;
-}

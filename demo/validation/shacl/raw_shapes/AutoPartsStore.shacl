@@ -1,3 +1,0 @@
-:ValidSchemaAutoPartsStore a sh:NodeShape;
-	sh:targetClass schema:AutoPartsStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

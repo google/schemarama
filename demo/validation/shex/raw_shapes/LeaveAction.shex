@@ -1,4 +1,0 @@
-<#ValidSchemaLeaveAction> @<#ValidSchemaInteractAction> AND EXTRA a {
-	a [schema:LeaveAction] * ;
-	schema:event @<#ValidSchemaEvent> * ;
-}

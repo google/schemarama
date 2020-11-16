@@ -1,3 +1,0 @@
-<#ValidSchemaFoodEvent> @<#ValidSchemaEvent> AND EXTRA a {
-	a [schema:FoodEvent] * ;
-}

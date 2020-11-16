@@ -1,4 +1,0 @@
-<#ValidSchemaAskAction> @<#ValidSchemaCommunicateAction> AND EXTRA a {
-	a [schema:AskAction] * ;
-	schema:question @<#ValidSchemaQuestion> * ;
-}

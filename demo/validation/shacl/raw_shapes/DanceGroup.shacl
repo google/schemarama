@@ -1,3 +1,0 @@
-:ValidSchemaDanceGroup a sh:NodeShape;
-	sh:targetClass schema:DanceGroup;
-	sh:nodeKind sh:BlankNodeOrIRI.

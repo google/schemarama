@@ -1,3 +1,0 @@
-<#ValidSchemaSculpture> @<#ValidSchemaCreativeWork> AND EXTRA a {
-	a [schema:Sculpture] * ;
-}

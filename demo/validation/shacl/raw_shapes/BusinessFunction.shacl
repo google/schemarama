@@ -1,3 +1,0 @@
-:ValidSchemaBusinessFunction a sh:NodeShape;
-	sh:targetClass schema:BusinessFunction;
-	sh:nodeKind sh:BlankNodeOrIRI.

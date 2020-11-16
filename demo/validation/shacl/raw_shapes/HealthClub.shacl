@@ -1,3 +1,0 @@
-:ValidSchemaHealthClub a sh:NodeShape;
-	sh:targetClass schema:HealthClub;
-	sh:nodeKind sh:BlankNodeOrIRI.

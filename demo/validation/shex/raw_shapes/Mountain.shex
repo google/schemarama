@@ -1,3 +1,0 @@
-<#ValidSchemaMountain> @<#ValidSchemaLandform> AND EXTRA a {
-	a [schema:Mountain] * ;
-}

@@ -1,3 +1,0 @@
-<#ValidSchemaSubscribeAction> @<#ValidSchemaInteractAction> AND EXTRA a {
-	a [schema:SubscribeAction] * ;
-}

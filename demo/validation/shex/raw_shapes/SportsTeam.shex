@@ -1,5 +1,0 @@
-<#ValidSchemaSportsTeam> @<#ValidSchemaSportsOrganization> AND EXTRA a {
-	a [schema:SportsTeam] * ;
-	schema:athlete @<#ValidSchemaPerson> * ;
-	schema:coach @<#ValidSchemaPerson> * ;
-}

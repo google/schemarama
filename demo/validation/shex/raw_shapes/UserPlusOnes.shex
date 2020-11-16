@@ -1,3 +1,0 @@
-<#ValidSchemaUserPlusOnes> @<#ValidSchemaUserInteraction> AND EXTRA a {
-	a [schema:UserPlusOnes] * ;
-}

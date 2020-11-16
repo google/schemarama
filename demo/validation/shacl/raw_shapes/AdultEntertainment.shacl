@@ -1,3 +1,0 @@
-:ValidSchemaAdultEntertainment a sh:NodeShape;
-	sh:targetClass schema:AdultEntertainment;
-	sh:nodeKind sh:BlankNodeOrIRI.

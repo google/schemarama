@@ -1,3 +1,0 @@
-:ValidSchemaTravelAgency a sh:NodeShape;
-	sh:targetClass schema:TravelAgency;
-	sh:nodeKind sh:BlankNodeOrIRI.

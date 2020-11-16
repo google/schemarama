@@ -1,3 +1,0 @@
-:ValidSchemaPoliceStation a sh:NodeShape;
-	sh:targetClass schema:PoliceStation;
-	sh:nodeKind sh:BlankNodeOrIRI.

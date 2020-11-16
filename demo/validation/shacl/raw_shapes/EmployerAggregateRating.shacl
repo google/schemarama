@@ -1,3 +1,0 @@
-:ValidSchemaEmployerAggregateRating a sh:NodeShape;
-	sh:targetClass schema:EmployerAggregateRating;
-	sh:nodeKind sh:BlankNodeOrIRI.

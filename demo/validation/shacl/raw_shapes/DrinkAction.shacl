@@ -1,3 +1,0 @@
-:ValidSchemaDrinkAction a sh:NodeShape;
-	sh:targetClass schema:DrinkAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

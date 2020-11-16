@@ -1,3 +1,0 @@
-:ValidSchemaAutoWash a sh:NodeShape;
-	sh:targetClass schema:AutoWash;
-	sh:nodeKind sh:BlankNodeOrIRI.

@@ -1,3 +1,0 @@
-:ValidSchemaComputerStore a sh:NodeShape;
-	sh:targetClass schema:ComputerStore;
-	sh:nodeKind sh:BlankNodeOrIRI.

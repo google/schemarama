@@ -1,3 +1,0 @@
-:ValidSchemaIgnoreAction a sh:NodeShape;
-	sh:targetClass schema:IgnoreAction;
-	sh:nodeKind sh:BlankNodeOrIRI.

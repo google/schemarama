@@ -1,5 +1,0 @@
-<#ValidSchemaAirline> @<#ValidSchemaOrganization> AND EXTRA a {
-	a [schema:Airline] * ;
-	schema:boardingPolicy @<#ValidSchemaBoardingPolicyType> * ;
-	schema:iataCode @<#ValidSchemaText> * ;
-}

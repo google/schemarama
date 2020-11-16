@@ -1,3 +1,0 @@
-<#ValidSchemaUseAction> @<#ValidSchemaConsumeAction> AND EXTRA a {
-	a [schema:WearAction schema:UseAction] * ;
-}
