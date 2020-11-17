@@ -16,14 +16,8 @@ jobs:
     - name: Install node_modules
       run: npm install
       working-directory: ./core
-    - name: Install gulp
-      run: npm install -G gulp
-      working-directory: ./core
     - name: Build webpack
       run: npx webpack --config webpack.config.js
-      working-directory: ./core
-    - name: Build parsing
-      run: gulp parsing
       working-directory: ./core
     - name: Archive schemarama.bundle.js
       uses: actions/upload-artifact@v1
