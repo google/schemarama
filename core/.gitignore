@@ -1,6 +1,3 @@
 .idea/
-*.bundle.js
-*.bundle.min.js
-package-lock.json
 node_modules/
 temp.txt
