@@ -1,0 +1,48 @@
+name: Build bundles
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  yarn:
+    name: Build bundles
+    runs-on: ubuntu-latest  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.2
+    - name: Install node_modules
+      run: npm install
+      working-directory: ./core
+    - name: Build webpack
+      run: npx webpack --config webpack.config.js
+      working-directory: ./core
+    - name: Copy oss-licenses.json to demo/static/js/libs
+      uses: canastro/copy-action@0.0.2
+      with:
+        source:  "./core/dist/oss-licenses.json"
+        target: "./demo/static/js/libs/oss-licenses.json"
+    - name: Copy schemarama.bundle.min.js to demo/static/js/libs
+      uses: canastro/copy-action@0.0.2
+      with:
+        source:  "./core/dist/schemarama.bundle.min.js"
+        target: "./demo/static/js/libs/schemarama.bundle.min.js"
+    - name: Copy oss-licenses.json to pretty-markup
+      uses: canastro/copy-action@0.0.2
+      with:
+        source:  "./core/dist/oss-licenses.json"
+        target: "./pretty-markup/oss-licenses.json"
+    - name: Copy schemarama-parsing.bundle.min.js to pretty-markup
+      uses: canastro/copy-action@0.0.2
+      with:
+        source:  "./core/dist/schemarama-parsing.bundle.min.js"
+        target: "./pretty-markup/schemarama-parsing.bundle.min.js"
+    - name: Push to built branch
+      uses: Automattic/action-commit-to-branch@master
+      with:
+        branch: 'main'
+        commit_message: 'Add bundles'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
