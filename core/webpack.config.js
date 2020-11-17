@@ -1,4 +1,5 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const LicensePlugin = require('webpack-license-plugin');
 
 module.exports = {
     entry: {
@@ -27,6 +28,9 @@ module.exports = {
             include: /\.min\.js$/
         })]
     },
+    plugins: [
+        new LicensePlugin()
+    ],
     output: {
         filename: '[name].js',
         library: 'schemarama'
