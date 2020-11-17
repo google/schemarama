@@ -8047,18 +8047,19 @@ function _parseJsonLd() {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            console.log('test');
             data = JSON.parse(text);
-            _context.next = 3;
+            _context.next = 4;
             return jsonld.toRDF(data, {
               format: 'application/n-quads',
               base: baseUrl
             });
 
-          case 3:
+          case 4:
             nquads = _context.sent;
             return _context.abrupt("return", parseNQuads(nquads, baseUrl));
 
-          case 5:
+          case 6:
           case "end":
             return _context.stop();
         }
