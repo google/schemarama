@@ -53,9 +53,13 @@ $('#validate-btn').click(async () => {
 });
 
 $('#url-submit-button').click(() => {
-    $('#input-text').empty();
+    $('#input-text').val('');
+    $('.input-placeholder').toggleClass('d-none');
     $.post('/page', {url: $('#url-input').val()})
-        .then(res => $('#input-text').val(res))
+        .then(res => {
+            $('#input-text').val(res);
+            $('.input-placeholder').toggleClass('d-none');
+        })
         .catch(err => new Noty({text: err.message, type: 'error', timeout: 3000}).show());
 })
 
