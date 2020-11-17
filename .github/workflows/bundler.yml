@@ -1,4 +1,4 @@
-name: Build schemarama.bundle.js
+name: Build bundles
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
 
 jobs:
   yarn:
-    name: Build schemarama.bundle.js
+    name: Build bundles
     runs-on: ubuntu-latest  
     steps:
     - name: Checkout
@@ -19,23 +19,10 @@ jobs:
     - name: Build webpack
       run: npx webpack --config webpack.config.js
       working-directory: ./core
-    - name: Archive schemarama.bundle.js
-      uses: actions/upload-artifact@v1
+    - name: Push to built branch
+      uses: Automattic/action-commit-to-branch@master
       with:
-        name: bundles
-        path: core/dist/schemarama.bundle.js
-    - name: Archive schemarama.bundle.min.js
-      uses: actions/upload-artifact@v1
-      with:
-        name: bundles
-        path: core/dist/schemarama.bundle.min.js
-    - name: Archive schemarama-parsing.bundle.js
-      uses: actions/upload-artifact@v1
-      with:
-        name: parsing-bundles
-        path: core/dist/schemarama-parsing.bundle.js
-    - name: Archive schemarama-parsing.bundle.min.js
-      uses: actions/upload-artifact@v1
-      with:
-        name: parsing-bundles
-        path: core/dist/schemarama-parsing.bundle.min.js
+        branch: 'main'
+        commit_message: 'Add bundles'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
