@@ -1,0 +1,48 @@
+name: Build schemarama.bundle.js
+on:
+  push:
+    branches:
+    - master
+    - github-action-for-webpack
+
+jobs:
+  yarn:
+    name: Build schemarama.bundle.js
+    runs-on: ubuntu-latest  
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.2
+    - name: Install node_modules
+      run: npm install
+      working-directory: ./core
+    - name: Install gulp
+      run: npm install -G gulp
+      working-directory: ./core
+    - name: Build webpack
+      run: npx webpack --config webpack.config.js
+      working-directory: ./core
+    - name: Build parsing
+      run: gulp parsing
+      working-directory: ./core
+    - name: Archive schemarama.bundle.js
+      uses: actions/upload-artifact@v1
+      with:
+        name: bundles
+        path: core/dist/schemarama.bundle.js
+    - name: Archive schemarama.bundle.min.js
+      uses: actions/upload-artifact@v1
+      with:
+        name: bundles
+        path: core/dist/schemarama.bundle.min.js
+    - name: Archive schemarama-parsing.bundle.js
+      uses: actions/upload-artifact@v1
+      with:
+        name: parsing-bundles
+        path: core/dist/schemarama-parsing.bundle.js
+    - name: Archive schemarama-parsing.bundle.min.js
+      uses: actions/upload-artifact@v1
+      with:
+        name: parsing-bundles
+        path: core/dist/schemarama-parsing.bundle.min.js
