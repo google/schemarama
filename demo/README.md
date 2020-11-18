@@ -17,9 +17,7 @@ through bodies such as [Schema.org](https://schema.org). Demo is currently hoste
 
 ## How to run it?
 
-You can install all requirements from ```requirements.txt``` and run it with 
-```python3 app.py```. <br />
-Alternatively, you can build and run it in Docker: <br />
+Build and run it with [Docker](https://docs.docker.com/docker-for-windows/install/): <br />
 ```docker build -t scc .```<br />
 ```docker run -p 5000:5000 scc```<br />
 

@@ -12,8 +12,10 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, request
 from flask_cors import CORS
+import chromedriver_binary
+from selenium import webdriver
 import os
 import json
 
@@ -21,6 +23,14 @@ import config
 
 app = Flask(__name__)
 CORS(app)
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("window-size=1024,768")
+chrome_options.add_argument("--no-sandbox")
+
+browser = webdriver.Chrome(chrome_options=chrome_options)
 
 
 @app.route('/')
@@ -63,6 +73,12 @@ def shacl_shapes_full():
 def shacl_subclasses():
     subclasses_path = os.path.join(os.curdir, 'validation', 'shacl', 'subclasses.ttl')
     return send_file(subclasses_path)
+
+
+@app.route('/page', methods=['POST'])
+def get_page():
+    browser.get(request.form['url'])
+    return browser.page_source
 
 
 if __name__ == '__main__':
