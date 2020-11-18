@@ -1,0 +1,363 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceARecipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaRecipe",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/name",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/name"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Required. Name of the recipe."
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/author",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/author"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The author of the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/datePublished",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/datePublished"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The date the recipe was published."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeCategory",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeCategory"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The type of dish. For example, the dish could be an appetizer, main course, or desert."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/description",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/description"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Summary describing the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/image",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/image"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Picture associated with the recipe. This can be a picture of the dish or the ingredients of the dish."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/review",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/review"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Review of the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/prepTime",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/prepTime"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The amount of time needed to prepare the ingredients of the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/totalTime",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/totalTime"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The total time it takes to prepare the ingredients and cook the dish."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeYield",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeYield"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The quantity of the dish prepared by the recipe (e.g. number of servings)."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/nutrition",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/nutrition"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Nutritional information of the dish the recipe is used to prepare."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeIngredient",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeIngredient"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "An ingredient used in the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeInstructions",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeInstructions"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The steps specified by the recipe to prepare the dish."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceBDataset",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaDataset",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/description",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/url"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "A short summary describing a dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "error"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/name",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/name"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "A descriptive name of a dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "error"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/alternateName",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/alternateName"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Alternative names that have been used to refer to this dataset, such as aliases or abbreviations."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/creator",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/creator"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The creator or author of this dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/citation",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/citation"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/hasPart",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/hasPart"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/isPartOf",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/isPartOf"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/identifier",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/identifier"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "An identifier, such as a DOI or a Compact Identifier."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/keywords",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/keywords"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Keywords summarizing the dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/license",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/license"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "A license under which the dataset is distributed."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/measurementTechnique",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/measurementTechnique"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The technique, technology, or methodology used in a dataset, which can correspond to the variable(s) described in variableMeasured."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/sameAs",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/sameAs"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "URL of a reference Web page that unambiguously indicates the dataset's identity, usually in a different repository."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/spatialCoverage",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/spatialCoverage"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "You can provide a single point that describes the spatial aspect of the dataset. "
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/temporalCoverage",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/temporalCoverage"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The data in the dataset covers a specific time interval."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/variableMeasured",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/variableMeasured"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The variable that this dataset measures."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/version",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/version"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The version number for the dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/url",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/url"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Location of a page describing the dataset."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

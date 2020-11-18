@@ -1,0 +1,281 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceDRecipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaRecipe",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/name",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/name"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The recipe or dish name."
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeIngredient",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeIngredient"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Ingredients in the recipe and their volumes or amounts (may be several)."
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeInstructions",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeInstructions"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "cooking instructions."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeCategory",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeCategory"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Type of dish: for example, hot main dish, dessert."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeYield",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeYield"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Number of servings."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/totalTime",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/totalTime"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Cooking time (if missing, cookTime is used). Specified in the ISO 8601 format. For example, PT30M (30 minutes)."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/image",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/image"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": " URL of the cooking images (can be several). We recommend you to fill in this field for creating a better snippet."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/author",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/author"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Author of the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeCuisine",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeCuisine"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "National cuisine the recipe belongs to. One recipe can contain only one cuisine—type element."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/nutrition",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/nutrition"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Energy and nutrition value of the dish, meaning the number of calories and the amount of fat, protein, carbohydrates, vitamins, and so on."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceCRecipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidSchemaRecipe",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/name",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/name"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The name of the recipe. This title may be truncated, depending on length. All formatting and HTML tags will be removed."
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/ingredients",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/ingredients"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The ingredients used in the recipe. Annotate each individual ingredient separately."
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/url",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/url"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The canonical URL for the page."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/image",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/image"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The URL for a high-resolution image of the recipe. You can add up to 6 images.."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/totalTime",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/totalTime"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The total time it takes to cook and prepare the recipe."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/recipeYield",
+            "min": 1,
+            "max": -1,
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/recipeYield"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The quantity or servings made by this recipe"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/aggregateRating",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/aggregateRating"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "The overall rating, based on a collection of reviews or ratings, of the item."
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "warning"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "extra": [
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+      ]
+    }
+  ]
+}

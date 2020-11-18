@@ -20,7 +20,7 @@ async function validateShex(data, type, baseUrl) {
 
 async function recursiveValidate(node, type, data, baseUrl) {
     if (node.disabled) return;
-    let startShape = `http://schema.org/shex#Valid${node.service}${type}`;
+    let startShape = `http://schema.org/validation#Valid${node.service}${type}`;
     let report;
     try {
         report = await shexValidator.validate(data, startShape, {baseUrl: baseUrl});

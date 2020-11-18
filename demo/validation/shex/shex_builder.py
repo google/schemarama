@@ -16,63 +16,24 @@ import os
 import re
 import json
 
-import sys
-from typing import List
-
-import dirlistproc
-from jsonasobj import as_json
-from pyshex.shex_evaluator import ShExEvaluator
-from rdflib import Namespace
+BASE = 'http://schema.org/validation#'
 
 
-def find_files(directory, stop_elements, extension='.shex'):
-    files = []
-    for element in os.listdir(directory):
-        _, ext = os.path.splitext(element)
-        if stop_elements and element in stop_elements:
-            continue
-        path = os.path.join(directory, element)
-        if os.path.isfile(path) and (extension == None or extension == ext):
-            files.append(open(path).read())
+def merge_shapes(dir, shapes):
+    for shape_file in os.listdir(dir):
+        if os.path.isdir(os.path.join(dir, shape_file)):
+            merge_shapes(os.path.join(dir, shape_file), shapes)
         else:
-            files += find_files(path, stop_elements, extension)
-    return files
-
-
-def pack():
-    base = open('base.shex').read()
-    shapes = [base]
-    shapes += find_files('shapes', [])
-    shapes += find_files('raw_shapes', os.listdir('shapes'))
-    shapes += find_files('specific', [])
-    full = fill_temp_holes(('\n' * 3).join(shapes))
-    open('full.shex', 'w').write(full)
-
-
-def to_shexj(input_fn, output_fn):
-    evaluator: ShExEvaluator = ShExEvaluator(schema=input_fn)
-    with open(output_fn, 'w') as f:
-        f.write(as_json(evaluator._schema))
-    return True
-
-
-def find_unknown():
-    defined_shapes = set([shex_file[:-5] for shex_file in os.listdir('shapes') + os.listdir('raw_shapes')])
-    unknown = set()
-    for shex_file in os.listdir('shapes'):
-        shape = open(f'shapes/{shex_file}').read()
-        links = set(re.findall("<#ValidSchema(.*?)>", shape))
-        unknown = unknown.union(links.difference(defined_shapes))
-    return sorted(list(unknown))
-
-
-def fill_temp_holes(shex):
-    holes = find_unknown()
-    for hole in holes:
-        shex = shex.replace(f'@<#Valid{hole}>', f'{{ a [schema:{hole}] }}')
-    return shex
+            name = shape_file.replace('.shexj', '')
+            shapes[BASE + name] = json.loads(open(os.path.join(dir, shape_file)).read())
 
 
 if __name__ == '__main__':
-    pack()
-    #to_shexj('full.shex', 'full.shexj')
+    raw = json.loads(open('raw.shexj').read())
+    shapes = {}
+    for shape in raw['shapes']:
+        shapes[shape['id']] = shape
+    merge_shapes('shapes', shapes)
+    merge_shapes('specific', shapes)
+    raw['shapes'] = list(shapes.values())
+    open('full.shexj', 'w').write(json.dumps(raw))

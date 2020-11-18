@@ -1,0 +1,79 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceBProduct2Recipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidServiceBRecipe",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/about",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/about"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Adding schema:about will increase something by some%"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "info"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/accessMode",
+            "valueExpr": {
+              "type": "ShapeAnd",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaText",
+                {
+                  "type": "NodeConstraint",
+                  "pattern": "auditory|tactile|textual|visual"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/accessMode"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Adding schema:accessMode will increase something by some%"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "info"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "type": "ShapeAnd",
+  "id": "http://schema.org/validation#ValidServiceBProduct3Recipe",
+  "shapeExprs": [
+    "http://schema.org/validation#ValidServiceBRecipe",
+    {
+      "type": "Shape",
+      "expression": {
+        "type": "EachOf",
+        "expressions": [
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/author",
+            "valueExpr": "http://schema.org/validation#ValidSchemaPerson",
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/author"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Adding schema:author will increase something by some%"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "info"
+                }
+              }
+            ]
+          },
+          {
+            "type": "TripleConstraint",
+            "predicate": "http://schema.org/award",
+            "valueExpr": {
+              "type": "ShapeAnd",
+              "shapeExprs": [
+                "http://schema.org/validation#ValidSchemaText",
+                {
+                  "type": "NodeConstraint",
+                  "pattern": "award1|award2"
+                }
+              ]
+            },
+            "annotations": [
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/url",
+                "object": {
+                  "value": "https://schema.org/award"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/description",
+                "object": {
+                  "value": "Adding schema:award will increase something by some%"
+                }
+              },
+              {
+                "type": "Annotation",
+                "predicate": "http://schema.org/identifier",
+                "object": {
+                  "value": "info"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
