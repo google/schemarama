@@ -20,7 +20,7 @@ const {v4: uuidv4} = require('uuid');
 
 const parser = require('./parser.js');
 
-const rdfs = namespace('http://www.w3.org/2000/01/rdf-schema');
+const rdfs = namespace('http://www.w3.org/2000/01/rdf-schema#');
 const rdf = namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 const shacl = namespace('http://www.w3.org/ns/shacl#');
 

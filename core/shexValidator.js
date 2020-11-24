@@ -13,20 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const namespace = require('@rdfjs/namespace');
+const rdf = namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
+const rdfs = namespace('http://www.w3.org/2000/01/rdf-schema#');
+
 const shex = require('./third_party/shex/shex');
 const utils = require('./util');
 const parser = require('./parser');
 const errors = require('./errors');
 
-const TYPE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type';
+const TYPE = rdf('type');
+const LABEL = rdfs('label');
 
 class ValidationReport {
     /**
      * @param {object} jsonReport - report from shex.js, which needs to be simplified
      * @param {object} schema - parsed shapes in ShExJ format
-     * @param {object} annotations
+     * @param {{annotations?:object, annotationsTemplate?: object}|undefined} options
      */
-    constructor(jsonReport, schema, annotations) {
+    constructor(jsonReport, schema, options) {
         this.failures = [];
         this.shapes = new Map();
         schema.shapes.forEach(shape => {
@@ -34,7 +39,8 @@ class ValidationReport {
         });
         this.simplify(jsonReport, undefined, undefined);
         this.removeMissingIfTypeMismatch();
-        this.annotations = annotations;
+        this.annotations = options.annotations;
+        this.anntationsTemplate = options.annotationsTemplate;
     }
 
     /**
@@ -151,7 +157,7 @@ class ValidationReport {
         if (shapeObj.expression.expressions !== undefined) {
             propStructure = shapeObj.expression.expressions
                 .filter(x => x.predicate === property)[0];
-        } else if (shapeObj.expression.predicate === property){
+        } else if (shapeObj.expression.predicate === property) {
             propStructure = shapeObj.expression;
         }
         if (!propStructure || !propStructure.annotations) return mapper;
@@ -170,6 +176,14 @@ class ValidationReport {
         for (const typeMismatch of typeMismatches) {
             missings.push(this.failures.filter(x => x.property === typeMismatch.property && x.type === 'MissingProperty')[0]);
             this.failures = this.failures.filter(x => !missings.includes(x));
+        }
+    }
+
+    addAnnotationsFromTemplate(failure, id) {
+        if (!this.anntationsTemplate.hasOwnProperty(id)) return;
+        for (const [key, val] of Object.entries(this.anntationsTemplate[id])) {
+            if (!key.includes('@'))
+                failure[key] = val;
         }
     }
 
@@ -192,6 +206,8 @@ class ValidationReport {
                     const annotation = shapeAnnotations.get(value) || failure[key];
                     if (annotation) failure[key] = annotation;
                 }
+                if (Object.keys(shapeAnnotations).includes(LABEL))
+                    this.addAnnotationsFromTemplate(failure, shapeAnnotations[LABEL]);
             }
             return failure;
         });
@@ -201,15 +217,16 @@ class ValidationReport {
 class ShexValidator {
     /**
      * @param {object|string} shapes - ShExJ shapes
-     * @param {{annotations:object|undefined}} options
+     * @param {{annotations?:object, annotationsTemplate?: object}|undefined} options
      */
-    constructor(shapes, options={}) {
+    constructor(shapes, options = {}) {
         if (typeof shapes === 'string') {
             this.shapes = shex.Parser.construct('', {}, {}).parse(shapes);
         } else {
             this.shapes = shapes;
         }
         this.annotations = options.annotations;
+        this.annotationsTemplate = options.annotationsTemplate;
     }
 
     /**
@@ -229,7 +246,7 @@ class ShexValidator {
         const errors = new ValidationReport(validator.validate(db, [{
             node: baseUrl,
             shape: shape,
-        }]), this.shapes, this.annotations);
+        }]), this.shapes, this.annotations, this.annotationsTemplate);
         return {
             baseUrl: baseUrl,
             store: data,

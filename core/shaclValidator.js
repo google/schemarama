@@ -13,35 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+const namespace = require('@rdfjs/namespace');
+
+const rdfs = namespace('http://www.w3.org/2000/01/rdf-schema#');
+const SHACL = namespace('http://www.w3.org/ns/shacl#');
+
 const SHACLValidator = require('rdf-validate-shacl');
 const namedNode = require('n3').DataFactory.namedNode;
 
 const parser = require('./parser');
 const utils = require('./util');
 
-/**
- * Adds shacl base prefix to value
- * @param {string} value
- * @return {string}
- */
-function SHACL(value) {
-    return 'http://www.w3.org/ns/shacl#' + value;
-}
+const LABEL = rdfs('label');
 
 class ShaclValidator {
     /**
      * @param {string} shaclSchema - shacl shapes in string format
      * @param {{
-     *     annotations: object|undefined,
-     *     subclasses: string
+     *     annotations?: object,
+     *     annotationTemplates?: object
+     *     subclasses?: string
      * }} options
      */
-    constructor(shaclSchema, options) {
+    constructor(shaclSchema, options = {}) {
         if (options.subclasses) {
             this.subclasses = parser.parseTurtle(options.subclasses);
         }
         this.shapes = parser.parseTurtle(shaclSchema);
         this.annotations = options.annotations || {};
+        this.annotetionTemplates = options.annotationTemplates || {};
         this.validator = new SHACLValidator(this.shapes.getQuads());
     }
 
@@ -90,10 +90,20 @@ class ShaclValidator {
             shape: sourceShape.id,
             severity: this.getSeverity(shaclFailure.severity.value),
         }
+
         for (const [key, value] of Object.entries(this.annotations)) {
             const annotation = this.getAnnotation(shaclFailure.sourceShape, namedNode(value));
             if (annotation) failure[key] = annotation;
         }
+
+        const uuid = this.getAnnotation(shaclFailure.sourceShape, LABEL);
+        if (uuid && this.annotetionTemplates.hasOwnProperty(uuid)) {
+            for (const [key, value] of this.annotetionTemplates[uuid]) {
+                if (!key.includes('@'))
+                    failure[key] = value;
+            }
+        }
+
         return failure;
     }
 
@@ -102,7 +112,7 @@ class ShaclValidator {
      * @param {{baseUrl: string|undefined}} options
      * @returns {Promise<{baseUrl: string, store: Store, failures: [StructuredDataFailure]}>}
      */
-    async validate(data, options={}) {
+    async validate(data, options = {}) {
         const baseUrl = options.baseUrl || utils.randomUrl();
         if (typeof data === 'string') {
             data = await parser.stringToQuads(data, baseUrl);
