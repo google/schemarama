@@ -2,7 +2,7 @@
 A tiny demo for displaying pretty ladder-like **JSON-LD, Microdata or RDFa** structured data using schemarama core. 
 Heavily inspired by Google's [Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool/) 
 structured data view.<br />
-<img src="/pretty-markup/assets/pretty-markup.jpg?raw=true" alt="drawing"/>
+<img src="/pretty-markup/assets/pretty-markup.jpg?raw=true" alt="initial structured data in json-ld format on the left, structured data view representation on the right"/>
 
 Pretty markup helps to make large pieces of structured data more understandable. It uses three main concepts
 to achieve this goal:
@@ -21,7 +21,7 @@ There are also two representation options:
 If you want to play with it, just open `demo.html` in your favourite browser to play with it! You can change the markup 
 in the input textarea on the top of the page, structured view will be updated after every change.   
 
-If you want to use it for your project, you will need to include `schemarama-parcing.bundle` for the core logic, 
+If you want to use it for your project, you will need to include `schemarama-parsing.bundle` for the core logic, 
 `layout.js` for pretty markup functions and `style.css` with specific styles.
 
 Generating and adding pretty markup view to a div:

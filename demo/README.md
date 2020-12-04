@@ -32,7 +32,9 @@ familiar and easy to use. To start the validation, please paste your markup to t
 of the tests to play with the tool), then press the round button on the center of the screen. The validation report will 
 appear on the right:
 
-<p align="center"><img src="/demo/assets/validation-report.jpg?raw=true" alt="validation-report" height="300px"/></p>
+<p align="center"><img src="/demo/assets/validation-report.jpg?raw=true" alt="validation report, containing structured 
+view of the data and list of failures, organised as a table with 4 columns: severity tag, property, message and list of 
+failing services" height="300px"/></p>
 
 Each row of the report include a severity sign (red hexagons are errors, yellow triangles are warnings and grey circles 
 are info about how to make the data better), failing property name and a basic description of why this property has 
@@ -45,12 +47,9 @@ The demo gives an opportunity to validate data against multiple target services,
 their markup (e.g. Google, Yandex, Bing, Pinterest, ...). Hierarchy field on the right allows to select the bunch of
 target services and to perform validation only against their requirements:
  
-<p align="center"><img src="/demo/assets/services-hierarchy.jpg?raw=true" alt="services-hierarchy" width="400px"/></p>
+<p align="center"><img src="/demo/assets/services-hierarchy.jpg?raw=true" alt="hierarchy of services, structured as a tree,
+with a checkbox near each node to enable or disable validation" width="400px"/></p>
 
 Services information will appear on the right side of the validation report as their icons. Clicking on one of these 
 icons will take you to the documentation page of this property for the selected service; hovering the icon will give you
 some details about the property in the context of target service.
-## Upcoming features
-- [ ] remote web pages validation
-- [ ] adding shapes by url
-- [ ] localization of reports and UI
