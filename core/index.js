@@ -22,5 +22,6 @@ module.exports = {
     parseRdfa: require('./parser').parseRdfa,
     parseNQuads: require('./parser').parseNQuads,
     randomUrl: require('./util').randomUrl,
-    quadsToShapes: require('./util').quadsToShapes
+    quadsToShapes: require('./util').quadsToShapes,
+    ShexLocalization: require('./localization-helpers').ShexLocalization,
 }
