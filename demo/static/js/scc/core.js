@@ -16,6 +16,8 @@
 
 let shaclShapes, subclasses, shexShapes, hierarchy, shapeToService;
 let shexValidator, shaclValidator;
+let annotationsTemplate;
+let messagesTranslations;
 
 let annotations = {
     url: 'http://schema.org/url',
@@ -23,7 +25,33 @@ let annotations = {
     severity: 'http://schema.org/identifier'
 }
 
+async function languageChanged() {
+    const currLang = $('#lang-select').val();
+    annotationsTemplate = await $.get(`translations/annotations/${currLang}`);
+    messagesTranslations = await $.get(`translations/messages/${currLang}`);
+}
+
+function initValidators() {
+    shexValidator = new schemarama.ShexValidator(shexShapes, {
+        annotations: annotations,
+        annotationsTemplate: annotationsTemplate,
+        failureMessageTranslations: messagesTranslations
+    });
+    shaclValidator = new schemarama.ShaclValidator(shaclShapes, {
+        annotationsTemplate: annotationsTemplate,
+        annotations: annotations,
+        subclasses: subclasses,
+    });
+}
+
 $(document).ready(async () => {
+    await $.get(`translations/languages`, (res) => {
+        const langSelect = $('#lang-select');
+        for (const lang of res) {
+            langSelect.append(`<option value="${lang}">${lang}</option>`);
+        }
+        languageChanged();
+    });
     await $.get(`shacl/shapes`, (res) => shaclShapes = res);
     await $.get(`shacl/subclasses`, (res) => subclasses = res);
     await $.get(`shex/shapes`, (res) => shexShapes = JSON.parse(res));
@@ -33,12 +61,7 @@ $(document).ready(async () => {
     });
     await $.get(`services/map`, (res) => shapeToService = res);
     $.get(`tests`, (res) => initTests(res.tests));
-
-    shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});
-    shaclValidator = new schemarama.ShaclValidator(shaclShapes, {
-        annotations: annotations,
-        subclasses: subclasses,
-    });
+    initValidators();
 });
 
 function randomString(length = 16) {

@@ -12,7 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from flask import Flask, render_template, jsonify, send_file
+from flask import Flask, render_template, jsonify, send_file, Response
 from flask_cors import CORS
 import os
 import json
@@ -63,6 +63,33 @@ def shacl_shapes_full():
 def shacl_subclasses():
     subclasses_path = os.path.join(os.curdir, 'validation', 'shacl', 'subclasses.ttl')
     return send_file(subclasses_path)
+
+
+@app.route('/translations/languages')
+def get_supported_langs():
+    annotation_path = os.path.join('validation', 'annotation-templates')
+    annot_langs = [lang.replace('.json', '') for lang in os.listdir(annotation_path)]
+    messages_path = os.path.join('validation', 'failure-translations')
+    messages_langs = [lang.replace('.json', '') for lang in os.listdir(messages_path)]
+    return jsonify(list(set(annot_langs).intersection(set(messages_langs))))
+
+
+@app.route('/translations/annotations/<lang>')
+def get_lang_annotations(lang):
+    annotation_path = os.path.join('validation', 'annotation-templates')
+    langs = [lang.replace('.json', '') for lang in os.listdir(annotation_path)]
+    if lang not in langs:
+        return Response(status=404, response=f"Annotations for language '{lang}' not defined")
+    return send_file(os.path.join(annotation_path, f'{lang}.json'))
+
+
+@app.route('/translations/messages/<lang>')
+def get_lang_messages(lang):
+    messages_path = os.path.join('validation', 'failure-translations')
+    langs = [lang.replace('.json', '') for lang in os.listdir(messages_path)]
+    if lang not in langs:
+        return Response(status=404, response=f"Messages for language '{lang}' not defined")
+    return send_file(os.path.join(messages_path, f'{lang}.json'))
 
 
 if __name__ == '__main__':

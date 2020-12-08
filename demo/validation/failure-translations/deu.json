@@ -1,0 +1,8 @@
+{
+  "ClosedShapeViolation": "Unerwartete Property %(property)s",
+  "TypeMismatch": "Der für Property %(property)s angegebene Wert hat einen unerwarteten Typ",
+  "MissingProperty": "Property %(property)s wurde nicht gefunden",
+  "ExcessTripleViolation": "Property %(property)s hat ein Kardinalitätsproblem",
+  "NegatedProperty": "Negiert property %(property)s",
+  "BooleanSemActFailure": "Property %(property)s fehlgeschlagene semantische Aktion mit Code: '%(code)s'"
+}

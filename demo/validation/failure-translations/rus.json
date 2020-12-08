@@ -1,0 +1,8 @@
+{
+  "ClosedShapeViolation": "Неожиданное свойство %(property)s",
+  "TypeMismatch": "Значение, которое использовалось для свойства %(property)s имеет неожиданный тип",
+  "MissingProperty": "Свойство %(property)s не найдено",
+  "ExcessTripleViolation": "Неправильное количество значений для свойства %(property)s",
+  "NegatedProperty": "Отрицается свойство %(property)s",
+  "BooleanSemActFailure": "Свойство %(property)s не соответствует коду проверки: '%(code)s'"
+}

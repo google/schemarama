@@ -1,0 +1,8 @@
+{
+  "ClosedShapeViolation": "Несподівана властивість %(property)s",
+  "TypeMismatch": "Значення, що було наведено для властивості %(property)s має несподіваний тип",
+  "MissingProperty": "Властивість %(property)s не знайдено",
+  "ExcessTripleViolation": "Властивість %(property)s має неправильну кількість значень",
+  "NegatedProperty": "Заперечується властивість %(property)s",
+  "BooleanSemActFailure": "Властивість %(property)s не відповідає коду перевірки: '%(code)s'"
+}

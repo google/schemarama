@@ -17,12 +17,17 @@
     <div class="header">
         <div class="title">Schema.org Content Checker (work-in-progress)</div>
         <div class="d-flex">
-            <div class="lang-selector">
+            <!-- ShEx/SHACL switching temporary not available -->
+            <div class="lang-selector d-none">
                 <label for="validation-lang-select">Validation language</label>
                 <select class="form-control" name="validation-lang-select" id="validation-lang-select">
                     <option value="shex">ShEx</option>
                     <option value="shacl">SHACL</option>
                 </select>
+            </div>
+            <div class="lang-selector">
+                <label for="lang-select">Failures language</label>
+                <select  class="form-control" id="lang-select"></select>
             </div>
         </div>
     </div>
