@@ -83688,27 +83688,13 @@ var Clownface = /*#__PURE__*/function () {
 
 
   _createClass(Clownface, [{
-    key: "any",
+    key: "list",
 
-    /**
-     * Removes current pointers from the context and return an "any pointer".
-     * The returned object can be used to find any nodes in the dataset
-     *
-     * @returns {Clownface}
-     */
-    value: function any() {
-      return Clownface.fromContext(this._context.map(function (current) {
-        return current.clone({});
-      }));
-    }
     /**
      * Creates an iterator which iterates and rdf:List of the current term
      *
      * @returns {Iterable | null}
      */
-
-  }, {
-    key: "list",
     value: function list() {
       var _this2 = this;
 
@@ -84402,12 +84388,10 @@ var Context = /*#__PURE__*/function () {
     }
   }, {
     key: "out",
-    value: function out(predicate) {
+    value: function out(predicate, _ref3) {
       var _this3 = this;
 
-      var _ref3 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          language = _ref3.language;
-
+      var language = _ref3.language;
       var objects = this.matchProperty(toArray(this.term), predicate, null, toArray(this.graph), 'object');
 
       if (typeof language !== 'undefined') {

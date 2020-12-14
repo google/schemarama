@@ -99,10 +99,10 @@
   },
   {
     "name": "clownface",
-    "version": "1.1.0",
+    "version": "1.0.0",
     "author": "Thomas Bergwinkl <bergi@axolotlfarm.org> (https://www.bergnet.org/people/bergi/card#me)",
     "repository": "https://github.com/rdf-ext/clownface",
-    "source": "https://registry.npmjs.org/clownface/-/clownface-1.1.0.tgz",
+    "source": "https://registry.npmjs.org/clownface/-/clownface-1.0.0.tgz",
     "license": "MIT",
     "licenseText": null
   },
@@ -356,10 +356,10 @@
   },
   {
     "name": "rdf-validate-shacl",
-    "version": "0.2.4",
+    "version": "0.2.3",
     "author": "Zazuko (https://zazuko.com)",
     "repository": null,
-    "source": "https://registry.npmjs.org/rdf-validate-shacl/-/rdf-validate-shacl-0.2.4.tgz",
+    "source": "https://registry.npmjs.org/rdf-validate-shacl/-/rdf-validate-shacl-0.2.3.tgz",
     "license": "MIT",
     "licenseText": "MIT License\n\nCopyright (c) 2020 Zazuko GmbH\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
   },
