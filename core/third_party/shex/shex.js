@@ -2991,7 +2991,7 @@ numericParsers[XSD + "double" ] = function (label, parseError) {
   return Number(label);
 };
 
-testRange = function (value, datatype, parseError) {
+function testRange (value, datatype, parseError) {
   const ranges = {
     //    integer            -1 0 1 +1 | "" -1.0 +1.0 1e0 NaN INF
     //    decimal            -1 0 1 +1 -1.0 +1.0 | "" 1e0 NaN INF
@@ -5677,7 +5677,7 @@ var ShExParser = (function () {
 
 // stolen as much as possible from SPARQL.js
 if (true) {
-  ShExJison = __webpack_require__(11).Parser; // node environment
+  const ShExJison = __webpack_require__(11).Parser; // node environment
 } else {}
 
 // Creates a ShEx parser with the given pre-defined prefixes
