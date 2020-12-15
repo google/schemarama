@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/google/schemarama"
   },
-  "license": "SEE LICENSE IN core/license",
+  "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.20.0",
     "child_process": "^1.0.2",
