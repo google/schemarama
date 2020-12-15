@@ -30,7 +30,8 @@ async function parseInput(text) {
             try {
                 await schemarama.stringToQuads(text);
                 scripts.push(text);
-            } catch {}
+            } catch {
+            }
             return scripts;
         } catch {
             return [];
@@ -52,15 +53,26 @@ $('#validate-btn').click(async () => {
     }
 });
 
-$('#url-submit-button').click(() => {
+$('#url-submit-button').click(async () => {
     $('#input-text').val('');
     $('.input-placeholder').toggleClass('d-none');
-    $.post('/page', {url: $('#url-input').val()})
-        .then(res => {
-            $('#input-text').val(res);
-            $('.input-placeholder').toggleClass('d-none');
-        })
-        .catch(err => new Noty({text: err.message, type: 'error', timeout: 3000}).show());
+    try {
+        const pageContent = await $.ajax({
+            url: '/page',
+            type: 'post',
+            data: {
+                url: $('#url-input').val()
+            },
+            headers: {
+                'X-FORWARDED-FOR': ip,
+            }
+        });
+        $('#input-text').val(pageContent);
+        $('.input-placeholder').toggleClass('d-none');
+    } catch
+        (err) {
+        new Noty({text: err.message, type: 'error', timeout: 3000}).show();
+    }
 })
 
 $(document).bind('keypress', function (e) {

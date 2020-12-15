@@ -16,6 +16,7 @@
 
 let shaclShapes, subclasses, shexShapes, hierarchy, shapeToService;
 let shexValidator, shaclValidator;
+let ip;
 
 let annotations = {
     url: 'http://schema.org/url',
@@ -24,6 +25,9 @@ let annotations = {
 }
 
 $(document).ready(async () => {
+    $.getJSON("https://api.ipify.org/?format=json", function(e) {
+        ip = e.ip;
+    });
     await $.get(`shacl/shapes`, (res) => shaclShapes = res);
     await $.get(`shacl/subclasses`, (res) => subclasses = res);
     await $.get(`shex/shapes`, (res) => shexShapes = JSON.parse(res));

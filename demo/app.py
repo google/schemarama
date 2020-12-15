@@ -15,7 +15,7 @@
 from flask import Flask, render_template, jsonify, send_file, request
 from flask_cors import CORS
 import chromedriver_binary
-from selenium import webdriver
+from seleniumwire import webdriver
 import os
 import json
 
@@ -23,6 +23,7 @@ import config
 
 app = Flask(__name__)
 CORS(app)
+
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--headless")
@@ -77,6 +78,10 @@ def shacl_subclasses():
 
 @app.route('/page', methods=['POST'])
 def get_page():
+    ip = request.headers.get('X-FORWARDED-FOR')
+    browser.header_overrides = {
+        'X-FORWARDED-FOR': ip
+    }
     browser.get(request.form['url'])
     return browser.page_source
 
