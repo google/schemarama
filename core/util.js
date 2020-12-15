@@ -13,8 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-const fs = require('fs');
+try {
+    const fs = require('fs');
+    const fsAvailable = true;
+} catch (e) {
+    const fsAvailable = false;
+}
 const axios = require('axios');
 
 const jsonld = require('jsonld');
@@ -34,7 +38,10 @@ async function loadData(link) {
     if (link.match("^https?://")) {
         return (await axios.get(link)).data;
     }
-    return fs.readFileSync(link).toString();
+    if (fsAvailable) {
+        return fs.readFileSync(link).toString();
+    }
+    throw 'Filesystem is not available, cannot load local data';
 }
 
 /**
