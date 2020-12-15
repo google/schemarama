@@ -59847,7 +59847,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           return Number(label);
         };
 
-        testRange = function testRange(value, datatype, parseError) {
+        function testRange(value, datatype, parseError) {
           var ranges = {
             //    integer            -1 0 1 +1 | "" -1.0 +1.0 1e0 NaN INF
             //    decimal            -1 0 1 +1 -1.0 +1.0 | "" 1e0 NaN INF
@@ -59941,7 +59941,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           } else if (value > parms.max) {
             parseError("\"" + value + "\"^^<" + datatype + "> is greater than the max:", parms.min);
           }
-        };
+        }
+
+        ;
         /*
         function intSubType (spec, label, parseError) {
           var ret = numericParsers[XSD + "integer"](label, parseError);
@@ -59968,7 +59970,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
            };
          });
         */
-
 
         var stringTests = {
           length: function length(v, l) {
@@ -62738,7 +62739,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       var ShExParser = function () {
         // stolen as much as possible from SPARQL.js
         if (true) {
-          ShExJison = __webpack_require__(11).Parser; // node environment
+          var _ShExJison = __webpack_require__(11).Parser; // node environment
+
         } else {} // Creates a ShEx parser with the given pre-defined prefixes
 
 
