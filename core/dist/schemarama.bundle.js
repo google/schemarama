@@ -59847,7 +59847,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           return Number(label);
         };
 
-        testRange = function testRange(value, datatype, parseError) {
+        function testRange(value, datatype, parseError) {
           var ranges = {
             //    integer            -1 0 1 +1 | "" -1.0 +1.0 1e0 NaN INF
             //    decimal            -1 0 1 +1 -1.0 +1.0 | "" 1e0 NaN INF
@@ -59941,7 +59941,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           } else if (value > parms.max) {
             parseError("\"" + value + "\"^^<" + datatype + "> is greater than the max:", parms.min);
           }
-        };
+        }
+
+        ;
         /*
         function intSubType (spec, label, parseError) {
           var ret = numericParsers[XSD + "integer"](label, parseError);
@@ -59968,7 +59970,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
            };
          });
         */
-
 
         var stringTests = {
           length: function length(v, l) {
@@ -62738,7 +62739,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       var ShExParser = function () {
         // stolen as much as possible from SPARQL.js
         if (true) {
-          ShExJison = __webpack_require__(11).Parser; // node environment
+          var _ShExJison = __webpack_require__(11).Parser; // node environment
+
         } else {} // Creates a ShEx parser with the given pre-defined prefixes
 
 
@@ -83688,27 +83690,13 @@ var Clownface = /*#__PURE__*/function () {
 
 
   _createClass(Clownface, [{
-    key: "any",
+    key: "list",
 
-    /**
-     * Removes current pointers from the context and return an "any pointer".
-     * The returned object can be used to find any nodes in the dataset
-     *
-     * @returns {Clownface}
-     */
-    value: function any() {
-      return Clownface.fromContext(this._context.map(function (current) {
-        return current.clone({});
-      }));
-    }
     /**
      * Creates an iterator which iterates and rdf:List of the current term
      *
      * @returns {Iterable | null}
      */
-
-  }, {
-    key: "list",
     value: function list() {
       var _this2 = this;
 
@@ -84402,12 +84390,10 @@ var Context = /*#__PURE__*/function () {
     }
   }, {
     key: "out",
-    value: function out(predicate) {
+    value: function out(predicate, _ref3) {
       var _this3 = this;
 
-      var _ref3 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          language = _ref3.language;
-
+      var language = _ref3.language;
       var objects = this.matchProperty(toArray(this.term), predicate, null, toArray(this.graph), 'object');
 
       if (typeof language !== 'undefined') {
