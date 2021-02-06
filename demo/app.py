@@ -31,6 +31,7 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("window-size=1024,768")
 chrome_options.add_argument("--no-sandbox")
 
+browser = webdriver.Chrome(chrome_options=chrome_options)
 
 @app.route('/')
 def demo():
@@ -76,7 +77,6 @@ def shacl_subclasses():
 
 @app.route('/page', methods=['POST'])
 def get_page():
-    browser = webdriver.Chrome(chrome_options=chrome_options)
     ip = request.headers.get('X-Forwarded-For')
     browser.header_overrides = {
         'X-Forwarded-For': ip
