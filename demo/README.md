@@ -51,3 +51,34 @@ with a checkbox near each node to enable or disable validation" width="400px"/><
 Services information will appear on the right side of the validation report as their icons. Clicking on one of these 
 icons will take you to the documentation page of this property for the selected service; hovering the icon will give you
 some details about the property in the context of target service.
+
+## How to customize it?
+
+If you want to set up a schemarama-demo-like web-site for your sets of shapes, based on the code from this repo, 
+here are a few steps you should follow:
+
+1. Replace ShEx/SHACL files. [ShEx](validation/shex) and [SHACL](validation/shacl) shapes are 
+located in separate folders. In this repo we keep small one-shape files for easy references, but the actual validator 
+uses only [full.shexj](validation/shex/full.shexj) with ShExJ shapes and [full.shacl](validation/shacl/full.shacl),
+so only contents of these files should be replaced with your shapes. 
+    * If you only have ShEx OR SHACL shapes, the easiest way to remove one of the languages from the UI would be to remove 
+language selector on the top right corner. To do so, remove the option you **DON'T** need in [scc.html](templates/scc.html) 
+(you just need to remove line 23 if you don't have ShEx shapes, and line 24 if you don't have SHACL shapes).
+ 2. Change the HTML and CSS. 
+    * Replace `<title>` tag (line 5) content with the title you would like to use in [base.html](templates/base.html).
+    * Replace `<div class="title">` (line 21) contents with the title you would like to use in [scc.html](templates/scc.html).
+    * Change styles. If you want to change the colors, it's possible to change the color scheme by changing it in [scc.css](static/css/scc.css), 
+    `:root` block (lines 18-20). For example, the pink color scheme would look like this:
+    ```css
+        :root {
+            --main: #f188cc;
+            --main-transparent: rgba(241, 136, 204, 0.7);
+            --background: #fafafa;
+        }
+    ```
+    If you need to make more complex changes, you will need to have basic knowledge of CSS. If you are a beginner, 
+    some tutorials (like [w3schools](https://www.w3schools.com/css/) or [tutorialspoint](https://www.tutorialspoint.com/css/index.htm))
+    can be helpful.
+    
+This easy steps should be enough to customize this demo for your needs, **BUT**
+**If you face issues or have a concern, please feel free to ping us by creating an issue**
