@@ -8,6 +8,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@shexjs/core": "^1.0.0-alpha.10",
+    "@shexjs/parser": "^1.0.0-alpha.10",
     "axios": "^0.20.0",
     "child_process": "^1.0.2",
     "jsonld": "^3.1.1",
