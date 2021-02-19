@@ -18,10 +18,8 @@ through bodies such as [Schema.org](https://schema.org). Demo is currently hoste
 **Google contact:** Dan Brickley danbri@google.com <br />
 
 ## How to run it?
-There are two options to run it on your local machine:
-* You can install all requirements from `requirements.txt` (`pip3 install -r requirements.txt`) and run it with 
-`python3 app.py`.
-* Alternatively, you can build and run it in [Docker](https://docs.docker.com/get-docker/): <br />
+
+Build and run it with [Docker](https://docs.docker.com/docker-for-windows/install/): <br />
 ```docker build -t scc .```<br />
 ```docker run -p 5000:5000 scc```<br />
 
