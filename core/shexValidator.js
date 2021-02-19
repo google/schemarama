@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const shex = require('./third_party/shex/shex');
+const shexParser = require('@shexjs/parser');
+const shex = require('@shexjs/core');
 const utils = require('./util');
 const parser = require('./parser');
 const errors = require('./errors');
@@ -205,7 +206,7 @@ class ShexValidator {
      */
     constructor(shapes, options={}) {
         if (typeof shapes === 'string') {
-            this.shapes = shex.Parser.construct('', {}, {}).parse(shapes);
+            this.shapes = shexParser.construct('', {}, {}).parse(shapes);
         } else {
             this.shapes = shapes;
         }
