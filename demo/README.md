@@ -1,4 +1,4 @@
-# Schema.org Content Checker **(work-in-progress)**
+# Schema.org Content Checker **(work-in-progress)** ([demo](https://schemarama-demo.site/))
 Status: this is a proof of concept being created as part of a Google Internship. 
 The intent is to demonstrate how standards-based description of search service 
 information requirements can be used to configure structured data validation in a 
