@@ -75,7 +75,15 @@ async function validate(data, lang) {
         } else if (lang === 'shacl') {
             report = await validateShacl(shape, id);
         }
-        report.failures = minifyFailuresList(report.failures);
+        if (report == null) {
+            report = {
+                failures: [],
+                store: shape,
+                baseUrl: id
+            }
+        } else {
+            report.failures = minifyFailuresList(report.failures);
+        }
         addReport(type, report);
     }
 
