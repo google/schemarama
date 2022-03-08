@@ -19,7 +19,7 @@ module.exports = {
     stringToQuads: require('./parser').stringToQuads,
     parseJsonLd: require('./parser').parseJsonLd,
     parseMicrodata: require('./parser').parseMicrodata,
-    // parseRdfa: require('./parser').parseRdfa,
+    parseRdfa: require('./parser').parseRdfa,
     parseNQuads: require('./parser').parseNQuads,
     randomUrl: require('./util').randomUrl,
     quadsToShapes: require('./util').quadsToShapes
