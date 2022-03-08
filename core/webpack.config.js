@@ -1,7 +1,8 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserJsPlugin = require('terser-webpack-plugin');
 const LicensePlugin = require('webpack-license-plugin');
 
 module.exports = {
+    mode: 'production',
     entry: {
         'schemarama.bundle': ['babel-polyfill', './index.js'],
         'schemarama.bundle.min': ['babel-polyfill', './index.js'],
@@ -24,7 +25,7 @@ module.exports = {
     },
     optimization: {
         minimize: true,
-        minimizer: [new UglifyJsPlugin({
+        minimizer: [new TerserJsPlugin({
             include: /\.min\.js$/
         })]
     },
@@ -35,9 +36,15 @@ module.exports = {
         filename: '[name].js',
         library: 'schemarama'
     },
-    node: {
-        tls: "empty",
-        fs: "empty",
-        net: "empty"
+    resolve: {
+        fallback: {
+            tls: false,
+            fs: false,
+            net: false,
+            buffer: false,
+            util: false,
+            stream: false,
+            url: false
+        }
     }
 };
