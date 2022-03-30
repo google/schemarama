@@ -34,7 +34,7 @@ $(document).ready(async () => {
       fetch(`validation/shex/full.shexj`).then(resp => resp.json()),
       fetch(`hierarchy.json`).then(resp => resp.json()),
       fetch(`validation/shapeToService.json`).then(resp => resp.json()),
-      fetch(`tests`).then(resp => resp.json()).then(j => initTests(j.tests)),
+      fetch(`tests.json`).then(resp => resp.json()).then(j => initTests(j.tests)),
     ]);
     constructHierarchySelector(hierarchy, 0);
     shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});
