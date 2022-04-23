@@ -1,5 +1,6 @@
 const TerserJsPlugin = require('terser-webpack-plugin');
 const LicensePlugin = require('webpack-license-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
     mode: 'production',
@@ -30,6 +31,7 @@ module.exports = {
         })]
     },
     plugins: [
+        new NodePolyfillPlugin(),
         new LicensePlugin()
     ],
     output: {
@@ -38,13 +40,7 @@ module.exports = {
     },
     resolve: {
         fallback: {
-            tls: false,
-            fs: false,
-            net: false,
-            buffer: false,
-            util: false,
-            stream: false,
-            url: false
+            fs: false
         }
     }
 };

@@ -23,8 +23,7 @@ async function recursiveValidate(node, type, data, baseUrl) {
     let startShape = `http://schema.org/shex#Valid${node.service}${type}`;
     let report;
     try {
-        const validator = shexValidator.construct(shexShapes, data);
-        report = await validator.validate([{node: baseUrl, shape: startShape}]);
+        report = await shexValidator.validate(data, startShape, {baseUrl: baseUrl});
     } catch (e) {
         // skipping validation if the target type was not found
         if (e.message.includes(`shape ${startShape} not found in:`)) {
