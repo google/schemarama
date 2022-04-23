@@ -37,7 +37,7 @@ $(document).ready(async () => {
     });
     await $.get(`services/map`, (res) => shapeToService = res);
     $.get(`tests`, (res) => initTests(res.tests));
-    shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});
+    // shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});
     shaclValidator = new schemarama.ShaclValidator(shaclShapes, {
         annotations: annotations,
         subclasses: subclasses,
