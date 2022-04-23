@@ -28,15 +28,13 @@ $(document).ready(async () => {
     $.getJSON("https://api.ipify.org/?format=json", function(e) {
         ip = e.ip;
     });
-    await $.get(`shacl/shapes`, (res) => shaclShapes = res);
-    await $.get(`shacl/subclasses`, (res) => subclasses = res);
-    await $.get(`shex/shapes`, (res) => shexShapes = JSON.parse(res));
-    await $.get(`hierarchy`, (res) => {
-        hierarchy = res;
-        constructHierarchySelector(hierarchy, 0);
-    });
-    await $.get(`services/map`, (res) => shapeToService = res);
-    $.get(`tests`, (res) => initTests(res.tests));
+    shaclShapes = await fetch(`validation/shacl/full.shacl`).then(resp => resp.text());
+    subclasses = await fetch(`validation/shacl/subclasses.ttl`).then(resp => resp.text());
+    shexShapes = await fetch(`validation/shex/full.shexj`).then(resp => resp.json());
+    hierarchy = await fetch(`hierarchy.json`).then(resp => resp.json());
+    shapeToService = await fetch(`validation/shapeToService.json`).then(resp => resp.json());
+    constructHierarchySelector(hierarchy, 0);
+    fetch(`tests`).then(resp => resp.json()).then(j => initTests(j.tests));
     shexValidator = new schemarama.ShexValidator(shexShapes, {annotations: annotations});
     shaclValidator = new schemarama.ShaclValidator(shaclShapes, {
         annotations: annotations,
