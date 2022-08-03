@@ -2,8 +2,9 @@
 # schemarama
 
 This project provides data validation facilities for use with Schema.org 
-and related approaches to structured data publication. It integrates 
-existing opensource tooling for data extraction (JSON-LD, RDFa, Microdata)
+and related approaches to structured data publication. 
+
+It integrates existing opensource tooling for data extraction (JSON-LD, RDFa, Microdata)
 and validation (ShEx, SHACL), providing a framework for schema.org content 
 checking that focusses on documenting the positive incentives for including
 various data "shapes", rather than on simply giving errors and warnings.
