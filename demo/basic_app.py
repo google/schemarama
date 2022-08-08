@@ -25,17 +25,22 @@ app = Flask(__name__)
 CORS(app)
 
 
-#chrome_options = webdriver.ChromeOptions()
-#chrome_options.add_argument("--headless")
-#chrome_options.add_argument("--disable-gpu")
-#chrome_options.add_argument("window-size=1024,768")
-#chrome_options.add_argument("--no-sandbox")
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--disable-gpu")
+# chrome_options.add_argument("window-size=1024,768")
+# chrome_options.add_argument("--no-sandbox")
 
-#browser = webdriver.Chrome(chrome_options=chrome_options)
+# browser = webdriver.Chrome(chrome_options=chrome_options)
 
 @app.route('/')
 def demo():
     return render_template('scc.html')
+
+
+@app.route('/shapes')
+def shapes():
+    return render_template('shapes.html')
 
 
 @app.route('/hierarchy')
@@ -75,8 +80,8 @@ def shacl_subclasses():
     return send_file(subclasses_path)
 
 
-#@app.route('/page', methods=['POST'])
-#def get_page():
+# @app.route('/page', methods=['POST'])
+# def get_page():
 #    ip = request.headers.get('X-Forwarded-For')
 #    browser.header_overrides = {
 #        'X-Forwarded-For': ip

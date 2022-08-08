@@ -1,0 +1,43 @@
+.selector {
+    min-width: 450px;
+}
+
+.shapes-list-controls {
+    padding: 20px;
+}
+
+.shapes-list-controls > div {
+    margin: 10px 0;
+}
+
+.shapes-list {
+    height: 100%;
+    overflow-y: auto;
+    background: white;
+    border-top: 1px solid #ced4da;
+    color: #212529;
+}
+
+.shapes-list > div {
+    padding: 10px;
+    user-select: none;
+    border-bottom: lightgray 0.3px solid;
+}
+
+.shapes-list > div:hover {
+    background: #e2e2e2;
+}
+
+.shapes-list > .displayed {
+    background: #e2e2e2;
+}
+
+#displayed-shape-id {
+    background: white;
+    padding: 20px;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
+}

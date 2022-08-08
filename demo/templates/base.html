@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Schema.org Content Checker  (work-in-progress)</title>
+    <title>Schema.org Content Checker (work-in-progress)</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.min.css') }}">
@@ -11,6 +11,15 @@
     {% endblock %}
 </head>
 <body>
+
+<div class="header">
+    <div class="title">Schema.org Content Checker (work-in-progress)</div>
+    <div class="d-flex">
+        {% block header_controls %}
+        {% endblock %}
+    </div>
+</div>
+
 {% block content %}
 {% endblock %}
 

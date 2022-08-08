@@ -24,7 +24,6 @@ import config
 app = Flask(__name__)
 CORS(app)
 
-
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
@@ -33,9 +32,15 @@ chrome_options.add_argument("--no-sandbox")
 
 browser = webdriver.Chrome(chrome_options=chrome_options)
 
+
 @app.route('/')
 def demo():
     return render_template('scc.html')
+
+
+@app.route('/shapes')
+def shapes():
+    return render_template('shapes.html')
 
 
 @app.route('/hierarchy')
