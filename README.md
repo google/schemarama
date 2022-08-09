@@ -22,3 +22,5 @@ time.
 
 For background on the underlying technologies, see the book, 
 "[Validating RDF data](https://book.validatingrdf.com/)".
+
+For an experimental demo, see [demo/](demo/)
