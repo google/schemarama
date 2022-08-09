@@ -1,43 +1,35 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserJsPlugin = require('terser-webpack-plugin');
 const LicensePlugin = require('webpack-license-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
+    mode: 'production', // 'development'
     entry: {
-        'schemarama.bundle': ['babel-polyfill', './index.js'],
-        'schemarama.bundle.min': ['babel-polyfill', './index.js'],
-        'schemarama-parsing.bundle': ['babel-polyfill', './parsing-index.js'],
-        'schemarama-parsing.bundle.min': ['babel-polyfill', './parsing-index.js'],
+        'schemarama.bundle': './index.js',
+        'schemarama.bundle.min': './index.js',
+        'schemarama-parsing.bundle': './parsing-index.js',
+        'schemarama-parsing.bundle.min': './parsing-index.js',
     },
     resolve: {
         modules: ['./node_modules']
     },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ["@babel/preset-env"]
-                }
-            }
-        }]
-    },
     optimization: {
         minimize: true,
-        minimizer: [new UglifyJsPlugin({
+        minimizer: [new TerserJsPlugin({
             include: /\.min\.js$/
         })]
     },
     plugins: [
+        new NodePolyfillPlugin(),
         new LicensePlugin()
     ],
     output: {
         filename: '[name].js',
         library: 'schemarama'
     },
-    node: {
-        tls: "empty",
-        fs: "empty",
-        net: "empty"
+    resolve: {
+        fallback: {
+            fs: false
+        }
     }
 };

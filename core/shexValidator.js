@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 const shexParser = require('@shexjs/parser');
-const shex = require('@shexjs/core');
+const shexUtil = require('@shexjs/util');
+const shexValidator = require('@shexjs/validator');
 const utils = require('./util');
 const parser = require('./parser');
 const errors = require('./errors');
@@ -225,9 +226,9 @@ class ShexValidator {
         if (typeof data === 'string') {
             data = await parser.stringToQuads(data, baseUrl);
         }
-        const db = shex.Util.makeN3DB(data);
-        const validator = shex.Validator.construct(this.shapes);
-        const errors = new ValidationReport(validator.validate(db, [{
+        const db = new shexUtil.rdfjsDB(data);
+        const validator = shexValidator.construct(this.shapes, db);
+        const errors = new ValidationReport(validator.validate([{
             node: baseUrl,
             shape: shape,
         }]), this.shapes, this.annotations);
