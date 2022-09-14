@@ -12,7 +12,7 @@ and other search features, but should be viewed as an illustrative
 technology demonstration - i.e. the definitions may be inaccurate and incomplete. 
 Ideally such definitions would be published by the relevant organizations, perhaps 
 through bodies such as [Schema.org](https://schema.org). Demo is currently hosted on 
-[schemarama-demo.site](https://schemarama-demo.site/)
+[github.io]([https://schemarama-demo.site](https://google.github.io/schemarama/demo/)/)
 
 **Developer:** Anastasiia Byvsheva anastasiia.byvsheva@gmail.com <br />
 **Google contact:** Dan Brickley danbri@google.com <br />
