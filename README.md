@@ -17,7 +17,7 @@ understand the larger ecosystem of data consuming applications that their
 markup may be eligible for.
 
 This is an initial release, and is not recommended for production use at this
-time. An experimental [demo](demo/) is available (currently hosted in static form 
+time. An experimental demo ([source code](demo/)) is available (currently hosted in static form 
 here [on Github](https://google.github.io/schemarama/demo/), so some features
 like server-side JS execution and URL-fetching are not enabled).
 
