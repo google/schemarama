@@ -1,3 +1,4 @@
+
 # An approximation towards https://developers.google.com/search/docs/appearance/structured-data/factcheck
 
 PREFIX schema: <http://schema.org/> # for backwards compat esp. in JSON-LD
@@ -15,10 +16,10 @@ PREFIX googledev: <https://developers.google.com/search/docs/appearance/structur
 
 <#ValidServiceBClaimReview> @<#ValidSchemaClaimReview> 
 AND {
-    schema:url IRI 
+    schema:url IRI
     // techdoc:url googledev:url_info
     // techdoc:description """Link to the page hosting the full article of the fact check."""
-    // techdoc:text """The domain of this URL value must be the same domain as, or a subdomain of, the page hosting this ClaimReview element. Redirects or shortened URLs (such as g.co/searchconsole) are not resolved, and so will not work here.""""
+    // techdoc:text """The domain of this URL value must be the same domain as, or a subdomain of, the page hosting this ClaimReview element. Redirects or shortened URLs (such as g.co/searchconsole) are not resolved, and so will not work here."""
     // techdoc:identifier "error" ;
     
     schema:claimReviewed .
@@ -38,7 +39,7 @@ AND {
 */
   // techdoc:url googledev:itemReviewed_info
   // techdoc:description """An object describing the claim being made."""
-  // techdoc:text """"""
+  // techdoc:text """
   // techdoc:identifier "warning" ;
    
     
@@ -63,12 +64,10 @@ AND {
       // techdoc:text """Different fact-checking projects have a variety of rating schemes which can have subtle differences, particularly for intermediate values. It is important to document such rating schemes to clarify the meaning of the numeric ratings. Minimally, there must be a number to text rating system for all your fact checks that carry numeric scores. 1: False, 2: Mostly false, 3: Half true, 4: Mostly true,5: True"""
       // techdoc:identifier "warning" ;
     
-
+    
 }
 
 /** TODO: 
-    - import or otherwise integrate ItemReviewedShape ReviewRatingShape
-    - get the upstream source file to parse properly as shex
-    - figure out how to move annotations out of band 
-    - figure out how to compile these into the form needed by Schemarama runtime.
-    */
+    - find ItemReviewedShape ReviewRatingShape
+    - get the source file to parse properly as shex
+    - figure out how to move annotations out of band */
