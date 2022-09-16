@@ -1,0 +1,56 @@
+PREFIX schema: <http://schema.org/> # for backwards compat esp. in JSON-LD
+PREFIX sdo: <https://schema.org/>.  # Declaring but not using for instance data
+PREFIX techdoc: sdo:                # For using within annotations
+
+# An approximation towards https://developers.google.com/search/docs/appearance/structured-data/factcheck
+
+<#ValidServiceBClaimReview> @<#ValidSchemaClaimReview> 
+AND {
+    schema:url IRI 
+    // techdoc:url "https://developers.google.com/search/docs/appearance/structured-data/factcheck#url_info"
+    // techdoc:description "(Google's documentation excerpt) Link to the page hosting the full article of the fact check. The domain of this URL value must be the same domain as, or a subdomain of, the page hosting this ClaimReview element. Redirects or shortened URLs (such as g.co/searchconsole) are not resolved, and so will not work here.";
+    // techdoc:identifier "error";
+
+schema:claimReviewed . ;
+
+
+  schema:itemReviewed {
+    a [schema:CreativeWork] ;
+  } AND @<ItemReviewedShape> OR {
+    a [schema:Claim]
+  } AND @<ClaimShape> + // techdoc:strength techdoc:recommends ;
+  schema:author {
+    a [schema:Organization schema:Person] ;
+  } AND {
+      schema:name .
+    | schema:url IRI // techdoc:strength techdoc:recommends %techdoc:wasm{ "is_value_url()" %} ;
+  } ;
+  schema:reviewRating {
+    a [schema:Rating] ;
+  } AND @<ReviewRatingShape> +
+
+}
+
+
+/** 
+
+<ValidSoClaimReview> {
+  schema:url IRI ;
+  schema:claimReviewed . ;
+  schema:itemReviewed {
+    a [schema:CreativeWork] ;
+  } AND @<ItemReviewedShape> OR {
+    a [schema:Claim]
+  } AND @<ClaimShape> + // techdoc:strength techdoc:recommends ;
+  schema:author {
+    a [schema:Organization schema:Person] ;
+  } AND {
+      schema:name .
+    | schema:url IRI // techdoc:strength techdoc:recommends %techdoc:wasm{ "is_value_url()" %} ;
+  } ;
+  schema:reviewRating {
+    a [schema:Rating] ;
+  } AND @<ReviewRatingShape> +
+}
+
+*/
