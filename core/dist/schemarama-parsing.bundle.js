@@ -13010,6 +13010,7 @@ const {
 } = __webpack_require__(2278);
 
 const {
+  REGEX_KEYWORD,
   addValue: _addValue,
   asArray: _asArray,
   compareShortestLeast: _compareShortestLeast
@@ -13027,7 +13028,6 @@ module.exports = api;
  *          to compact, null for none.
  * @param element the element to compact.
  * @param options the compaction options.
- * @param compactionMap the compaction map to use.
  *
  * @return a promise that resolves to the compacted value.
  */
@@ -13035,33 +13035,21 @@ api.compact = async ({
   activeCtx,
   activeProperty = null,
   element,
-  options = {},
-  compactionMap = () => undefined
+  options = {}
 }) => {
   // recursively compact array
   if(_isArray(element)) {
     let rval = [];
     for(let i = 0; i < element.length; ++i) {
-      // compact, dropping any null values unless custom mapped
-      let compacted = await api.compact({
+      const compacted = await api.compact({
         activeCtx,
         activeProperty,
         element: element[i],
-        options,
-        compactionMap
+        options
       });
       if(compacted === null) {
-        compacted = await compactionMap({
-          unmappedValue: element[i],
-          activeCtx,
-          activeProperty,
-          parent: element,
-          index: i,
-          options
-        });
-        if(compacted === undefined) {
-          continue;
-        }
+        // FIXME: need event?
+        continue;
       }
       rval.push(compacted);
     }
@@ -13125,8 +13113,7 @@ api.compact = async ({
           activeCtx,
           activeProperty,
           element: element['@list'],
-          options,
-          compactionMap
+          options
         });
       }
     }
@@ -13254,8 +13241,7 @@ api.compact = async ({
           activeCtx,
           activeProperty: '@reverse',
           element: expandedValue,
-          options,
-          compactionMap
+          options
         });
 
         // handle double-reversed properties
@@ -13292,8 +13278,7 @@ api.compact = async ({
           activeCtx,
           activeProperty,
           element: expandedValue,
-          options,
-          compactionMap
+          options
         });
 
         if(!(_isArray(compactedValue) && compactedValue.length === 0)) {
@@ -13410,8 +13395,7 @@ api.compact = async ({
           activeCtx,
           activeProperty: itemActiveProperty,
           element: (isList || isGraph) ? inner : expandedItem,
-          options,
-          compactionMap
+          options
         });
 
         // handle @list
@@ -13606,8 +13590,7 @@ api.compact = async ({
                 activeCtx,
                 activeProperty: itemActiveProperty,
                 element: {'@id': expandedItem['@id']},
-                options,
-                compactionMap
+                options
               });
             }
           }
@@ -13921,7 +13904,8 @@ api.compactIri = ({
         // The None case preserves rval as potentially relative
         return iri;
       } else {
-        return _removeBase(_prependBase(base, activeCtx['@base']), iri);
+        const _iri = _removeBase(_prependBase(base, activeCtx['@base']), iri);
+        return REGEX_KEYWORD.test(_iri) ? `./${_iri}` : _iri;
       }
     } else {
       return _removeBase(base, iri);
@@ -14200,7 +14184,6 @@ module.exports = {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/* provided dependency */ var console = __webpack_require__(5108);
 /*
  * Copyright (c) 2017-2019 Digital Bazaar, Inc. All rights reserved.
  */
@@ -14223,13 +14206,18 @@ const {
 } = __webpack_require__(2278);
 
 const {
+  handleEvent: _handleEvent
+} = __webpack_require__(1696);
+
+const {
+  REGEX_BCP47,
+  REGEX_KEYWORD,
   asArray: _asArray,
   compareShortestLeast: _compareShortestLeast
 } = __webpack_require__(1055);
 
 const INITIAL_CONTEXT_CACHE = new Map();
 const INITIAL_CONTEXT_CACHE_MAX_SIZE = 10000;
-const KEYWORD_PATTERN = /^@[a-zA-Z]+$/;
 
 const api = {};
 module.exports = api;
@@ -14263,6 +14251,23 @@ api.process = async ({
   if(ctxs.length === 0) {
     return activeCtx;
   }
+
+  // event handler for capturing events to replay when using a cached context
+  const events = [];
+  const eventCaptureHandler = [
+    ({event, next}) => {
+      events.push(event);
+      next();
+    }
+  ];
+  // chain to original handler
+  if(options.eventHandler) {
+    eventCaptureHandler.push(options.eventHandler);
+  }
+  // store original options to use when replaying events
+  const originalOptions = options;
+  // shallow clone options with event capture handler
+  options = {...options, eventHandler: eventCaptureHandler};
 
   // resolve contexts
   const resolved = await options.contextResolver.resolve({
@@ -14301,46 +14306,12 @@ api.process = async ({
     if(ctx === null) {
       // We can't nullify if there are protected terms and we're
       // not allowing overrides (e.g. processing a property term scoped context)
-      if(!overrideProtected &&
-        Object.keys(activeCtx.protected).length !== 0) {
-        const protectedMode = (options && options.protectedMode) || 'error';
-        if(protectedMode === 'error') {
-          throw new JsonLdError(
-            'Tried to nullify a context with protected terms outside of ' +
-            'a term definition.',
-            'jsonld.SyntaxError',
-            {code: 'invalid context nullification'});
-        } else if(protectedMode === 'warn') {
-          // FIXME: remove logging and use a handler
-          console.warn('WARNING: invalid context nullification');
-
-          // get processed context from cache if available
-          const processed = resolvedContext.getProcessed(activeCtx);
-          if(processed) {
-            rval = activeCtx = processed;
-            continue;
-          }
-
-          const oldActiveCtx = activeCtx;
-          // copy all protected term definitions to fresh initial context
-          rval = activeCtx = api.getInitialContext(options).clone();
-          for(const [term, _protected] of
-            Object.entries(oldActiveCtx.protected)) {
-            if(_protected) {
-              activeCtx.mappings[term] =
-                util.clone(oldActiveCtx.mappings[term]);
-            }
-          }
-          activeCtx.protected = util.clone(oldActiveCtx.protected);
-
-          // cache processed result
-          resolvedContext.setProcessed(oldActiveCtx, rval);
-          continue;
-        }
+      if(!overrideProtected && Object.keys(activeCtx.protected).length !== 0) {
         throw new JsonLdError(
-          'Invalid protectedMode.',
+          'Tried to nullify a context with protected terms outside of ' +
+          'a term definition.',
           'jsonld.SyntaxError',
-          {code: 'invalid protected mode', context: localCtx, protectedMode});
+          {code: 'invalid context nullification'});
       }
       rval = activeCtx = api.getInitialContext(options).clone();
       continue;
@@ -14349,7 +14320,14 @@ api.process = async ({
     // get processed context from cache if available
     const processed = resolvedContext.getProcessed(activeCtx);
     if(processed) {
-      rval = activeCtx = processed;
+      if(originalOptions.eventHandler) {
+        // replay events with original non-capturing options
+        for(const event of processed.events) {
+          _handleEvent({event, options: originalOptions});
+        }
+      }
+
+      rval = activeCtx = processed.context;
       continue;
     }
 
@@ -14434,8 +14412,25 @@ api.process = async ({
           '@context must be an absolute IRI.',
           'jsonld.SyntaxError', {code: 'invalid vocab mapping', context: ctx});
       } else {
-        rval['@vocab'] = _expandIri(rval, value, {vocab: true, base: true},
+        const vocab = _expandIri(rval, value, {vocab: true, base: true},
           undefined, undefined, options);
+        if(!_isAbsoluteIri(vocab)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'relative @vocab reference',
+                level: 'warning',
+                message: 'Relative @vocab reference found.',
+                details: {
+                  vocab
+                }
+              },
+              options
+            });
+          }
+        }
+        rval['@vocab'] = vocab;
       }
       defined.set('@vocab', true);
     }
@@ -14452,6 +14447,22 @@ api.process = async ({
           'jsonld.SyntaxError',
           {code: 'invalid default language', context: ctx});
       } else {
+        if(!value.match(REGEX_BCP47)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'invalid @language value',
+                level: 'warning',
+                message: '@language value must be valid BCP47.',
+                details: {
+                  language: value
+                }
+              },
+              options
+            });
+          }
+        }
         rval['@language'] = value.toLowerCase();
       }
       defined.set('@language', true);
@@ -14617,7 +14628,10 @@ api.process = async ({
     }
 
     // cache processed result
-    resolvedContext.setProcessed(activeCtx, rval);
+    resolvedContext.setProcessed(activeCtx, {
+      context: rval,
+      events
+    });
   }
 
   return rval;
@@ -14632,9 +14646,6 @@ api.process = async ({
  * @param defined a map of defining/defined keys to detect cycles and prevent
  *          double definitions.
  * @param {Object} [options] - creation options.
- * @param {string} [options.protectedMode="error"] - "error" to throw error
- *   on `@protected` constraint violation, "warn" to allow violations and
- *   signal a warning.
  * @param overrideProtected `false` allows protected terms to be modified.
  */
 api.createTermDefinition = ({
@@ -14684,10 +14695,23 @@ api.createTermDefinition = ({
       'Invalid JSON-LD syntax; keywords cannot be overridden.',
       'jsonld.SyntaxError',
       {code: 'keyword redefinition', context: localCtx, term});
-  } else if(term.match(KEYWORD_PATTERN)) {
-    // FIXME: remove logging and use a handler
-    console.warn('WARNING: terms beginning with "@" are reserved' +
-      ' for future use and ignored', {term});
+  } else if(term.match(REGEX_KEYWORD)) {
+    if(options.eventHandler) {
+      _handleEvent({
+        event: {
+          type: ['JsonLdEvent'],
+          code: 'reserved term',
+          level: 'warning',
+          message:
+            'Terms beginning with "@" are ' +
+            'reserved for future use and dropped.',
+          details: {
+            term
+          }
+        },
+        options
+      });
+    }
     return;
   } else if(term === '') {
     throw new JsonLdError(
@@ -14767,10 +14791,23 @@ api.createTermDefinition = ({
         'jsonld.SyntaxError', {code: 'invalid IRI mapping', context: localCtx});
     }
 
-    if(!api.isKeyword(reverse) && reverse.match(KEYWORD_PATTERN)) {
-      // FIXME: remove logging and use a handler
-      console.warn('WARNING: values beginning with "@" are reserved' +
-        ' for future use and ignored', {reverse});
+    if(reverse.match(REGEX_KEYWORD)) {
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'reserved @reverse value',
+            level: 'warning',
+            message:
+              '@reverse values beginning with "@" are ' +
+              'reserved for future use and dropped.',
+            details: {
+              reverse
+            }
+          },
+          options
+        });
+      }
       if(previousMapping) {
         activeCtx.mappings.set(term, previousMapping);
       } else {
@@ -14803,10 +14840,23 @@ api.createTermDefinition = ({
     if(id === null) {
       // reserve a null term, which may be protected
       mapping['@id'] = null;
-    } else if(!api.isKeyword(id) && id.match(KEYWORD_PATTERN)) {
-      // FIXME: remove logging and use a handler
-      console.warn('WARNING: values beginning with "@" are reserved' +
-        ' for future use and ignored', {id});
+    } else if(!api.isKeyword(id) && id.match(REGEX_KEYWORD)) {
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'reserved @id value',
+            level: 'warning',
+            message:
+              '@id values beginning with "@" are ' +
+              'reserved for future use and dropped.',
+            details: {
+              id
+            }
+          },
+          options
+        });
+      }
       if(previousMapping) {
         activeCtx.mappings.set(term, previousMapping);
       } else {
@@ -15121,23 +15171,10 @@ api.createTermDefinition = ({
     activeCtx.protected[term] = true;
     mapping.protected = true;
     if(!_deepCompare(previousMapping, mapping)) {
-      const protectedMode = (options && options.protectedMode) || 'error';
-      if(protectedMode === 'error') {
-        throw new JsonLdError(
-          `Invalid JSON-LD syntax; tried to redefine "${term}" which is a ` +
-          'protected term.',
-          'jsonld.SyntaxError',
-          {code: 'protected term redefinition', context: localCtx, term});
-      } else if(protectedMode === 'warn') {
-        // FIXME: remove logging and use a handler
-        console.warn('WARNING: protected term redefinition', {term});
-        return;
-      }
       throw new JsonLdError(
-        'Invalid protectedMode.',
+        'Invalid JSON-LD syntax; tried to redefine a protected term.',
         'jsonld.SyntaxError',
-        {code: 'invalid protected mode', context: localCtx, term,
-          protectedMode});
+        {code: 'protected term redefinition', context: localCtx, term});
     }
   }
 };
@@ -15186,7 +15223,7 @@ function _expandIri(activeCtx, value, relativeTo, localCtx, defined, options) {
   }
 
   // ignore non-keyword things that look like a keyword
-  if(value.match(KEYWORD_PATTERN)) {
+  if(value.match(REGEX_KEYWORD)) {
     return null;
   }
 
@@ -15244,20 +15281,103 @@ function _expandIri(activeCtx, value, relativeTo, localCtx, defined, options) {
     }
   }
 
-  // prepend vocab
+  // A flag that captures whether the iri being expanded is
+  // the value for an @type
+  //let typeExpansion = false;
+
+  //if(options !== undefined && options.typeExpansion !== undefined) {
+  //  typeExpansion = options.typeExpansion;
+  //}
+
   if(relativeTo.vocab && '@vocab' in activeCtx) {
-    return activeCtx['@vocab'] + value;
+    // prepend vocab
+    const prependedResult = activeCtx['@vocab'] + value;
+    // FIXME: needed? may be better as debug event.
+    /*
+    if(options && options.eventHandler) {
+      _handleEvent({
+        event: {
+          type: ['JsonLdEvent'],
+          code: 'prepending @vocab during expansion',
+          level: 'info',
+          message: 'Prepending @vocab during expansion.',
+          details: {
+            type: '@vocab',
+            vocab: activeCtx['@vocab'],
+            value,
+            result: prependedResult,
+            typeExpansion
+          }
+        },
+        options
+      });
+    }
+    */
+    // the null case preserves value as potentially relative
+    value = prependedResult;
+  } else if(relativeTo.base) {
+    // prepend base
+    let prependedResult;
+    let base;
+    if('@base' in activeCtx) {
+      if(activeCtx['@base']) {
+        base = prependBase(options.base, activeCtx['@base']);
+        prependedResult = prependBase(base, value);
+      } else {
+        base = activeCtx['@base'];
+        prependedResult = value;
+      }
+    } else {
+      base = options.base;
+      prependedResult = prependBase(options.base, value);
+    }
+    // FIXME: needed? may be better as debug event.
+    /*
+    if(options && options.eventHandler) {
+      _handleEvent({
+        event: {
+          type: ['JsonLdEvent'],
+          code: 'prepending @base during expansion',
+          level: 'info',
+          message: 'Prepending @base during expansion.',
+          details: {
+            type: '@base',
+            base,
+            value,
+            result: prependedResult,
+            typeExpansion
+          }
+        },
+        options
+      });
+    }
+    */
+    // the null case preserves value as potentially relative
+    value = prependedResult;
   }
 
-  // prepend base
-  if(relativeTo.base && '@base' in activeCtx) {
-    if(activeCtx['@base']) {
-      // The null case preserves value as potentially relative
-      return prependBase(prependBase(options.base, activeCtx['@base']), value);
-    }
-  } else if(relativeTo.base) {
-    return prependBase(options.base, value);
+  // FIXME: duplicate? needed? maybe just enable in a verbose debug mode
+  /*
+  if(!_isAbsoluteIri(value) && options && options.eventHandler) {
+    // emit event indicating a relative IRI was found, which can result in it
+    // being dropped when converting to other RDF representations
+    _handleEvent({
+      event: {
+        type: ['JsonLdEvent'],
+        code: 'relative IRI after expansion',
+        // FIXME: what level?
+        level: 'warning',
+        message: 'Relative IRI after expansion.',
+        details: {
+          relativeIri: value,
+          typeExpansion
+        }
+      },
+      options
+    });
+    // NOTE: relative reference events emitted at calling sites as needed
   }
+  */
 
   return value;
 }
@@ -15771,7 +15891,7 @@ module.exports = ({
       }
 
       // "alternate" link header is a redirect
-      alternate = linkHeaders['alternate'];
+      alternate = linkHeaders.alternate;
       if(alternate &&
         alternate.type == 'application/ld+json' &&
         !(contentType || '').match(/^application\/(\w*\+)?json$/)) {
@@ -15800,11 +15920,197 @@ function _get(xhr, url, headers) {
 
 /***/ }),
 
-/***/ 2759:
+/***/ 1696:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 /* provided dependency */ var console = __webpack_require__(5108);
+/*
+ * Copyright (c) 2020 Digital Bazaar, Inc. All rights reserved.
+ */
+
+
+const JsonLdError = __webpack_require__(4093);
+
+const {
+  isArray: _isArray
+} = __webpack_require__(832);
+
+const {
+  asArray: _asArray
+} = __webpack_require__(1055);
+
+const api = {};
+module.exports = api;
+
+// default handler, store as null or an array
+// exposed to allow fast external pre-handleEvent() checks
+api.defaultEventHandler = null;
+
+/**
+ * Setup event handler.
+ *
+ * Return an array event handler constructed from an optional safe mode
+ * handler, an optional options event handler, and an optional default handler.
+ *
+ * @param {object} options - processing options
+ *   {function|object|array} [eventHandler] - an event handler.
+ *
+ * @return an array event handler.
+ */
+api.setupEventHandler = ({options = {}}) => {
+  // build in priority order
+  const eventHandler = [].concat(
+    options.safe ? api.safeEventHandler : [],
+    options.eventHandler ? _asArray(options.eventHandler) : [],
+    api.defaultEventHandler ? api.defaultEventHandler : []
+  );
+  // null if no handlers
+  return eventHandler.length === 0 ? null : eventHandler;
+};
+
+/**
+ * Handle an event.
+ *
+ * Top level APIs have a common 'eventHandler' option. This option can be a
+ * function, array of functions, object mapping event.code to functions (with a
+ * default to call next()), or any combination of such handlers. Handlers will
+ * be called with an object with an 'event' entry and a 'next' function. Custom
+ * handlers should process the event as appropriate. The 'next()' function
+ * should be called to let the next handler process the event.
+ *
+ * NOTE: Only call this function if options.eventHandler is set and is an
+ * array of hanlers. This is an optimization. Callers are expected to check
+ * for an event handler before constructing events and calling this function.
+ *
+ * @param {object} event - event structure:
+ *   {string} code - event code
+ *   {string} level - severity level, one of: ['warning']
+ *   {string} message - human readable message
+ *   {object} details - event specific details
+ * @param {object} options - processing options
+ *   {array} eventHandler - an event handler array.
+ */
+api.handleEvent = ({
+  event,
+  options
+}) => {
+  _handle({event, handlers: options.eventHandler});
+};
+
+function _handle({event, handlers}) {
+  let doNext = true;
+  for(let i = 0; doNext && i < handlers.length; ++i) {
+    doNext = false;
+    const handler = handlers[i];
+    if(_isArray(handler)) {
+      doNext = _handle({event, handlers: handler});
+    } else if(typeof handler === 'function') {
+      handler({event, next: () => {
+        doNext = true;
+      }});
+    } else if(typeof handler === 'object') {
+      if(event.code in handler) {
+        handler[event.code]({event, next: () => {
+          doNext = true;
+        }});
+      } else {
+        doNext = true;
+      }
+    } else {
+      throw new JsonLdError(
+        'Invalid event handler.',
+        'jsonld.InvalidEventHandler',
+        {event});
+    }
+  }
+  return doNext;
+}
+
+const _notSafeEventCodes = new Set([
+  'empty object',
+  'free-floating scalar',
+  'invalid @language value',
+  'invalid property',
+  // NOTE: spec edge case
+  'null @id value',
+  'null @value value',
+  'object with only @id',
+  'object with only @language',
+  'object with only @list',
+  'object with only @value',
+  'relative @id reference',
+  'relative @type reference',
+  'relative @vocab reference',
+  'reserved @id value',
+  'reserved @reverse value',
+  'reserved term',
+  // toRDF
+  'blank node predicate',
+  'relative graph reference',
+  'relative object reference',
+  'relative predicate reference',
+  'relative subject reference'
+]);
+
+// safe handler that rejects unsafe warning conditions
+api.safeEventHandler = function safeEventHandler({event, next}) {
+  // fail on all unsafe warnings
+  if(event.level === 'warning' && _notSafeEventCodes.has(event.code)) {
+    throw new JsonLdError(
+      'Safe mode validation error.',
+      'jsonld.ValidationError',
+      {event}
+    );
+  }
+  next();
+};
+
+// logs all events and continues
+api.logEventHandler = function logEventHandler({event, next}) {
+  console.log(`EVENT: ${event.message}`, {event});
+  next();
+};
+
+// log 'warning' level events
+api.logWarningEventHandler = function logWarningEventHandler({event, next}) {
+  if(event.level === 'warning') {
+    console.warn(`WARNING: ${event.message}`, {event});
+  }
+  next();
+};
+
+// fallback to throw errors for any unhandled events
+api.unhandledEventHandler = function unhandledEventHandler({event}) {
+  throw new JsonLdError(
+    'No handler for event.',
+    'jsonld.UnhandledEvent',
+    {event}
+  );
+};
+
+/**
+ * Set default event handler.
+ *
+ * By default, all event are unhandled. It is recommended to pass in an
+ * eventHandler into each call. However, this call allows using a default
+ * eventHandler when one is not otherwise provided.
+ *
+ * @param {object} options - default handler options:
+ *   {function|object|array} eventHandler - a default event handler.
+ *     falsey to unset.
+ */
+api.setDefaultEventHandler = function({eventHandler} = {}) {
+  api.defaultEventHandler = eventHandler ? _asArray(eventHandler) : null;
+};
+
+
+/***/ }),
+
+/***/ 2759:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
 /*
  * Copyright (c) 2017 Digital Bazaar, Inc. All rights reserved.
  */
@@ -15840,15 +16146,20 @@ const {
 } = __webpack_require__(2278);
 
 const {
+  REGEX_BCP47,
+  REGEX_KEYWORD,
   addValue: _addValue,
   asArray: _asArray,
   getValues: _getValues,
   validateTypeValue: _validateTypeValue
 } = __webpack_require__(1055);
 
+const {
+  handleEvent: _handleEvent
+} = __webpack_require__(1696);
+
 const api = {};
 module.exports = api;
-const REGEX_BCP47 = /^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$/;
 
 /**
  * Recursively expands an element using the given context. Any context in
@@ -15865,10 +16176,6 @@ const REGEX_BCP47 = /^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$/;
  * @param typeScopedContext an optional type-scoped active context for
  *          expanding values of nodes that were expressed according to
  *          a type-scoped context.
- * @param expansionMap(info) a function that can be used to custom map
- *          unmappable values (or to throw an error when they are detected);
- *          if this function returns `undefined` then the default behavior
- *          will be used.
  *
  * @return a Promise that resolves to the expanded value.
  */
@@ -15879,8 +16186,7 @@ api.expand = async ({
   options = {},
   insideList = false,
   insideIndex = false,
-  typeScopedContext = null,
-  expansionMap = () => undefined
+  typeScopedContext = null
 }) => {
   // nothing to expand
   if(element === null || element === undefined) {
@@ -15893,21 +16199,28 @@ api.expand = async ({
   }
 
   if(!_isArray(element) && !_isObject(element)) {
-    // drop free-floating scalars that are not in lists unless custom mapped
+    // drop free-floating scalars that are not in lists
     if(!insideList && (activeProperty === null ||
       _expandIri(activeCtx, activeProperty, {vocab: true},
         options) === '@graph')) {
-      const mapped = await expansionMap({
-        unmappedValue: element,
-        activeCtx,
-        activeProperty,
-        options,
-        insideList
-      });
-      if(mapped === undefined) {
-        return null;
+      // FIXME
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'free-floating scalar',
+            level: 'warning',
+            message: 'Dropping free-floating scalar not in a list.',
+            details: {
+              value: element
+              //activeProperty
+              //insideList
+            }
+          },
+          options
+        });
       }
-      return mapped;
+      return null;
     }
 
     // expand element according to value expansion rules
@@ -15927,7 +16240,6 @@ api.expand = async ({
         activeProperty,
         element: element[i],
         options,
-        expansionMap,
         insideIndex,
         typeScopedContext
       });
@@ -15936,19 +16248,16 @@ api.expand = async ({
       }
 
       if(e === null) {
-        e = await expansionMap({
-          unmappedValue: element[i],
-          activeCtx,
-          activeProperty,
-          parent: element,
-          index: i,
-          options,
-          expandedParent: rval,
-          insideList
-        });
-        if(e === undefined) {
-          continue;
-        }
+        // FIXME: add debug event?
+        //unmappedValue: element[i],
+        //activeProperty,
+        //parent: element,
+        //index: i,
+        //expandedParent: rval,
+        //insideList
+
+        // NOTE: no-value events emitted at calling sites as needed
+        continue;
       }
 
       if(_isArray(e)) {
@@ -16061,8 +16370,8 @@ api.expand = async ({
     options,
     insideList,
     typeKey,
-    typeScopedContext,
-    expansionMap});
+    typeScopedContext
+  });
 
   // get property count on expanded output
   keys = Object.keys(rval);
@@ -16099,24 +16408,27 @@ api.expand = async ({
     const values = rval['@value'] === null ? [] : _asArray(rval['@value']);
     const types = _getValues(rval, '@type');
 
-    // drop null @values unless custom mapped
+    // drop null @values
     if(_processingMode(activeCtx, 1.1) && types.includes('@json') &&
       types.length === 1) {
       // Any value of @value is okay if @type: @json
     } else if(values.length === 0) {
-      const mapped = await expansionMap({
-        unmappedValue: rval,
-        activeCtx,
-        activeProperty,
-        element,
-        options,
-        insideList
-      });
-      if(mapped !== undefined) {
-        rval = mapped;
-      } else {
-        rval = null;
+      // FIXME
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'null @value value',
+            level: 'warning',
+            message: 'Dropping null @value value.',
+            details: {
+              value: rval
+            }
+          },
+          options
+        });
       }
+      rval = null;
     } else if(!values.every(v => (_isString(v) || _isEmptyObject(v))) &&
       '@language' in rval) {
       // if @language is present, @value must be a string
@@ -16151,43 +16463,64 @@ api.expand = async ({
       count = keys.length;
     }
   } else if(count === 1 && '@language' in rval) {
-    // drop objects with only @language unless custom mapped
-    const mapped = await expansionMap(rval, {
-      unmappedValue: rval,
-      activeCtx,
-      activeProperty,
-      element,
-      options,
-      insideList
-    });
-    if(mapped !== undefined) {
-      rval = mapped;
-    } else {
-      rval = null;
+    // drop objects with only @language
+    // FIXME
+    if(options.eventHandler) {
+      _handleEvent({
+        event: {
+          type: ['JsonLdEvent'],
+          code: 'object with only @language',
+          level: 'warning',
+          message: 'Dropping object with only @language.',
+          details: {
+            value: rval
+          }
+        },
+        options
+      });
     }
+    rval = null;
   }
 
-  // drop certain top-level objects that do not occur in lists, unless custom
-  // mapped
+  // drop certain top-level objects that do not occur in lists
   if(_isObject(rval) &&
     !options.keepFreeFloatingNodes && !insideList &&
     (activeProperty === null || expandedActiveProperty === '@graph')) {
     // drop empty object, top-level @value/@list, or object with only @id
     if(count === 0 || '@value' in rval || '@list' in rval ||
       (count === 1 && '@id' in rval)) {
-      const mapped = await expansionMap({
-        unmappedValue: rval,
-        activeCtx,
-        activeProperty,
-        element,
-        options,
-        insideList
-      });
-      if(mapped !== undefined) {
-        rval = mapped;
-      } else {
-        rval = null;
+      // FIXME
+      if(options.eventHandler) {
+        // FIXME: one event or diff event for empty, @v/@l, {@id}?
+        let code;
+        let message;
+        if(count === 0) {
+          code = 'empty object';
+          message = 'Dropping empty object.';
+        } else if('@value' in rval) {
+          code = 'object with only @value';
+          message = 'Dropping object with only @value.';
+        } else if('@list' in rval) {
+          code = 'object with only @list';
+          message = 'Dropping object with only @list.';
+        } else if(count === 1 && '@id' in rval) {
+          code = 'object with only @id';
+          message = 'Dropping object with only @id.';
+        }
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code,
+            level: 'warning',
+            message,
+            details: {
+              value: rval
+            }
+          },
+          options
+        });
       }
+      rval = null;
     }
   }
 
@@ -16206,10 +16539,6 @@ api.expand = async ({
  * @param insideList true if the element is a list, false if not.
  * @param typeKey first key found expanding to @type.
  * @param typeScopedContext the context before reverting.
- * @param expansionMap(info) a function that can be used to custom map
- *          unmappable values (or to throw an error when they are detected);
- *          if this function returns `undefined` then the default behavior
- *          will be used.
  */
 async function _expandObject({
   activeCtx,
@@ -16220,8 +16549,7 @@ async function _expandObject({
   options = {},
   insideList,
   typeKey,
-  typeScopedContext,
-  expansionMap
+  typeScopedContext
 }) {
   const keys = Object.keys(element).sort();
   const nests = [];
@@ -16231,7 +16559,10 @@ async function _expandObject({
   const isJsonType = element[typeKey] &&
     _expandIri(activeCtx,
       (_isArray(element[typeKey]) ? element[typeKey][0] : element[typeKey]),
-      {vocab: true}, options) === '@json';
+      {vocab: true}, {
+        ...options,
+        typeExpansion: true
+      }) === '@json';
 
   for(const key of keys) {
     let value = element[key];
@@ -16243,25 +16574,28 @@ async function _expandObject({
     }
 
     // expand property
-    let expandedProperty = _expandIri(activeCtx, key, {vocab: true}, options);
+    const expandedProperty = _expandIri(activeCtx, key, {vocab: true}, options);
 
-    // drop non-absolute IRI keys that aren't keywords unless custom mapped
+    // drop non-absolute IRI keys that aren't keywords
     if(expandedProperty === null ||
       !(_isAbsoluteIri(expandedProperty) || _isKeyword(expandedProperty))) {
-      // TODO: use `await` to support async
-      expandedProperty = expansionMap({
-        unmappedProperty: key,
-        activeCtx,
-        activeProperty,
-        parent: element,
-        options,
-        insideList,
-        value,
-        expandedParent
-      });
-      if(expandedProperty === undefined) {
-        continue;
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'invalid property',
+            level: 'warning',
+            message: 'Dropping property that did not expand into an ' +
+              'absolute IRI or keyword.',
+            details: {
+              property: key,
+              expandedProperty
+            }
+          },
+          options
+        });
       }
+      continue;
     }
 
     if(_isKeyword(expandedProperty)) {
@@ -16314,8 +16648,61 @@ async function _expandObject({
 
       _addValue(
         expandedParent, '@id',
-        _asArray(value).map(v =>
-          _isString(v) ? _expandIri(activeCtx, v, {base: true}, options) : v),
+        _asArray(value).map(v => {
+          if(_isString(v)) {
+            const ve = _expandIri(activeCtx, v, {base: true}, options);
+            if(options.eventHandler) {
+              if(ve === null) {
+                // NOTE: spec edge case
+                // See https://github.com/w3c/json-ld-api/issues/480
+                if(v === null) {
+                  _handleEvent({
+                    event: {
+                      type: ['JsonLdEvent'],
+                      code: 'null @id value',
+                      level: 'warning',
+                      message: 'Null @id found.',
+                      details: {
+                        id: v
+                      }
+                    },
+                    options
+                  });
+                } else {
+                  // matched KEYWORD regex
+                  _handleEvent({
+                    event: {
+                      type: ['JsonLdEvent'],
+                      code: 'reserved @id value',
+                      level: 'warning',
+                      message: 'Reserved @id found.',
+                      details: {
+                        id: v
+                      }
+                    },
+                    options
+                  });
+                }
+              } else if(!_isAbsoluteIri(ve)) {
+                _handleEvent({
+                  event: {
+                    type: ['JsonLdEvent'],
+                    code: 'relative @id reference',
+                    level: 'warning',
+                    message: 'Relative @id reference found.',
+                    details: {
+                      id: v,
+                      expandedId: ve
+                    }
+                  },
+                  options
+                });
+              }
+            }
+            return ve;
+          }
+          return v;
+        }),
         {propertyIsArray: options.isFrame});
       continue;
     }
@@ -16327,17 +16714,39 @@ async function _expandObject({
         value = Object.fromEntries(Object.entries(value).map(([k, v]) => [
           _expandIri(typeScopedContext, k, {vocab: true}),
           _asArray(v).map(vv =>
-            _expandIri(typeScopedContext, vv, {base: true, vocab: true})
+            _expandIri(typeScopedContext, vv, {base: true, vocab: true},
+              {...options, typeExpansion: true})
           )
         ]));
       }
       _validateTypeValue(value, options.isFrame);
       _addValue(
         expandedParent, '@type',
-        _asArray(value).map(v =>
-          _isString(v) ?
-            _expandIri(typeScopedContext, v,
-              {base: true, vocab: true}, options) : v),
+        _asArray(value).map(v => {
+          if(_isString(v)) {
+            const ve = _expandIri(typeScopedContext, v,
+              {base: true, vocab: true},
+              {...options, typeExpansion: true});
+            if(!_isAbsoluteIri(ve)) {
+              if(options.eventHandler) {
+                _handleEvent({
+                  event: {
+                    type: ['JsonLdEvent'],
+                    code: 'relative @type reference',
+                    level: 'warning',
+                    message: 'Relative @type reference found.',
+                    details: {
+                      type: v
+                    }
+                  },
+                  options
+                });
+              }
+            }
+            return ve;
+          }
+          return v;
+        }),
         {propertyIsArray: options.isFrame});
       continue;
     }
@@ -16350,8 +16759,7 @@ async function _expandObject({
         activeCtx,
         activeProperty,
         element: value,
-        options,
-        expansionMap
+        options
       }));
 
       // Expanded values must be node objects
@@ -16407,9 +16815,22 @@ async function _expandObject({
       value = _asArray(value).map(v => _isString(v) ? v.toLowerCase() : v);
 
       // ensure language tag matches BCP47
-      for(const lang of value) {
-        if(_isString(lang) && !lang.match(REGEX_BCP47)) {
-          console.warn(`@language must be valid BCP47: ${lang}`);
+      for(const language of value) {
+        if(_isString(language) && !language.match(REGEX_BCP47)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'invalid @language value',
+                level: 'warning',
+                message: '@language value must be valid BCP47.',
+                details: {
+                  language
+                }
+              },
+              options
+            });
+          }
         }
       }
 
@@ -16470,8 +16891,7 @@ async function _expandObject({
         activeProperty:
         '@reverse',
         element: value,
-        options,
-        expansionMap
+        options
       });
       // properties double-reversed
       if('@reverse' in expandedValue) {
@@ -16546,7 +16966,6 @@ async function _expandObject({
         options,
         activeProperty: key,
         value,
-        expansionMap,
         asGraph,
         indexKey,
         propertyIndex
@@ -16559,7 +16978,6 @@ async function _expandObject({
         options,
         activeProperty: key,
         value,
-        expansionMap,
         asGraph,
         indexKey: '@id'
       });
@@ -16571,7 +16989,6 @@ async function _expandObject({
         options,
         activeProperty: key,
         value,
-        expansionMap,
         asGraph: false,
         indexKey: '@type'
       });
@@ -16588,8 +17005,7 @@ async function _expandObject({
           activeProperty: nextActiveProperty,
           element: value,
           options,
-          insideList: isList,
-          expansionMap
+          insideList: isList
         });
       } else if(
         _getContextValue(activeCtx, key, '@type') === '@json') {
@@ -16604,29 +17020,18 @@ async function _expandObject({
           activeProperty: key,
           element: value,
           options,
-          insideList: false,
-          expansionMap
+          insideList: false
         });
       }
     }
 
     // drop null values if property is not @value
     if(expandedValue === null && expandedProperty !== '@value') {
-      // TODO: use `await` to support async
-      expandedValue = expansionMap({
-        unmappedValue: value,
-        expandedProperty,
-        activeCtx: termCtx,
-        activeProperty,
-        parent: element,
-        options,
-        insideList,
-        key,
-        expandedParent
-      });
-      if(expandedValue === undefined) {
-        continue;
-      }
+      // FIXME: event?
+      //unmappedValue: value,
+      //expandedProperty,
+      //key,
+      continue;
     }
 
     // convert expanded value to @list if container specifies it
@@ -16708,8 +17113,8 @@ async function _expandObject({
         options,
         insideList,
         typeScopedContext,
-        typeKey,
-        expansionMap});
+        typeKey
+      });
     }
   }
 }
@@ -16737,7 +17142,8 @@ function _expandValue({activeCtx, activeProperty, value, options}) {
   if(expandedProperty === '@id') {
     return _expandIri(activeCtx, value, {base: true}, options);
   } else if(expandedProperty === '@type') {
-    return _expandIri(activeCtx, value, {vocab: true, base: true}, options);
+    return _expandIri(activeCtx, value, {vocab: true, base: true},
+      {...options, typeExpansion: true});
   }
 
   // get type definition from context
@@ -16745,7 +17151,25 @@ function _expandValue({activeCtx, activeProperty, value, options}) {
 
   // do @id expansion (automatic for @graph)
   if((type === '@id' || expandedProperty === '@graph') && _isString(value)) {
-    return {'@id': _expandIri(activeCtx, value, {base: true}, options)};
+    const expandedValue = _expandIri(activeCtx, value, {base: true}, options);
+    // NOTE: handle spec edge case and avoid invalid {"@id": null}
+    if(expandedValue === null && value.match(REGEX_KEYWORD)) {
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'reserved @id value',
+            level: 'warning',
+            message: 'Reserved @id found.',
+            details: {
+              id: activeProperty
+            }
+          },
+          options
+        });
+      }
+    }
+    return {'@id': expandedValue};
   }
   // do @id expansion w/vocab
   if(type === '@vocab' && _isString(value)) {
@@ -16816,6 +17240,22 @@ function _expandLanguageMap(activeCtx, languageMap, direction, options) {
       }
       const val = {'@value': item};
       if(expandedKey !== '@none') {
+        if(!key.match(REGEX_BCP47)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'invalid @language value',
+                level: 'warning',
+                message: '@language value must be valid BCP47.',
+                details: {
+                  language: key
+                }
+              },
+              options
+            });
+          }
+        }
         val['@language'] = key.toLowerCase();
       }
       if(direction) {
@@ -16827,9 +17267,9 @@ function _expandLanguageMap(activeCtx, languageMap, direction, options) {
   return rval;
 }
 
-async function _expandIndexMap(
-  {activeCtx, options, activeProperty, value, expansionMap, asGraph,
-    indexKey, propertyIndex}) {
+async function _expandIndexMap({
+  activeCtx, options, activeProperty, value, asGraph, indexKey, propertyIndex
+}) {
   const rval = [];
   const keys = Object.keys(value).sort();
   const isTypeIndex = indexKey === '@type';
@@ -16858,8 +17298,7 @@ async function _expandIndexMap(
       element: val,
       options,
       insideList: false,
-      insideIndex: true,
-      expansionMap
+      insideIndex: true
     });
 
     // expand for @type, but also for @none
@@ -17807,7 +18246,6 @@ function _valueMatch(pattern, value) {
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-/* provided dependency */ var console = __webpack_require__(5108);
 /*
  * Copyright (c) 2017 Digital Bazaar, Inc. All rights reserved.
  */
@@ -17816,7 +18254,15 @@ function _valueMatch(pattern, value) {
 const JsonLdError = __webpack_require__(4093);
 const graphTypes = __webpack_require__(8463);
 const types = __webpack_require__(832);
-const util = __webpack_require__(1055);
+
+const {
+  REGEX_BCP47,
+  addValue: _addValue
+} = __webpack_require__(1055);
+
+const {
+  handleEvent: _handleEvent
+} = __webpack_require__(1696);
 
 // constants
 const {
@@ -17839,8 +18285,6 @@ const {
   XSD_STRING,
 } = __webpack_require__(3770);
 
-const REGEX_BCP47 = /^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$/;
-
 const api = {};
 module.exports = api;
 
@@ -17854,15 +18298,16 @@ module.exports = api;
  */
 api.fromRDF = async (
   dataset,
-  {
-    useRdfType = false,
-    useNativeTypes = false,
-    rdfDirection = null
-  }
+  options
 ) => {
   const defaultGraph = {};
   const graphMap = {'@default': defaultGraph};
   const referencedOnce = {};
+  const {
+    useRdfType = false,
+    useNativeTypes = false,
+    rdfDirection = null
+  } = options;
 
   for(const quad of dataset) {
     // TODO: change 'name' to 'graph'
@@ -17893,12 +18338,12 @@ api.fromRDF = async (
     }
 
     if(p === RDF_TYPE && !useRdfType && objectIsNode) {
-      util.addValue(node, '@type', o.value, {propertyIsArray: true});
+      _addValue(node, '@type', o.value, {propertyIsArray: true});
       continue;
     }
 
-    const value = _RDFToObject(o, useNativeTypes, rdfDirection);
-    util.addValue(node, p, value, {propertyIsArray: true});
+    const value = _RDFToObject(o, useNativeTypes, rdfDirection, options);
+    _addValue(node, p, value, {propertyIsArray: true});
 
     // object may be an RDF list/partial list node but we can't know easily
     // until all triples are read
@@ -17957,12 +18402,12 @@ api.fromRDF = async (
       }
 
       if(p === RDF_TYPE && !useRdfType && objectIsId) {
-        util.addValue(node, '@type', o.value, {propertyIsArray: true});
+        _addValue(node, '@type', o.value, {propertyIsArray: true});
         continue;
       }
 
       const value = _RDFToObject(o, useNativeTypes);
-      util.addValue(node, p, value, {propertyIsArray: true});
+      _addValue(node, p, value, {propertyIsArray: true});
 
       // object may be an RDF list/partial list node but we can't know easily
       // until all triples are read
@@ -18085,10 +18530,12 @@ api.fromRDF = async (
  *
  * @param o the RDF triple object to convert.
  * @param useNativeTypes true to output native types, false not to.
+ * @param rdfDirection text direction mode [null, i18n-datatype]
+ * @param options top level API options
  *
  * @return the JSON-LD object.
  */
-function _RDFToObject(o, useNativeTypes, rdfDirection) {
+function _RDFToObject(o, useNativeTypes, rdfDirection, options) {
   // convert NamedNode/BlankNode object to JSON-LD
   if(o.termType.endsWith('Node')) {
     return {'@id': o.value};
@@ -18099,6 +18546,22 @@ function _RDFToObject(o, useNativeTypes, rdfDirection) {
 
   // add language
   if(o.language) {
+    if(!o.language.match(REGEX_BCP47)) {
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'invalid @language value',
+            level: 'warning',
+            message: '@language value must be valid BCP47.',
+            details: {
+              language: o.language
+            }
+          },
+          options
+        });
+      }
+    }
     rval['@language'] = o.language;
   } else {
     let type = o.datatype.value;
@@ -18144,7 +18607,20 @@ function _RDFToObject(o, useNativeTypes, rdfDirection) {
       if(language.length > 0) {
         rval['@language'] = language;
         if(!language.match(REGEX_BCP47)) {
-          console.warn(`@language must be valid BCP47: ${language}`);
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'invalid @language value',
+                level: 'warning',
+                message: '@language value must be valid BCP47.',
+                details: {
+                  language
+                }
+              },
+              options
+            });
+          }
         }
       }
       rval['@direction'] = direction;
@@ -18271,11 +18747,12 @@ api.isSimpleGraph = v => {
 api.isBlankNode = v => {
   // Note: A value is a blank node if all of these hold true:
   // 1. It is an Object.
-  // 2. If it has an @id key its value begins with '_:'.
+  // 2. If it has an @id key that is not a string OR begins with '_:'.
   // 3. It has no keys OR is not a @value, @set, or @list.
   if(types.isObject(v)) {
     if('@id' in v) {
-      return (v['@id'].indexOf('_:') === 0);
+      const id = v['@id'];
+      return !types.isString(id) || id.indexOf('_:') === 0;
     }
     return (Object.keys(v).length === 0 ||
       !(('@value' in v) || ('@set' in v) || ('@list' in v)));
@@ -18295,7 +18772,7 @@ api.isBlankNode = v => {
  * @author Dave Longley
  *
  * @license BSD 3-Clause License
- * Copyright (c) 2011-2019 Digital Bazaar, Inc.
+ * Copyright (c) 2011-2022 Digital Bazaar, Inc.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -18371,6 +18848,16 @@ const {
   mergeNodeMaps: _mergeNodeMaps
 } = __webpack_require__(2664);
 
+const {
+  logEventHandler: _logEventHandler,
+  logWarningEventHandler: _logWarningEventHandler,
+  safeEventHandler: _safeEventHandler,
+  setDefaultEventHandler: _setDefaultEventHandler,
+  setupEventHandler: _setupEventHandler,
+  strictEventHandler: _strictEventHandler,
+  unhandledEventHandler: _unhandledEventHandler
+} = __webpack_require__(1696);
+
 /* eslint-disable indent */
 // attaches jsonld API to the given object
 const wrapper = function(jsonld) {
@@ -18401,15 +18888,8 @@ const _resolvedContextCache = new LRU({max: RESOLVED_CONTEXT_CACHE_MAX_SIZE});
  *          [skipExpansion] true to assume the input is expanded and skip
  *            expansion, false not to, defaults to false.
  *          [documentLoader(url, options)] the document loader.
- *          [expansionMap(info)] a function that can be used to custom map
- *            unmappable values (or to throw an error when they are detected);
- *            if this function returns `undefined` then the default behavior
- *            will be used.
  *          [framing] true if compaction is occuring during a framing operation.
- *          [compactionMap(info)] a function that can be used to custom map
- *            unmappable values (or to throw an error when they are detected);
- *            if this function returns `undefined` then the default behavior
- *            will be used.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the compacted output.
@@ -18467,8 +18947,7 @@ jsonld.compact = async function(input, ctx, options) {
   let compacted = await _compact({
     activeCtx,
     element: expanded,
-    options,
-    compactionMap: options.compactionMap
+    options
   });
 
   // perform clean up
@@ -18544,10 +19023,7 @@ jsonld.compact = async function(input, ctx, options) {
  *          [keepFreeFloatingNodes] true to keep free-floating nodes,
  *            false not to, defaults to false.
  *          [documentLoader(url, options)] the document loader.
- *          [expansionMap(info)] a function that can be used to custom map
- *            unmappable values (or to throw an error when they are detected);
- *            if this function returns `undefined` then the default behavior
- *            will be used.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the expanded output.
@@ -18563,9 +19039,6 @@ jsonld.expand = async function(input, options) {
     contextResolver: new ContextResolver(
       {sharedCache: _resolvedContextCache})
   });
-  if(options.expansionMap === false) {
-    options.expansionMap = undefined;
-  }
 
   // build set of objects that may have @contexts to resolve
   const toResolve = {};
@@ -18616,8 +19089,7 @@ jsonld.expand = async function(input, options) {
   let expanded = await _expand({
     activeCtx,
     element: toResolve.input,
-    options,
-    expansionMap: options.expansionMap
+    options
   });
 
   // optimize away @graph with no other properties
@@ -18700,6 +19172,7 @@ jsonld.flatten = async function(input, ctx, options) {
  *          [requireAll] default @requireAll flag (default: true).
  *          [omitDefault] default @omitDefault flag (default: false).
  *          [documentLoader(url, options)] the document loader.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the framed output.
@@ -18798,6 +19271,7 @@ jsonld.frame = async function(input, frame, options) {
  *          [base] the base IRI to use.
  *          [expandContext] a context to expand with.
  *          [documentLoader(url, options)] the document loader.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the linked output.
@@ -18818,12 +19292,18 @@ jsonld.link = async function(input, ctx, options) {
  * unless the 'inputFormat' option is used. The output is an RDF dataset
  * unless the 'format' option is used.
  *
+ * Note: Canonicalization sets `safe` to `true` and `base` to `null` by
+ * default in order to produce safe outputs and "fail closed" by default. This
+ * is different from the other API transformations in this version which
+ * allow unsafe defaults (for cryptographic usage) in order to comply with the
+ * JSON-LD 1.1 specification.
+ *
  * @param input the input to normalize as JSON-LD or as a format specified by
  *          the 'inputFormat' option.
  * @param [options] the options to use:
  *          [algorithm] the normalization algorithm to use, `URDNA2015` or
  *            `URGNA2012` (default: `URDNA2015`).
- *          [base] the base IRI to use.
+ *          [base] the base IRI to use (default: `null`).
  *          [expandContext] a context to expand with.
  *          [skipExpansion] true to assume the input is expanded and skip
  *            expansion, false not to, defaults to false.
@@ -18833,6 +19313,7 @@ jsonld.link = async function(input, ctx, options) {
  *            'application/n-quads' for N-Quads.
  *          [documentLoader(url, options)] the document loader.
  *          [useNative] true to use a native canonize algorithm
+ *          [safe] true to use safe mode. (default: true).
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the normalized output.
@@ -18844,9 +19325,10 @@ jsonld.normalize = jsonld.canonize = async function(input, options) {
 
   // set default options
   options = _setDefaults(options, {
-    base: _isString(input) ? input : '',
+    base: _isString(input) ? input : null,
     algorithm: 'URDNA2015',
     skipExpansion: false,
+    safe: true,
     contextResolver: new ContextResolver(
       {sharedCache: _resolvedContextCache})
   });
@@ -18887,6 +19369,9 @@ jsonld.normalize = jsonld.canonize = async function(input, options) {
  *            (default: false).
  *          [useNativeTypes] true to convert XSD types into native types
  *            (boolean, integer, double), false not to (default: false).
+ *          [rdfDirection] 'i18n-datatype' to support RDF transformation of
+ *             @direction (default: null).
+ *          [safe] true to use safe mode. (default: false)
  *
  * @return a Promise that resolves to the JSON-LD document.
  */
@@ -18936,6 +19421,7 @@ jsonld.fromRDF = async function(dataset, options) {
  *          [produceGeneralizedRdf] true to output generalized RDF, false
  *            to produce only standard RDF (default: false).
  *          [documentLoader(url, options)] the document loader.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the RDF dataset.
@@ -19028,6 +19514,7 @@ jsonld.createNodeMap = async function(input, options) {
  *            new properties where a node is in the `object` position
  *            (default: true).
  *          [documentLoader(url, options)] the document loader.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the merged output.
@@ -19190,6 +19677,7 @@ jsonld.get = async function(url, options) {
  * @param localCtx the local context to process.
  * @param [options] the options to use:
  *          [documentLoader(url, options)] the document loader.
+ *          [safe] true to use safe mode. (default: false)
  *          [contextResolver] internal use only.
  *
  * @return a Promise that resolves to the new active context.
@@ -19275,6 +19763,14 @@ jsonld.registerRDFParser('application/nquads', NQuads.parse);
 /* URL API */
 jsonld.url = __webpack_require__(2278);
 
+/* Events API and handlers */
+jsonld.logEventHandler = _logEventHandler;
+jsonld.logWarningEventHandler = _logWarningEventHandler;
+jsonld.safeEventHandler = _safeEventHandler;
+jsonld.setDefaultEventHandler = _setDefaultEventHandler;
+jsonld.strictEventHandler = _strictEventHandler;
+jsonld.unhandledEventHandler = _unhandledEventHandler;
+
 /* Utility API */
 jsonld.util = util;
 // backwards compatibility
@@ -19296,7 +19792,24 @@ function _setDefaults(options, {
   documentLoader = jsonld.documentLoader,
   ...defaults
 }) {
-  return Object.assign({}, {documentLoader}, defaults, options);
+  // fail if obsolete options present
+  if(options && 'compactionMap' in options) {
+    throw new JsonLdError(
+      '"compactionMap" not supported.',
+      'jsonld.OptionsError');
+  }
+  if(options && 'expansionMap' in options) {
+    throw new JsonLdError(
+      '"expansionMap" not supported.',
+      'jsonld.OptionsError');
+  }
+  return Object.assign(
+    {},
+    {documentLoader},
+    defaults,
+    options,
+    {eventHandler: _setupEventHandler({options})}
+  );
 }
 
 // end of jsonld API `wrapper` factory
@@ -19682,6 +20195,10 @@ const types = __webpack_require__(832);
 const util = __webpack_require__(1055);
 
 const {
+  handleEvent: _handleEvent
+} = __webpack_require__(1696);
+
+const {
   // RDF,
   // RDF_LIST,
   RDF_FIRST,
@@ -19737,6 +20254,20 @@ api.toRDF = (input, options) => {
       graphTerm.value = graphName;
     } else {
       // skip relative IRIs (not valid RDF)
+      if(options.eventHandler) {
+        _handleEvent({
+          event: {
+            type: ['JsonLdEvent'],
+            code: 'relative graph reference',
+            level: 'warning',
+            message: 'Relative graph reference found.',
+            details: {
+              graph: graphName
+            }
+          },
+          options
+        });
+      }
       continue;
     }
     _graphToRDF(dataset, nodeMap[graphName], graphTerm, issuer, options);
@@ -19778,6 +20309,20 @@ function _graphToRDF(dataset, graph, graphTerm, issuer, options) {
 
         // skip relative IRI subjects (not valid RDF)
         if(!_isAbsoluteIri(id)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'relative subject reference',
+                level: 'warning',
+                message: 'Relative subject reference found.',
+                details: {
+                  subject: id
+                }
+              },
+              options
+            });
+          }
           continue;
         }
 
@@ -19789,18 +20334,48 @@ function _graphToRDF(dataset, graph, graphTerm, issuer, options) {
 
         // skip relative IRI predicates (not valid RDF)
         if(!_isAbsoluteIri(property)) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'relative predicate reference',
+                level: 'warning',
+                message: 'Relative predicate reference found.',
+                details: {
+                  predicate: property
+                }
+              },
+              options
+            });
+          }
           continue;
         }
 
         // skip blank node predicates unless producing generalized RDF
         if(predicate.termType === 'BlankNode' &&
           !options.produceGeneralizedRdf) {
+          if(options.eventHandler) {
+            _handleEvent({
+              event: {
+                type: ['JsonLdEvent'],
+                code: 'blank node predicate',
+                level: 'warning',
+                message: 'Dropping blank node predicate.',
+                details: {
+                  // FIXME: add better issuer API to get reverse mapping
+                  property: issuer.getOldIds()
+                    .find(key => issuer.getId(key) === property)
+                }
+              },
+              options
+            });
+          }
           continue;
         }
 
         // convert list, value or node object to triple
-        const object =
-          _objectToRDF(item, issuer, dataset, graphTerm, options.rdfDirection);
+        const object = _objectToRDF(
+          item, issuer, dataset, graphTerm, options.rdfDirection, options);
         // skip null objects (they are relative IRIs)
         if(object) {
           dataset.push({
@@ -19823,10 +20398,11 @@ function _graphToRDF(dataset, graph, graphTerm, issuer, options) {
  * @param issuer a IdentifierIssuer for assigning blank node names.
  * @param dataset the array of quads to append to.
  * @param graphTerm the graph term for each quad.
+ * @param options the RDF serialization options.
  *
  * @return the head of the list.
  */
-function _listToRDF(list, issuer, dataset, graphTerm, rdfDirection) {
+function _listToRDF(list, issuer, dataset, graphTerm, rdfDirection, options) {
   const first = {termType: 'NamedNode', value: RDF_FIRST};
   const rest = {termType: 'NamedNode', value: RDF_REST};
   const nil = {termType: 'NamedNode', value: RDF_NIL};
@@ -19837,7 +20413,8 @@ function _listToRDF(list, issuer, dataset, graphTerm, rdfDirection) {
   let subject = result;
 
   for(const item of list) {
-    const object = _objectToRDF(item, issuer, dataset, graphTerm, rdfDirection);
+    const object = _objectToRDF(
+      item, issuer, dataset, graphTerm, rdfDirection, options);
     const next = {termType: 'BlankNode', value: issuer.getId()};
     dataset.push({
       subject,
@@ -19856,7 +20433,8 @@ function _listToRDF(list, issuer, dataset, graphTerm, rdfDirection) {
 
   // Tail of list
   if(last) {
-    const object = _objectToRDF(last, issuer, dataset, graphTerm, rdfDirection);
+    const object = _objectToRDF(
+      last, issuer, dataset, graphTerm, rdfDirection, options);
     dataset.push({
       subject,
       predicate: first,
@@ -19882,10 +20460,13 @@ function _listToRDF(list, issuer, dataset, graphTerm, rdfDirection) {
  * @param issuer a IdentifierIssuer for assigning blank node names.
  * @param dataset the dataset to append RDF quads to.
  * @param graphTerm the graph term for each quad.
+ * @param options the RDF serialization options.
  *
  * @return the RDF literal or RDF resource.
  */
-function _objectToRDF(item, issuer, dataset, graphTerm, rdfDirection) {
+function _objectToRDF(
+  item, issuer, dataset, graphTerm, rdfDirection, options
+) {
   const object = {};
 
   // convert value object to RDF
@@ -19931,8 +20512,8 @@ function _objectToRDF(item, issuer, dataset, graphTerm, rdfDirection) {
       object.datatype.value = datatype || XSD_STRING;
     }
   } else if(graphTypes.isList(item)) {
-    const _list =
-      _listToRDF(item['@list'], issuer, dataset, graphTerm, rdfDirection);
+    const _list = _listToRDF(
+      item['@list'], issuer, dataset, graphTerm, rdfDirection, options);
     object.termType = _list.termType;
     object.value = _list.value;
   } else {
@@ -19944,6 +20525,20 @@ function _objectToRDF(item, issuer, dataset, graphTerm, rdfDirection) {
 
   // skip relative IRIs, not valid RDF
   if(object.termType === 'NamedNode' && !_isAbsoluteIri(object.value)) {
+    if(options.eventHandler) {
+      _handleEvent({
+        event: {
+          type: ['JsonLdEvent'],
+          code: 'relative object reference',
+          level: 'warning',
+          message: 'Relative object reference found.',
+          details: {
+            object: object.value
+          }
+        },
+        options
+      });
+    }
     return null;
   }
 
@@ -20378,10 +20973,12 @@ const IdentifierIssuer = (__webpack_require__(7055).IdentifierIssuer);
 const JsonLdError = __webpack_require__(4093);
 
 // constants
+const REGEX_BCP47 = /^[a-zA-Z]{1,8}(-[a-zA-Z0-9]{1,8})*$/;
 const REGEX_LINK_HEADERS = /(?:<[^>]*?>|"[^"]*?"|[^,])+/g;
 const REGEX_LINK_HEADER = /\s*<([^>]*?)>\s*(?:;\s*(.*))?/;
 const REGEX_LINK_HEADER_PARAMS =
   /(.*?)=(?:(?:"([^"]*?)")|([^"]*?))\s*(?:(?:;\s*)|$)/g;
+const REGEX_KEYWORD = /^@[a-zA-Z]+$/;
 
 const DEFAULTS = {
   headers: {
@@ -20392,6 +20989,8 @@ const DEFAULTS = {
 const api = {};
 module.exports = api;
 api.IdentifierIssuer = IdentifierIssuer;
+api.REGEX_BCP47 = REGEX_BCP47;
+api.REGEX_KEYWORD = REGEX_KEYWORD;
 
 /**
  * Clones an object, array, Map, Set, or string/number. If a typed JavaScript
@@ -20498,7 +21097,7 @@ api.parseLinkHeader = header => {
     while((match = REGEX_LINK_HEADER_PARAMS.exec(params))) {
       result[match[1]] = (match[2] === undefined) ? match[3] : match[2];
     }
-    const rel = result['rel'] || '';
+    const rel = result.rel || '';
     if(Array.isArray(rval[rel])) {
       rval[rel].push(result);
     } else if(rval.hasOwnProperty(rel)) {
