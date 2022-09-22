@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 const shexParser = require('@shexjs/parser');
-const shexUtil = require('@shexjs/util');
+const { ctor: RdfJsDb } = require('@shexjs/neighborhood-rdfjs');
 const shexValidator = require('@shexjs/validator');
 const utils = require('./util');
 const parser = require('./parser');
@@ -32,7 +32,7 @@ class ValidationReport {
         this.failures = [];
         this.shapes = new Map();
         schema.shapes.forEach(shape => {
-            this.shapes.set(shape.id, this.getShapeCore(shape));
+            this.shapes.set(shape.id, this.getShapeCore(shape.shapeExpr));
         });
         this.simplify(jsonReport, undefined, undefined);
         this.removeMissingIfTypeMismatch();
@@ -226,7 +226,7 @@ class ShexValidator {
         if (typeof data === 'string') {
             data = await parser.stringToQuads(data, baseUrl);
         }
-        const db = new shexUtil.rdfjsDB(data);
+        const db = new RdfJsDb(data);
         const validator = shexValidator.construct(this.shapes, db);
         const errors = new ValidationReport(validator.validate([{
             node: baseUrl,
