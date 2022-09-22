@@ -8,12 +8,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@shexjs/parser": "^1.0.0-alpha.21",
-    "@shexjs/util": "^1.0.0-alpha.21",
-    "@shexjs/validator": "^1.0.0-alpha.21",
+    "@shexjs/neighborhood-rdfjs": "^1.0.0-alpha.24",
+    "@shexjs/parser": "^1.0.0-alpha.24",
+    "@shexjs/validator": "^1.0.0-alpha.24",
     "axios": "^0.26.0",
     "child_process": "^1.0.2",
-    "jsonld": "^5.2.0",
+    "jsonld": "^8.1.0",
     "microdata-rdf-streaming-parser": "^1.1.0",
     "minimist": "^1.2.5",
     "n3": "^1.6.3",
@@ -22,16 +22,16 @@
     "rdfa-streaming-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "babel-loader": "^8.2.3",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "babel-loader": "^8.2.5",
     "babel-polyfill": "^6.26.0",
-    "mocha": "^9.2.1",
-    "node-polyfill-webpack-plugin": "^1.1.4",
-    "terser-webpack-plugin": "^5.3.1",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-license-plugin": "^4.2.1"
+    "mocha": "^10.0.0",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-license-plugin": "^4.2.2"
   },
   "scripts": {
     "test": "mocha --timeout 0",
