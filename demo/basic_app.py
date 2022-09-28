@@ -51,7 +51,7 @@ def services():
 @app.route('/services/map')
 def shape_to_service():
     sts_path = os.path.join(os.curdir, 'validation', 'shapeToService.json')
-    return send_file(sts_path)
+    return send_file(sts_path, download_name='shapeToService.json', mimetype='application/json') # os.path.basename(sts_path)
 
 
 @app.route('/tests')
