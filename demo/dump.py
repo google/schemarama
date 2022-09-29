@@ -1,8 +1,10 @@
+import importlib
 import json
 import sys
 import re
 import os
 import flask
+from typing import Any, Optional, Type
 
 # mapping from media type to file extension
 # could populate from first two fields in /etc/mime.types
@@ -14,31 +16,52 @@ content_type_to_file_extension = {
 }
 
 
-def pickle_flask(flask_app, output_dir, skip_rules=1):
+class OutputFile:
+    def __init__(self, rule_label: str, content_type: str, output_filename: str, length: int):
+        self.rule_label = rule_label
+        self.content_type = content_type
+        self.output_filename = output_filename
+        self.length = length
+    def __str__(self):
+        return '%s (%s) => %s (%d chars)' % (
+            self.rule_label,
+            self.content_type,
+            self.output_filename,
+            self.length)
+
+
+class PrintingOutputFile(OutputFile):
+    def __init__(self, rule_label: str, content_type: str, output_filename: str, length: int):
+        super().__init__(rule_label, content_type, output_filename, length)
+        print(self)
+
+
+def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], skip_rules: int = 1, **kwargs) -> list[OutputFile]:
+    report_class = kwargs.get("report_class") if "report_class" in kwargs else OutputFile
+    ret: list[OutputFile] = []
     if output_dir:
         replace_directory(output_dir)
     for r in flask_app.url_map.iter_rules():
         if skip_rules > 0:
             skip_rules -= 1
         else:
-            label = r.rule
-            response_type = None
+            rule_label = r.rule
+            response_type: Optional[Type] = None
             try:
-                response = flask_app.ensure_sync(dispatch_flask_request(flask_app, label))
-                content_type = None
-                text = None
-                filename = 'index' if label == '/' else label[1:]
-                response_type = type(response)
+                response: Any = flask_app.ensure_sync(dispatch_flask_request(flask_app, rule_label))
+                content_type: Optional[str]
+                text: Optional[str]
+                output_filename: str = 'index' if rule_label == '/' else rule_label[1:]
+                response_type: Type = type(response)
                 if response_type is str:
                     content_type = 'text/html'
-                    filename += '.html'
+                    output_filename += '.html'
                     text = response
                 elif response_type is dict:
                     content_type = 'application/json'
-                    filename += '.json'
+                    output_filename += '.json'
                     text = json.dumps(response)
                 elif response_type is flask.wrappers.Response:
-                    xx = response.headers.get('Content-Typexx')
                     content_type = response.headers.get('Content-Type')
                     if content_type and ';' in content_type:
                         first_parameter = content_type.index(';')
@@ -47,34 +70,40 @@ def pickle_flask(flask_app, output_dir, skip_rules=1):
                         content_type = 'application/octet-stream'
                     content_disposition = response.headers.get('Content-Disposition')
                     if content_disposition:
-                        match = re.search(r"inline; filename=(.*?)(?:$|, )", content_disposition)
+                        match: Optional[re.Match[str]] = re.search(r"inline; filename=(.*?)(?:$|, )",
+                                                                   content_disposition)
                         source_file = match.groups()[0]
                         _, ext = os.path.splitext(source_file)
-                        filename += ext
+                        output_filename += ext
                     elif content_type in content_type_to_file_extension:
-                        filename += content_type_to_file_extension[content_type]
+                        output_filename += content_type_to_file_extension[content_type]
                     else:
-                        filename += '.txt'
-                    chunks = list(response.iter_encoded())
+                        output_filename += '.txt'
+                    chunks: list[bytes] = list(response.iter_encoded())
                     text = ''.join(c.decode('utf-8') for c in chunks)
                 else:
-                    raise TypeError('what"S a ' + response_type)
-                filename = os.path.join(output_dir if output_dir else '???', filename)
+                    raise TypeError("unknown Flask response type `%s`" % response_type)
+                output_filename = os.path.join(output_dir if output_dir else '???', output_filename)
                 if output_dir:
-                    dirname = os.path.dirname(filename)
+                    dirname = os.path.dirname(output_filename)
                     if not os.path.isdir(dirname):
                         os.makedirs(dirname, exist_ok=True)
-                    with open(filename, 'w') as f:
+                    with open(output_filename, 'w') as f:
                         f.write(text)
-                print('%s (%s) => %s (%d chars)' % (label, content_type, filename, len(text)))
+                ret.append(report_class(rule_label, content_type, output_filename, len(text)))
             except Exception as e:
                 if response_type:
-                    print('! %s: %s from %s' % (label, e, response_type))
+                    print('! %s: %s from %s' % (rule_label, e, response_type))
                 else:
-                    print('! %s: %s' % (label, e))
+                    print('! %s: %s' % (rule_label, e))
+    return ret
 
 
-def replace_directory(dirname):
+def replace_directory(dirname: str) -> None:
+    """
+    Remove existing directory (and contents) and replace with empty directory
+    :param dirname:
+    """
     if os.path.isdir(dirname):
         for root, dirs, files in os.walk(dirname, topdown=False):
             for name in files:
@@ -85,7 +114,7 @@ def replace_directory(dirname):
     os.mkdir(dirname)
 
 
-def dispatch_flask_request(flask_app, path):
+def dispatch_flask_request(flask_app: flask.Flask, path: str):
     ctx = flask_app.request_context({
         "wsgi.url_scheme": "http",
         "REQUEST_METHOD": "GET",
@@ -97,10 +126,17 @@ def dispatch_flask_request(flask_app, path):
     return response
 
 
-if __name__ == '__main__':
-    import basic_app as router
+# dynamically load argv[1], look for .app, and optionally output files in argv[2]
+def main(argv: list[str]):
+    m = importlib.import_module(argv[1])
+    flask_app: flask.app = m.app  # TODO: how do I supply "app" on command line?
+    output_dir = argv[2] if len(argv) > 2 else None
+    created = pickle_flask(flask_app, output_dir, 1, report_class=PrintingOutputFile)
+    print('%screated %d files' % ("" if output_dir else "would have ", len(created)))
 
-    pickle_flask(router.app, sys.argv[1] if len(sys.argv) > 1 else None, 1)
+
+if __name__ == '__main__':
+    main(sys.argv)
 
 
 # other possible headers for flask request_context:
@@ -140,5 +176,5 @@ if __name__ == '__main__':
 #          'HTTP_SEC_FETCH_DEST' = {str} 'document'
 #          'HTTP_ACCEPT_ENCODING' = {str} 'gzip, deflate, br'
 #          'HTTP_ACCEPT_LANGUAGE' = {str} 'en-US,en;q=0.9'
-#          'HTTP_COOKIE' = {str} 'io=_EujwrtKeZ7fCSQeAABs;...
+#          'HTTP_COOKIE' = {str} 'io=_abcdefg7fCSQeAABs;...
 #          'werkzeug.request' = {Request} <Request 'http://localhost:5000/' [GET]>

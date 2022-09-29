@@ -12,7 +12,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-from flask import Flask, render_template, jsonify, send_file, request
+from flask import Flask, render_template, send_file
 from flask_cors import CORS
 # import chromedriver_binary
 # from seleniumwire import webdriver
