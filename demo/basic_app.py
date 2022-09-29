@@ -17,8 +17,6 @@ from flask_cors import CORS
 # import chromedriver_binary
 # from seleniumwire import webdriver
 import os
-import json
-
 import config
 
 app = Flask(__name__)
@@ -50,8 +48,9 @@ def services():
 
 @app.route('/services/map')
 def shape_to_service():
-    sts_path = os.path.join(os.curdir, 'validation', 'shapeToService.json')
-    return send_file(sts_path, download_name='shapeToService.json', mimetype='application/json') # os.path.basename(sts_path)
+    fn = 'shapeToService.json'
+    sts_path = os.path.join(os.curdir, 'validation', fn)
+    return send_file(sts_path, download_name=fn, mimetype='application/json') # os.path.basename(sts_path)
 
 
 @app.route('/tests')
@@ -59,25 +58,28 @@ def tests():
     tests_path = os.path.join(os.curdir, 'validation', 'tests')
     file_paths = [os.path.join(tests_path, file) for file in sorted(list(os.listdir(tests_path)))]
     test_data = [open(file_path).read() for file_path in file_paths]
-    return jsonify(tests=test_data)
+    return dict(tests=test_data)
 
 
 @app.route('/shex/shapes')
 def shex_shapes():
-    shapes_path = os.path.join(os.curdir, 'validation', 'shex', 'full.shexj')
-    return send_file(shapes_path)
+    fn = 'full.shexj'
+    shapes_path = os.path.join(os.curdir, 'validation', 'shex', fn)
+    return send_file(shapes_path, download_name=fn, mimetype='application/json')
 
 
 @app.route('/shacl/shapes')
 def shacl_shapes_full():
-    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', 'full.shacl')
-    return send_file(shacl_path)
+    fn = 'full.shacl'
+    shacl_path = os.path.join(os.curdir, 'validation', 'shacl', fn)
+    return send_file(shacl_path, download_name=fn, mimetype='text/turtle')
 
 
 @app.route('/shacl/subclasses')
 def shacl_subclasses():
-    subclasses_path = os.path.join(os.curdir, 'validation', 'shacl', 'subclasses.ttl')
-    return send_file(subclasses_path)
+    fn = 'subclasses.ttl'
+    subclasses_path = os.path.join(os.curdir, 'validation', 'shacl', fn)
+    return send_file(subclasses_path, download_name=fn, mimetype='text/turtle')
 
 
 # @app.route('/page', methods=['POST'])
