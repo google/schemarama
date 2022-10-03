@@ -8,6 +8,7 @@ from types import ModuleType
 import flask
 from typing import Any, Optional, Type
 
+from bs4 import BeautifulSoup
 from flask.ctx import RequestContext
 
 # mapping from media type to file extension
@@ -48,7 +49,14 @@ class PrintingOutputFile(OutputFile):
 
 
 def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
-    return visit_flask(flask_app, output_dir, **kwargs)
+    dry_run_opts = dict(**kwargs)
+    dry_run_opts.update(report_class=OutputFile, dry_run=True)
+    rewrites = [x for x in map(
+        lambda f: [f.rule_label, f.output_filename],
+        visit_flask(flask_app, output_dir, **dry_run_opts))]
+    rewrite_run_opts = dict(**kwargs)
+    rewrite_run_opts.update(rewrites=rewrites)
+    return visit_flask(flask_app, output_dir, **rewrite_run_opts)
 
 
 def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
@@ -71,11 +79,17 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
         if "rules" in kwargs\
         else list(flask_app.url_map.iter_rules())[1:]  # 1st seems to be a meta rule
 
+    dry_run = kwargs.get("dry_run")\
+        if not output_dir or "dry_run" in kwargs\
+        else False
+
+    rewrites: Optional[tuple[str, str]] = kwargs.get('rewrites') if 'rewrites' in kwargs else None
+
     # Return the OutputFiles we created while traversing rules.
     files_visited: list[OutputFile] = []
 
     # If output_dir was supplied, empty it out before adding new files.
-    if output_dir:
+    if not dry_run:
         replace_directory(output_dir)
 
     # Walk the rules in the flask.
@@ -90,7 +104,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
             # When parsing response, populate some metadata.
             content_type: Optional[str]
             text: Optional[str]
-            output_filename: str = rule_label[1:] + 'index' if rule_label.endswith('/') else ''
+            output_filename: str = rule_label[1:] + ('index' if rule_label.endswith('/') else '')
 
             # Handle Flask rule results (see Flask dispatch return types below):
             response_type: Type = type(response)
@@ -99,6 +113,9 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
                 content_type = 'text/html'
                 output_filename += '.html'
                 text = response
+                if rewrites:
+                    soup = BeautifulSoup(text, features="lxml")
+                    text = soup.decode()
 
             elif response_type is dict:
                 # Flask serializes dicts as JSON.
@@ -138,7 +155,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
 
             # Get full path to output filename and optionally write file.
             output_filename = os.path.join(output_dir if output_dir else '???', output_filename)
-            if output_dir:
+            if not dry_run :
                 dirname = os.path.dirname(output_filename)
                 if not os.path.isdir(dirname):
                     os.makedirs(dirname, exist_ok=True)
