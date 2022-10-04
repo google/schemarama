@@ -5,8 +5,8 @@
     <title>Schema.org Content Checker (work-in-progress)</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/libs/bootstrap.min.css')[1:] }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/master.css')[1:] }}">
     {% block styles %}
     {% endblock %}
 </head>

@@ -30,7 +30,7 @@ $(document).ready(async () => {
     });
     await $.get(`shacl/shapes`, (res) => shaclShapes = res);
     await $.get(`shacl/subclasses`, (res) => subclasses = res);
-    await $.get(`shex/shapes`, (res) => shexShapes = JSON.parse(res));
+    await $.get(`shex/shapes`, (res) => shexShapes = res);
     await $.get(`hierarchy`, (res) => {
         hierarchy = res;
         constructHierarchySelector(hierarchy, 0);

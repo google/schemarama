@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/scc.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scc.css')[1:] }}">
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/libs/schemarama.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scc/pretty-markup.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scc/shex.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scc/shacl.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scc/layout.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/scc/core.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/libs/schemarama.bundle.min.js')[1:] }}"></script>
+    <script src="{{ url_for('static', filename='js/scc/pretty-markup.js')[1:] }}"></script>
+    <script src="{{ url_for('static', filename='js/scc/shex.js')[1:] }}"></script>
+    <script src="{{ url_for('static', filename='js/scc/shacl.js')[1:] }}"></script>
+    <script src="{{ url_for('static', filename='js/scc/layout.js')[1:] }}"></script>
+    <script src="{{ url_for('static', filename='js/scc/core.js')[1:] }}"></script>
 {% endblock %}
 
 {% block header_controls %}
@@ -28,11 +28,11 @@
 
 {% block content %}
     <div class="content">
-        <div id="validate-btn"><img src="{{ url_for('static', filename='images/icons/play_arrow.svg') }}"
+        <div id="validate-btn"><img src="{{ url_for('static', filename='images/icons/play_arrow.svg')[1:] }}"
                                     alt="validate"></div>
         <div class="block input-block">
             <div class="url-input">
-                <img src="{{ url_for('static', filename='images/icons/world.svg') }}" alt="remote url">
+                <img src="{{ url_for('static', filename='images/icons/world.svg')[1:] }}" alt="remote url">
                 <input type="text" id="url-input" class="form-control" placeholder="Enter remote url">
                 <div class="btn" id="url-submit-button">Load</div>
             </div>
