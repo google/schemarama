@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schema.org Content Checker (work-in-progress)</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+    <link rel="stylesheet" href="static/css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/master.css">
+    
+    <link rel="stylesheet" href="static/css/scc.css">
+
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Schema.org Content Checker (work-in-progress)</div>
+    <div class="d-flex">
+        
+    <a href="shapes.html">
+        Shapes
+    </a>
+    <div class="lang-selector">
+        <label for="validation-lang-select">Validation language</label>
+        <select class="form-control" name="validation-lang-select" id="validation-lang-select">
+            <option value="shex">ShEx</option>
+            <option value="shacl">SHACL</option>
+        </select>
+    </div>
+
+    </div>
+</div>
+
+
+    <div class="content">
+        <div id="validate-btn"><img src="static/images/icons/play_arrow.svg"
+                                    alt="validate"></div>
+        <div class="block input-block">
+            <div class="url-input">
+                <img src="static/images/icons/world.svg" alt="remote url">
+                <input type="text" id="url-input" class="form-control" placeholder="Enter remote url">
+                <div class="btn" id="url-submit-button">Load</div>
+            </div>
+            <div class="input-placeholder d-none loading-curtain">
+                <div class="lds-roller">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <textarea class="form-control input-placeholder" name="input-text" id="input-text" cols="30"
+                      rows="10"></textarea>
+            <div class="tests-display">
+                <div class="tests d-none"></div>
+                <div id="show-tests-btn">Show tests</div>
+            </div>
+        </div>
+        <div class="block output-block">
+            <div class="hierarchy">
+                <div class="title">Hierarchy</div>
+                <div class="h-items"></div>
+            </div>
+            <div class="reports"></div>
+        </div>
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Noty - for pretty notifications -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+    <script src="static/js/libs/schemarama.bundle.min.js"></script>
+    <script src="static/js/scc/pretty-markup.js"></script>
+    <script src="static/js/scc/shex.js"></script>
+    <script src="static/js/scc/shacl.js"></script>
+    <script src="static/js/scc/layout.js"></script>
+    <script src="static/js/scc/core.js"></script>
+
+</body>
+</html>

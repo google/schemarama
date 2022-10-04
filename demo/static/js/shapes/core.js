@@ -1,8 +1,7 @@
 let shexShapesMap = {};
 
 $(document).ready(async () => {
-    await $.get(`shex/shapes`, (res) => {
-        const shexShapes = JSON.parse(res);
+    await $.get(`validation/shex/full.json`, (shexShapes) => {
         shexShapes.shapes.forEach(shape => {
             shexShapesMap[shape.id] = shape;
         });

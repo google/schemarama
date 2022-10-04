@@ -64,7 +64,7 @@ def tests():
 
 @app.route('/shex/shapes')
 def shex_shapes():
-    shapes_path = os.path.join(os.curdir, 'validation', 'shex', 'full.shexj')
+    shapes_path = os.path.join(os.curdir, 'validation', 'shex', 'full.json')
     return send_file(shapes_path)
 
 

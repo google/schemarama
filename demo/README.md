@@ -59,7 +59,7 @@ here are a few steps you should follow:
 
 1. Replace ShEx/SHACL files. [ShEx](validation/shex) and [SHACL](validation/shacl) shapes are 
 located in separate folders. In this repo we keep small one-shape files for easy references, but the actual validator 
-uses only [full.shexj](validation/shex/full.shexj) with ShExJ shapes and [full.shacl](validation/shacl/full.shacl),
+uses only [full.json](validation/shex/full.json) with ShExJ shapes and [full.shacl](validation/shacl/full.shacl),
 so only contents of these files should be replaced with your shapes. 
     * If you only have ShEx OR SHACL shapes, the easiest way to remove one of the languages from the UI would be to remove 
 language selector on the top right corner. To do so, remove the option you **DON'T** need in [scc.html](templates/scc.html) 
