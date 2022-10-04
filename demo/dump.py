@@ -105,10 +105,11 @@ class PrintingOutputFile(OutputFile):
 
 def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
     dry_run_opts = dict(**kwargs)
-    dry_run_opts.update(report_class=OutputFile, dry_run=True)
+    transformer_class = kwargs.get('transformer_class') if 'transformer_class' in kwargs else DomTransformer
+    dry_run_opts.update(reporter_class=OutputFile, dry_run=True)
     output_files: list[OutputFile] = visit_flask(flask_app, output_dir, **dry_run_opts)
     rewrites = {
-        'text/html': [HtmlReTransformer(output_files)]
+        'text/html': [transformer_class(output_files)]
     }
     rewrite_run_opts = dict(**kwargs)
     rewrite_run_opts.update(rewrites=rewrites)
@@ -130,7 +131,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
     Raises:
         KeyError: Raises an exception.
     """
-    report_class = kwargs.get('report_class') if 'report_class' in kwargs else OutputFile
+    reporter_class = kwargs.get('reporter_class') if 'reporter_class' in kwargs else OutputFile
     rules = kwargs.get('rules') \
         if 'rules' in kwargs \
         else list(flask_app.url_map.iter_rules())[1:]  # 1st seems to be a meta rule
@@ -220,7 +221,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
                     f.write(text)
 
             # Record that this file was written.
-            files_visited.append(report_class(rule_label, media_type, output_filename, len(text)))
+            files_visited.append(reporter_class(rule_label, media_type, output_filename, len(text)))
 
         except Exception as e:
             if response_type:
@@ -275,7 +276,8 @@ def main(argv: list[str]) -> None:
     flask_app: flask.app = getattr(m, flask_app_variable)  # get module.app
     output_dir: Optional[str] = argv[3] if len(argv) > 3 else None  # output dir or None
     created = pickle_flask(flask_app, output_dir,
-                           report_class=PrintingOutputFile)  # print dirs as they are processed
+                           transformer_class=HtmlReTransformer,
+                           reporter_class=PrintingOutputFile)  # print dirs as they are processed
     print('%screated %d files' % ('' if output_dir else 'would have ', len(created)))
 
 
