@@ -3,6 +3,7 @@ import json
 import sys
 import re
 import os
+from abc import ABC, abstractmethod
 from types import ModuleType
 
 # import logging
@@ -25,6 +26,7 @@ content_type_to_file_extension = {
 }
 html_attributes_to_update = ['link.href', 'img.src', 'script.src', 'a.href']
 
+
 class OutputFile:
     """
     Structure used by `pickle_flask` to report created files.
@@ -43,6 +45,38 @@ class OutputFile:
             self.length)
 
 
+class Transformer(ABC):
+    def __init__(self):
+        super().__init__()
+
+    @abstractmethod
+    def exec(self, text: str) -> str:
+        pass
+
+
+class DomTransformer(Transformer):
+    FROM = 0
+    TO = 1
+
+    def __init__(self, output_files: list[OutputFile]):
+        super().__init__()
+        self.rws = [x for x in map(
+            lambda f: [f.rule_label, f.output_filename],
+            output_files
+        )]
+
+    def exec(self, text: str) -> str:
+        soup = BeautifulSoup(text, features='lxml')
+        for from_to in self.rws:
+            for elt_attr in html_attributes_to_update:
+                [elt, attr] = elt_attr.split('.')
+                matches: ResultSet[Any] = soup.findAll(elt, {attr: from_to[DomTransformer.FROM]})
+                for m in matches:
+                    m[attr] = from_to[DomTransformer.TO]
+                    # print(from_to[HtmlTransformer.FROM], m)
+        return soup.decode()
+
+
 class PrintingOutputFile(OutputFile):
     """
     Variant of OutputFile that calls self.__str__
@@ -55,11 +89,9 @@ class PrintingOutputFile(OutputFile):
 def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
     dry_run_opts = dict(**kwargs)
     dry_run_opts.update(report_class=OutputFile, dry_run=True)
+    output_files: list[OutputFile] = visit_flask(flask_app, output_dir, **dry_run_opts)
     rewrites = {
-        'text/html': [x for x in map(
-            lambda f: [f.rule_label, f.output_filename],
-            visit_flask(flask_app, output_dir, **dry_run_opts)
-        )]
+        'text/html': [DomTransformer(output_files)]
     }
     rewrite_run_opts = dict(**kwargs)
     rewrite_run_opts.update(rewrites=rewrites)
@@ -90,7 +122,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
         if not output_dir or 'dry_run' in kwargs \
         else False
 
-    rewrites: map[str, list[str]] = kwargs.get('rewrites') if 'rewrites' in kwargs else {}
+    rewrites: dict[str, list[Transformer]] = kwargs.get('rewrites') if 'rewrites' in kwargs else {}
 
     # Return the OutputFiles we created while traversing rules.
     files_visited: list[OutputFile] = []
@@ -158,19 +190,12 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
                 raise TypeError('unknown Flask response type `%s`' % response_type)
 
             if media_type in rewrites:
-                soup = BeautifulSoup(text, features='lxml')
                 for rw in rewrites[media_type]:
-                    for elt_attr in html_attributes_to_update:
-                        [elt, attr] = elt_attr.split('.')
-                        matches: ResultSet[Any] = soup.findAll(elt, {attr: rw[0]})
-                        for m in matches:
-                            m[attr] = rw[1]
-                            x = print(rw[0], m)
-                text = soup.decode()
+                    text = rw.exec(text)
 
             # Get full path to output filename and optionally write file.
             output_filename = os.path.join(output_dir if output_dir else '???', output_filename)
-            if not dry_run :
+            if not dry_run:
                 dirname = os.path.dirname(output_filename)
                 if not os.path.isdir(dirname):
                     os.makedirs(dirname, exist_ok=True)
