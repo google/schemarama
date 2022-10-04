@@ -46,8 +46,15 @@ class OutputFile:
 
 
 class Transformer(ABC):
-    def __init__(self):
+    FROM = 0
+    TO = 1
+
+    def __init__(self, output_files: list[OutputFile]):
         super().__init__()
+        self.map_from_to = [x for x in map(
+            lambda f: [f.rule_label, f.output_filename],
+            output_files
+        )]
 
     @abstractmethod
     def exec(self, text: str) -> str:
@@ -55,26 +62,36 @@ class Transformer(ABC):
 
 
 class DomTransformer(Transformer):
-    FROM = 0
-    TO = 1
-
-    def __init__(self, output_files: list[OutputFile]):
-        super().__init__()
-        self.rws = [x for x in map(
-            lambda f: [f.rule_label, f.output_filename],
-            output_files
-        )]
-
     def exec(self, text: str) -> str:
         soup = BeautifulSoup(text, features='lxml')
-        for from_to in self.rws:
+        for from_to in self.map_from_to:
             for elt_attr in html_attributes_to_update:
                 [elt, attr] = elt_attr.split('.')
-                matches: ResultSet[Any] = soup.findAll(elt, {attr: from_to[DomTransformer.FROM]})
+                matches: ResultSet[Any] = soup.findAll(elt, {attr: from_to[Transformer.FROM]})
                 for m in matches:
-                    m[attr] = from_to[DomTransformer.TO]
+                    m[attr] = from_to[Transformer.TO]
                     # print(from_to[HtmlTransformer.FROM], m)
         return soup.decode()
+
+
+class HtmlReTransformer(Transformer):
+    def exec(self, text: str) -> str:
+        for from_to in self.map_from_to:
+            [frum, to] = from_to
+            for elt_attr in html_attributes_to_update:
+                [elt, attr] = elt_attr.split('.')
+
+                def replace_element(m: Optional[re.Match[str]]):
+                    [space, attrs] = m.groups()
+                    attrs = re.sub(
+                        '(%s\\s*=\\s*[\'"])(%s)([\'"]\\s*)' % (attr, frum),
+                        lambda m2: '%s%s%s' % (m2.groups()[0], to, m2.groups()[2]),
+                        attrs
+                    )
+                    return '<%s%s%s>' % (elt, space, attrs)
+
+                text = re.sub('<%s(\\s*)((?:[a-zA-Z0-9]+\\s*=\\s*[\'"].*?[\'"]\\s*)*)>' % elt, replace_element, text)
+        return text
 
 
 class PrintingOutputFile(OutputFile):
@@ -91,7 +108,7 @@ def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) ->
     dry_run_opts.update(report_class=OutputFile, dry_run=True)
     output_files: list[OutputFile] = visit_flask(flask_app, output_dir, **dry_run_opts)
     rewrites = {
-        'text/html': [DomTransformer(output_files)]
+        'text/html': [HtmlReTransformer(output_files)]
     }
     rewrite_run_opts = dict(**kwargs)
     rewrite_run_opts.update(rewrites=rewrites)
