@@ -103,20 +103,38 @@ class PrintingOutputFile(OutputFile):
         print(self)
 
 
-def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
-    dry_run_opts = dict(**kwargs)
-    transformer_class = kwargs.get('transformer_class') if 'transformer_class' in kwargs else DomTransformer
-    dry_run_opts.update(reporter_class=OutputFile, dry_run=True)
-    output_files: list[OutputFile] = visit_flask(flask_app, output_dir, **dry_run_opts)
-    rewrites = {
-        'text/html': [transformer_class(output_files)]
-    }
+def transform_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
+    """
+    Construct transformers and call `pickle_flask`
+    Don't call transform_flask if you already have your transformers constructed.
+
+    Args:
+        flask_app: typical Flask app
+        output_dir (str): directory where to place the output files
+        kwargs:
+
+    Returns:
+        list[OutputFile] - record of which files were or would be created.
+    """
     rewrite_run_opts = dict(**kwargs)
-    rewrite_run_opts.update(rewrites=rewrites)
-    return visit_flask(flask_app, output_dir, **rewrite_run_opts)
+    if 'transformer_classes' in kwargs:
+        # Do a dry run to get the mapped files.
+        dry_run_opts = dict(**kwargs)
+        dry_run_opts.update(reporter_class=OutputFile, dry_run=True)
+        output_files: list[OutputFile] = pickle_flask(flask_app, output_dir, **dry_run_opts)
+
+        # Construct the desired transformer for each of those files.
+        t_classes: dict[str, Type[HtmlReTransformer]] = kwargs.get('transformer_classes')
+        transformers: dict[str, list[Transformer]] = dict((k, [v(output_files)]) for (k, v) in t_classes.items())
+
+        # Add transformers to the kwargs.
+        rewrite_run_opts.update(transformers=transformers)
+
+    # Do a (final) run with possible transformers.
+    return pickle_flask(flask_app, output_dir, **rewrite_run_opts)
 
 
-def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
+def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
     """
     Dump (pickle) a Flask website into  output_dir. If output_dir is not specified, do a dry run.
 
@@ -127,9 +145,6 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
 
     Returns:
         list[OutputFile] - record of which files were or would be created.
-
-    Raises:
-        KeyError: Raises an exception.
     """
     reporter_class = kwargs.get('reporter_class') if 'reporter_class' in kwargs else OutputFile
     rules = kwargs.get('rules') \
@@ -140,7 +155,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
         if not output_dir or 'dry_run' in kwargs \
         else False
 
-    rewrites: dict[str, list[Transformer]] = kwargs.get('rewrites') if 'rewrites' in kwargs else {}
+    transformers: dict[str, list[Transformer]] = kwargs.get('transformers') if 'transformers' in kwargs else {}
 
     # Return the OutputFiles we created while traversing rules.
     files_visited: list[OutputFile] = []
@@ -207,8 +222,8 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
             else:
                 raise TypeError('unknown Flask response type `%s`' % response_type)
 
-            if media_type in rewrites:
-                for rw in rewrites[media_type]:
+            if media_type in transformers:
+                for rw in transformers[media_type]:
                     text = rw.exec(text)
 
             # Get full path to output filename and optionally write file.
@@ -275,9 +290,11 @@ def main(argv: list[str]) -> None:
     flask_app_variable = argv[2] if len(argv) > 2 else 'app'  # `app` seems popular
     flask_app: flask.app = getattr(m, flask_app_variable)  # get module.app
     output_dir: Optional[str] = argv[3] if len(argv) > 3 else None  # output dir or None
-    created = pickle_flask(flask_app, output_dir,
-                           transformer_class=HtmlReTransformer,
-                           reporter_class=PrintingOutputFile)  # print dirs as they are processed
+    created = transform_flask(
+        flask_app, output_dir,
+        transformer_classes={'text/html': HtmlReTransformer},  # edit HTML files
+        reporter_class=PrintingOutputFile  # print dirs as they are processed
+    )
     print('%screated %d files' % ('' if output_dir else 'would have ', len(created)))
 
 
