@@ -5,21 +5,25 @@ import re
 import os
 from types import ModuleType
 
+# import logging
+# logging.basicConfig(level=logging.DEBUG)
+# logger = logging.getLogger(__name__)
+
 import flask
 from typing import Any, Optional, Type
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, ResultSet
 from flask.ctx import RequestContext
 
 # mapping from media type to file extension
 # could populate from first two fields in /etc/mime.types
 content_type_to_file_extension = {
-    "application/json": ".json",
-    "text/html": ".html",
-    "text/plain": ".txt",
-    "application/octet-stream": ".bin",
+    'application/json': '.json',
+    'text/html': '.html',
+    'text/plain': '.txt',
+    'application/octet-stream': '.bin',
 }
-
+html_attributes_to_update = ['link.href', 'img.src', 'script.src', 'a.href']
 
 class OutputFile:
     """
@@ -51,9 +55,12 @@ class PrintingOutputFile(OutputFile):
 def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> list[OutputFile]:
     dry_run_opts = dict(**kwargs)
     dry_run_opts.update(report_class=OutputFile, dry_run=True)
-    rewrites = [x for x in map(
-        lambda f: [f.rule_label, f.output_filename],
-        visit_flask(flask_app, output_dir, **dry_run_opts))]
+    rewrites = {
+        'text/html': [x for x in map(
+            lambda f: [f.rule_label, f.output_filename],
+            visit_flask(flask_app, output_dir, **dry_run_opts)
+        )]
+    }
     rewrite_run_opts = dict(**kwargs)
     rewrite_run_opts.update(rewrites=rewrites)
     return visit_flask(flask_app, output_dir, **rewrite_run_opts)
@@ -74,16 +81,16 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
     Raises:
         KeyError: Raises an exception.
     """
-    report_class = kwargs.get("report_class") if "report_class" in kwargs else OutputFile
-    rules = kwargs.get("rules")\
-        if "rules" in kwargs\
+    report_class = kwargs.get('report_class') if 'report_class' in kwargs else OutputFile
+    rules = kwargs.get('rules') \
+        if 'rules' in kwargs \
         else list(flask_app.url_map.iter_rules())[1:]  # 1st seems to be a meta rule
 
-    dry_run = kwargs.get("dry_run")\
-        if not output_dir or "dry_run" in kwargs\
+    dry_run = kwargs.get('dry_run') \
+        if not output_dir or 'dry_run' in kwargs \
         else False
 
-    rewrites: Optional[tuple[str, str]] = kwargs.get('rewrites') if 'rewrites' in kwargs else None
+    rewrites: map[str, list[str]] = kwargs.get('rewrites') if 'rewrites' in kwargs else {}
 
     # Return the OutputFiles we created while traversing rules.
     files_visited: list[OutputFile] = []
@@ -102,7 +109,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
             response: Any = flask_app.ensure_sync(dispatch_flask_request(flask_app, rule_label))
 
             # When parsing response, populate some metadata.
-            content_type: Optional[str]
+            media_type: Optional[str]
             text: Optional[str]
             output_filename: str = rule_label[1:] + ('index' if rule_label.endswith('/') else '')
 
@@ -110,39 +117,36 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
             response_type: Type = type(response)
             if response_type is str:
                 # Assume string response is HTML.
-                content_type = 'text/html'
+                media_type = 'text/html'
                 output_filename += '.html'
                 text = response
-                if rewrites:
-                    soup = BeautifulSoup(text, features="lxml")
-                    text = soup.decode()
 
             elif response_type is dict:
                 # Flask serializes dicts as JSON.
-                content_type = 'application/json'
+                media_type = 'application/json'
                 output_filename += '.json'
                 text = json.dumps(response)
 
             elif response_type is flask.wrappers.Response:
                 # Rule responded with a Response object.
-                content_type = response.headers.get('Content-Type')
-                if content_type and ';' in content_type:
-                    first_parameter = content_type.index(';')
-                    content_type = content_type[:first_parameter]
+                media_type = response.headers.get('Content-Type')
+                if media_type and ';' in media_type:
+                    first_parameter = media_type.index(';')
+                    media_type = media_type[:first_parameter]
                 else:
-                    content_type = 'application/octet-stream'
+                    media_type = 'application/octet-stream'
 
                 # Look for file extension in Content-Disposition
                 # filename or guess from Content-Type.
                 content_disposition = response.headers.get('Content-Disposition')
                 if content_disposition:
-                    match: Optional[re.Match[str]] = re.search(r"inline; filename=(.*?)(?:$|, )",
+                    match: Optional[re.Match[str]] = re.search(r'inline; filename=(.*?)(?:$|, )',
                                                                content_disposition)
                     source_file = match.groups()[0]
                     _, ext = os.path.splitext(source_file)
                     output_filename += ext
-                elif content_type in content_type_to_file_extension:
-                    output_filename += content_type_to_file_extension[content_type]
+                elif media_type in content_type_to_file_extension:
+                    output_filename += content_type_to_file_extension[media_type]
                 else:
                     output_filename += '.txt'
 
@@ -151,7 +155,18 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
                 text = ''.join(c.decode('utf-8') for c in chunks)
 
             else:
-                raise TypeError("unknown Flask response type `%s`" % response_type)
+                raise TypeError('unknown Flask response type `%s`' % response_type)
+
+            if media_type in rewrites:
+                soup = BeautifulSoup(text, features='lxml')
+                for rw in rewrites[media_type]:
+                    for elt_attr in html_attributes_to_update:
+                        [elt, attr] = elt_attr.split('.')
+                        matches: ResultSet[Any] = soup.findAll(elt, {attr: rw[0]})
+                        for m in matches:
+                            m[attr] = rw[1]
+                            x = print(rw[0], m)
+                text = soup.decode()
 
             # Get full path to output filename and optionally write file.
             output_filename = os.path.join(output_dir if output_dir else '???', output_filename)
@@ -163,7 +178,7 @@ def visit_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) -> 
                     f.write(text)
 
             # Record that this file was written.
-            files_visited.append(report_class(rule_label, content_type, output_filename, len(text)))
+            files_visited.append(report_class(rule_label, media_type, output_filename, len(text)))
 
         except Exception as e:
             if response_type:
@@ -197,10 +212,10 @@ def dispatch_flask_request(flask_app: flask.Flask, path: str):
     :return:
     """
     ctx: RequestContext = flask_app.request_context({
-        "wsgi.url_scheme": "http",
-        "REQUEST_METHOD": "GET",
-        "PATH_INFO":   path,
-        "wsgi.errors": sys.stderr,
+        'wsgi.url_scheme': 'http',
+        'REQUEST_METHOD': 'GET',
+        'PATH_INFO':   path,
+        'wsgi.errors': sys.stderr,
     })
     ctx.push()
     response = flask_app.dispatch_request()
@@ -214,12 +229,12 @@ def main(argv: list[str]) -> None:
     :return: None
     """
     m: ModuleType = importlib.import_module(argv[1])  # load the module
-    flask_app_variable = argv[2] if len(argv) > 2 else 'app'  # "app" seems popular
+    flask_app_variable = argv[2] if len(argv) > 2 else 'app'  # `app` seems popular
     flask_app: flask.app = getattr(m, flask_app_variable)  # get module.app
     output_dir: Optional[str] = argv[3] if len(argv) > 3 else None  # output dir or None
     created = pickle_flask(flask_app, output_dir,
                            report_class=PrintingOutputFile)  # print dirs as they are processed
-    print('%screated %d files' % ("" if output_dir else "would have ", len(created)))
+    print('%screated %d files' % ('' if output_dir else 'would have ', len(created)))
 
 
 def get_help_string(argv: list[str]) -> str:
@@ -272,28 +287,28 @@ if __name__ == '__main__':
 
 
 # other possible headers for flask request_context:
-#           "wsgi.version": (1, 0),				(1, 0
-#           "wsgi.url_scheme": url_scheme,			'http'
-#           "wsgi.input": self.rfile,				{BufferedReader} <_io.BufferedReader name=6>
-#           "wsgi.errors": sys.stderr,				{TextIOWrapper} <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>
-#           "wsgi.multithread": self.server.multithread		{bool} True
-#           "wsgi.multiprocess": self.server.multiprocess	{bool} False
-#           "wsgi.run_once": False,				{bool} False
-#           "werkzeug.socket": self.connection,			{socket} <socket.socket>
-#           "SERVER_SOFTWARE": self.server_version		{str} 'Werkzeug/2.2.2'
-#           "REQUEST_METHOD": self.command,			{str} 'GET'
-#           "SCRIPT_NAME": "",					{str} ''
-#           "PATH_INFO": _wsgi_encoding_dance(path_info)	{str} '/'
-#           "QUERY_STRING": _wsgi_encoding_dance(request_url.query)	{str} ''
+#           'wsgi.version': (1, 0),				(1, 0
+#           'wsgi.url_scheme': url_scheme,			'http'
+#           'wsgi.input': self.rfile,				{BufferedReader} <_io.BufferedReader name=6>
+#           'wsgi.errors': sys.stderr,				{TextIOWrapper} <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>
+#           'wsgi.multithread': self.server.multithread		{bool} True
+#           'wsgi.multiprocess': self.server.multiprocess	{bool} False
+#           'wsgi.run_once': False,				{bool} False
+#           'werkzeug.socket': self.connection,			{socket} <socket.socket>
+#           'SERVER_SOFTWARE': self.server_version		{str} 'Werkzeug/2.2.2'
+#           'REQUEST_METHOD': self.command,			{str} 'GET'
+#           'SCRIPT_NAME': '',					{str} ''
+#           'PATH_INFO': _wsgi_encoding_dance(path_info)	{str} '/'
+#           'QUERY_STRING': _wsgi_encoding_dance(request_url.query)	{str} ''
 #           # Non-standard, added by mod_wsgi, uWSGI
-#           "REQUEST_URI": _wsgi_encoding_dance(self.path)	{str} '/'
+#           'REQUEST_URI': _wsgi_encoding_dance(self.path)	{str} '/'
 #           # Non-standard, added by gunicorn
-#           "RAW_URI": _wsgi_encoding_dance(self.path)		{str} '/'
-#           "REMOTE_ADDR": self.address_string(),		{str} '127.0.0.1'
-#           "REMOTE_PORT": self.port_integer(),			{int} 34476
-#           "SERVER_NAME": self.server.server_address[0],	{str} '127.0.0.1'
-#           "SERVER_PORT": str(self.server.server_address[1]),	{str} '5000'
-#           "SERVER_PROTOCOL": self.request_version,		{str} 'HTTP/1.1'
+#           'RAW_URI': _wsgi_encoding_dance(self.path)		{str} '/'
+#           'REMOTE_ADDR': self.address_string(),		{str} '127.0.0.1'
+#           'REMOTE_PORT': self.port_integer(),			{int} 34476
+#           'SERVER_NAME': self.server.server_address[0],	{str} '127.0.0.1'
+#           'SERVER_PORT': str(self.server.server_address[1]),	{str} '5000'
+#           'SERVER_PROTOCOL': self.request_version,		{str} 'HTTP/1.1'
 #          'HTTP_HOST' = {str} 'localhost:5000'
 #          'HTTP_CONNECTION' = {str} 'keep-alive'
 #          'HTTP_SEC_CH_UA' = {str} '"Chromium";v="105", "Not)A;Brand";v="8"'
