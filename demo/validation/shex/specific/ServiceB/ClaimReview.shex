@@ -1,0 +1,73 @@
+
+# An approximation towards https://developers.google.com/search/docs/appearance/structured-data/factcheck
+
+PREFIX schema: <http://schema.org/> # for backwards compat esp. in JSON-LD
+PREFIX sdo: <https://schema.org/>.  # Declaring but not using for instance data
+
+PREFIX techdoc: sdo:                # For using within annotations
+# TODO: create better vocabulary instead of overloading description, text, identifier etc.
+# Add disclaimers in UI where text is from services.
+
+PREFIX googledev: <https://developers.google.com/search/docs/appearance/structured-data/factcheck#>
+
+
+# Within each shape, we have triple constraints, each grouped with () 
+# so that [draft] annotation info can be attached to them, for use in validators.
+
+<#ValidServiceBClaimReview> @<#ValidSchemaClaimReview> 
+AND {
+    schema:url IRI
+    // techdoc:url googledev:url_info
+    // techdoc:description """Link to the page hosting the full article of the fact check."""
+    // techdoc:text """The domain of this URL value must be the same domain as, or a subdomain of, the page hosting this ClaimReview element. Redirects or shortened URLs (such as g.co/searchconsole) are not resolved, and so will not work here."""
+    // techdoc:identifier "error" ;
+    
+    schema:claimReviewed .
+    // techdoc:url googledev:claimReviewed_info
+    // techdoc:description """A short summary of the claim being evaluated."""
+    // techdoc:text """Try to keep this less than 75 characters to minimize wrapping when displayed on a mobile device."""
+    // techdoc:identifier "error" ;
+    
+/**
+  TODO: import ItemReviewedShape and ClaimShape
+  schema:itemReviewed ({
+    a [schema:CreativeWork] ;
+  } AND @<ItemReviewedShape> OR {
+    a [schema:Claim]
+  } AND @<ClaimShape>) +
+  # note: the logic here is: (A AND B) OR (C AND D)
+*/
+  // techdoc:url googledev:itemReviewed_info
+  // techdoc:description """An object describing the claim being made."""
+  // techdoc:text """
+  // techdoc:identifier "warning" ;
+   
+    
+    
+  schema:author ({
+    a [schema:Organization schema:Person] ;
+  } AND {
+      schema:name .
+    | schema:url IRI 
+  } )
+      // techdoc:url googledev:author_info
+      // techdoc:description """An object describing the claim being made. For more information, see Claim."""
+      // techdoc:text """Backwards compatibility: Upon the initial launch of fact check, Google Search recommended CreativeWork as the itemReviewed. Google Search continues to support earlier markup patterns."""
+      // techdoc:identifier "warning" ;
+
+    
+  schema:reviewRating {
+    a [schema:Rating] ;
+  } AND @<ReviewRatingShape> +
+      // techdoc:url googledev:reviewRating_info
+      // techdoc:description """The assessment of the claim. This object supports both a numeric and a textual assessment. The textual value is currently the only value shown in search results."""
+      // techdoc:text """Different fact-checking projects have a variety of rating schemes which can have subtle differences, particularly for intermediate values. It is important to document such rating schemes to clarify the meaning of the numeric ratings. Minimally, there must be a number to text rating system for all your fact checks that carry numeric scores. 1: False, 2: Mostly false, 3: Half true, 4: Mostly true,5: True"""
+      // techdoc:identifier "warning" ;
+    
+    
+}
+
+/** TODO: 
+    - find ItemReviewedShape ReviewRatingShape
+    - get the source file to parse properly as shex
+    - figure out how to move annotations out of band */

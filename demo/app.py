@@ -80,14 +80,14 @@ def shacl_subclasses():
     return send_file(subclasses_path)
 
 
-@app.route('/page', methods=['POST'])
-def get_page():
-    ip = request.headers.get('X-Forwarded-For')
-    browser.header_overrides = {
-        'X-Forwarded-For': ip
-    }
-    browser.get(request.form['url'])
-    return browser.page_source
+# @app.route('/page', methods=['POST'])
+# def get_page():
+#     ip = request.headers.get('X-Forwarded-For')
+#     browser.header_overrides = {
+#         'X-Forwarded-For': ip
+#     }
+#     browser.get(request.form['url'])
+#     return browser.page_source
 
 
 if __name__ == '__main__':

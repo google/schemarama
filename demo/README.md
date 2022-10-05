@@ -1,5 +1,5 @@
-# Schema.org Content Checker **(work-in-progress)** ([demo](https://schemarama-demo.site/))
-Status: this is a proof of concept being created as part of a Google Internship. 
+# Schema.org Content Checker **(work-in-progress)** ([demo](https://google.github.io/schemarama/demo/))
+Status: this is a proof of concept
 The intent is to demonstrate how standards-based description of search service 
 information requirements can be used to configure structured data validation in a 
 way the highlights all the diverse incentives that exist for using a particular 
@@ -12,19 +12,40 @@ and other search features, but should be viewed as an illustrative
 technology demonstration - i.e. the definitions may be inaccurate and incomplete. 
 Ideally such definitions would be published by the relevant organizations, perhaps 
 through bodies such as [Schema.org](https://schema.org). Demo is currently hosted on 
-[schemarama-demo.site](https://schemarama-demo.site/)
+[github.io]([https://schemarama-demo.site](https://google.github.io/schemarama/demo/)/)
 
 **Developer:** Anastasiia Byvsheva anastasiia.byvsheva@gmail.com <br />
 **Google contact:** Dan Brickley danbri@google.com <br />
 
 ## How to run it?
 
+There are several ways to use this code, we include examples for each.
+
+### Simple Static version
+
+ * You can host a validator statically - web server only sends out files, everything is in JS.
+ * Without server-side components we lose "load from remote URL" functionality, and also headless rendering of Javascript (which some sites use to inject JSON-LD, and is supported at [Google](https://developers.google.com/search/docs/advanced/structured-data/generate-structured-data-with-javascript), and in (note: different tool to this one) [validator.schema.org](https://validator.schema.org/).
+
+ ### Docker
+
 Build and run it with [Docker](https://docs.docker.com/docker-for-windows/install/): <br />
 ```docker build -t scc .```<br />
 ```docker run -p 5000:5000 scc```<br />
 
+### Python server
+
+A sample Python server is included in demo/
+
+Install prerequisites with:
+
+> pip3 install -r requirements.txt
+
+
+
 ## How to use it?
+
 ### Basic validation
+
 UI of schemarama demo was inspired by [SDTT](https://search.google.com/structured-data/testing-tool/), so should be 
 familiar and easy to use. To start the validation, please paste your markup to the input field on the left (or use one 
 of the tests to play with the tool), then press the round button on the center of the screen. The validation report will 
@@ -34,9 +55,7 @@ appear on the right:
 view of the data and list of failures, organised as a table with 4 columns: severity tag, property, message and list of 
 failing services" height="300px"/></p>
 
-Each row of the report include a severity sign (red hexagons are errors, yellow triangles are warnings and grey circles 
-are info about how to make the data better), failing property name and a basic description of why this property has 
-failed the validation. On the right you can find a list of services, which fail the validation. 
+Each row of the report include a severity sign (red hexagons are errors, yellow triangles are warnings and grey circles are info about how to make the data better), failing property name and a basic description of why this property has failed the validation. On the right you can find a list of services, which fail the validation. 
 
 The demo supports ShEx and SHACL, you can change the validation language on the top right corner. 
 
