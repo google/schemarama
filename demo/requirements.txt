@@ -1,5 +1,7 @@
-Flask==1.1.2
+Flask~=2.2.2
 Flask-Cors===3.0.9
 selenium-wire==2.1.2
 #chromedriver-binary==86.0.4240.22
 chromedriver-binary==98.0.4758.80
+
+beautifulsoup4~=4.10.0

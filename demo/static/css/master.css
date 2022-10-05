@@ -27,6 +27,9 @@ html, body {
 
 body {
     padding: 20px;
-    font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Roboto", Helvetica, Arial, sans-serif;
 }
 
+.header a {
+    padding: 10px;
+}

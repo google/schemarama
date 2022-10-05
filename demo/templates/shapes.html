@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scc.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shapes.css') }}">
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/shapes/core.js') }}"></script>
+{% endblock %}
+
+{% block header_controls %}
+    <a href="/">
+        Validator
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div class="content d-flex w-100">
+        <div class="selector h-100 d-flex flex-column">
+            <div class="shapes-list-controls">
+                <select id="shapes-type" class="form-control">
+                    <option value="shex">ShEx</option>
+                    <option disabled value="shacl">SHACL</option>
+                </select>
+                <div>
+                    <input type="text" id="search" class="form-control" placeholder="Search for a shape">
+                </div>
+            </div>
+            <div class="shapes-list"></div>
+        </div>
+        <div class="h-100 w-100 d-flex flex-column">
+            <div id="displayed-shape-id"></div>
+            <textarea id="display" class="form-control w-100 h-100" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+{% endblock %}

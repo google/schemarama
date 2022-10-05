@@ -75,4 +75,4 @@ def fill_temp_holes(shex):
 
 if __name__ == '__main__':
     pack()
-    #to_shexj('full.shex', 'full.shexj')
+    #to_shexj('full.shex', 'full.json')

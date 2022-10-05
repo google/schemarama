@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schema.org Content Checker (work-in-progress)</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
+    <link rel="stylesheet" href="static/css/libs/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/master.css">
+    
+    <link rel="stylesheet" href="static/css/scc.css">
+    <link rel="stylesheet" href="static/css/shapes.css">
+
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Schema.org Content Checker (work-in-progress)</div>
+    <div class="d-flex">
+        
+    <a href="/">
+        Validator
+    </a>
+
+    </div>
+</div>
+
+
+    <div class="content d-flex w-100">
+        <div class="selector h-100 d-flex flex-column">
+            <div class="shapes-list-controls">
+                <select id="shapes-type" class="form-control">
+                    <option value="shex">ShEx</option>
+                    <option disabled value="shacl">SHACL</option>
+                </select>
+                <div>
+                    <input type="text" id="search" class="form-control" placeholder="Search for a shape">
+                </div>
+            </div>
+            <div class="shapes-list"></div>
+        </div>
+        <div class="h-100 w-100 d-flex flex-column">
+            <div id="displayed-shape-id"></div>
+            <textarea id="display" class="form-control w-100 h-100" cols="30" rows="10"></textarea>
+        </div>
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Noty - for pretty notifications -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+    <script src="static/js/shapes/core.js"></script>
+
+</body>
+</html>

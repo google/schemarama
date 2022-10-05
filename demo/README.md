@@ -25,16 +25,16 @@ There are several ways to use this code, we include examples for each.
 
  * You can host a validator statically - web server only sends out files, everything is in JS.
  * Without server-side components we lose "load from remote URL" functionality, and also headless rendering of Javascript (which some sites use to inject JSON-LD, and is supported at [Google](https://developers.google.com/search/docs/advanced/structured-data/generate-structured-data-with-javascript), and in (note: different tool to this one) [validator.schema.org](https://validator.schema.org/).
- 
+
  ### Docker
- 
+
 Build and run it with [Docker](https://docs.docker.com/docker-for-windows/install/): <br />
 ```docker build -t scc .```<br />
 ```docker run -p 5000:5000 scc```<br />
 
 ### Python server
 
-A sample Python server is included in demo/ 
+A sample Python server is included in demo/
 
 Install prerequisites with:
 
@@ -78,7 +78,7 @@ here are a few steps you should follow:
 
 1. Replace ShEx/SHACL files. [ShEx](validation/shex) and [SHACL](validation/shacl) shapes are 
 located in separate folders. In this repo we keep small one-shape files for easy references, but the actual validator 
-uses only [full.shexj](validation/shex/full.shexj) with ShExJ shapes and [full.shacl](validation/shacl/full.shacl),
+uses only [full.json](validation/shex/full.json) with ShExJ shapes and [full.shacl](validation/shacl/full.shacl),
 so only contents of these files should be replaced with your shapes. 
     * If you only have ShEx OR SHACL shapes, the easiest way to remove one of the languages from the UI would be to remove 
 language selector on the top right corner. To do so, remove the option you **DON'T** need in [scc.html](templates/scc.html) 

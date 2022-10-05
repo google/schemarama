@@ -31,7 +31,7 @@ $(document).ready(async () => {
     [shaclShapes, subclasses, shexShapes, hierarchy, shapeToService, undefined] = await Promise.all([
       fetch(`validation/shacl/full.shacl`).then(resp => resp.text()),
       fetch(`validation/shacl/subclasses.ttl`).then(resp => resp.text()),
-      fetch(`validation/shex/full.shexj`).then(resp => resp.json()),
+      fetch(`validation/shex/full.json`).then(resp => resp.json()),
       fetch(`hierarchy.json`).then(resp => resp.json()),
       fetch(`validation/shapeToService.json`).then(resp => resp.json()),
       fetch(`tests.json`).then(resp => resp.json()).then(j => initTests(j.tests)),
