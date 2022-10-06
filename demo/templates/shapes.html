@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/scc.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/shapes.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scc.css')[1:] }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shapes.css')[1:] }}">
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='js/shapes/core.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/shapes/core.js')[1:] }}"></script>
 {% endblock %}
 
 {% block header_controls %}
