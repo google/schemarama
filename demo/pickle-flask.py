@@ -1,3 +1,4 @@
+import argparse
 import importlib
 import json
 import sys
@@ -151,6 +152,14 @@ def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) ->
         if 'rules' in kwargs \
         else list(flask_app.url_map.iter_rules())[1:]  # 1st seems to be a meta rule
 
+    in_place = kwargs.get('in_place') \
+        if 'in_place' in kwargs \
+        else False
+
+    new_only = kwargs.get('new_only') \
+        if 'new_only' in kwargs \
+        else False
+
     dry_run = kwargs.get('dry_run') \
         if not output_dir or 'dry_run' in kwargs \
         else False
@@ -161,7 +170,7 @@ def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) ->
     files_visited: list[OutputFile] = []
 
     # If output_dir was supplied, empty it out before adding new files.
-    if not dry_run:
+    if not dry_run and not in_place and not new_only:
         replace_directory(output_dir)
 
     # Walk the rules in the flask.
@@ -232,8 +241,9 @@ def pickle_flask(flask_app: flask.Flask, output_dir: Optional[str], **kwargs) ->
                 dirname = os.path.dirname(output_filename)
                 if not os.path.isdir(dirname):
                     os.makedirs(dirname, exist_ok=True)
-                with open(output_filename, 'w') as f:
-                    f.write(text)
+                if not new_only or not os.path.exists(output_filename):
+                    with open(output_filename, 'w') as f:
+                        f.write(text)
 
             # Record that this file was written.
             files_visited.append(reporter_class(rule_label, media_type, output_filename, len(text)))
@@ -286,16 +296,50 @@ def main(argv: list[str]) -> None:
     :param argv: typically a reference to sys.argv
     :return: None
     """
-    m: ModuleType = importlib.import_module(argv[1])  # load the module
-    flask_app_variable = argv[2] if len(argv) > 2 else 'app'  # `app` seems popular
-    flask_app: flask.app = getattr(m, flask_app_variable)  # get module.app
-    output_dir: Optional[str] = argv[3] if len(argv) > 3 else None  # output dir or None
-    created = transform_flask(
-        flask_app, output_dir,
-        transformer_classes={'text/html': HtmlReTransformer},  # edit HTML files
-        reporter_class=PrintingOutputFile  # print dirs as they are processed
-    )
+
+    # Set up command line args
+    cli_parser = argparse.ArgumentParser(description='pickle Flask app.')
+    cli_parser.add_argument('module_path', type=str,
+                            help='path to Flask module')
+    cli_parser.add_argument('flask_app_variable', type=str, nargs='?', default='app',
+                            help='variable name for flask app')
+    cli_parser.add_argument('-o', '--output_dir', type=str, default=None,
+                            help='directory to create or replace')
+    cli_parser.add_argument('-i','--in-place', action='store_true',
+                            help='don\'t erase output_dir')
+    cli_parser.add_argument('-n', '--new-only', action='store_true',
+                            help='don\'t replace existing files in output_dir')
+    cli_parser.add_argument('-e', '--edit-files', action='store_true',
+                            help='update files to point to pickled location')
+    args = vars(cli_parser.parse_args())
+
+    # Load module
+    m: ModuleType = importlib.import_module(steal_arg(args, 'module_path'))  # load the module
+    flask_app: flask.app = getattr(m, steal_arg(args, 'flask_app_variable'))  # get module.app
+
+    # Prepare `transform_flask` args
+    output_dir = steal_arg(args, 'output_dir')
+    args.update(reporter_class=PrintingOutputFile)  # print dirs as they are processed
+    if args.get('edit_files'):
+        args.update(transformer_classes={'text/html': HtmlReTransformer})  # edit HTML files
+
+    # Execute `transform_flask`
+    created = transform_flask(flask_app, output_dir, **args)
     print('%screated %d files' % ('' if output_dir else 'would have ', len(created)))
+
+
+def steal_arg(args: dict, key: str) -> Any:
+    """
+
+    :param args:
+    :param key:
+    :return:
+    """
+    if key not in args:
+        return None
+    ret = args[key]
+    del(args[key])
+    return ret
 
 
 def get_help_string(argv: list[str]) -> str:

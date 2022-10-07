@@ -36,7 +36,7 @@ def demo():
     return render_template('scc.html')
 
 
-@app.route('/shapes')
+@app.route('/shapes.html')
 def shapes():
     return render_template('shapes.html')
 
