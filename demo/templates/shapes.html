@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block scripts %}
+    <script src="{{ url_for('static', filename='js/shapes/shex-html.js')[1:] }}"></script>
     <script src="{{ url_for('static', filename='js/shapes/core.js')[1:] }}"></script>
 {% endblock %}
 
@@ -31,7 +32,7 @@
         </div>
         <div class="h-100 w-100 d-flex flex-column">
             <div id="displayed-shape-id"></div>
-            <textarea id="display" class="form-control w-100 h-100" cols="30" rows="10"></textarea>
+            <div id="display" class="form-control w-100 h-100"></div>
         </div>
     </div>
 {% endblock %}
