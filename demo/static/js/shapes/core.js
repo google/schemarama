@@ -1,20 +1,29 @@
 let shexShapesMap = {};
+const XsdUrl = 'http://www.w3.org/2001/XMLSchema#';
 const SchOrgUrl = 'http://schema.org/';
 const SchOrgShEx = SchOrgUrl + 'shex#';
+const ShExRenderer = ShExHTML($, {Renderer: function () {
+  throw Error(47) // fake a markdown renderer 'cause we don't have annotations
+}})
 
 $(document).ready(async () => {
     await $.get(`validation/shex/full.json`, (shexShapes) => {
         shexShapes.shapes.forEach(shape => {
             shexShapesMap[shape.id] = shape;
         });
-        const displayMe = location.hash ? SchOrgUrl + location.hash.substr(1) : shexShapes.shapes[0].id
         displayShapesList('', shexShapes);
-        selectShape(shexShapes, displayMe);
-    });
+        window.addEventListener('popstate', renderLocation);
+        renderLocation();
 
-    $('#search').on('input', function () {
-        displayShapesList($(this).val(), shexShapes);
-    })
+        function renderLocation () {
+            const displayMe = location.hash ? SchOrgShEx + location.hash.substr(1) : shexShapes.shapes[0].id
+            selectShape(shexShapes, displayMe);
+        }
+
+        $('#search').on('input', function () {
+            displayShapesList($(this).val(), shexShapes);
+        })
+    });
 });
 
 function displayShapesList(search, shexShapes) {
@@ -27,12 +36,13 @@ function displayShapesList(search, shexShapes) {
     }
 
     shapeIds.forEach(shape => {
-        $('.shapes-list').append(`<div class="shape-id">${shape}</div>`);
+        $('.shapes-list').append(`<div class="shape-id">${shape.substr(SchOrgShEx.length)}</div>`);
     });
 
     $('.shape-id').click(function () {
         const shapeId = $(this).text();
-        selectShape(shexShapes, shapeId);
+        location.hash = shapeId;
+        // No need to `selectShape(shexShapes, SchOrgShEx + shapeId)`, handled by 'popstate' listener voodoo.
     });
 }
 
@@ -40,17 +50,16 @@ async function selectShape(shexShapes, shapeId) {
     const shape = shexShapesMap[shapeId];
     $('.shape-id').removeClass('displayed');
     $(`.shape-id`).filter(function () {
-        return $(this).text().toLowerCase() === shapeId.toLowerCase()
+        return $(this).text() === shapeId.substr(SchOrgShEx.length)
     }).addClass('displayed');
-  debugger
+
     const selected = shexShapes.shapes.find(s => s.id === shapeId)
     // $('#display').val(JSON.stringify(shape, null, 2));
     $('#displayed-shape-id').html(shapeId);
     $("#display").empty();
-    await ShExHTML($, {Renderer: function () {
-        throw Error(47)
-    }}).asTree({type: "Schema", shapes: [selected]}, SchOrgUrl, {
-      '': SchOrgShEx,
+    await ShExRenderer.asTree({type: "Schema", shapes: [selected]}, SchOrgShEx, {
+      '': SchOrgUrl,
+      'xsd': XsdUrl,
     }, $('#display'), {
       property: {
         post: (elt, property) => {
@@ -58,12 +67,5 @@ async function selectShape(shexShapes, shapeId) {
           return elt
         }
       },
-      shapeLabel: {
-        post: (elt, shapeLabel) =>
-          elt.on('click', evt => {
-            selectShape(shexShapes, shapeLabel);
-            return true;
-          })
-      }
     })
 }
