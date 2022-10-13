@@ -1,5 +1,5 @@
 .selector {
-    min-width: 450px;
+    min-width: 330px;
 }
 
 .shapes-list-controls {
@@ -41,3 +41,41 @@
     font-weight: bold;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
 }
+
+th:nth-child(2) {
+    text-align: right;
+}
+
+table.prolog tr *:nth-child(1) {
+    text-align: right;
+    border-right: thin solid black;
+    padding-right: 0.5em;
+}
+
+table.prolog tr *:nth-child(2) {
+    padding-left: 0.5em;
+}
+
+/*
+table.prolog tr *:nth-child(1)::after {
+    padding-left: .5em;
+    content: '|';
+}
+*/
+
+.shapeExpr td {
+    vertical-align: top;
+    line-height: 2.1ex;
+}
+
+.shapeExpr {
+    border: thin dotted #777;
+    padding: 1em;
+}
+
+/*
+.shapeExpr *:nth-child(1) {
+    font-size: 3ex;
+    line-height: 1.5ex;
+}
+*/

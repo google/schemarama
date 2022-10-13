@@ -55,30 +55,35 @@ var ShExHTML = (function () {
 
     return { asTree }
 
-    function asTree (schema, namespace, prefixes, schemaBox = $('<div/>'), opts) {
-      let packageRef = [null]
+    function asTree (schema, namespace, prefixes, schemaBox = $('<div/>'), opts = {}) {
+      // Set up default opts.
+      for (const objProp of ['shapeLabel', 'property'])
+        if (!(objProp in opts))
+          opts[objProp] = {}
+
+      const packageRef = [null]
       let packageDiv = null
       schemaBox.append(
-        $('<dl/>', { class: 'prolog' }).append(
-          $('<dt/>').text('base'),
-          $('<dd/>').text(namespace),
-          $('<dt/>').text('prefixes'),
-          $('<dd/>').append(
-            $('<dl/>', { class: 'prolog' }).append(
-              Object.keys(prefixes || []).reduce(
-                (acc, prefix) => acc.concat(
-                  $('<dt/>').text(prefix),
-                  $('<dd/>').text(prefixes[prefix])
-                ), [])
-            )
+        $('<table/>', { class: 'prolog' }).append([
+          $('<tr/>', {class: 'base-decl'}).append(
+            $('<th/>').text('base'),
+            $('<td/>', {colspan: 2}).text(namespace),
           )
-        )
+        ].concat(Object.keys(prefixes || []).reduce(
+          (acc, prefix, idx) => acc.concat(
+            $('<tr/>', {class: 'prefix-decl'}).append(
+              (idx === 0 ? $('<th/>').text('prefixes') : $('<td/>')),
+              $('<th/>', {class: 'prefix'}).text(prefix + ':'),
+              $('<td/>', {class: 'localname'}).text(prefixes[prefix])
+            )
+          ), [])))
       )
-      return Promise.all(schema.shapes.map(
+      const toRender = opts.toRender || schema.shapes
+      return Promise.all(toRender.map(
         (shapeDecl, idx) => {
           return new Promise((resShape, rejShape) => {
             setTimeout(() => {
-              let last = idx === schema.shapes.length - 1
+              let last = idx === toRender.length - 1
               let oldPackage = packageRef[0]
               let add = renderDecl(shapeDecl, packageRef, 0)
               if (oldPackage !== packageRef[0]) {
@@ -156,9 +161,7 @@ var ShExHTML = (function () {
 
             if (declRow) {
               // Update the declRow with the first extends.
-              declRow.find('td:nth-child(2)')
-                .append(ref(exts.shift(), depth))
-              declRow.addClass('includer')
+              updateDecl(ref(exts.shift(), depth), 'includer');
             }
 
             // Each additional extends gets its own row.
@@ -173,14 +176,36 @@ var ShExHTML = (function () {
                 )
             ))
           }
-          return expr.expression ? top.concat(renderTripleExpr(expr.expression, lead, true, depth)) : top
+          return top.concat(renderTripleExpr(expr.expression, lead, true, depth))
         case 'NodeConstraint':
+          // return renderInlineNodeConstraint(expr);
+          const ret = [];
           if ('values' in expr) {
-            return top.concat(expr.values.map(
-              val => $(`<tr data-inclusionDepth="${depth}"><td></td><td style="display: list-item;">` + trimStr(val) + '</td><td></td></tr>')
-            ))
-          } else {
-            return top.concat([$(`<tr data-inclusionDepth="${depth}"><td>...</td><td>` + JSON.stringify(expr) + '</td><td></td></tr>')])
+            [].push.apply(ret, top.concat(expr.values.map(
+              addRow(trimStr(val), 'value')
+            )))
+          }
+          if ('nodeKind' in expr) {
+            addRow(expr.nodeKind, 'nodeKind');
+          }
+          if ('datatype' in expr) {
+            addRow($('<a/>', {href: '#' + encodeURIComponent(trim(expr.datatype).text()), class: 'datatype'}).append(trim(expr.datatype)));
+          }
+          if ('pattern' in expr) {
+            addRow('/' + expr.pattern.replace(/\//g, '\\/') + '/', 'pattern');
+          }
+          if (ret.length === 0) {
+            throw Error(`failed to process NodeConstraint ${JSON.stringify(expr)}`);
+          }
+          return ret;
+
+          function addRow (col2, classname) {
+            if (ret.length === 0) {
+              updateDecl(col2, classname)
+              ret.push(declRow)
+            } else {
+              ret.push($(`<tr data-inclusionDepth="${depth}" class="${classname}"><td></td><td>${lead}/${col2}/</td><td></td></tr>`))
+            }
           }
         case 'ShapeOr':
         case 'ShapeAnd':
@@ -189,7 +214,17 @@ var ShExHTML = (function () {
               'ShapeAnd': ['BOTH', 'AND'],
             }
             return top.concat(expr.shapeExprs.reduce(
-              (acc, junct, idx) => acc.concat(renderNestedShape(junct, lead + (false ? '   ' : '│') + '   ', $(`<tr data-inclusionDepth="${depth}"><td></td><td style="display: list-item;">` + labels[expr.type][idx === 0 ? 0 : 1] + ' ' + JSON.stringify(expr) + '</td><td></td></tr>'), depth)),
+              (acc, junct, idx) => acc.concat([
+                $('<tr/>').append($(`<td>${lead}${labels[expr.type][idx === 0 ? 0 : 1]}</td>`))
+              ]).concat(
+                typeof junct === 'string'
+                  ? $(`<tr data-inclusionDepth="${depth}">`).append(
+                    $('<td/>'),
+                    $('<td/>').append(renderInlineShape(junct)),
+                    $('<td/>')
+                  )
+                  : renderShapeExpr(junct, '&nbsp;&nbsp;&nbsp;&nbsp;' + lead, $(`<tr data-inclusionDepth="${depth}"><td></td><td></td><td></td></tr>`), false, [], depth)
+              ),
               []
             ))
         default:
@@ -231,9 +266,22 @@ var ShExHTML = (function () {
           arrow.text(ARROW_down)
           arrow.on('click', (evt) => inject(evt, ext, [], depth))
         }
+
+        function updateDecl (col2, classname) {
+          declRow.find('td:nth-child(2)')
+            .append(col2)
+          declRow.addClass(classname)
+        }
       }
 
       function renderTripleExpr(expr, lead, last, depth) {
+        if (!expr) {
+          return $(`<tr/>`).append(
+            $('<td/>').html(lead + '◯'),
+            $('<td/>'),
+            $('<td/>'),
+          )
+        }
         switch (expr.type) {
         case 'EachOf':
           return expr.expressions.reduce(
@@ -267,7 +315,7 @@ var ShExHTML = (function () {
             comment => $('<tr/>', {class: 'annotation'})
               .attr('data-inclusionDepth', depth)
               .append(
-                $('<td/>', {class: 'lines'}).text(lead + '│' + '   '),
+                $('<td/>', {class: 'lines'}).html(lead + '│' + '   '),
                 $('<td/>', {class: 'comment', colspan: 2}).text(comment)
               )
           )
