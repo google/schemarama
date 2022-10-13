@@ -78,11 +78,12 @@ var ShExHTML = (function () {
             )
           ), [])))
       )
-      return Promise.all(schema.shapes.map(
+      const toRender = opts.toRender || schema.shapes
+      return Promise.all(toRender.map(
         (shapeDecl, idx) => {
           return new Promise((resShape, rejShape) => {
             setTimeout(() => {
-              let last = idx === schema.shapes.length - 1
+              let last = idx === toRender.length - 1
               let oldPackage = packageRef[0]
               let add = renderDecl(shapeDecl, packageRef, 0)
               if (oldPackage !== packageRef[0]) {

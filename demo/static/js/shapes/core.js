@@ -1,7 +1,7 @@
 let shexShapesMap = {};
 const XsdUrl = 'http://www.w3.org/2001/XMLSchema#';
 const SchOrgUrl = 'http://schema.org/';
-const SchOrgShEx = SchOrgUrl + 'shex#';
+const SchOrgShEx = SchOrgUrl + 'validation#';
 const ShExRenderer = ShExHTML($, {Renderer: function () {
   throw Error(47) // fake a markdown renderer 'cause we don't have annotations
 }})
@@ -57,10 +57,11 @@ async function selectShape(shexShapes, shapeId) {
     // $('#display').val(JSON.stringify(shape, null, 2));
     $('#displayed-shape-id').html(shapeId);
     $("#display").empty();
-    await ShExRenderer.asTree({type: "Schema", shapes: [selected]}, SchOrgShEx, {
+    await ShExRenderer.asTree(shexShapes, SchOrgShEx, {
       '': SchOrgUrl,
       'xsd': XsdUrl,
     }, $('#display'), {
+      toRender: [selected],
       property: {
         post: (elt, property) => {
           elt.attr('href', property)
