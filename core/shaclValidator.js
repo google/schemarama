@@ -80,6 +80,8 @@ class ShaclValidator {
     toStructuredDataFailure(shaclFailure) {
         // finds a source shape if property is failing
         let sourceShape = this.shapes.getQuads(undefined, SHACL('property'), shaclFailure.sourceShape)[0];
+        console.log(sourceShape);
+
         // if the whole shape is failing then leave sourceShape
         if (!sourceShape) sourceShape = shaclFailure.sourceShape;
         else sourceShape = sourceShape.subject;
@@ -89,7 +91,8 @@ class ShaclValidator {
                 shaclFailure.message.map(x => x.value).join(". ") : undefined,
             shape: sourceShape.id,
             severity: this.getSeverity(shaclFailure.severity.value),
-        }
+            node: shaclFailure.focusNode.value
+        };
         for (const [key, value] of Object.entries(this.annotations)) {
             const annotation = this.getAnnotation(shaclFailure.sourceShape, namedNode(value));
             if (annotation) failure[key] = annotation;
