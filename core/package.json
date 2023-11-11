@@ -11,7 +11,7 @@
     "@shexjs/neighborhood-rdfjs": "^1.0.0-alpha.24",
     "@shexjs/parser": "^1.0.0-alpha.24",
     "@shexjs/validator": "^1.0.0-alpha.24",
-    "axios": "^0.26.0",
+    "axios": "^1.6.0",
     "child_process": "^1.0.2",
     "jsonld": "^8.1.0",
     "microdata-rdf-streaming-parser": "^1.1.0",
