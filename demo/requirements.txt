@@ -1,5 +1,5 @@
 Flask~=2.2.2
-Flask-Cors===3.0.9
+Flask-Cors===4.0.1
 selenium-wire==2.1.2
 #chromedriver-binary==86.0.4240.22
 chromedriver-binary==98.0.4758.80
